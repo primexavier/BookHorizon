@@ -12,7 +12,8 @@
     <!-- Use Minified Plugins Version For Fast Page Load -->
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('frontend/css/plugins.css') }}" />
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('frontend/css/main.css') }}" />
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/image/favicon.ico') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/image/favicon.ico') }}"> 
+    @yield('customHeader')
 </head>
 <body>
     <div id="app">
@@ -134,7 +135,12 @@
                                         </div>
                                         @else
                                         <div class="login-block">
-                                            <a href="{{ route('register') }}">Logout</a>
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                Logout
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
                                         </div>
                                         @endguest
                                         <div class="cart-block">

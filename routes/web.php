@@ -28,6 +28,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'backend'], function () {
+        Route::get('/', function ()    {
+            return view('welcome');            
+        });
         Route::get('books', function ()    {
             return view('welcome');            
         });

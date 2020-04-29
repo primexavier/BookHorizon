@@ -16,15 +16,24 @@
 									</a>
 									<a href="#orders" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Orders</a>
 									<a href="#download" data-toggle="tab"><i class="fas fa-download"></i> Download</a>
-									<a href="#payment-method" data-toggle="tab"><i class="fa fa-credit-card"></i>
-										Payment
-										Method</a>
+									<a href="#payment-method" data-toggle="tab">
+										<i class="fa fa-credit-card"></i>
+										Bill
+									</a>
+									<a href="#payment-method" data-toggle="tab">
+										<i class="fa fa-credit-card"></i>
+										Payment Method
+									</a>
+									<a href="#payment-method" data-toggle="tab">
+										<i class="fa fa-credit-card"></i>
+										Payment History
+									</a>
 									<a href="#address-edit" data-toggle="tab"><i class="fa fa-map-marker"></i>
 										address</a>
 									<a href="#account-info" data-toggle="tab"><i class="fa fa-user"></i> Account
 										Details</a>
-									<a href="#account-info" data-toggle="tab"><i class="fa fa-user"></i> Privacy </a>
-									<a href="login-register.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+									<a href="#privacy" data-toggle="tab"><i class="fa fa-user"></i> Privacy </a>
+									<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i> Logout</a>
 								</div>
 							</div>
 							<!-- My Account Tab Menu End -->
@@ -37,7 +46,7 @@
 											<h3>Dashboard</h3>
 											<div class="welcome mb-20">
 												<p>Hello, <strong>{{ $userDetail->name }}</strong> (If Not <strong>{{ $userDetail->name }}
-														!</strong><a href="/logout" class="logout">
+														!</strong><a href="{{ route('logout') }}" class="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 														Logout</a>)</p>
 											</div>
 											<p class="mb-0">From your account dashboard. you can easily check &amp; view
@@ -187,6 +196,24 @@
 														</div>
 														<div class="col-12">
 															<button class="btn btn--primary">Save Changes</button>
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+									<!-- Single Tab Content End -->
+									<!-- Single Tab Content Start -->
+									<div class="tab-pane fade" id="privacy" role="tabpanel">
+										<div class="myaccount-content">
+											<h3>Privacy</h3>
+											<div class="account-details-form">
+												<form action="#">
+													<div class="row">
+														<!-- Default checked -->
+														<div class="custom-control custom-switch">
+															<input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
+															<label class="custom-control-label" for="customSwitch1">Sharing Profile</label>
 														</div>
 													</div>
 												</form>
