@@ -1,0 +1,3 @@
+* install Composer
+* Composer Update
+* php artisan serve
