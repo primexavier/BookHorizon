@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/book/{id}/detail', 'BookController@bookDetail')->name('book.detail');
+
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {

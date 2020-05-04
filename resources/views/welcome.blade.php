@@ -159,7 +159,7 @@
                                                         <a href="#" class="author">
                                                             Fpple
                                                         </a>
-                                                        <h3><a href="product-details.html">Get Through To Your
+                                                        <h3><a href="{{ route('book.detail',1) }}">Get Through To Your
                                                                 BOOK</a></h3>
                                                     </div>
                                                     <div class="price-block">
@@ -180,7 +180,7 @@
                                                         <a href="" class="author">
                                                             Gpple
                                                         </a>
-                                                        <h3><a href="product-details.html">What Can You Do To Save Your
+                                                        <h3><a href="{{ route('book.detail',1) }}">What Can You Do To Save Your
                                                                 BOOK</a></h3>
                                                     </div>
                                                     <div class="price-block">
@@ -201,7 +201,7 @@
                                                         <a class="author">
                                                             Hpple
                                                         </a>
-                                                        <h3><a href="product-details.html">From Destruction By Social
+                                                        <h3><a href="{{ route('book.detail',1) }}">From Destruction By Social
                                                                 Media?</a></h3>
                                                     </div>
                                                     <div class="price-block">
@@ -222,7 +222,7 @@
                                                         <a href="#" class="author">
                                                             Gpple
                                                         </a>
-                                                        <h3><a href="product-details.html">Find Out More About BOOK ?</a></h3>
+                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More About BOOK ?</a></h3>
                                                     </div>
                                                     <div class="price-block">
                                                         <span class="price">£51.20</span>
@@ -242,7 +242,7 @@
                                                         <a href="#" class="author">
                                                             Dpple
                                                         </a>
-                                                        <h3><a href="product-details.html">Controversial BOOK
+                                                        <h3><a href="{{ route('book.detail',1) }}">Controversial BOOK
                                                                 Social Media?</a></h3>
                                                     </div>
                                                     <div class="price-block">
@@ -263,7 +263,7 @@
                                                         <a href="" class="author">
                                                             Cpple
                                                         </a>
-                                                            <h3><a href="product-details.html">Lightweight
+                                                            <h3><a href="{{ route('book.detail',1) }}">Lightweight
                                                                     Portable Headphone</a></h3>
                                                     </div>
                                                     <div class="price-block">
@@ -284,7 +284,7 @@
                                                         <a href="" class="author">
                                                             Apple
                                                         </a>
-                                                            <h3><a href="product-details.html">Ways To Have More
+                                                            <h3><a href="{{ route('book.detail',1) }}">Ways To Have More
                                                                     BOOK</a></h3>
                                                     </div>
                                                     <div class="price-block">
@@ -305,7 +305,7 @@
                                                         <a href="" class="author">
                                                             Xpple
                                                         </a>
-                                                            <h3><a href="product-details.html">Ways To Have More
+                                                            <h3><a href="{{ route('book.detail',1) }}">Ways To Have More
                                                                     BOOK</a></h3>
                                                     </div>
                                                     <div class="price-block">
@@ -326,7 +326,7 @@
                                                         <a href="" class="author">
                                                             Tpple
                                                         </a>
-                                                            <h3><a href="product-details.html">10 Minutes, I'll Give You
+                                                            <h3><a href="{{ route('book.detail',1) }}">10 Minutes, I'll Give You
                                                                     The Truth</a></h3>
                                                     </div>
                                                     <div class="price-block">
@@ -347,7 +347,7 @@
                                                         <a href="" class="author">
                                                             Fpple
                                                         </a>
-                                                            <h3><a href="product-details.html">What Can You Do To Save Your
+                                                            <h3><a href="{{ route('book.detail',1) }}">What Can You Do To Save Your
                                                                     BOOK</a></h3>
                                                     </div>
                                                     <div class="price-block">
@@ -368,7 +368,7 @@
                                                         <a href="" class="author">
                                                             Tpple
                                                         </a>
-                                                            <h3><a href="product-details.html">10 Minutes, I'll Give You
+                                                            <h3><a href="{{ route('book.detail',1) }}">10 Minutes, I'll Give You
                                                                     The Truth</a></h3>
                                                     </div>
                                                     <div class="price-block">
@@ -389,7 +389,7 @@
                                                         <a href="" class="author">
                                                             Fpple
                                                         </a>
-                                                            <h3><a href="product-details.html">What Can You Do To Save Your
+                                                            <h3><a href="{{ route('book.detail',1) }}">What Can You Do To Save Your
                                                                     BOOK</a></h3>
                                                     </div>
                                                     <div class="price-block">
@@ -430,14 +430,14 @@
                                                     <a href="" class="author">
                                                         Ypple
                                                     </a>
-                                                        <h3><a href="product-details.html">BOOK: Do You Really Need It? This
+                                                        <h3><a href="{{ route('book.detail',1) }}">BOOK: Do You Really Need It? This
                                                                 Will Help You</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
                                                         <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
                                                         <div class="hover-contents">
-                                                            <a href="product-details.html" class="hover-image">
+                                                            <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                 <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
@@ -474,14 +474,14 @@
                                                     <a href="" class="author">
                                                         Upple
                                                     </a>
-                                                        <h3><a href="product-details.html">Here Is A Quick Cure For BOOK
+                                                        <h3><a href="{{ route('book.detail',1) }}">Here Is A Quick Cure For BOOK
                                                                 This Will Help</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
                                                         <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
                                                         <div class="hover-contents">
-                                                            <a href="product-details.html" class="hover-image">
+                                                            <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                 <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
@@ -518,7 +518,7 @@
                                                     <a href="" class="author">
                                                         Ypple
                                                     </a>
-                                                        <h3><a href="product-details.html">Simple Things
+                                                        <h3><a href="{{ route('book.detail',1) }}">Simple Things
                                                                 You Can Do Save BOOK save money</a>
                                                         </h3>
                                                 </div>
@@ -526,7 +526,7 @@
                                                     <div class="card-image">
                                                         <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
                                                         <div class="hover-contents">
-                                                            <a href="product-details.html" class="hover-image">
+                                                            <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                 <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
@@ -563,14 +563,14 @@
                                                     <a href="" class="author">
                                                         Epple
                                                     </a>
-                                                        <h3><a href="product-details.html">What You Can Learn From Bill
+                                                        <h3><a href="{{ route('book.detail',1) }}">What You Can Learn From Bill
                                                                 Gates reading a book</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
                                                         <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
                                                         <div class="hover-contents">
-                                                            <a href="product-details.html" class="hover-image">
+                                                            <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                 <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
@@ -607,7 +607,7 @@
                                                     <a href="" class="author">
                                                         Rpple
                                                     </a>
-                                                        <h3><a href="product-details.html">3 Ways Create Better BOOK With
+                                                        <h3><a href="{{ route('book.detail',1) }}">3 Ways Create Better BOOK With
                                                                 The Help Of Your Dog</a>
                                                         </h3>
                                                 </div>
@@ -615,7 +615,7 @@
                                                     <div class="card-image">
                                                         <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
                                                         <div class="hover-contents">
-                                                            <a href="product-details.html" class="hover-image">
+                                                            <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                 <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
@@ -652,14 +652,14 @@
                                                     <a href="" class="author">
                                                         Tpple
                                                     </a>
-                                                        <h3><a href="product-details.html">Turn Your BOOK Into A High
+                                                        <h3><a href="{{ route('book.detail',1) }}">Turn Your BOOK Into A High
                                                                 Performing Machine</a></h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
                                                         <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
                                                         <div class="hover-contents">
-                                                            <a href="product-details.html" class="hover-image">
+                                                            <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                 <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
                                                             </a>
                                                             <div class="hover-btns">
@@ -846,14 +846,14 @@
                                                                 <a href="" class="author">
                                                                     jpple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">Rpple iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">Rpple iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -888,14 +888,14 @@
                                                                 <a href="" class="author">
                                                                     Bpple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">Koss Lightweight
+                                                                    <h3><a href="{{ route('book.detail',1) }}">Koss Lightweight
                                                                             Headphone</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -930,14 +930,14 @@
                                                                 <a href="" class="author">
                                                                     Cpple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">Beats Wired On-Ear
+                                                                    <h3><a href="{{ route('book.detail',1) }}">Beats Wired On-Ear
                                                                             Headphone-Black</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -972,14 +972,14 @@
                                                                 <a href="" class="author">
                                                                     Dpple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">Beats Solo2 Solo 2
+                                                                    <h3><a href="{{ route('book.detail',1) }}">Beats Solo2 Solo 2
                                                                             Wired On-Ear</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1014,14 +1014,14 @@
                                                                 <a href="" class="author">
                                                                     Lpple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">Beats Solo3 Wireless
+                                                                    <h3><a href="{{ route('book.detail',1) }}">Beats Solo3 Wireless
                                                                             Headphones 2</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1056,14 +1056,14 @@
                                                                 <a href="" class="author">
                                                                     Fpple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">Ways To Have
+                                                                    <h3><a href="{{ route('book.detail',1) }}">Ways To Have
                                                                             Appealing BOOK</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1098,14 +1098,14 @@
                                                                 <a href="" class="author">
                                                                     Epple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">10 Minutes, I'll
+                                                                    <h3><a href="{{ route('book.detail',1) }}">10 Minutes, I'll
                                                                             Give You Truth About</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1140,14 +1140,14 @@
                                                                 <a href="" class="author">
                                                                     Fpple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">Ways To Get Through
+                                                                    <h3><a href="{{ route('book.detail',1) }}">Ways To Get Through
                                                                             BOOK</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1182,14 +1182,14 @@
                                                                 <a href="" class="author">
                                                                     Gpple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">What Can You Do To
+                                                                    <h3><a href="{{ route('book.detail',1) }}">What Can You Do To
                                                                             Save Your BOOK</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1224,14 +1224,14 @@
                                                                 <a href="" class="author">
                                                                     Hpple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">From Destruction By
+                                                                    <h3><a href="{{ route('book.detail',1) }}">From Destruction By
                                                                             Social Media?</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1266,14 +1266,14 @@
                                                                 <a href="" class="author">
                                                                     Gpple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">Find Out More About
+                                                                    <h3><a href="{{ route('book.detail',1) }}">Find Out More About
                                                                             BOOK ?</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1308,7 +1308,7 @@
                                                                 <a href="" class="author">
                                                                     Vpple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">Read This
+                                                                    <h3><a href="{{ route('book.detail',1) }}">Read This
                                                                             Contro versial BOOK?</a>
                                                                     </h3>
                                                             </div>
@@ -1316,7 +1316,7 @@
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-12.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1367,14 +1367,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1409,14 +1409,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1451,14 +1451,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1493,14 +1493,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1535,14 +1535,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1577,14 +1577,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1619,14 +1619,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1661,14 +1661,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-12.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1703,14 +1703,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1745,14 +1745,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1787,14 +1787,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1829,14 +1829,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1887,14 +1887,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1929,14 +1929,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -1971,14 +1971,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -2013,14 +2013,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -2055,14 +2055,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -2097,14 +2097,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -2139,14 +2139,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -2181,14 +2181,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -2223,14 +2223,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -2265,14 +2265,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -2307,14 +2307,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -2349,14 +2349,14 @@
                                                                 <a href="" class="author">
                                                                     Apple
                                                                 </a>
-                                                                    <h3><a href="product-details.html">iPad with
+                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                             Retina Display</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     <img src="{{ asset('frontend/image/products/product-12.jpg') }}" alt="">
                                                                     <div class="hover-contents">
-                                                                        <a href="product-details.html" class="hover-image">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -2452,7 +2452,7 @@
                                                                         <a href="" class="author">
                                                                             Fpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">5 Ways To Get
+                                                                        <h3><a href="{{ route('book.detail',1) }}">5 Ways To Get
                                                                                 Through To Your BOOK</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2473,7 +2473,7 @@
                                                                         <a href="" class="author">
                                                                             Gpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">What Can You Do
+                                                                        <h3><a href="{{ route('book.detail',1) }}">What Can You Do
                                                                                 To Save Your BOOK</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2494,7 +2494,7 @@
                                                                         <a href="" class="author">
                                                                             Hpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">From Destruction
+                                                                        <h3><a href="{{ route('book.detail',1) }}">From Destruction
                                                                                 By Social Media?</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2515,7 +2515,7 @@
                                                                         <a href="" class="author">
                                                                             Gpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Find Out More
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
                                                                                 About BOOK ?</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2536,7 +2536,7 @@
                                                                         <a href="" class="author">
                                                                             Dpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">
+                                                                        <h3><a href="{{ route('book.detail',1) }}">
                                                                                 Controversial BOOK By Social Media?</a>
                                                                         </h3>
                                                                     </div>
@@ -2558,7 +2558,7 @@
                                                                         <a href="" class="author">
                                                                             Cpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Koss
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Koss
                                                                                 Lightweight Portable Headphone</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2579,7 +2579,7 @@
                                                                         <a href="" class="author">
                                                                             Apple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Ways To Have
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Ways To Have
                                                                                 Appealing BOOK</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2600,7 +2600,7 @@
                                                                         <a href="" class="author">
                                                                             Xpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Ways To Have
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Ways To Have
                                                                                 Appealing BOOK</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2621,7 +2621,7 @@
                                                                         <a href="" class="author">
                                                                             Tpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">In 10 Minutes,
+                                                                        <h3><a href="{{ route('book.detail',1) }}">In 10 Minutes,
                                                                                 I'll Give Truth About</a>
                                                                         </h3>
                                                                     </div>
@@ -2643,7 +2643,7 @@
                                                                         <a href="" class="author">
                                                                             Fpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">What Can You Do
+                                                                        <h3><a href="{{ route('book.detail',1) }}">What Can You Do
                                                                                 To Save Your BOOK</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2664,7 +2664,7 @@
                                                                         <a href="" class="author">
                                                                             Fpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">From Destruction
+                                                                        <h3><a href="{{ route('book.detail',1) }}">From Destruction
                                                                                 By Social Media?</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2685,7 +2685,7 @@
                                                                         <a href="" class="author">
                                                                             Spple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Lorem ipsum dolor
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Lorem ipsum dolor
                                                                                 sit amet reasons</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2706,7 +2706,7 @@
                                                                         <a href="" class="author">
                                                                             Kpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Find Out More
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
                                                                                 About BOOK ?</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2727,7 +2727,7 @@
                                                                         <a href="" class="author">
                                                                             Apple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">
+                                                                        <h3><a href="{{ route('book.detail',1) }}">
                                                                                 Controversial BOOK By Social Media?</a>
                                                                         </h3>
                                                                     </div>
@@ -2749,7 +2749,7 @@
                                                                         <a href="" class="author">
                                                                             Apple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">iPad with
+                                                                        <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                                 Retina ready Display </a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2770,7 +2770,7 @@
                                                                         <a href="" class="author">
                                                                             Gpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Koss
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Koss
                                                                                 Lightweight Portable Headphone</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2806,7 +2806,7 @@
                                                                         <a href="" class="author">
                                                                             Fpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">5 Ways To Get
+                                                                        <h3><a href="{{ route('book.detail',1) }}">5 Ways To Get
                                                                                 Through To Your BOOK</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2827,7 +2827,7 @@
                                                                         <a href="" class="author">
                                                                             Gpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">What Can You Do
+                                                                        <h3><a href="{{ route('book.detail',1) }}">What Can You Do
                                                                                 To Save Your BOOK</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2848,7 +2848,7 @@
                                                                         <a href="" class="author">
                                                                             Hpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">From Destruction
+                                                                        <h3><a href="{{ route('book.detail',1) }}">From Destruction
                                                                                 By Social Media?</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2869,7 +2869,7 @@
                                                                         <a href="" class="author">
                                                                             Gpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Find Out More
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
                                                                                 About BOOK ?</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2890,7 +2890,7 @@
                                                                         <a href="" class="author">
                                                                             Dpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">
+                                                                        <h3><a href="{{ route('book.detail',1) }}">
                                                                                 Controversial BOOK By Social Media?</a>
                                                                         </h3>
                                                                     </div>
@@ -2912,7 +2912,7 @@
                                                                         <a href="" class="author">
                                                                             Cpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Koss
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Koss
                                                                                 Lightweight Portable Headphone</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2933,7 +2933,7 @@
                                                                         <a href="" class="author">
                                                                             Apple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Ways To Have
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Ways To Have
                                                                                 Appealing BOOK</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2954,7 +2954,7 @@
                                                                         <a href="" class="author">
                                                                             Xpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Ways To Have
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Ways To Have
                                                                                 Appealing BOOK</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -2975,7 +2975,7 @@
                                                                         <a href="" class="author">
                                                                             Tpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">In 10 Minutes,
+                                                                        <h3><a href="{{ route('book.detail',1) }}">In 10 Minutes,
                                                                                 I'll Give Truth About</a>
                                                                         </h3>
                                                                     </div>
@@ -2997,7 +2997,7 @@
                                                                         <a href="" class="author">
                                                                             Fpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">What Can You Do
+                                                                        <h3><a href="{{ route('book.detail',1) }}">What Can You Do
                                                                                 To Save Your BOOK</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3018,7 +3018,7 @@
                                                                         <a href="" class="author">
                                                                             Fpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">From Destruction
+                                                                        <h3><a href="{{ route('book.detail',1) }}">From Destruction
                                                                                 By Social Media?</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3039,7 +3039,7 @@
                                                                         <a href="" class="author">
                                                                             Spple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Find Out More
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
                                                                             About BOOK By Social Media?</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3060,7 +3060,7 @@
                                                                         <a href="" class="author">
                                                                             Kpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Find Out More
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
                                                                                 About BOOK ?</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3081,7 +3081,7 @@
                                                                         <a href="" class="author">
                                                                             Apple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">
+                                                                        <h3><a href="{{ route('book.detail',1) }}">
                                                                                 Controversial BOOK By Social Media?</a>
                                                                         </h3>
                                                                     </div>
@@ -3103,7 +3103,7 @@
                                                                         <a href="" class="author">
                                                                             Apple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">iPad with
+                                                                        <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                                 Retina ready Display </a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3124,7 +3124,7 @@
                                                                         <a href="" class="author">
                                                                             Gpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Koss
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Koss
                                                                                 Lightweight Portable Headphone</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3161,7 +3161,7 @@
                                                                         <a href="" class="author">
                                                                             Fpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">5 Ways To Get
+                                                                        <h3><a href="{{ route('book.detail',1) }}">5 Ways To Get
                                                                                 Through To Your BOOK</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3182,7 +3182,7 @@
                                                                         <a href="" class="author">
                                                                             Gpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">What Can You Do
+                                                                        <h3><a href="{{ route('book.detail',1) }}">What Can You Do
                                                                                 To Save Your BOOK</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3203,7 +3203,7 @@
                                                                         <a href="" class="author">
                                                                             Hpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">From Destruction
+                                                                        <h3><a href="{{ route('book.detail',1) }}">From Destruction
                                                                                 By Social Media?</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3224,7 +3224,7 @@
                                                                         <a href="" class="author">
                                                                             Gpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Find Out More
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
                                                                                 About BOOK ?</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3245,7 +3245,7 @@
                                                                         <a href="" class="author">
                                                                             Dpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">
+                                                                        <h3><a href="{{ route('book.detail',1) }}">
                                                                                 Controversial BOOK By Social Media?</a>
                                                                         </h3>
                                                                     </div>
@@ -3267,7 +3267,7 @@
                                                                         <a href="" class="author">
                                                                             Cpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Koss
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Koss
                                                                                 Lightweight Portable Headphone</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3288,7 +3288,7 @@
                                                                         <a href="" class="author">
                                                                             Apple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Ways To Have
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Ways To Have
                                                                                 Appealing BOOK</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3309,7 +3309,7 @@
                                                                         <a href="" class="author">
                                                                             Xpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Ways To Have
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Ways To Have
                                                                                 Appealing BOOK</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3330,7 +3330,7 @@
                                                                         <a href="" class="author">
                                                                             Tpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">In 10 Minutes,
+                                                                        <h3><a href="{{ route('book.detail',1) }}">In 10 Minutes,
                                                                                 I'll Give Truth About</a>
                                                                         </h3>
                                                                     </div>
@@ -3352,7 +3352,7 @@
                                                                         <a href="" class="author">
                                                                             Fpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">What Can You Do
+                                                                        <h3><a href="{{ route('book.detail',1) }}">What Can You Do
                                                                                 To Save Your BOOK</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3373,7 +3373,7 @@
                                                                         <a href="" class="author">
                                                                             Fpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">From Destruction
+                                                                        <h3><a href="{{ route('book.detail',1) }}">From Destruction
                                                                                 By Social Media?</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3394,7 +3394,7 @@
                                                                         <a href="" class="author">
                                                                             Spple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Find Out More
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
                                                                             About BOOK By Social Media?</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3415,7 +3415,7 @@
                                                                         <a href="" class="author">
                                                                             Kpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Find Out More
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
                                                                                 About BOOK ?</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3436,7 +3436,7 @@
                                                                         <a href="" class="author">
                                                                             Apple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">
+                                                                        <h3><a href="{{ route('book.detail',1) }}">
                                                                                 Controversial BOOK By Social Media?</a>
                                                                         </h3>
                                                                     </div>
@@ -3458,7 +3458,7 @@
                                                                         <a href="" class="author">
                                                                             Apple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">iPad with
+                                                                        <h3><a href="{{ route('book.detail',1) }}">iPad with
                                                                                 Retina ready Display </a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -3479,7 +3479,7 @@
                                                                         <a href="" class="author">
                                                                             Gpple
                                                                         </a>
-                                                                        <h3><a href="product-details.html">Koss
+                                                                        <h3><a href="{{ route('book.detail',1) }}">Koss
                                                                                 Lightweight Portable Headphone</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
