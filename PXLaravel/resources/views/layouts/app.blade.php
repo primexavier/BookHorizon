@@ -203,60 +203,48 @@
                                         </a>
                                         <ul class="category-menu">
                                             <li class="cat-item has-children">
-                                                <a href="#">Arts & Photography</a>
+                                                <a href="#">Non Fiction</a>
                                                 <ul class="sub-menu">
-                                                    <li><a href="#">Bags & Cases</a></li>
-                                                    <li><a href="#">Binoculars & Scopes</a></li>
-                                                    <li><a href="#">Digital Cameras</a></li>
-                                                    <li><a href="#">Film Photography</a></li>
-                                                    <li><a href="#">Lighting & Studio</a></li>
+                                                    <li><a href="#">Self-Help /Personal Development</a></li>
+                                                    <li><a href="#">Business /Personal Development</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="cat-item has-children mega-menu"><a href="#">Biographies</a>
+                                            <li class="cat-item has-children">
+                                                <a href="#">Fiction</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="#">Fiction Crime, Mystery & Thriller</a></li>
+                                                    <li><a href="#">Fiction Young Adult</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="cat-item has-children mega-menu"><a href="#">UnCatagories</a>
                                                 <ul class="sub-menu">
                                                     <li class="single-block">
-                                                        <h3 class="title">WHEEL SIMULATORS</h3>
                                                         <ul>
-                                                            <li><a href="#">Bags & Cases</a></li>
-                                                            <li><a href="#">Binoculars & Scopes</a></li>
-                                                            <li><a href="#">Digital Cameras</a></li>
-                                                            <li><a href="#">Film Photography</a></li>
-                                                            <li><a href="#">Lighting & Studio</a></li>
+                                                            <li><a href="#">Psychology</a></li>
+                                                            <li><a href="#">Personal Development</a></li>
+                                                            <li><a href="#">Self-Help /Personal Development</a></li>
+                                                            <li><a href="#">Beauty and Fashion / Lifestyle</a></li>
+                                                            <li><a href="#">Business & Economics</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="single-block">
-                                                        <h3 class="title">WHEEL SIMULATORS</h3>
                                                         <ul>
-                                                            <li><a href="#">Bags & Cases</a></li>
-                                                            <li><a href="#">Binoculars & Scopes</a></li>
-                                                            <li><a href="#">Digital Cameras</a></li>
-                                                            <li><a href="#">Film Photography</a></li>
-                                                            <li><a href="#">Lighting & Studio</a></li>
+                                                            <li><a href="#">Wildlife Animals</a></li>
+                                                            <li><a href="#">Business /Personal Development</a></li>
+                                                            <li><a href="#">Psychology / Self-Help</a></li>
+                                                            <li><a href="#">History</a></li>
+                                                            <li><a href="#">Business / Biography</a></li>
                                                         </ul>
                                                     </li>
                                                     <li class="single-block">
-                                                        <h3 class="title">WHEEL SIMULATORS</h3>
                                                         <ul>
-                                                            <li><a href="#">Bags & Cases</a></li>
-                                                            <li><a href="#">Binoculars & Scopes</a></li>
-                                                            <li><a href="#">Digital Cameras</a></li>
-                                                            <li><a href="#">Film Photography</a></li>
-                                                            <li><a href="#">Lighting & Studio</a></li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="single-block">
-                                                        <h3 class="title">WHEEL SIMULATORS</h3>
-                                                        <ul>
-                                                            <li><a href="#">Bags & Cases</a></li>
-                                                            <li><a href="#">Binoculars & Scopes</a></li>
-                                                            <li><a href="#">Digital Cameras</a></li>
-                                                            <li><a href="#">Film Photography</a></li>
-                                                            <li><a href="#">Lighting & Studio</a></li>
+                                                            <li><a href="#">Family & Relationship</a></li>
+                                                            <li><a href="#">Science & Nature</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li class="cat-item has-children"><a href="#">Business & Money</a>
+                                            <!-- <li class="cat-item has-children"><a href="#">Business & Money</a>
                                                 <ul class="sub-menu">
                                                     <li><a href="">Brake Tools</a></li>
                                                     <li><a href="">Driveshafts</a></li>
@@ -300,9 +288,9 @@
                                             <li class="cat-item hidden-menu-item"><a href="#">Accessories</a></li>
                                             <li class="cat-item hidden-menu-item"><a href="#">Education</a></li>
                                             <li class="cat-item hidden-menu-item"><a href="#">Indoor Living</a></li>
-                                            <li class="cat-item"><a href="#" class="js-expand-hidden-menu">More
-                                                    Categories</a></li>
-                                        </ul>
+                                            <li class="cat-item"><a href="#" class="js-expand-hidden-menu">More -->
+                                                    <!-- Categories</a></li> -->
+                                        <!-- </ul> -->
                                     </div>
                                 </nav>
                             </div>
