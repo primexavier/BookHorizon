@@ -33,7 +33,7 @@
                                         </ul>
                                     </li>
                                     <li class="dropdown-trigger language-dropdown">
-                                        <a href="">
+                                        <a href="/en-gb">
                                             <span class="flag-img">
                                                 <img src="{{ asset('frontend/image/icon/eng-flag.png') }}" alt="">
                                             </span>
@@ -42,7 +42,7 @@
                                         <i class="fas fa-chevron-down dropdown-arrow"></i>
                                         <ul class="dropdown-box">
                                             <li> 
-                                                <a href=""> 
+                                                <a href="/en-gb"> 
                                                     <span class="flag-img">
                                                         <img src="{{ asset('frontend/image/icon/eng-flag.png') }}" alt="">
                                                     </span>
@@ -50,7 +50,7 @@
                                                 </a>
                                             </li>
                                             <li> 
-                                                <a href="">
+                                                <a href="/german">
                                                     <span class="flag-img">
                                                         <img src="{{ asset('frontend/image/icon/germany-flag.png') }}" alt="">
                                                     </span>
@@ -191,7 +191,7 @@
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-lg-3">
-                                @if (\Request::is('login') || \Request::is('register') || \Request::is('password/reset') || \Request::is('user/profile'))  
+                                @if (\Request::is('login') || \Request::is('register') || \Request::is('password/reset') || \Request::is('user/profile') || \Request::is('blog*')|| \Request::is('contact*'))  
                                     <nav class="category-nav primary-nav">
                                 @else
                                     <nav class="category-nav primary-nav show">
@@ -415,7 +415,7 @@
                                             </ul> -->
                                         </li>
                                         <li class="menu-item">
-                                            <a href="contact.html">Contact</a>
+                                            <a href="/contact">Contact</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -429,7 +429,7 @@
                     <div class="container">
                         <div class="row align-items-sm-end align-items-center">
                             <div class="col-md-4 col-7">
-                                <a href="index.html" class="site-brand">
+                                <a href="/" class="site-brand">
                                     <img src="{{ asset('frontend/image/logo.png') }}" alt="">
                                 </a>
                             </div>
@@ -549,7 +549,7 @@
                                 <div class="mobile-header-btns header-top-widget">
                                     <ul class="header-links">
                                         <li class="sin-link">
-                                            <a href="cart.html" class="cart-link link-icon">
+                                            <a href="/cart" class="cart-link link-icon">
                                                 <i class="ion-bag"></i>
                                             </a>
                                         </li>
@@ -675,7 +675,7 @@
                                         </ul>
                                     </li> -->
                                     <li><a href="/blog">Blog</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="/contact">Contact</a></li>
                                 </ul>
                             </nav>
                             <!-- mobile menu navigation end -->
@@ -686,8 +686,8 @@
                                 <li class="menu-item-has-children">
                                     <a href="#">Currency - USD $ <i class="fas fa-angle-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li> <a href="cart.html">USD $</a></li>
-                                        <li> <a href="checkout.html">EUR €</a></li>
+                                        <li> <a href="/usd">USD $</a></li>
+                                        <li> <a href="/eur">EUR €</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
@@ -730,7 +730,7 @@
                 <div class="container d-none d-lg-block">
                     <div class="row align-items-center">
                         <div class="col-lg-4">
-                            <a href="index.html" class="site-brand">
+                            <a href="/" class="site-brand">
                                 <img src="{{ asset('frontend/image/logo.png') }}" alt="">
                             </a>
                         </div>
@@ -841,7 +841,7 @@
                                         </ul> -->
                                     </li>
                                     <li class="menu-item">
-                                        <a href="contact.html">Contact</a>
+                                        <a href="/contact">Contact</a>
                                     </li>
                                 </ul>
                             </div>
@@ -854,5 +854,6 @@
         </div>
     </div>
     @include('layouts.script')
+    @yield('custom.script')
 </body>
 </html>

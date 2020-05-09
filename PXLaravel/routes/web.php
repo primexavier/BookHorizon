@@ -18,6 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/book/{id}/detail', 'BookController@bookDetail')->name('book.detail');
+Route::get('/blog', 'BlogController@index')->name('blog.index');
+Route::get('/contact', 'ContactController@index')->name('contact.index');
 
 Auth::routes();
 
