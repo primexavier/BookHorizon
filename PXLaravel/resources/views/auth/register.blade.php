@@ -30,7 +30,7 @@
 							</div>
 							<div class="col-lg-6 mb--20">
 								<label for="password">{{ __('Password') }}</label>
-								<input class="mb-0 form-control  @error('password') is-invalid @enderror" type="password" id="password" placeholder="Enter your password" name="email" value="{{ old('email') }}" required autocomplete="email">
+								<input class="mb-0 form-control  @error('password') is-invalid @enderror" type="password" id="password" placeholder="Enter your password" name="password" value="{{ old('password') }}" required autocomplete="password">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
