@@ -99,6 +99,6 @@ class UserController extends Controller
         $userID = Auth::id();
         $user = User::where('id',$userID)->first();
 
-        return view('profile')->with('userDetail', $user);
+        return view('frontend.profile.index')->with('userDetail', $user);
     }
 }
