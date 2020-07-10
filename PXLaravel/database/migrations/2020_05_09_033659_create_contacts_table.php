@@ -20,7 +20,8 @@ class CreateContactsTable extends Migration
             $table->string("email")->nullable();
             $table->string("la")->nullable();
             $table->string("lg")->nullable();
-            $table->timestamps();
+            $table->softDeletes('deleted_at', 0);	
+            $table->timestamps(0);	
         });
     }
 

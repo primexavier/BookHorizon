@@ -18,7 +18,8 @@ class CreateBlogsTable extends Migration
             $table->string("title");
             $table->text("description");
             $table->unsignedBigInteger("user_id");
-            $table->timestamps();
+            $table->softDeletes('deleted_at', 0);	
+            $table->timestamps(0);	
         });
         Schema::table('blogs', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');

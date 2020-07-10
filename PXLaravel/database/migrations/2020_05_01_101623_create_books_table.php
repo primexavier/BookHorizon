@@ -19,7 +19,8 @@ class CreateBooksTable extends Migration
             $table->text("description")->nullable();
             $table->integer("price")->default(0);
             $table->string("product_code")->nullable();
-            $table->timestamps();
+            $table->softDeletes('deleted_at', 0);	
+            $table->timestamps(0);	
         });
     }
 
