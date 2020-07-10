@@ -84,6 +84,6 @@ class BookController extends Controller
     }
 
     public function bookDetail(Book $book){
-        return view("book_detail");
+        return view("frontend.book.detail");
     }
 }

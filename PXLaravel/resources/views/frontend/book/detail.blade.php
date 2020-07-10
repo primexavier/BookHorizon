@@ -1,7 +1,6 @@
-@extends('layouts.app')
+@extends('frontend.layouts.app')
 
-@section('content')
-    
+@section('content')    
 		<section class="breadcrumb-section">
 			<h2 class="sr-only">Site Breadcrumb</h2>
 			<div class="container">

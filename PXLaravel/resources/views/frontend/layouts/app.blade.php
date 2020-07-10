@@ -850,10 +850,10 @@
                 </div>
             </div>            
             @yield('content')         
-            @include('layouts.footer')
+            @include('frontend.layouts.footer')
         </div>
     </div>
-    @include('layouts.script')
+    @include('frontend.layouts.script')
     @yield('custom.script')
 </body>
 </html>
