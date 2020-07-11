@@ -18,7 +18,8 @@ class CreateTransactionsTable extends Migration
             $table->unsignedBigInteger("user_id");
             $table->unsignedBigInteger("book_id");
             $table->integer("price");
-            $table->timestamps();
+            $table->softDeletes('deleted_at', 0);	
+            $table->timestamps(0);	
         });
         Schema::table('transactions', function (Blueprint $table) {
             $table->foreign('book_id')->references('id')->on('books');
