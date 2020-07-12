@@ -1,11 +1,11 @@
-@extends('frontend.layouts.app')
+@extends('backend.layouts.app')
 
 @section('content')
     <main class="page-section inner-page-sec-padding-bottom">
 		<div class="container">
             <div class="row justify-content-center">
 				<div class="col-sm-12 col-md-12 col-lg-10 col-xs-12">
-                    <form method="POST" action="{{ route('login.admin') }}">
+                    <form method="POST" action="{{ route('admin.authenticate') }}">
                         @csrf
 						<div class="login-form">
 							<h4 class="login-title">{{ __('Login') }}</h4>
@@ -32,12 +32,7 @@
 								<div class="col-md-12">
                                     <button type="submit" class="btn btn-outlined">
 									    {{ __('Login') }}
-                                    </button>                                    
-                                    @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                    @endif
+                                    </button>
 								</div>
 							</div>
 						</div>

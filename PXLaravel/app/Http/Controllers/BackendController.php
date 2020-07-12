@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+
 
 class BackendController extends Controller
 {
@@ -18,9 +21,24 @@ class BackendController extends Controller
 
     public function login()
     {
-        return view('backend.login');
+        return view('backend.auth.login');
     }
 
+    public function authenticate(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // Authentication passed...
+            if(Auth::User()->level > 0){
+                return redirect()->intended('/');
+            }else{
+                return redirect()->intended('/backend');
+            }
+        }else{
+            return redirect()->intended('backend/login');
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *

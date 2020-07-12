@@ -21,6 +21,7 @@ Route::get('/book/{id}/detail', 'BookController@bookDetail')->name('book.detail'
 Route::get('/blog', 'BlogController@index')->name('blog.index');
 Route::get('/contact', 'ContactController@index')->name('contact.index');
 Route::get('/admin', 'BackendController@login')->name('admin.login');
+Route::post('/admin', 'BackendController@authenticate')->name('admin.authenticate');
 
 Auth::routes();
 
@@ -34,7 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'backend'], function () {
         Route::get('/', function ()    {
-            return view('welcome');            
+            return view('backend.home');            
         });
         Route::get('books', function ()    {
             return view('welcome');            
@@ -44,6 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
         });
     });
 });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
