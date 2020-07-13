@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Book;
 use Illuminate\Http\Request;
+use App\DataTables\UsersDataTable;
 
 class BookController extends Controller
 {
@@ -12,9 +13,9 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(UsersDataTable $dataTable)
     {
-        //
+        return $dataTable->render('backend.book.index');
     }
 
     /**

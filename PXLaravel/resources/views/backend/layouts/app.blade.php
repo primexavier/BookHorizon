@@ -7,10 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Book Horizon') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    @stack('headScripts')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,8 +22,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand" href="{{ route('backend.home') }}">
+                    {{ config('app.name', 'Book Horizon') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -41,7 +40,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('backend.login') }}">{{ __('Login') }}</a>
                             </li>
                         @else
                             <li class="nav-item dropdown">
@@ -50,19 +49,19 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" >
+                                    <a class="dropdown-item" href="{{route('backend.book.index')}}" >
                                         Book
                                     </a>
-                                    <a class="dropdown-item" >
+                                    <a class="dropdown-item" href="{{route('backend.blog.index')}}" >
                                         Blog
                                     </a>
-                                    <a class="dropdown-item" >
+                                    <a class="dropdown-item" href="{{route('backend.member.index')}}" >
                                         Member
                                     </a>
-                                    <a class="dropdown-item" >
+                                    <a class="dropdown-item" href="{{route('backend.users.index')}}" >
                                         User
                                     </a>
-                                    <a class="dropdown-item" >
+                                    <a class="dropdown-item" href="{{route('backend.setting.index')}}" >
                                         Setting
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -86,5 +85,6 @@
             @yield('content')
         </main>
     </div>
+    @stack('scripts')
 </body>
 </html>

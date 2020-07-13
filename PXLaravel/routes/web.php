@@ -15,13 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
 
 Route::get('/book/{id}/detail', 'BookController@bookDetail')->name('book.detail');
 Route::get('/blog', 'BlogController@index')->name('blog.index');
 Route::get('/contact', 'ContactController@index')->name('contact.index');
-Route::get('/admin', 'BackendController@login')->name('admin.login');
-Route::post('/admin', 'BackendController@authenticate')->name('admin.authenticate');
 
 Auth::routes();
 
@@ -32,18 +30,19 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::group(['prefix' => 'backend'], function () {
+Route::group(['prefix' => 'backend'], function () {
+    Route::group(['middleware' => 'AuthAdmin'], function () {
         Route::get('/', function ()    {
             return view('backend.home');            
-        });
-        Route::get('books', function ()    {
-            return view('welcome');            
-        });
-        Route::get('category', function ()    {
-            return view('welcome');            
-        });
+        })->name('backend.home');
+        Route::get('/books', 'BookController@index')->name('backend.book.index');
+        Route::get('/blogs', 'BlogController@index')->name('backend.blog.index');
+        Route::get('/members', 'MemberController@index')->name('backend.member.index');
+        Route::get('/setting', 'SettingController@index')->name('backend.setting.index');
+        Route::get('/users', 'UsersController@index')->name('backend.users.index');
     });
+    Route::get('/login', 'BackendController@login')->name('backend.login');
+    Route::post('/login', 'BackendController@authenticate')->name('backend.authenticate');
 });
 
 Auth::routes();

@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Model\User;
+use App\Model\Book;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class UsersDataTable extends DataTable
+class BookDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,16 +21,16 @@ class UsersDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'users.action');
+            ->addColumn('action', 'book.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\User $model
+     * @param \App\Book $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(User $model)
+    public function query(Book $model)
     {
         return $model->newQuery();
     }
@@ -43,7 +43,7 @@ class UsersDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('users-table')
+                    ->setTableId('book-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -51,10 +51,10 @@ class UsersDataTable extends DataTable
                     ->buttons(
                         Button::make('create'),
                         Button::make('export'),
-                        Button::make('print')
-                    )->parameters([
-                        'buttons' => ['excel','csv','print'],
-                    ]);
+                        Button::make('print'),
+                        Button::make('reset'),
+                        Button::make('reload')
+                    );
     }
 
     /**
@@ -71,8 +71,6 @@ class UsersDataTable extends DataTable
                   ->width(60)
                   ->addClass('text-center'),
             Column::make('id'),
-            Column::make('name'),
-            Column::make('email'),
             Column::make('created_at'),
             Column::make('updated_at'),
         ];
@@ -85,6 +83,6 @@ class UsersDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Users_' . date('YmdHis');
+        return 'Book_' . date('YmdHis');
     }
 }
