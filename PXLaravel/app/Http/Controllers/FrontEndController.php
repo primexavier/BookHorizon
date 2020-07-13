@@ -17,8 +17,13 @@ class FrontEndController extends Controller
         //
     }
 
-    public function bookDetail(Book $book){
-        return view("frontend.book.detail");
+    public function bookDetail($id){
+        
+        $book = Book::where('id',$id)->first();
+        if(!$book){
+            abort(404);
+        }
+        return view("frontend.book.detail")->with('book',$book);
     }
 
     /**

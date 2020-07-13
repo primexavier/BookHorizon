@@ -17,7 +17,8 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
-Route::get('/book/{id}/detail', 'BookController@bookDetail')->name('book.detail');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/book/{id}/detail', 'FrontEndController@bookDetail')->name('book.detail');
 Route::get('/blog', 'BlogController@index')->name('blog.index');
 Route::get('/contact', 'ContactController@index')->name('contact.index');
 
@@ -74,5 +75,3 @@ Route::group(['prefix' => 'backend'], function () {
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
