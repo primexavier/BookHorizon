@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Book;
-use App\Imports\UsersImport;
-use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
-use App\DataTables\BookDataTable;
+use App\Model\Book;
 
-
-class BookController extends Controller
+class FrontEndController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(BookDataTable $dataTable)
+    public function index()
     {
-        return $dataTable->render('backend.book.index');
+        //
+    }
+
+    public function bookDetail(Book $book){
+        return view("frontend.book.detail");
     }
 
     /**
@@ -28,7 +28,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view("backend.book.add");
+        //
     }
 
     /**
@@ -45,10 +45,10 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Model\Book  $book
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
+    public function show($id)
     {
         //
     }
@@ -56,10 +56,10 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Model\Book  $book
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Book $book)
+    public function edit($id)
     {
         //
     }
@@ -68,10 +68,10 @@ class BookController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\Book  $book
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -79,19 +79,11 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\Book  $book
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Book $book)
+    public function destroy($id)
     {
         //
     }
-
-    public function ImportExcel(Request $request)
-    {
-        Excel::import(new UsersImport, $request->pah);
-        
-        return redirect('/')->with('success', 'All good!');
-    }
-
 }

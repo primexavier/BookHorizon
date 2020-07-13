@@ -75,7 +75,7 @@
 					<div class="col-lg-7">
 						<div class="product-details-info pl-lg--30 ">
 							<p class="tag-block">Tags: <a href="#">Movado</a>, <a href="#">Omega</a></p>
-							<h3 class="product-title">Beats EP Wired On-Ear Headphone-Black</h3>
+							<h3 class="product-title">Beats EP {{$book->title}}</h3>
 							<ul class="list-unstyled">
 								<li>Ex Tax: <span class="list-value"> £60.24</span></li>
 								<li>Brands: <a href="#" class="list-value font-weight-bold"> Canon</a></li>
