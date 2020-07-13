@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Member Create</div>
+                <div class="card-header">Blog Create</div>
                 <form>
                     <div class="card-body">
                         <div class="form-group">
@@ -27,4 +27,5 @@
             </div>
         </div>
     </div>
+</div>
 @endsection

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Book;
 use Illuminate\Http\Request;
-use App\DataTables\UsersDataTable;
+use App\DataTables\BookDataTable;
 
 class BookController extends Controller
 {
@@ -13,7 +13,7 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(UsersDataTable $dataTable)
+    public function index(BookDataTable $dataTable)
     {
         return $dataTable->render('backend.book.index');
     }
@@ -25,7 +25,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view("backend.book.add");
     }
 
     /**
