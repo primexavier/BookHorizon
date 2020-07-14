@@ -37,35 +37,35 @@ Route::group(['prefix' => 'backend'], function () {
         })->name('backend.home');
         Route::group(['prefix' => 'books'], function () {
             Route::get('/', 'BookController@index')->name('backend.book.index');
-            Route::get('/create', 'BookController@create')->name('backend.book.create');
-            Route::get('/update/{id}', 'BookController@update')->name('backend.book.update');
-            Route::post('/delete/{id}', 'BookController@delete')->name('backend.book.delete');
-            Route::post('/import', 'BookController@delete')->name('backend.book.import');
+            Route::get('/create', 'BookController@index')->name('backend.book.create');
+            Route::get('/update/{id}', 'BookController@index')->name('backend.book.update');
+            Route::post('/delete/{id}', 'BookController@index')->name('backend.book.delete');
+            Route::post('/import', 'BookController@importExcel')->name('backend.book.import');
             Route::get('/import', 'BookController@importExcel')->name('backend.book.import');
         });
         Route::group(['prefix' => 'blogs'], function () {
             Route::get('/', 'BlogController@index')->name('backend.blog.index');
-            Route::get('/create', 'BlogController@create')->name('backend.blogs.create');
-            Route::get('/update/{id}', 'BlogController@update')->name('backend.blogs.update');
-            Route::post('/delete/{id}', 'BlogController@delete')->name('backend.blogs.delete');
+            Route::get('/create', 'BlogController@index')->name('backend.blogs.create');
+            Route::get('/update/{id}', 'BlogController@index')->name('backend.blogs.update');
+            Route::post('/delete/{id}', 'BlogController@index')->name('backend.blogs.delete');
         });
         Route::group(['prefix' => 'members'], function () {
             Route::get('/', 'MemberController@index')->name('backend.member.index');
-            Route::get('/create', 'MemberController@create')->name('backend.member.create');
-            Route::get('/update/{id}', 'MemberController@update')->name('backend.member.update');
-            Route::post('/delete/{id}', 'MemberController@delete')->name('backend.member.delete');
+            Route::get('/create', 'MemberController@index')->name('backend.member.create');
+            Route::get('/update/{id}', 'MemberController@index')->name('backend.member.update');
+            Route::post('/delete/{id}', 'MemberController@index')->name('backend.member.delete');
         });
         Route::group(['prefix' => 'users'], function () {
             Route::get('/', 'UsersController@index')->name('backend.users.index');
-            Route::get('/create', 'UsersController@create')->name('backend.users.create');
-            Route::get('/update/{id}', 'UsersController@update')->name('backend.users.update');
-            Route::post('/delete/{id}', 'UsersController@delete')->name('backend.users.delete');
+            Route::get('/create', 'UsersController@index')->name('backend.users.create');
+            Route::get('/update/{id}', 'UsersController@index')->name('backend.users.update');
+            Route::post('/delete/{id}', 'UsersController@index')->name('backend.users.delete');
         });
         Route::group(['prefix' => 'transactions'], function () {
             Route::get('/', 'TransactionsController@index')->name('backend.transactions.index');
-            Route::get('/create', 'TransactionsController@create')->name('backend.transactions.create');
-            Route::get('/update/{id}', 'TransactionsController@update')->name('backend.transactions.update');
-            Route::post('/delete/{id}', 'TransactionsController@delete')->name('backend.transactions.delete');
+            Route::get('/create', 'TransactionsController@index')->name('backend.transactions.create');
+            Route::get('/update/{id}', 'TransactionsController@index')->name('backend.transactions.update');
+            Route::post('/delete/{id}', 'TransactionsController@index')->name('backend.transactions.delete');
         });
         Route::group(['prefix' => 'setting'], function () {
             Route::get('/', 'SettingController@index')->name('backend.setting.index');

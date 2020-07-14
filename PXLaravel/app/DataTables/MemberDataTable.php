@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Member;
+use App\Model\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -30,9 +30,9 @@ class MemberDataTable extends DataTable
      * @param \App\Member $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Member $model)
+    public function query(User $model)
     {
-        return $model->newQuery();
+        return $model->where("level",1)->newQuery();
     }
 
     /**
@@ -48,13 +48,9 @@ class MemberDataTable extends DataTable
                     ->minifiedAjax()
                     ->dom('Bfrtip')
                     ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );
+                    ->parameters([
+                        'buttons' => ['create','excel','csv','print'],
+                    ]);
     }
 
     /**
@@ -66,13 +62,13 @@ class MemberDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('add your columns'),
+            Column::make('name'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(60)
+                  ->width(120)
                   ->addClass('text-center'),
         ];
     }

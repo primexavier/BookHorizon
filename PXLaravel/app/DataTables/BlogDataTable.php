@@ -48,13 +48,9 @@ class BlogDataTable extends DataTable
                     ->minifiedAjax()
                     ->dom('Bfrtip')
                     ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );
+                    ->parameters([
+                        'buttons' => ['create','excel','csv','print'],
+                    ]);
     }
 
     /**
