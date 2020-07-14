@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Book;
-use App\Imports\UsersImport;
+use App\Imports\BookImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\DataTables\BookDataTable;
@@ -87,11 +87,11 @@ class BookController extends Controller
         //
     }
 
-    public function ImportExcel(Request $request)
+    public function importExcel(Request $request)
     {
-        Excel::import(new UsersImport, $request->pah);
+        Excel::import(new BookImport, "book.xlsx");
         
-        return redirect('/')->with('success', 'All good!');
+        return redirect('/backend/books')->with('success', 'All good!');
     }
 
 }

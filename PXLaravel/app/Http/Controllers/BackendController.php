@@ -27,7 +27,6 @@ class BackendController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Authentication passed...
             if(Auth::User()->level > 0){
                 return redirect()->intended('/');
             }else{

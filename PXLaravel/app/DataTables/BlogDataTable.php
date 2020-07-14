@@ -21,7 +21,7 @@ class BlogDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'blog.action');
+            ->addColumn('action', '<button type="button" class="btn btn-info"><i class="fas fa-info"></i></button><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button><button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button>');
     }
 
     /**
@@ -65,15 +65,15 @@ class BlogDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::make('id'),
+            Column::make('add your columns'),
+            Column::make('created_at'),
+            Column::make('updated_at'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)
                   ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
         ];
     }
 

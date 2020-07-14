@@ -21,7 +21,7 @@ class UsersDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'users.action');
+            ->addColumn('action', '<button type="button" class="btn btn-info"><i class="fas fa-info"></i></button><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button><button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button>');
     }
 
     /**
@@ -61,16 +61,16 @@ class UsersDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::computed('action')
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
             Column::make('id'),
             Column::make('name'),
             Column::make('email'),
             Column::make('created_at'),
             Column::make('updated_at'),
+            Column::computed('action')
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(60)
+                  ->addClass('text-center'),
         ];
     }
 

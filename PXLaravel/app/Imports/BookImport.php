@@ -4,8 +4,9 @@ namespace App\Imports;
 
 use App\Model\Book;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class BookImport implements ToModel
+class BookImport implements ToModel, WithHeadingRow
 {
     /**
     * @param array $row
@@ -15,9 +16,22 @@ class BookImport implements ToModel
     public function model(array $row)
     {
         return new Book([
-            'title' => $row[0],
-            'title' => $row[1],
-            'title' => $row[3]
+            'title' => $row["title_of_the_book"],
+            'isbn' => $row["isbn"],
+            'publication_city' => $row["publication_city_country"],
+            'format' => $row["format"],
+            'pages' => $row["pages"],
+            'weight' => $row["weight"],
+            'dimension' => $row["dimension"],
+            'purchase_price' => $row["purchase_price"],
+            'start_qty' => $row["qty"],
+            'purchase_date' => $row["purchase_date"],
+            'vendor' => $row["vendor"],
         ]);
+    }
+
+    public function headingRow(): int
+    {
+        return 2;
     }
 }
