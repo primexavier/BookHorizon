@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Book;
+use App\Model\Blog;
 
 class FrontEndController extends Controller
 {
@@ -14,18 +15,41 @@ class FrontEndController extends Controller
      */
     public function index()
     {
-        //
+        $booklist = Book::get();
+        $spesialOffers = Book::inRandomOrder()->limit(5)->get();
+        return view("index")
+        ->with("booklist",$booklist)
+        ->with("spesialOffers",$spesialOffers);
     }
 
-    public function bookDetail($id){
-        
+    public function bookDetail($id)
+    {
+        $booklist = Book::limit(6)->get();        
         $book = Book::where('id',$id)->first();
         if(!$book){
             abort(404);
         }
-        return view("frontend.book.detail")->with('book',$book);
+        return view("frontend.book.detail")
+        ->with("booklist",$booklist)
+        ->with('book',$book);
     }
 
+    public function blogIndex()
+    {
+        $blogList = Blog::get();
+        return view("frontend.blog.index")
+        ->with("blogList",$blogList);
+    }
+    
+    public function blogDetail($id)
+    {
+        $blog = Blog::where('id',$id)->first();
+        if(!$blog){
+            abort(404);
+        }
+        return view("frontend.blog.detail")
+        ->with('blog',$blog);
+    }
     /**
      * Show the form for creating a new resource.
      *

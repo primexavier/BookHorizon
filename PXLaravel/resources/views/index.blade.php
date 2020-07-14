@@ -148,7 +148,8 @@
                                                 {"breakpoint":768, "settings": {"slidesToShow": 2, "rows":2} },
                                                 {"breakpoint":575, "settings": {"slidesToShow": 1} },
                                                 {"breakpoint":490, "settings": {"slidesToShow": 1} }
-                                            ]'>
+                                            ]'> 
+                                        @forelse ($booklist as $book)
                                         <div class="single-slide">
                                             <div class="product-card card-style-list">
                                                 <div class="card-image">
@@ -159,247 +160,19 @@
                                                         <a href="#" class="author">
                                                             Fpple
                                                         </a>
-                                                        <h3><a href="{{ route('book.detail',1) }}">Get Through To Your
-                                                                BOOK</a></h3>
+                                                        <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
+                                                        <span class="price">{{$book->price}}</span>
+                                                        <del class="price-old">{{$book->price+($book->price*0.2)}}</del>
                                                         <span class="price-discount">20%</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Gpple
-                                                        </a>
-                                                        <h3><a href="{{ route('book.detail',1) }}">What Can You Do To Save Your
-                                                                BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a class="author">
-                                                            Hpple
-                                                        </a>
-                                                        <h3><a href="{{ route('book.detail',1) }}">From Destruction By Social
-                                                                Media?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="#" class="author">
-                                                            Gpple
-                                                        </a>
-                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More About BOOK ?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="#" class="author">
-                                                            Dpple
-                                                        </a>
-                                                        <h3><a href="{{ route('book.detail',1) }}">Controversial BOOK
-                                                                Social Media?</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Cpple
-                                                        </a>
-                                                            <h3><a href="{{ route('book.detail',1) }}">Lightweight
-                                                                    Portable Headphone</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Apple
-                                                        </a>
-                                                            <h3><a href="{{ route('book.detail',1) }}">Ways To Have More
-                                                                    BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Xpple
-                                                        </a>
-                                                            <h3><a href="{{ route('book.detail',1) }}">Ways To Have More
-                                                                    BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Tpple
-                                                        </a>
-                                                            <h3><a href="{{ route('book.detail',1) }}">10 Minutes, I'll Give You
-                                                                    The Truth</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Fpple
-                                                        </a>
-                                                            <h3><a href="{{ route('book.detail',1) }}">What Can You Do To Save Your
-                                                                    BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Tpple
-                                                        </a>
-                                                            <h3><a href="{{ route('book.detail',1) }}">10 Minutes, I'll Give You
-                                                                    The Truth</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card card-style-list">
-                                                <div class="card-image">
-                                                    <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Fpple
-                                                        </a>
-                                                            <h3><a href="{{ route('book.detail',1) }}">What Can You Do To Save Your
-                                                                    BOOK</a></h3>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @empty
+                                            <p>There is no book!</p>
+                                        @endforelse
                                     </div>
                                 </div>
                                 <div class="single-block text-center">
@@ -424,272 +197,53 @@
                                                 {"breakpoint":575, "settings": {"slidesToShow": 1} },
                                                 {"breakpoint":490, "settings": {"slidesToShow": 1} }
                                             ]'>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Ypple
-                                                    </a>
-                                                        <h3><a href="{{ route('book.detail',1) }}">BOOK: Do You Really Need It? This
-                                                                Will Help You</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="cart.html" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
+                                        @forelse ($spesialOffers as $spesialOffer)
+                                            <div class="single-slide">
+                                                <div class="product-card">
+                                                    <div class="product-header">
+                                                        <a href="" class="author">
+                                                            Ypple
+                                                        </a>
+                                                            <h3><a href="{{ route('book.detail',$spesialOffer->id) }}"></a>{{$spesialOffer->title}}</h3>
+                                                    </div>
+                                                    <div class="product-card--body">
+                                                        <div class="card-image">
+                                                            <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
+                                                            <div class="hover-contents">
+                                                                <a href="{{ route('book.detail',$spesialOffer->id) }}" class="hover-image">
+                                                                    <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
                                                                 </a>
-                                                                <a href="wishlist.html" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal"
-                                                                    class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
+                                                                <div class="hover-btns">
+                                                                    <a href="cart.html" class="single-btn">
+                                                                        <i class="fas fa-shopping-basket"></i>
+                                                                    </a>
+                                                                    <a href="wishlist.html" class="single-btn">
+                                                                        <i class="fas fa-heart"></i>
+                                                                    </a>
+                                                                    <a href="compare.html" class="single-btn">
+                                                                        <i class="fas fa-random"></i>
+                                                                    </a>
+                                                                    <a href="#" data-toggle="modal" data-target="#quickModal"
+                                                                        class="single-btn">
+                                                                        <i class="fas fa-eye"></i>
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                    <div class="count-down-block">
-                                                        <div class="product-countdown" data-countdown="01/05/2020"></div>
+                                                        <div class="price-block">
+                                                            <span class="price">{{$spesialOffer->price}}</span>
+                                                            <del class="price-old">£51.20</del>
+                                                            <span class="price-discount">20%</span>
+                                                        </div>
+                                                        <div class="count-down-block">
+                                                            <div class="product-countdown" data-countdown="01/05/2020"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Upple
-                                                    </a>
-                                                        <h3><a href="{{ route('book.detail',1) }}">Here Is A Quick Cure For BOOK
-                                                                This Will Help</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="cart.html" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="wishlist.html" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal"
-                                                                    class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                    <div class="count-down-block">
-                                                        <div class="product-countdown" data-countdown="01/05/2020"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Ypple
-                                                    </a>
-                                                        <h3><a href="{{ route('book.detail',1) }}">Simple Things
-                                                                You Can Do Save BOOK save money</a>
-                                                        </h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="cart.html" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="wishlist.html" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal"
-                                                                    class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                    <div class="count-down-block">
-                                                        <div class="product-countdown" data-countdown="01/05/2020"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Epple
-                                                    </a>
-                                                        <h3><a href="{{ route('book.detail',1) }}">What You Can Learn From Bill
-                                                                Gates reading a book</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="cart.html" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="wishlist.html" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal"
-                                                                    class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                    <div class="count-down-block">
-                                                        <div class="product-countdown" data-countdown="01/05/2020"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Rpple
-                                                    </a>
-                                                        <h3><a href="{{ route('book.detail',1) }}">3 Ways Create Better BOOK With
-                                                                The Help Of Your Dog</a>
-                                                        </h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="cart.html" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="wishlist.html" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal"
-                                                                    class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                    <div class="count-down-block">
-                                                        <div class="product-countdown" data-countdown="01/05/2020"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="single-slide">
-                                            <div class="product-card">
-                                                <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Tpple
-                                                    </a>
-                                                        <h3><a href="{{ route('book.detail',1) }}">Turn Your BOOK Into A High
-                                                                Performing Machine</a></h3>
-                                                </div>
-                                                <div class="product-card--body">
-                                                    <div class="card-image">
-                                                        <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
-                                                        <div class="hover-contents">
-                                                            <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
-                                                            </a>
-                                                            <div class="hover-btns">
-                                                                <a href="cart.html" class="single-btn">
-                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                </a>
-                                                                <a href="wishlist.html" class="single-btn">
-                                                                    <i class="fas fa-heart"></i>
-                                                                </a>
-                                                                <a href="compare.html" class="single-btn">
-                                                                    <i class="fas fa-random"></i>
-                                                                </a>
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal"
-                                                                    class="single-btn">
-                                                                    <i class="fas fa-eye"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="price-block">
-                                                        <span class="price">£51.20</span>
-                                                        <del class="price-old">£51.20</del>
-                                                        <span class="price-discount">20%</span>
-                                                    </div>
-                                                    <div class="count-down-block">
-                                                        <div class="product-countdown" data-countdown="01/05/2020"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @empty
+                                            <p>There is no book!</p>
+                                        @endforelse
                                     </div>
                                 </div>
                                 <div class="single-block">
@@ -825,1566 +379,190 @@
                                             </li>
                                         </ul>
                                         <div class="tab-content space-db--30" id="myTabContent">
-                                            <div class="tab-pane show active" id="shop" role="tabpanel"
-                                                aria-labelledby="shop-tab">
+                                            <div class="tab-pane active" id="shop" role="tabpanel" aria-labelledby="shop-tab">
                                                 <div class="product-slider multiple-row slider-border-multiple-row  sb-slick-slider"
                                                     data-slick-setting='{
-                            "autoplay": true,
-                            "autoplaySpeed": 8000,
-                            "slidesToShow": 3,
-                            "rows":2,
-                            "dots":true
-                        }' data-slick-responsive='[
-                            {"breakpoint":992, "settings": {"slidesToShow": 3} },
-                            {"breakpoint":768, "settings": {"slidesToShow": 2} },
-                            {"breakpoint":480, "settings": {"slidesToShow": 1} },
-                            {"breakpoint":320, "settings": {"slidesToShow": 1} }
-                        ]'>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    jpple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">Rpple iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
+                                                        "autoplay": true,
+                                                        "autoplaySpeed": 8000,
+                                                        "slidesToShow": 3,
+                                                        "rows":2,
+                                                        "dots":true
+                                                    }' data-slick-responsive='[
+                                                        {"breakpoint":992, "settings": {"slidesToShow": 3} },
+                                                        {"breakpoint":768, "settings": {"slidesToShow": 2} },
+                                                        {"breakpoint":480, "settings": {"slidesToShow": 1} },
+                                                        {"breakpoint":320, "settings": {"slidesToShow": 1} }
+                                                    ]'>
+                                                    @forelse ($booklist as $book)
+                                                        <div class="single-slide">
+                                                            <div class="product-card">
+                                                                <div class="product-header">
+                                                                    <a href="" class="author">
+                                                                        jpple
+                                                                    </a>
+                                                                        <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
+                                                                </div>
+                                                                <div class="product-card--body">
+                                                                    <div class="card-image">
+                                                                        <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
+                                                                        <div class="hover-contents">
+                                                                            <a href="{{ route('book.detail',$book->id) }}" class="hover-image">
+                                                                                <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
                                                                             </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
+                                                                            <div class="hover-btns">
+                                                                                <a href="cart.html" class="single-btn">
+                                                                                    <i class="fas fa-shopping-basket"></i>
+                                                                                </a>
+                                                                                <a href="wishlist.html" class="single-btn">
+                                                                                    <i class="fas fa-heart"></i>
+                                                                                </a>
+                                                                                <a href="compare.html" class="single-btn">
+                                                                                    <i class="fas fa-random"></i>
+                                                                                </a>
+                                                                                <a href="#" data-toggle="modal"
+                                                                                    data-target="#quickModal"
+                                                                                    class="single-btn">
+                                                                                    <i class="fas fa-eye"></i>
+                                                                                </a>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Bpple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">Koss Lightweight
-                                                                            Headphone</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
+                                                                    <div class="price-block">
+                                                                        <span class="price">{{$book->price}}</span>
+                                                                        <del class="price-old">£51.20</del>
+                                                                        <span class="price-discount">20%</span>
                                                                     </div>
                                                                 </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Cpple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">Beats Wired On-Ear
-                                                                            Headphone-Black</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Dpple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">Beats Solo2 Solo 2
-                                                                            Wired On-Ear</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Lpple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">Beats Solo3 Wireless
-                                                                            Headphones 2</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Fpple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">Ways To Have
-                                                                            Appealing BOOK</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Epple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">10 Minutes, I'll
-                                                                            Give You Truth About</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Fpple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">Ways To Get Through
-                                                                            BOOK</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Gpple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">What Can You Do To
-                                                                            Save Your BOOK</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Hpple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">From Destruction By
-                                                                            Social Media?</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Gpple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">Find Out More About
-                                                                            BOOK ?</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Vpple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">Read This
-                                                                            Contro versial BOOK?</a>
-                                                                    </h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-12.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        </div>                                                 
+                                                    @empty
+                                                        <p>There is no book!</p>
+                                                    @endforelse   
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="men" role="tabpanel" aria-labelledby="men-tab">
                                                 <div class="product-slider multiple-row slider-border-multiple-row  sb-slick-slider"
                                                     data-slick-setting='{
-                                        "autoplay": true,
-                                        "autoplaySpeed": 8000,
-                                        "slidesToShow": 3,
-                                        "rows":2,
-                                        "dots":true
-                                        }' data-slick-responsive='[
-                                {"breakpoint":992, "settings": {"slidesToShow": 3} },
-                                {"breakpoint":768, "settings": {"slidesToShow": 2} },
-                                {"breakpoint":480, "settings": {"slidesToShow": 1} },
-                                {"breakpoint":320, "settings": {"slidesToShow": 1} }
-                            ]'>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
+                                                                "autoplay": true,
+                                                                "autoplaySpeed": 8000,
+                                                                "slidesToShow": 3,
+                                                                "rows":2,
+                                                                "dots":true
+                                                                }' 
+                                                                data-slick-responsive='[
+                                                                    {"breakpoint":992, "settings": {"slidesToShow": 3} },
+                                                                    {"breakpoint":768, "settings": {"slidesToShow": 2} },
+                                                                    {"breakpoint":480, "settings": {"slidesToShow": 1} },
+                                                                    {"breakpoint":320, "settings": {"slidesToShow": 1} }
+                                                                ]'>
+                                                    @forelse ($booklist as $book)
+                                                        <div class="single-slide">
+                                                            <div class="product-card">
+                                                                <div class="product-header">
+                                                                    <a href="" class="author">
+                                                                        Apple
+                                                                    </a>
+                                                                    <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
+                                                                </div>
+                                                                <div class="product-card--body">
+                                                                    <div class="card-image">
+                                                                        <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
+                                                                        <div class="hover-contents">
+                                                                            <a href="{{ route('book.detail',$book->id) }}" class="hover-image">
+                                                                                <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
                                                                             </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
+                                                                            <div class="hover-btns">
+                                                                                <a href="cart.html" class="single-btn">
+                                                                                    <i class="fas fa-shopping-basket"></i>
+                                                                                </a>
+                                                                                <a href="wishlist.html" class="single-btn">
+                                                                                    <i class="fas fa-heart"></i>
+                                                                                </a>
+                                                                                <a href="compare.html" class="single-btn">
+                                                                                    <i class="fas fa-random"></i>
+                                                                                </a>
+                                                                                <a href="#" data-toggle="modal"
+                                                                                    data-target="#quickModal"
+                                                                                    class="single-btn">
+                                                                                    <i class="fas fa-eye"></i>
+                                                                                </a>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
+                                                                    <div class="price-block">
+                                                                        <span class="price">{{$book->price}}</span>
+                                                                        <del class="price-old">£51.20</del>
+                                                                        <span class="price-discount">20%</span>
                                                                     </div>
                                                                 </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-12.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        </div>                                           
+                                                    @empty
+                                                        <p>There is no book!</p>
+                                                    @endforelse  
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="woman" role="tabpanel" aria-labelledby="woman-tab">
                                                 <div class="product-slider multiple-row slider-border-multiple-row  sb-slick-slider"
                                                     data-slick-setting='{
-                                        "autoplay": true,
-                                        "autoplaySpeed": 8000,
-                                        "slidesToShow": 3,
-                                        "rows":2,
-                                        "dots":true
-                                    }' data-slick-responsive='[
-                                            {"breakpoint":992, "settings": {"slidesToShow": 3} },
-                                            {"breakpoint":768, "settings": {"slidesToShow": 2} },
-                                            {"breakpoint":480, "settings": {"slidesToShow": 1} },
-                                            {"breakpoint":320, "settings": {"slidesToShow": 1} }
-                                        ]'>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
+                                                        "autoplay": true,
+                                                        "autoplaySpeed": 8000,
+                                                        "slidesToShow": 3,
+                                                        "rows":2,
+                                                        "dots":true
+                                                    }' 
+                                                    data-slick-responsive='[
+                                                        {"breakpoint":992, "settings": {"slidesToShow": 3} },
+                                                        {"breakpoint":768, "settings": {"slidesToShow": 2} },
+                                                        {"breakpoint":480, "settings": {"slidesToShow": 1} },
+                                                        {"breakpoint":320, "settings": {"slidesToShow": 1} }
+                                                    ]'>
+                                                    @forelse ($booklist as $book)
+                                                        <div class="single-slide">
+                                                            <div class="product-card">
+                                                                <div class="product-header">
+                                                                    <a href="" class="author">
+                                                                        Apple
+                                                                    </a>
+                                                                        <h3><a href="{{ route('book.detail',1) }}">iPad with
+                                                                                Retina Display</a></h3>
+                                                                </div>
+                                                                <div class="product-card--body">
+                                                                    <div class="card-image">
+                                                                        <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
+                                                                        <div class="hover-contents">
+                                                                            <a href="{{ route('book.detail',1) }}" class="hover-image">
+                                                                                <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
                                                                             </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
+                                                                            <div class="hover-btns">
+                                                                                <a href="cart.html" class="single-btn">
+                                                                                    <i class="fas fa-shopping-basket"></i>
+                                                                                </a>
+                                                                                <a href="wishlist.html" class="single-btn">
+                                                                                    <i class="fas fa-heart"></i>
+                                                                                </a>
+                                                                                <a href="compare.html" class="single-btn">
+                                                                                    <i class="fas fa-random"></i>
+                                                                                </a>
+                                                                                <a href="#" data-toggle="modal"
+                                                                                    data-target="#quickModal"
+                                                                                    class="single-btn">
+                                                                                    <i class="fas fa-eye"></i>
+                                                                                </a>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
+                                                                    <div class="price-block">
+                                                                        <span class="price">£51.20</span>
+                                                                        <del class="price-old">£51.20</del>
+                                                                        <span class="price-discount">20%</span>
                                                                     </div>
                                                                 </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-slide">
-                                                        <div class="product-card">
-                                                            <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    Apple
-                                                                </a>
-                                                                    <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                            Retina Display</a></h3>
-                                                            </div>
-                                                            <div class="product-card--body">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-12.jpg') }}" alt="">
-                                                                    <div class="hover-contents">
-                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                            <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
-                                                                        </a>
-                                                                        <div class="hover-btns">
-                                                                            <a href="cart.html" class="single-btn">
-                                                                                <i class="fas fa-shopping-basket"></i>
-                                                                            </a>
-                                                                            <a href="wishlist.html" class="single-btn">
-                                                                                <i class="fas fa-heart"></i>
-                                                                            </a>
-                                                                            <a href="compare.html" class="single-btn">
-                                                                                <i class="fas fa-random"></i>
-                                                                            </a>
-                                                                            <a href="#" data-toggle="modal"
-                                                                                data-target="#quickModal"
-                                                                                class="single-btn">
-                                                                                <i class="fas fa-eye"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="price-block">
-                                                                    <span class="price">£51.20</span>
-                                                                    <del class="price-old">£51.20</del>
-                                                                    <span class="price-discount">20%</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        </div>                                        
+                                                    @empty
+                                                        <p>There is no book!</p>
+                                                    @endforelse  
                                                 </div>
                                             </div>
                                         </div>
@@ -2428,7 +606,7 @@
                                                 </li>
                                             </ul>
                                             <div class="tab-content" id="myTabContent2">
-                                                <div class="tab-pane show active" id="shop2" role="tabpanel"
+                                                <div class="tab-pane active" id="shop2" role="tabpanel"
                                                     aria-labelledby="shop-tab2">
                                                     <div class="product-slider product-list-slider multiple-row slider-border-multiple-row  sb-slick-slider"
                                                         data-slick-setting='{
@@ -2442,345 +620,30 @@
                         
                                                             {"breakpoint":768, "settings": {"slidesToShow": 1} }
                                                         ]'>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Fpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">5 Ways To Get
-                                                                                Through To Your BOOK</a></h3>
+                                                        @forelse ($booklist as $book)
+                                                            <div class="single-slide">
+                                                                <div class="product-card card-style-list">
+                                                                    <div class="card-image">
+                                                                        <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
                                                                     </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Gpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">What Can You Do
-                                                                                To Save Your BOOK</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
+                                                                    <div class="product-card--body">
+                                                                        <div class="product-header">
+                                                                            <a href="" class="author">
+                                                                                Fpple
+                                                                            </a>
+                                                                            <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
+                                                                        </div>
+                                                                        <div class="price-block">
+                                                                            <span class="price">{{$book->price}}</span>
+                                                                            <del class="price-old">£51.20</del>
+                                                                            <span class="price-discount">20%</span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Hpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">From Destruction
-                                                                                By Social Media?</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Gpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
-                                                                                About BOOK ?</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Dpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">
-                                                                                Controversial BOOK By Social Media?</a>
-                                                                        </h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Cpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Koss
-                                                                                Lightweight Portable Headphone</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Apple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Ways To Have
-                                                                                Appealing BOOK</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Xpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Ways To Have
-                                                                                Appealing BOOK</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Tpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">In 10 Minutes,
-                                                                                I'll Give Truth About</a>
-                                                                        </h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Fpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">What Can You Do
-                                                                                To Save Your BOOK</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Fpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">From Destruction
-                                                                                By Social Media?</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-12.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Spple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Lorem ipsum dolor
-                                                                                sit amet reasons</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-13.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Kpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
-                                                                                About BOOK ?</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Apple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">
-                                                                                Controversial BOOK By Social Media?</a>
-                                                                        </h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Apple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                                Retina ready Display </a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Gpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Koss
-                                                                                Lightweight Portable Headphone</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                            </div>                                       
+                                                        @empty
+                                                            <p>There is no book!</p>
+                                                        @endforelse  
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane" id="men2" role="tabpanel" aria-labelledby="men-tab2">
@@ -2796,345 +659,30 @@
                         
                                                             {"breakpoint":768, "settings": {"slidesToShow": 1} }
                                                         ]'>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Fpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">5 Ways To Get
-                                                                                Through To Your BOOK</a></h3>
+                                                        @forelse ($booklist as $book)
+                                                            <div class="single-slide">
+                                                                <div class="product-card card-style-list">
+                                                                    <div class="card-image">
+                                                                        <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
                                                                     </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Gpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">What Can You Do
-                                                                                To Save Your BOOK</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
+                                                                    <div class="product-card--body">
+                                                                        <div class="product-header">
+                                                                            <a href="" class="author">
+                                                                                Hpple
+                                                                            </a>
+                                                                            <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
+                                                                        </div>
+                                                                        <div class="price-block">
+                                                                            <span class="price">{{$book->price}}</span>
+                                                                            <del class="price-old">£51.20</del>
+                                                                            <span class="price-discount">20%</span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Hpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">From Destruction
-                                                                                By Social Media?</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Gpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
-                                                                                About BOOK ?</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Dpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">
-                                                                                Controversial BOOK By Social Media?</a>
-                                                                        </h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Cpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Koss
-                                                                                Lightweight Portable Headphone</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Apple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Ways To Have
-                                                                                Appealing BOOK</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Xpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Ways To Have
-                                                                                Appealing BOOK</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Tpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">In 10 Minutes,
-                                                                                I'll Give Truth About</a>
-                                                                        </h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Fpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">What Can You Do
-                                                                                To Save Your BOOK</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Fpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">From Destruction
-                                                                                By Social Media?</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-12.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Spple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
-                                                                            About BOOK By Social Media?</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-13.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Kpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
-                                                                                About BOOK ?</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Apple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">
-                                                                                Controversial BOOK By Social Media?</a>
-                                                                        </h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Apple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                                Retina ready Display </a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Gpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Koss
-                                                                                Lightweight Portable Headphone</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                            </div>                                   
+                                                        @empty
+                                                            <p>There is no book!</p>
+                                                        @endforelse  
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane" id="woman2" role="tabpanel"
@@ -3151,345 +699,30 @@
                             
                                                                 {"breakpoint":768, "settings": {"slidesToShow": 1} }
                                                             ]'>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Fpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">5 Ways To Get
-                                                                                Through To Your BOOK</a></h3>
+                                                        @forelse ($booklist as $book)
+                                                            <div class="single-slide">
+                                                                <div class="product-card card-style-list">
+                                                                    <div class="card-image">
+                                                                        <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
                                                                     </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Gpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">What Can You Do
-                                                                                To Save Your BOOK</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
+                                                                    <div class="product-card--body">
+                                                                        <div class="product-header">
+                                                                            <a href="" class="author">
+                                                                                Gpple
+                                                                            </a>
+                                                                            <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
+                                                                        </div>
+                                                                        <div class="price-block">
+                                                                            <span class="price">{{$book->price}}}</span>
+                                                                            <del class="price-old">£51.20</del>
+                                                                            <span class="price-discount">20%</span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Hpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">From Destruction
-                                                                                By Social Media?</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-4.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Gpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
-                                                                                About BOOK ?</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Dpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">
-                                                                                Controversial BOOK By Social Media?</a>
-                                                                        </h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-6.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Cpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Koss
-                                                                                Lightweight Portable Headphone</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-7.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Apple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Ways To Have
-                                                                                Appealing BOOK</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-8.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Xpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Ways To Have
-                                                                                Appealing BOOK</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Tpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">In 10 Minutes,
-                                                                                I'll Give Truth About</a>
-                                                                        </h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Fpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">What Can You Do
-                                                                                To Save Your BOOK</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-11.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Fpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">From Destruction
-                                                                                By Social Media?</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-12.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Spple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
-                                                                            About BOOK By Social Media?</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-13.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Kpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Find Out More
-                                                                                About BOOK ?</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Apple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">
-                                                                                Controversial BOOK By Social Media?</a>
-                                                                        </h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Apple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                                Retina ready Display </a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="single-slide">
-                                                            <div class="product-card card-style-list">
-                                                                <div class="card-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-5.jpg') }}" alt="">
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="product-header">
-                                                                        <a href="" class="author">
-                                                                            Gpple
-                                                                        </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">Koss
-                                                                                Lightweight Portable Headphone</a></h3>
-                                                                    </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        @empty
+                                                            <p>There is no book!</p>
+                                                        @endforelse
                                                     </div>
                                                 </div>
                                             </div>
@@ -3498,11 +731,11 @@
                                 </div>
                                 <div class="single-block">
                                     <div class="blog-slider sb-slick-slider slider-one-column" data-slick-setting='{
-                            "autoplay": false,
-                            "autoplaySpeed": 8000,
-                            "slidesToShow": 1,
-                            "dots": true
-                        }'>
+                                            "autoplay": false,
+                                            "autoplaySpeed": 8000,
+                                            "slidesToShow": 1,
+                                            "dots": true
+                                        }'>
                                         <div class="single-slide">
                                             <div class="blog-card">
                                                 <div class="image">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Blog;
 use Illuminate\Http\Request;
+use App\DataTables\BlogDataTable;
 
 class BlogController extends Controller
 {
@@ -12,9 +13,9 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(BlogDataTable $dataTable)
     {
-        return view("frontend.blog.index");
+        return $dataTable->render('backend.blog.index');
     }
 
     /**

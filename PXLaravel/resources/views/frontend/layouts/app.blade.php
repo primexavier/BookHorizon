@@ -191,11 +191,11 @@
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-lg-3">
-                                @if (\Request::is('login') || \Request::is('register') || \Request::is('password/reset') || \Request::is('user/profile') || \Request::is('blog*')|| \Request::is('contact*'))  
+                                <!-- @if (\Request::is('login') || \Request::is('register') || \Request::is('password/reset') || \Request::is('user/profile') || \Request::is('blog*')|| \Request::is('contact*'))  
                                     <nav class="category-nav primary-nav">
-                                @else
-                                    <nav class="category-nav primary-nav show">
-                                @endif
+                                @else -->
+                                    <nav class="category-nav primary-nav">
+                                <!-- @endif -->
                                     <div>
                                         <a href="javascript:void(0)" class="category-trigger">
                                             <i class="fa fa-bars"></i>

@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Blog;
+use App\Model\Blog;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -66,13 +66,13 @@ class BlogDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('add your columns'),
+            Column::make('title'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(60)
+                  ->width(120)
                   ->addClass('text-center'),
         ];
     }
