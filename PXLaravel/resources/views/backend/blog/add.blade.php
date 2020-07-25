@@ -6,7 +6,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Blog Create</div>
-                <form>
+                <form method="POST" action="{{route('backend.blog.store')}}">
+                    @csrf
                     <div class="card-body">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>

@@ -35,7 +35,7 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view("backend.blog.add");
     }
 
     /**

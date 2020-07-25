@@ -7,7 +7,8 @@
             <div class="card">
                 <div class="card-header">Setting Index</div>
                 <div class="card-body">
-                    <form>
+                <form method="POST" action="{{route('backend.setting.store')}}">
+                    @csrf
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>

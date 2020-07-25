@@ -47,9 +47,8 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view("backend.blog.add");
     }
-
     /**
      * Display the specified resource.
      *

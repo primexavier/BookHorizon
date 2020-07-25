@@ -35,8 +35,8 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {        
+        return view("backend.blog.add");
     }
 
     /**

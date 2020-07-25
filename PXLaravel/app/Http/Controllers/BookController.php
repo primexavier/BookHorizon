@@ -39,7 +39,7 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view("backend.book.add");
     }
 
     /**

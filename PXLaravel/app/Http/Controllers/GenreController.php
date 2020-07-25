@@ -35,7 +35,7 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view("backend.blog.add");
     }
 
     /**
