@@ -11,7 +11,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Book Create</div>
-                <form>
+                <form method="POST" action="{{route('backend.book.store')}}">
+                    @csrf
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
@@ -87,7 +88,7 @@
                                 </div>        
                             </div>
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </div>
                     </div>
