@@ -24,16 +24,16 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <ul class="header-top-list">
-                                    <li class="dropdown-trigger currency-dropdown"><a href="">£ GBP </a><i
+                                    <li class="dropdown-trigger currency-dropdown"><a href="">Rp</a><i
                                             class="fas fa-chevron-down dropdown-arrow"></i>
                                         <ul class="dropdown-box">
-                                            <li><a href="#">€ Euro</a></li>
-                                            <li><a href="#">£ Pound Sterling</a></li>
-                                            <li><a href="#">$ US Dollar</a></li>
+                                            <li><a href="#">Rp Rupiah</a></li>
+                                            <!-- <li><a href="#">£ Pound Sterling</a></li>
+                                            <li><a href="#">$ US Dollar</a></li> -->
                                         </ul>
                                     </li>
                                     <li class="dropdown-trigger language-dropdown">
-                                        <a href="/en-gb">
+                                        <a href="/">
                                             <span class="flag-img">
                                                 <img src="{{ asset('frontend/image/icon/eng-flag.png') }}" alt="">
                                             </span>
@@ -42,7 +42,7 @@
                                         <i class="fas fa-chevron-down dropdown-arrow"></i>
                                         <ul class="dropdown-box">
                                             <li> 
-                                                <a href="/en-gb"> 
+                                                <a href="/"> 
                                                     <span class="flag-img">
                                                         <img src="{{ asset('frontend/image/icon/eng-flag.png') }}" alt="">
                                                     </span>
@@ -50,7 +50,7 @@
                                                 </a>
                                             </li>
                                             <li> 
-                                                <a href="/german">
+                                                <a href="/">
                                                     <span class="flag-img">
                                                         <img src="{{ asset('frontend/image/icon/germany-flag.png') }}" alt="">
                                                     </span>
@@ -92,7 +92,7 @@
                                     </li>
                                     @endguest
                                     <li>
-                                        <a href="">
+                                        <a href="{{route('contact.index')}}">
                                             <i class="icons-left fas fa-phone"></i>
                                             Contact
                                         </a>

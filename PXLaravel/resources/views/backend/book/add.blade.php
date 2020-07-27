@@ -20,69 +20,69 @@
                                     <div class="col-md-12">       
                                         <div class="form-group">
                                             <label for="exampleFormControlFile1">Photo</label>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept="image/x-png,image/gif,image/jpeg">
+                                            <input type="file" class="form-control-file" accept="image/x-png,image/gif,image/jpeg" name="photo">
                                         </div>    
                                         <div class="form-group">
                                             <label for="title">Title</label>
-                                            <input type="text" class="form-control" placeholder="Book Email">
+                                            <input type="text" class="form-control" placeholder="Book Email" name="title">
                                         </div>              
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="isbn">ISBN</label>
-                                            <input type="text" class="form-control" placeholder="Password">
+                                            <input type="text" class="form-control" placeholder="isbn" name="isbn">
                                         </div>
                                         <div class="form-group">
                                             <label for="product_code">Product Code</label>
-                                            <input type="text" class="form-control" placeholder="Product Code">
+                                            <input type="text" class="form-control" placeholder="Product Code" name="pcode">
                                         </div>
                                         <div class="form-group">
                                             <label for="isbn">Pages</label>
-                                            <input type="text" class="form-control" placeholder="Pages">
+                                            <input type="text" class="form-control" placeholder="Pages" name="pages">
                                         </div>
                                         <div class="form-group">
                                             <label for="isbn">Dimension</label>
-                                            <input type="text" class="form-control" placeholder="Dimension">
+                                            <input type="text" class="form-control" placeholder="Dimension" name="dimension">
                                         </div>
                                         <div class="form-group">
                                             <label for="isbn">Weight</label>
-                                            <input type="text" class="form-control" placeholder="Weight">
+                                            <input type="text" class="form-control" placeholder="Weight" name="weight">
                                         </div>
                                         <div class="form-group">
                                             <label for="isbn">Vendor</label>
-                                            <input type="text" class="form-control" placeholder="Vendor">
+                                            <input type="text" class="form-control" placeholder="Vendor" name="vendor">
                                         </div>                            
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="publication City">Publication City</label>
-                                            <input type="text" class="form-control" placeholder="Publication City">
+                                            <input type="text" class="form-control" placeholder="Publication City" name="pcity">
                                         </div>
                                         <div class="form-group">
                                             <label for="">Format</label>
-                                            <input type="text" class="form-control" placeholder="Format">
+                                            <input type="text" class="form-control" placeholder="Format" name="format">
                                         </div>
                                         <div class="form-group">
                                             <label for="">Purchase Price</label>
-                                            <input type="text" class="form-control" placeholder="Purchase Price">
+                                            <input type="text" class="form-control" placeholder="Purchase Price" name="pprice">
                                         </div>    
                                         <div class="form-group">
                                             <label for="">Start Qty</label>
-                                            <input type="text" class="form-control" placeholder="Start Qty">
+                                            <input type="number" class="form-control" placeholder="Start Qty" name="qty">
                                         </div>       
                                         <div class="form-group">
                                             <label for="">Price</label>
-                                            <input type="text" class="form-control" placeholder="Price">
+                                            <input type="text" class="form-control" placeholder="Price" name="price">
                                         </div>       
                                         <div class="form-group">
                                             <label for="">Purchase Date</label>
-                                            <input type="date" class="form-control" placeholder="Purchase Date">
+                                            <input type="date" class="form-control" placeholder="Purchase Date" name="pdate">
                                         </div>        
                                     </div>
                                     <div class="col-md-12">        
                                         <div class="form-group">
                                             <label for="title">Description</label>
-                                            <input type="text" class="form-control" placeholder="Book Email">
+                                            <input type="text" class="form-control" placeholder="Book Email" name="desc">
                                         </div>              
                                     </div>           
                                 </div>        

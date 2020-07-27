@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Blog;
 use Illuminate\Http\Request;
 use App\DataTables\BlogDataTable;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
@@ -36,7 +37,17 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {        
-        return view("backend.blog.add");
+        $validatedData = $request->validateWithBag('blogs', [
+            'title' => ['required', 'unique:blogs', 'max:255'],
+            'content' => ['required'],
+        ]);
+        $new = new Blog();
+        $new->title = $request->title;
+        $new->content = $request->content;
+        $new->user_id = Auth::user()->id;
+        $new->save();
+
+        return redirect()->route('backend.blog.index');;
     }
 
     /**
@@ -81,6 +92,24 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        echo $blog;
+        dd($blog);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Model\Blog  $blog
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        $softDelete = Blog::find($id)->first();
+        if($softDelete){
+            $softDelete->delete();
+            return redirect()->route("backend.blog.index");
+        }else{
+            return redirect()->route("backend.blog.index");
+        }
+    }    
 }

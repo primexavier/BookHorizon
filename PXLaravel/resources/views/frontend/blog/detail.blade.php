@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="blog-post post-details mb--50">
                     <div class="blog-image">
-                        <img src="{{ asset('frontend/image/others/blog-img-big-1.jpg') }}" alt="">
+                        <img src="{{ asset('frontend/image/blog') }}/{{$blog->photo}}" alt="">
                     </div>
                     <div class="blog-content mt--30">
                         <header>
@@ -39,17 +39,17 @@
                         </header>
                         <article>
                             <h3 class="d-none sr-only">blob-article</h3>
-                            <p class="p-0">{{$blog->description}}</p>
+                            <p class="p-0">{{$blog->content}}</p>
                             <blockquote>
-                                <p>{{$blog->description}}</p>
+                                <p>{{$blog->content}}</p>
                             </blockquote>
-                            <p>{{$blog->description}}</p>
-                            <p>{{$blog->description}}</p>
+                            <p>{{$blog->content}}</p>
+                            <p>{{$blog->content}}</p>
                         </article>
-                        <footer class="blog-meta">
+                        <!-- <footer class="blog-meta">
                             <div> <a href="#">3 comments </a> / TAGS: <a href="#">fashion</a>, <a href="#">t-shirt</a>,
                                 <a href="#">white</a></div>
-                        </footer>
+                        </footer> -->
                     </div>
                 </div>
                 <div class="share-block mb--50">
@@ -62,7 +62,7 @@
                         <a href="#" class="single-social social-rounded"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                <div class="comment-block-wrapper mb--50">
+                <!-- <div class="comment-block-wrapper mb--50">
                     <h3>3 Comments</h3>
                     <div class="single-comment">
                         <div class="comment-avatar">
@@ -97,8 +97,8 @@
                         </div>
                         <a href="#" class="btn btn-outlined--primary btn-rounded reply-btn">Reply</a>
                     </div>
-                </div>
-                <div class="replay-form-wrapper">
+                </div> -->
+                <!-- <div class="replay-form-wrapper">
                     <h3 class="mt-0">LEAVE A REPLY</h3>
                     <p>Your email address will not be published. Required fields are marked *</p>
                     <form action="./" class="blog-form">
@@ -135,7 +135,7 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                </div> -->
             </div>
         </section>
 @endsection

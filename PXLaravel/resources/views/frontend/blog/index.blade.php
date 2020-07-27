@@ -20,24 +20,26 @@
           @forelse ($blogList as $blog)
             <div class="col-lg-4 col-md-6 mb-lg--60 mb--30">
               <div class="blog-card card-style-grid">
-                <a href="blog-details.html" class="image d-block">
-                  <img src="{{ asset('frontend/image/others/blog-grid-1.jpg') }}" alt="">
+                <a href="{{ route('blog.detail',$blog->id) }}" class="image d-block">                                                                                                                                                                                                      
+                  @if ($blog->photo)
+                    <img src="{{ asset('frontend/image/blog') }}/{{$blog->photo}}" alt="">
+                  @endif
                 </a>
                 <div class="card-content">
-                  <h3 class="title"><a href="{{ route('blog.detail',$blog->id) }}">{{$blog->title}}</a></h3>
+                  <h3 class="title"><a href="{{ route('blog.detail',$blog->id) }}/">{{ \Illuminate\Support\Str::limit($blog->title, 40, $end='...')}}</a></h3>
                   <p class="post-meta"><span>{{$blog->created_at}} </span> | <a href="#">Hastech</a></p>
                   <article>
                     <h2 class="sr-only">
                       Blog Article
                     </h2>
-                    <p>Maria Denardo is the Fashion Director theFashion Spot at. Prior to joining tFS, she worked as... </p>
+                    <p>{{ \Illuminate\Support\Str::limit($blog->content, 70, $end='...')}}</p>
                     <a href="{{ route('blog.detail',$blog->id) }}" class="blog-link">Read More</a>
                   </article>
                 </div>
               </div>
             </div>
           @empty
-            <p>There is no Blog!</p>
+            <p>There is No Blog!</p>
           @endforelse
         </div>
       </div>

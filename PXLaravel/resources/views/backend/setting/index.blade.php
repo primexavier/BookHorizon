@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Setting Index</div>
                 <div class="card-body">
-                <form method="POST" action="{{route('backend.setting.store')}}">
+                <form method="POST" action="{{route('backend.setting.update')}}">
                     @csrf
                         <div class="card-body">
                             <div class="form-group">

@@ -21,7 +21,12 @@ class BlogDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', '<button type="button" class="btn btn-info"><i class="fas fa-info"></i></button><button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button><button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button>');
+            ->addColumn('action', '<a href="{{route(\'backend.blog.detail\',$id)}}" class="btn btn-info" style="color:white"><i class="fas fa-info"></i></a> 
+            <a href="{{route(\'backend.blog.update\',$id)}}" style="color:white" class="btn btn-success"><i class="fas fa-edit"></i></a> 
+            <form method="post" action="{{route(\'backend.blog.delete\',$id)}}" style="display:inline-block">
+                @csrf
+                <button type="submit" style="color:white" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+            </form>');
     }
 
     /**

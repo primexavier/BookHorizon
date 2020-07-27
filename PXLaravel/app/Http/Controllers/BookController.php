@@ -39,7 +39,28 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        return view("backend.book.add");
+        $validatedData = $request->validateWithBag('books', [
+            'title' => ['required', 'unique:books', 'max:255']
+        ]);
+        $new = new Book();
+        $new->title = $request->title;
+        $new->isbn = $request->isbn;
+        $new->publication_city = $request->pcity;
+        $new->format = $request->format;
+        $new->product_code = $request->pcode;
+        $new->pages = $request->pages;
+        $new->dimension = $request->dimension;
+        $new->weight = $request->weight;
+        $new->vendor = $request->vendor;
+        $new->purchase_price = $request->pprice;
+        $new->start_qty = $request->qty;
+        $new->purchase_price = $request->pdate;
+        $new->description = $request->desc;
+        if ($request->hasFile('photo')) {
+            $new->photo = $request->file('photo')->getClientOriginalName();
+        }
+        $new->save();
+        return redirect()->route("backend.book.index");
     }
 
     /**
@@ -84,7 +105,7 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        dd($book);
     }
 
     public function importExcel(Request $request)
@@ -93,5 +114,22 @@ class BookController extends Controller
         
         return redirect('/backend/books')->with('success', 'All good!');
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Model\Blog  $blog
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        $softDelete = Book::find($id)->first();
+        if($softDelete){
+            $softDelete->delete();
+            return redirect()->route("backend.book.index");
+        }else{
+            return redirect()->route("backend.book.index");
+        }
+    }    
 
 }

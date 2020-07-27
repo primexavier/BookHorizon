@@ -153,7 +153,11 @@
                                         <div class="single-slide">
                                             <div class="product-card card-style-list">
                                                 <div class="card-image">
-                                                    <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
+                                                @if ($book->photo)
+                                                    <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                @else
+                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                @endif
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="product-header">
@@ -164,8 +168,8 @@
                                                     </div>
                                                     <div class="price-block">
                                                         <span class="price">{{$book->price}}</span>
-                                                        <del class="price-old">{{$book->price+($book->price*0.2)}}</del>
-                                                        <span class="price-discount">20%</span>
+                                                        <!-- <del class="price-old">{{$book->price+($book->price*0.2)}}</del> -->
+                                                        <!-- <span class="price-discount">20%</span> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -208,10 +212,18 @@
                                                     </div>
                                                     <div class="product-card--body">
                                                         <div class="card-image">
-                                                            <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
+                                                            @if ($spesialOffer->photo)
+                                                                <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                            @else
+                                                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                            @endif
                                                             <div class="hover-contents">
                                                                 <a href="{{ route('book.detail',$spesialOffer->id) }}" class="hover-image">
-                                                                    <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
+                                                                @if ($spesialOffer->photo)
+                                                                        <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                    @else
+                                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                    @endif
                                                                 </a>
                                                                 <div class="hover-btns">
                                                                     <a href="cart.html" class="single-btn">
@@ -232,11 +244,11 @@
                                                         </div>
                                                         <div class="price-block">
                                                             <span class="price">{{$spesialOffer->price}}</span>
-                                                            <del class="price-old">£51.20</del>
-                                                            <span class="price-discount">20%</span>
+                                                            <!-- <del class="price-old">£51.20</del>
+                                                            <span class="price-discount">20%</span> -->
                                                         </div>
                                                         <div class="count-down-block">
-                                                            <div class="product-countdown" data-countdown="01/05/2020"></div>
+                                                            <div class="product-countdown" data-countdown="08/08/2020"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -403,11 +415,19 @@
                                                                         <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
                                                                 </div>
                                                                 <div class="product-card--body">
-                                                                    <div class="card-image">
-                                                                        <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
-                                                                        <div class="hover-contents">
-                                                                            <a href="{{ route('book.detail',$book->id) }}" class="hover-image">
-                                                                                <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
+                                                                    <div class="card-image">                                                                       
+                                                                        @if ($book->photo)
+                                                                            <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                        @else
+                                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                        @endif
+                                                                       <div class="hover-contents">
+                                                                            <a href="{{ route('book.detail',$book->id) }}" class="hover-image">                                                                                                                                                                                                              
+                                                                                @if ($book->photo)
+                                                                                    <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                                @else
+                                                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                                @endif                                                                            
                                                                             </a>
                                                                             <div class="hover-btns">
                                                                                 <a href="cart.html" class="single-btn">
@@ -429,8 +449,8 @@
                                                                     </div>
                                                                     <div class="price-block">
                                                                         <span class="price">{{$book->price}}</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
+                                                                        <!-- <del class="price-old">£51.20</del>
+                                                                        <span class="price-discount">20%</span> -->
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -465,11 +485,19 @@
                                                                     <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
                                                                 </div>
                                                                 <div class="product-card--body">
-                                                                    <div class="card-image">
-                                                                        <img src="{{ asset('frontend/image/products/product-10.jpg') }}" alt="">
+                                                                    <div class="card-image">                                                                        
+                                                                        @if ($book->photo)
+                                                                            <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                        @else
+                                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                        @endif
                                                                         <div class="hover-contents">
                                                                             <a href="{{ route('book.detail',$book->id) }}" class="hover-image">
-                                                                                <img src="{{ asset('frontend/image/products/product-9.jpg') }}" alt="">
+                                                                                @if ($book->photo)
+                                                                                    <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                                @else
+                                                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                                @endif         
                                                                             </a>
                                                                             <div class="hover-btns">
                                                                                 <a href="cart.html" class="single-btn">
@@ -491,8 +519,8 @@
                                                                     </div>
                                                                     <div class="price-block">
                                                                         <span class="price">{{$book->price}}</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
+                                                                        <!-- <del class="price-old">£51.20</del>
+                                                                        <span class="price-discount">20%</span> -->
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -528,11 +556,19 @@
                                                                                 Retina Display</a></h3>
                                                                 </div>
                                                                 <div class="product-card--body">
-                                                                    <div class="card-image">
-                                                                        <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
+                                                                    <div class="card-image">                                                                        
+                                                                        @if ($book->photo)
+                                                                            <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                        @else
+                                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                        @endif
                                                                         <div class="hover-contents">
                                                                             <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                                <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
+                                                                                @if ($book->photo)
+                                                                                    <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                                @else
+                                                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                                @endif         
                                                                             </a>
                                                                             <div class="hover-btns">
                                                                                 <a href="cart.html" class="single-btn">
@@ -554,8 +590,8 @@
                                                                     </div>
                                                                     <div class="price-block">
                                                                         <span class="price">£51.20</span>
-                                                                        <del class="price-old">£51.20</del>
-                                                                        <span class="price-discount">20%</span>
+                                                                        <!-- <del class="price-old">£51.20</del>
+                                                                        <span class="price-discount">20%</span> -->
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -623,8 +659,12 @@
                                                         @forelse ($booklist as $book)
                                                             <div class="single-slide">
                                                                 <div class="product-card card-style-list">
-                                                                    <div class="card-image">
-                                                                        <img src="{{ asset('frontend/image/products/product-1.jpg') }}" alt="">
+                                                                    <div class="card-image">                                                                                                                                     
+                                                                        @if ($book->photo)
+                                                                            <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                        @else
+                                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                        @endif
                                                                     </div>
                                                                     <div class="product-card--body">
                                                                         <div class="product-header">
@@ -635,8 +675,8 @@
                                                                         </div>
                                                                         <div class="price-block">
                                                                             <span class="price">{{$book->price}}</span>
-                                                                            <del class="price-old">£51.20</del>
-                                                                            <span class="price-discount">20%</span>
+                                                                            <!-- <del class="price-old">£51.20</del>
+                                                                            <span class="price-discount">20%</span> -->
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -662,8 +702,12 @@
                                                         @forelse ($booklist as $book)
                                                             <div class="single-slide">
                                                                 <div class="product-card card-style-list">
-                                                                    <div class="card-image">
-                                                                        <img src="{{ asset('frontend/image/products/product-3.jpg') }}" alt="">
+                                                                    <div class="card-image">                                                                                                                                                                                                      
+                                                                        @if ($book->photo)
+                                                                            <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                        @else
+                                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                        @endif 
                                                                     </div>
                                                                     <div class="product-card--body">
                                                                         <div class="product-header">
@@ -674,8 +718,8 @@
                                                                         </div>
                                                                         <div class="price-block">
                                                                             <span class="price">{{$book->price}}</span>
-                                                                            <del class="price-old">£51.20</del>
-                                                                            <span class="price-discount">20%</span>
+                                                                            <!-- <del class="price-old">£51.20</del>
+                                                                            <span class="price-discount">20%</span> -->
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -702,8 +746,12 @@
                                                         @forelse ($booklist as $book)
                                                             <div class="single-slide">
                                                                 <div class="product-card card-style-list">
-                                                                    <div class="card-image">
-                                                                        <img src="{{ asset('frontend/image/products/product-2.jpg') }}" alt="">
+                                                                    <div class="card-image">                                                                                                                                                                                                      
+                                                                        @if ($book->photo)
+                                                                            <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                        @else
+                                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                        @endif
                                                                     </div>
                                                                     <div class="product-card--body">
                                                                         <div class="product-header">
@@ -714,8 +762,8 @@
                                                                         </div>
                                                                         <div class="price-block">
                                                                             <span class="price">{{$book->price}}}</span>
-                                                                            <del class="price-old">£51.20</del>
-                                                                            <span class="price-discount">20%</span>
+                                                                            <!-- <del class="price-old">£51.20</del>
+                                                                            <span class="price-discount">20%</span> -->
                                                                         </div>
                                                                     </div>
                                                                 </div>
