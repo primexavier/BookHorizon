@@ -60,6 +60,7 @@ class BookController extends Controller
             $new->photo = $request->file('photo')->getClientOriginalName();
         }
         $new->save();
+        
         return redirect()->route("backend.book.index");
     }
 
@@ -123,7 +124,7 @@ class BookController extends Controller
      */
     public function delete($id)
     {
-        $softDelete = Book::find($id)->first();
+        $softDelete = Book::where('id',$id)->first();
         if($softDelete){
             $softDelete->delete();
             return redirect()->route("backend.book.index");

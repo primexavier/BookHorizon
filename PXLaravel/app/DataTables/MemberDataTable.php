@@ -37,7 +37,7 @@ class MemberDataTable extends DataTable
      */
     public function query(User $model)
     {
-        return $model->where("level",1)->newQuery();
+        return $model->where("level",2)->newQuery();
     }
 
     /**

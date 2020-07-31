@@ -104,7 +104,7 @@ class BlogController extends Controller
      */
     public function delete($id)
     {
-        $softDelete = Blog::find($id)->first();
+        $softDelete = Blog::where('id',$id)->first();
         if($softDelete){
             $softDelete->delete();
             return redirect()->route("backend.blog.index");

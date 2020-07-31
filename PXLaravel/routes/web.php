@@ -55,15 +55,15 @@ Route::group(['prefix' => 'backend'], function () {
         });
         Route::group(['prefix' => 'members'], function () {
             Route::get('/', 'MemberController@index')->name('backend.member.index');
+            Route::get('/create', 'MemberController@create')->name('backend.member.create');
             Route::post('/create', 'MemberController@store')->name('backend.member.store');
-            Route::get('/create', 'MemberController@index')->name('backend.member.create');
             Route::get('/update/{id}', 'MemberController@update')->name('backend.member.update');
             Route::get('/detail/{id}', 'MemberController@show')->name('backend.member.detail');
             Route::post('/delete/{id}', 'MemberController@delete')->name('backend.member.delete');
         });
         Route::group(['prefix' => 'users'], function () {
             Route::get('/', 'UsersController@index')->name('backend.users.index');
-            Route::get('/create', 'UsersController@index')->name('backend.users.create');
+            Route::get('/create', 'UsersController@create')->name('backend.users.create');
             Route::post('/create', 'UsersController@store')->name('backend.users.store');
             Route::get('/update/{id}', 'UsersController@update')->name('backend.users.update');
             Route::get('/detail/{id}', 'UsersController@show')->name('backend.users.detail');
