@@ -47,4 +47,15 @@ class UsersController extends Controller
     {
         return view("backend.users.add");
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Model\Book  $book
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return view("backend.member.detail");
+    }
 }

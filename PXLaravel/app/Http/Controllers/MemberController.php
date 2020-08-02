@@ -79,4 +79,15 @@ class MemberController extends Controller
 
         return view('frontend.profile.index')->with('userDetail', $user);
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Model\Book  $book
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return view("backend.member.detail");
+    }
 }

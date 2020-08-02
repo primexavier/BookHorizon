@@ -70,9 +70,10 @@ class BookController extends Controller
      * @param  \App\Model\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
+    public function show($id)
     {
-        //
+        $book = Book::where("id",$id)->first();
+        return view("backend.book.detail")->with("book",$book);
     }
 
     /**
@@ -106,7 +107,7 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        dd($book);
+
     }
 
     public function importExcel(Request $request)
