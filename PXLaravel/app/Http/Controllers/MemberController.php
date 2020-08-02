@@ -6,6 +6,7 @@ use App\Model\User;
 use Illuminate\Http\Request;
 use App\DataTables\MemberDataTable;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class MemberController extends Controller
 {
@@ -70,7 +71,7 @@ class MemberController extends Controller
             return redirect()->route("backend.member.index");
         }
     }    
-    
+
     public function profile()
     {
         $userID = Auth::id();
