@@ -70,4 +70,12 @@ class MemberController extends Controller
             return redirect()->route("backend.member.index");
         }
     }    
+    
+    public function profile()
+    {
+        $userID = Auth::id();
+        $user = User::where('id',$userID)->first();
+
+        return view('frontend.profile.index')->with('userDetail', $user);
+    }
 }
