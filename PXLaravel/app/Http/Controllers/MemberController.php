@@ -88,6 +88,7 @@ class MemberController extends Controller
      */
     public function show($id)
     {
-        return view("backend.member.detail");
+        $member = User::where("id",$id)->first();
+        return view("backend.member.detail")->with("member",$member);
     }
 }

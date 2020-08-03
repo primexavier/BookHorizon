@@ -8,7 +8,9 @@
                 <div class="card-header">Detail Index</div>
 
                 <div class="card-body">
-
+                    Name : {{$member->name}}<br>
+                    Email : {{$member->email}}<br>
+                    Status : {{$member->email}}<br>
                 </div>
             </div>
         </div>

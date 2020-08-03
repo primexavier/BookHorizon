@@ -8,7 +8,19 @@
                 <div class="card-header">Blog Detail</div>
 
                 <div class="card-body">
-
+                    @if ($blog->photo)
+						<div class="single-slide">
+							<img src="{{ asset('frontend/image/blog') }}/{{$blog->photo}}" width="450px" alt="">
+						</div>
+					@else
+						<div class="single-slide">
+							<img src="{{ asset('frontend/image/blog') }}/empty.jpg" alt="" width="450px">
+						</div>
+					@endif
+                    </br>
+                    title : {{$blog->title}}
+                    </br>
+                    Content : {{$blog->content}} 
                 </div>
             </div>
         </div>

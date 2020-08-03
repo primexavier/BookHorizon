@@ -56,9 +56,10 @@ class BlogController extends Controller
      * @param  \App\Model\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show($id)
     {
-        return view("backend.member.detail");
+        $blog = Blog::where("id",$id)->first();
+        return view("backend.blog.detail")->with("blog",$blog);
     }
 
     /**

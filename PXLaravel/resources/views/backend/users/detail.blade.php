@@ -5,10 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Book Index</div>
+                <div class="card-header">Users Index</div>
 
                 <div class="card-body">
-
+                    Name  : {{$users->name}}
+                    Email : {{$users->email}}
                 </div>
             </div>
         </div>

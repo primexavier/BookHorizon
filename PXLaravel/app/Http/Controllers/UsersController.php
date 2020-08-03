@@ -56,6 +56,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        return view("backend.member.detail");
+        $users = User::where('id',$id)->first();
+        return view("backend.users.detail")->with("users",$users);
     }
 }
