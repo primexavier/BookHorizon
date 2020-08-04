@@ -39,7 +39,8 @@ Route::group(['prefix' => 'backend'], function () {
             Route::get('/', 'BookController@index')->name('backend.book.index');
             Route::get('/create', 'BookController@create')->name('backend.book.create');
             Route::post('/create', 'BookController@store')->name('backend.book.store');
-            Route::get('/update/{id}', 'BookController@update')->name('backend.book.update');
+            Route::get('/update/{id}', 'BookController@edit')->name('backend.book.edit');
+            Route::post('/update/{id}', 'BookController@update')->name('backend.book.update');
             Route::get('/detail/{id}', 'BookController@show')->name('backend.book.detail');
             Route::post('/delete/{id}', 'BookController@delete')->name('backend.book.delete');
             Route::post('/import', 'BookController@importExcel')->name('backend.book.import');
@@ -49,7 +50,8 @@ Route::group(['prefix' => 'backend'], function () {
             Route::get('/', 'BlogController@index')->name('backend.blog.index');
             Route::get('/create', 'BlogController@create')->name('backend.blog.create');
             Route::post('/create', 'BlogController@store')->name('backend.blog.store');
-            Route::get('/update/{id}', 'BlogController@update')->name('backend.blog.update');
+            Route::get('/update/{id}', 'BlogController@edit')->name('backend.blog.edit');
+            Route::post('/update/{id}', 'BlogController@update')->name('backend.blog.update');
             Route::get('/detail/{id}', 'BlogController@show')->name('backend.blog.detail');
             Route::post('/delete/{id}', 'BlogController@delete')->name('backend.blog.delete');
         });
@@ -57,7 +59,8 @@ Route::group(['prefix' => 'backend'], function () {
             Route::get('/', 'MemberController@index')->name('backend.member.index');
             Route::get('/create', 'MemberController@create')->name('backend.member.create');
             Route::post('/create', 'MemberController@store')->name('backend.member.store');
-            Route::get('/update/{id}', 'MemberController@update')->name('backend.member.update');
+            Route::get('/update/{id}', 'MemberController@edit')->name('backend.member.edit');
+            Route::post('/update/{id}', 'MemberController@update')->name('backend.member.update');
             Route::get('/detail/{id}', 'MemberController@show')->name('backend.member.detail');
             Route::post('/delete/{id}', 'MemberController@delete')->name('backend.member.delete');
         });
@@ -65,15 +68,17 @@ Route::group(['prefix' => 'backend'], function () {
             Route::get('/', 'UsersController@index')->name('backend.users.index');
             Route::get('/create', 'UsersController@create')->name('backend.users.create');
             Route::post('/create', 'UsersController@store')->name('backend.users.store');
-            Route::get('/update/{id}', 'UsersController@update')->name('backend.users.update');
+            Route::get('/update/{id}', 'UsersController@edit')->name('backend.users.edit');
+            Route::post('/update/{id}', 'UsersController@update')->name('backend.users.update');
             Route::get('/detail/{id}', 'UsersController@show')->name('backend.users.detail');
             Route::post('/delete/{id}', 'UsersController@destroy')->name('backend.users.delete');
         });
         Route::group(['prefix' => 'transactions'], function () {
             Route::get('/', 'TransactionsController@index')->name('backend.transactions.index');
-            Route::post('/create', 'TransactionsController@store')->name('backend.transactions.store');
             Route::get('/create', 'TransactionsController@index')->name('backend.transactions.create');
-            Route::get('/update/{id}', 'TransactionsController@update')->name('backend.transactions.update');
+            Route::post('/create', 'TransactionsController@store')->name('backend.transactions.store');
+            Route::get('/update/{id}', 'TransactionsController@edit')->name('backend.transactions.edit');
+            Route::post('/update/{id}', 'TransactionsController@update')->name('backend.transactions.update');
             Route::get('/detail/{id}', 'TransactionsController@show')->name('backend.transactions.detail');
             Route::post('/delete/{id}', 'TransactionsController@destroy')->name('backend.transactions.delete');
         });

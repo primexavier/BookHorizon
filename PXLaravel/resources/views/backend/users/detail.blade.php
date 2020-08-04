@@ -8,7 +8,7 @@
                 <div class="card-header">Users Index</div>
 
                 <div class="card-body">
-                    Name  : {{$users->name}}
+                    Name  : {{$users->name}} </br>
                     Email : {{$users->email}}
                 </div>
             </div>
