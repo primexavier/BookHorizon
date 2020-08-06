@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
 }
-
 h1 {
   font-weight: normal;
 }
@@ -44,7 +43,7 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #ffd54f;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
