@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Book Index</div>
+                <div class="card-header">Users Edit</div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('backend.users.update')}}">
+                    <form method="POST" action="{{route('backend.users.update',$users->id)}}">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
-                                <input type="text" class="form-control" name="name">
+                                <input type="text" class="form-control" name="name" value="{{$users->name}}">
                             </div>
                             <div class="form-group">
                                 <label for="level">level</label>
@@ -24,7 +24,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" name="email">
+                                <input type="email" class="form-control" name="email" value="{{$users->email}}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>

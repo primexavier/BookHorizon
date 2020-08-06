@@ -54,9 +54,18 @@ class UsersController extends Controller
      * @param  \App\Model\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        $users = User::where('id',$id)->first();
-        return view("backend.users.detail")->with("users",$users);
+        return view("backend.users.detail")->with("users",$user);
+    }
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Model\Book  $book
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(User $user)
+    {
+        return view("backend.users.edit")->with("users",$user);
     }
 }

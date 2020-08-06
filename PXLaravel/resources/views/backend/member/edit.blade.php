@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Member Index</div>
+                <div class="card-header">Member Edit</div>
                 <div class="card-body">
                     <form method="POST" action="{{route('backend.member.update')}}">
                         @csrf

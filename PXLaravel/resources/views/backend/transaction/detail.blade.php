@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Book Index</div>
+                <div class="card-header">Transaction Detail</div>
 
                 <div class="card-body">
 

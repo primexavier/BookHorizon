@@ -70,9 +70,8 @@ class BookController extends Controller
      * @param  \App\Model\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Book $book)
     {
-        $book = Book::where("id",$id)->first();
         return view("backend.book.detail")->with("book",$book);
     }
 
@@ -84,7 +83,7 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        return $book;
     }
 
     /**
@@ -123,11 +122,10 @@ class BookController extends Controller
      * @param  \App\Model\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function delete(Book $book)
     {
-        $softDelete = Book::where('id',$id)->first();
-        if($softDelete){
-            $softDelete->delete();
+        if($book){
+            $book->delete();
             return redirect()->route("backend.book.index");
         }else{
             return redirect()->route("backend.book.index");

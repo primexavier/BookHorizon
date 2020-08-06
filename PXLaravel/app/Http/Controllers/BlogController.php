@@ -56,9 +56,8 @@ class BlogController extends Controller
      * @param  \App\Model\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Blog $blog)
     {
-        $blog = Blog::where("id",$id)->first();
         return view("backend.blog.detail")->with("blog",$blog);
     }
 
@@ -70,7 +69,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return $blog;
     }
 
     /**
@@ -82,7 +81,7 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        return $blog;
     }
 
     /**
@@ -93,8 +92,7 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        echo $blog;
-        dd($blog);
+        return $blog;
     }
 
     /**
@@ -103,11 +101,10 @@ class BlogController extends Controller
      * @param  \App\Model\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function delete(Blog $blog)
     {
-        $softDelete = Blog::where('id',$id)->first();
-        if($softDelete){
-            $softDelete->delete();
+        if($blog){
+            $blog->delete();
             return redirect()->route("backend.blog.index");
         }else{
             return redirect()->route("backend.blog.index");
