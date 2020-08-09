@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Chart;
+use App\Model\PaymentMethod;
 use Illuminate\Http\Request;
 
-class ChartController extends Controller
+class PaymentMethodController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ChartController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Model\Chart  $chart
+     * @param  \App\Model\PaymentMethod  $paymentMethod
      * @return \Illuminate\Http\Response
      */
-    public function show(Chart $chart)
+    public function show(PaymentMethod $paymentMethod)
     {
         //
     }
@@ -52,10 +52,10 @@ class ChartController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Model\Chart  $chart
+     * @param  \App\Model\PaymentMethod  $paymentMethod
      * @return \Illuminate\Http\Response
      */
-    public function edit(Chart $chart)
+    public function edit(PaymentMethod $paymentMethod)
     {
         //
     }
@@ -64,10 +64,10 @@ class ChartController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\Chart  $chart
+     * @param  \App\Model\PaymentMethod  $paymentMethod
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Chart $chart)
+    public function update(Request $request, PaymentMethod $paymentMethod)
     {
         //
     }
@@ -75,10 +75,10 @@ class ChartController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\Chart  $chart
+     * @param  \App\Model\PaymentMethod  $paymentMethod
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Chart $chart)
+    public function destroy(PaymentMethod $paymentMethod)
     {
         //
     }
