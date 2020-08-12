@@ -12,8 +12,7 @@
                                                                         "slidesToShow": 1,
                                                                         "dots":true
                                                                         }'>
-                                <div class="single-slide bg-image bg-overlay--white"
-                                    data-bg="{{ asset('frontend/image/bg-images/home-4-slider-1.jpg') }}">
+                                <div class="single-slide bg-image bg-overlay--white" data-bg="{{ asset('frontend/image/bg-images/home-4-slider-1.jpg') }}">
                                     <div class="home-content text-left pl--30">
                                         <div class="row">
                                             <div class="col-lg-5">
@@ -28,8 +27,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="single-slide bg-image bg-overlay--dark"
-                                    data-bg="{{ asset('frontend/image/bg-images/home-4-slider-2.jpg') }}">
+                                <div class="single-slide bg-image bg-overlay--dark" data-bg="{{ asset('frontend/image/bg-images/home-4-slider-2.jpg') }}">
                                     <div class="home-content text-center">
                                         <div class="row justify-content-end">
                                             <div class="col-lg-8">
@@ -123,7 +121,7 @@
                         </div>
                     </div>
                 </div>
-            </section> -->            
+            </section> -->
             <!--================================= Home Two Column Section ===================================== -->
             <section class="section-margin">
                 <h1 class="sr-only">Promotion Section</h1>
@@ -135,8 +133,7 @@
                                     <h3 class="home-sidebar-title">
                                         BEST SELLERS
                                     </h3>
-                                    <div class="product-slider product-list-slider multiple-row sb-slick-slider home-4-left-sidebar"
-                                        data-slick-setting='{
+                                    <div class="product-slider product-list-slider multiple-row sb-slick-slider home-4-left-sidebar" data-slick-setting='{
                                                 "autoplay": true,
                                                 "autoplaySpeed": 8000,
                                                 "slidesToShow":1,
@@ -148,16 +145,16 @@
                                                 {"breakpoint":768, "settings": {"slidesToShow": 2, "rows":2} },
                                                 {"breakpoint":575, "settings": {"slidesToShow": 1} },
                                                 {"breakpoint":490, "settings": {"slidesToShow": 1} }
-                                            ]'> 
+                                            ]'>
                                         @forelse ($booklist as $book)
                                         <div class="single-slide">
                                             <div class="product-card card-style-list">
                                                 <div class="card-image">
-                                                @if ($book->photo)
+                                                    @if ($book->photo)
                                                     <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-                                                @else
+                                                    @else
                                                     <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                @endif
+                                                    @endif
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="product-header">
@@ -175,7 +172,7 @@
                                             </div>
                                         </div>
                                         @empty
-                                            <p>There is no book!</p>
+                                        <p>There is no book!</p>
                                         @endforelse
                                     </div>
                                 </div>
@@ -188,8 +185,7 @@
                                     <h3 class="home-sidebar-title style-2">
                                         Special offer
                                     </h3>
-                                    <div class="product-slider countdown-single with-countdown sb-slick-slider product-border-reset"
-                                        data-slick-setting='{
+                                    <div class="product-slider countdown-single with-countdown sb-slick-slider product-border-reset" data-slick-setting='{
                                                     "autoplay": true,
                                                     "autoplaySpeed": 8000,
                                                     "slidesToShow": 1,
@@ -202,59 +198,58 @@
                                                 {"breakpoint":490, "settings": {"slidesToShow": 1} }
                                             ]'>
                                         @forelse ($spesialOffers as $spesialOffer)
-                                            <div class="single-slide">
-                                                <div class="product-card">
-                                                    <div class="product-header">
-                                                        <a href="" class="author">
-                                                            Ypple
-                                                        </a>
-                                                            <h3><a href="{{ route('book.detail',$spesialOffer->id) }}"></a>{{$spesialOffer->title}}</h3>
-                                                    </div>
-                                                    <div class="product-card--body">
-                                                        <div class="card-image">
-                                                            @if ($spesialOffer->photo)
-                                                                <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-                                                            @else
-                                                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                            @endif
-                                                            <div class="hover-contents">
-                                                                <a href="{{ route('book.detail',$spesialOffer->id) }}" class="hover-image">
+                                        <div class="single-slide">
+                                            <div class="product-card">
+                                                <div class="product-header">
+                                                    <a href="" class="author">
+                                                        Ypple
+                                                    </a>
+                                                    <h3><a href="{{ route('book.detail',$spesialOffer->id) }}"></a>{{$spesialOffer->title}}</h3>
+                                                </div>
+                                                <div class="product-card--body">
+                                                    <div class="card-image">
+                                                        @if ($spesialOffer->photo)
+                                                        <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                        @else
+                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                        @endif
+                                                        <div class="hover-contents">
+                                                            <a href="{{ route('book.detail',$spesialOffer->id) }}" class="hover-image">
                                                                 @if ($spesialOffer->photo)
-                                                                        <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-                                                                    @else
-                                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                                    @endif
+                                                                <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                @else
+                                                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                @endif
+                                                            </a>
+                                                            <div class="hover-btns">
+                                                                <a onclick="addChart('book',{{$book->id}})" class="single-btn">
+                                                                    <i class="fas fa-shopping-basket"></i>
                                                                 </a>
-                                                                <div class="hover-btns">
-                                                                    <a href="cart.html" class="single-btn">
-                                                                        <i class="fas fa-shopping-basket"></i>
-                                                                    </a>
-                                                                    <a href="wishlist.html" class="single-btn">
-                                                                        <i class="fas fa-heart"></i>
-                                                                    </a>
-                                                                    <a href="compare.html" class="single-btn">
-                                                                        <i class="fas fa-random"></i>
-                                                                    </a>
-                                                                    <a href="#" data-toggle="modal" data-target="#quickModal"
-                                                                        class="single-btn">
-                                                                        <i class="fas fa-eye"></i>
-                                                                    </a>
-                                                                </div>
+                                                                <a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
+                                                                    <i class="fas fa-heart"></i>
+                                                                </a>
+                                                                <!-- <a href="compare.html" class="single-btn">
+                                                                    <i class="fas fa-random"></i>
+                                                                </a> -->
+                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                    <i class="fas fa-eye"></i>
+                                                                </a>
                                                             </div>
                                                         </div>
-                                                        <div class="price-block">
-                                                            <span class="price">{{$spesialOffer->price}}</span>
-                                                            <!-- <del class="price-old">£51.20</del>
+                                                    </div>
+                                                    <div class="price-block">
+                                                        <span class="price">{{$spesialOffer->price}}</span>
+                                                        <!-- <del class="price-old">£51.20</del>
                                                             <span class="price-discount">20%</span> -->
-                                                        </div>
-                                                        <div class="count-down-block">
-                                                            <div class="product-countdown" data-countdown="08/08/2020"></div>
-                                                        </div>
+                                                    </div>
+                                                    <div class="count-down-block">
+                                                        <div class="product-countdown" data-countdown="08/08/2020"></div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
                                         @empty
-                                            <p>There is no book!</p>
+                                        <p>There is no book!</p>
                                         @endforelse
                                     </div>
                                 </div>
@@ -369,22 +364,19 @@
                                     <div class="sb-custom-tab text-lg-left text-center">
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item">
-                                                <a class="nav-link active" id="shop-tab" data-toggle="tab" href="#shop"
-                                                    role="tab" aria-controls="shop" aria-selected="true">
+                                                <a class="nav-link active" id="shop-tab" data-toggle="tab" href="#shop" role="tab" aria-controls="shop" aria-selected="true">
                                                     Featured Products
                                                 </a>
                                                 <span class="arrow-icon"></span>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" id="men-tab" data-toggle="tab" href="#men" role="tab"
-                                                    aria-controls="men" aria-selected="true">
+                                                <a class="nav-link" id="men-tab" data-toggle="tab" href="#men" role="tab" aria-controls="men" aria-selected="true">
                                                     New Arrivals
                                                 </a>
                                                 <span class="arrow-icon"></span>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" id="woman-tab" data-toggle="tab" href="#woman"
-                                                    role="tab" aria-controls="woman" aria-selected="false">
+                                                <a class="nav-link" id="woman-tab" data-toggle="tab" href="#woman" role="tab" aria-controls="woman" aria-selected="false">
                                                     Most view products
                                                 </a>
                                                 <span class="arrow-icon"></span>
@@ -392,8 +384,7 @@
                                         </ul>
                                         <div class="tab-content space-db--30" id="myTabContent">
                                             <div class="tab-pane active" id="shop" role="tabpanel" aria-labelledby="shop-tab">
-                                                <div class="product-slider multiple-row slider-border-multiple-row  sb-slick-slider"
-                                                    data-slick-setting='{
+                                                <div class="product-slider multiple-row slider-border-multiple-row  sb-slick-slider" data-slick-setting='{
                                                         "autoplay": true,
                                                         "autoplaySpeed": 8000,
                                                         "slidesToShow": 3,
@@ -406,199 +397,189 @@
                                                         {"breakpoint":320, "settings": {"slidesToShow": 1} }
                                                     ]'>
                                                     @forelse ($booklist as $book)
-                                                        <div class="single-slide">
-                                                            <div class="product-card">
-                                                                <div class="product-header">
-                                                                    <a href="" class="author">
-                                                                        jpple
-                                                                    </a>
-                                                                        <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="card-image">                                                                       
-                                                                        @if ($book->photo)
+                                                    <div class="single-slide">
+                                                        <div class="product-card">
+                                                            <div class="product-header">
+                                                                <a href="" class="author">
+                                                                    jpple
+                                                                </a>
+                                                                <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
+                                                            </div>
+                                                            <div class="product-card--body">
+                                                                <div class="card-image">
+                                                                    @if ($book->photo)
+                                                                    <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                    @else
+                                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                    @endif
+                                                                    <div class="hover-contents">
+                                                                        <a href="{{ route('book.detail',$book->id) }}" class="hover-image">
+                                                                            @if ($book->photo)
                                                                             <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-                                                                        @else
+                                                                            @else
                                                                             <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                                        @endif
-                                                                       <div class="hover-contents">
-                                                                            <a href="{{ route('book.detail',$book->id) }}" class="hover-image">                                                                                                                                                                                                              
-                                                                                @if ($book->photo)
-                                                                                    <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-                                                                                @else
-                                                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                                                @endif                                                                            
+                                                                            @endif
+                                                                        </a>
+                                                                        <div class="hover-btns">
+                                                                            <a onclick="addChart('book',{{$book->id}})" class="single-btn">
+                                                                                <i class="fas fa-shopping-basket"></i>
                                                                             </a>
-                                                                            <div class="hover-btns">
-                                                                                <a href="cart.html" class="single-btn">
-                                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                                </a>
-                                                                                <a href="wishlist.html" class="single-btn">
-                                                                                    <i class="fas fa-heart"></i>
-                                                                                </a>
-                                                                                <a href="compare.html" class="single-btn">
-                                                                                    <i class="fas fa-random"></i>
-                                                                                </a>
-                                                                                <a href="#" data-toggle="modal"
-                                                                                    data-target="#quickModal"
-                                                                                    class="single-btn">
-                                                                                    <i class="fas fa-eye"></i>
-                                                                                </a>
-                                                                            </div>
+                                                                            <a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
+                                                                                <i class="fas fa-heart"></i>
+                                                                            </a>
+                                                                            <!-- <a href="compare.html" class="single-btn">
+                                                                                <i class="fas fa-random"></i>
+                                                                            </a> -->
+                                                                            <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                                <i class="fas fa-eye"></i>
+                                                                            </a>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">{{$book->price}}</span>
-                                                                        <!-- <del class="price-old">£51.20</del>
+                                                                </div>
+                                                                <div class="price-block">
+                                                                    <span class="price">{{$book->price}}</span>
+                                                                    <!-- <del class="price-old">£51.20</del>
                                                                         <span class="price-discount">20%</span> -->
-                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>                                                 
+                                                        </div>
+                                                    </div>
                                                     @empty
-                                                        <p>There is no book!</p>
-                                                    @endforelse   
+                                                    <p>There is no book!</p>
+                                                    @endforelse
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="men" role="tabpanel" aria-labelledby="men-tab">
-                                                <div class="product-slider multiple-row slider-border-multiple-row  sb-slick-slider"
-                                                    data-slick-setting='{
+                                                <div class="product-slider multiple-row slider-border-multiple-row  sb-slick-slider" data-slick-setting='{
                                                                 "autoplay": true,
                                                                 "autoplaySpeed": 8000,
                                                                 "slidesToShow": 3,
                                                                 "rows":2,
                                                                 "dots":true
-                                                                }' 
-                                                                data-slick-responsive='[
+                                                                }' data-slick-responsive='[
                                                                     {"breakpoint":992, "settings": {"slidesToShow": 3} },
                                                                     {"breakpoint":768, "settings": {"slidesToShow": 2} },
                                                                     {"breakpoint":480, "settings": {"slidesToShow": 1} },
                                                                     {"breakpoint":320, "settings": {"slidesToShow": 1} }
                                                                 ]'>
                                                     @forelse ($booklist as $book)
-                                                        <div class="single-slide">
-                                                            <div class="product-card">
-                                                                <div class="product-header">
-                                                                    <a href="" class="author">
-                                                                        Apple
-                                                                    </a>
-                                                                    <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="card-image">                                                                        
-                                                                        @if ($book->photo)
+                                                    <div class="single-slide">
+                                                        <div class="product-card">
+                                                            <div class="product-header">
+                                                                <a href="" class="author">
+                                                                    Apple
+                                                                </a>
+                                                                <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
+                                                            </div>
+                                                            <div class="product-card--body">
+                                                                <div class="card-image">
+                                                                    @if ($book->photo)
+                                                                    <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                    @else
+                                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                    @endif
+                                                                    <div class="hover-contents">
+                                                                        <a href="{{ route('book.detail',$book->id) }}" class="hover-image">
+                                                                            @if ($book->photo)
                                                                             <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-                                                                        @else
+                                                                            @else
                                                                             <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                                        @endif
-                                                                        <div class="hover-contents">
-                                                                            <a href="{{ route('book.detail',$book->id) }}" class="hover-image">
-                                                                                @if ($book->photo)
-                                                                                    <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-                                                                                @else
-                                                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                                                @endif         
+                                                                            @endif
+                                                                        </a>
+                                                                        <div class="hover-btns">
+                                                                            <a onclick="addChart('book',{{$book->id}})" class="single-btn">
+                                                                                <i class="fas fa-shopping-basket"></i>
                                                                             </a>
-                                                                            <div class="hover-btns">
-                                                                                <a href="cart.html" class="single-btn">
-                                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                                </a>
-                                                                                <a href="wishlist.html" class="single-btn">
-                                                                                    <i class="fas fa-heart"></i>
-                                                                                </a>
-                                                                                <a href="compare.html" class="single-btn">
-                                                                                    <i class="fas fa-random"></i>
-                                                                                </a>
-                                                                                <a href="#" data-toggle="modal"
-                                                                                    data-target="#quickModal"
-                                                                                    class="single-btn">
-                                                                                    <i class="fas fa-eye"></i>
-                                                                                </a>
-                                                                            </div>
+                                                                            <a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
+                                                                                <i class="fas fa-heart"></i>
+                                                                            </a>
+                                                                            <!-- <a href="compare.html" class="single-btn">
+                                                                                <i class="fas fa-random"></i>
+                                                                            </a> -->
+                                                                            <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                                <i class="fas fa-eye"></i>
+                                                                            </a>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">{{$book->price}}</span>
-                                                                        <!-- <del class="price-old">£51.20</del>
+                                                                </div>
+                                                                <div class="price-block">
+                                                                    <span class="price">{{$book->price}}</span>
+                                                                    <!-- <del class="price-old">£51.20</del>
                                                                         <span class="price-discount">20%</span> -->
-                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>                                           
+                                                        </div>
+                                                    </div>
                                                     @empty
-                                                        <p>There is no book!</p>
-                                                    @endforelse  
+                                                    <p>There is no book!</p>
+                                                    @endforelse
                                                 </div>
                                             </div>
                                             <div class="tab-pane" id="woman" role="tabpanel" aria-labelledby="woman-tab">
-                                                <div class="product-slider multiple-row slider-border-multiple-row  sb-slick-slider"
-                                                    data-slick-setting='{
+                                                <div class="product-slider multiple-row slider-border-multiple-row  sb-slick-slider" data-slick-setting='{
                                                         "autoplay": true,
                                                         "autoplaySpeed": 8000,
                                                         "slidesToShow": 3,
                                                         "rows":2,
                                                         "dots":true
-                                                    }' 
-                                                    data-slick-responsive='[
+                                                    }' data-slick-responsive='[
                                                         {"breakpoint":992, "settings": {"slidesToShow": 3} },
                                                         {"breakpoint":768, "settings": {"slidesToShow": 2} },
                                                         {"breakpoint":480, "settings": {"slidesToShow": 1} },
                                                         {"breakpoint":320, "settings": {"slidesToShow": 1} }
                                                     ]'>
                                                     @forelse ($booklist as $book)
-                                                        <div class="single-slide">
-                                                            <div class="product-card">
-                                                                <div class="product-header">
-                                                                    <a href="" class="author">
-                                                                        Apple
-                                                                    </a>
-                                                                        <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                                Retina Display</a></h3>
-                                                                </div>
-                                                                <div class="product-card--body">
-                                                                    <div class="card-image">                                                                        
-                                                                        @if ($book->photo)
+                                                    <div class="single-slide">
+                                                        <div class="product-card">
+                                                            <div class="product-header">
+                                                                <a href="" class="author">
+                                                                    Apple
+                                                                </a>
+                                                                <h3><a href="{{ route('book.detail',1) }}">iPad with
+                                                                        Retina Display</a></h3>
+                                                            </div>
+                                                            <div class="product-card--body">
+                                                                <div class="card-image">
+                                                                    @if ($book->photo)
+                                                                    <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                    @else
+                                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                    @endif
+                                                                    <div class="hover-contents">
+                                                                        <a href="{{ route('book.detail',1) }}" class="hover-image">
+                                                                            @if ($book->photo)
                                                                             <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-                                                                        @else
+                                                                            @else
                                                                             <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                                        @endif
-                                                                        <div class="hover-contents">
-                                                                            <a href="{{ route('book.detail',1) }}" class="hover-image">
-                                                                                @if ($book->photo)
-                                                                                    <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-                                                                                @else
-                                                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                                                @endif         
+                                                                            @endif
+                                                                        </a>
+                                                                        <div class="hover-btns">
+                                                                            <a onclick="addChart('book',{{$book->id}})" class="single-btn">
+                                                                                <i class="fas fa-shopping-basket"></i>
                                                                             </a>
-                                                                            <div class="hover-btns">
-                                                                                <a href="cart.html" class="single-btn">
-                                                                                    <i class="fas fa-shopping-basket"></i>
-                                                                                </a>
-                                                                                <a href="wishlist.html" class="single-btn">
-                                                                                    <i class="fas fa-heart"></i>
-                                                                                </a>
-                                                                                <a href="compare.html" class="single-btn">
-                                                                                    <i class="fas fa-random"></i>
-                                                                                </a>
-                                                                                <a href="#" data-toggle="modal"
-                                                                                    data-target="#quickModal"
-                                                                                    class="single-btn">
-                                                                                    <i class="fas fa-eye"></i>
-                                                                                </a>
-                                                                            </div>
+                                                                            <a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
+                                                                                <i class="fas fa-heart"></i>
+                                                                            </a>
+                                                                            <!-- <a href="compare.html" class="single-btn">
+                                                                                <i class="fas fa-random"></i>
+                                                                            </a> -->
+                                                                            <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                                <i class="fas fa-eye"></i>
+                                                                            </a>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="price-block">
-                                                                        <span class="price">£51.20</span>
-                                                                        <!-- <del class="price-old">£51.20</del>
+                                                                </div>
+                                                                <div class="price-block">
+                                                                    <span class="price">£51.20</span>
+                                                                    <!-- <del class="price-old">£51.20</del>
                                                                         <span class="price-discount">20%</span> -->
-                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>                                        
+                                                        </div>
+                                                    </div>
                                                     @empty
-                                                        <p>There is no book!</p>
-                                                    @endforelse  
+                                                    <p>There is no book!</p>
+                                                    @endforelse
                                                 </div>
                                             </div>
                                         </div>
@@ -623,29 +604,24 @@
                                         <div class="sb-custom-tab text-lg-left text-center">
                                             <ul class="nav nav-tabs nav-style-2" id="myTab2" role="tablist">
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" id="shop-tab2" data-toggle="tab"
-                                                        href="#shop2" role="tab" aria-controls="shop2" aria-selected="true">
+                                                    <a class="nav-link active" id="shop-tab2" data-toggle="tab" href="#shop2" role="tab" aria-controls="shop2" aria-selected="true">
                                                         ARTS & PHOTOGRAPHY
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" id="men-tab2" data-toggle="tab" href="#men2"
-                                                        role="tab" aria-controls="men2" aria-selected="true">
+                                                    <a class="nav-link" id="men-tab2" data-toggle="tab" href="#men2" role="tab" aria-controls="men2" aria-selected="true">
                                                         CHILDREN'S BOOKS
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" id="woman-tab2" data-toggle="tab" href="#woman2"
-                                                        role="tab" aria-controls="woman2" aria-selected="false">
+                                                    <a class="nav-link" id="woman-tab2" data-toggle="tab" href="#woman2" role="tab" aria-controls="woman2" aria-selected="false">
                                                         BIOGRAPHIES
                                                     </a>
                                                 </li>
                                             </ul>
                                             <div class="tab-content" id="myTabContent2">
-                                                <div class="tab-pane active" id="shop2" role="tabpanel"
-                                                    aria-labelledby="shop-tab2">
-                                                    <div class="product-slider product-list-slider multiple-row slider-border-multiple-row  sb-slick-slider"
-                                                        data-slick-setting='{
+                                                <div class="tab-pane active" id="shop2" role="tabpanel" aria-labelledby="shop-tab2">
+                                                    <div class="product-slider product-list-slider multiple-row slider-border-multiple-row  sb-slick-slider" data-slick-setting='{
                                                             "autoplay": true,
                                                             "autoplaySpeed": 8000,
                                                             "slidesToShow": 2,
@@ -657,38 +633,37 @@
                                                             {"breakpoint":768, "settings": {"slidesToShow": 1} }
                                                         ]'>
                                                         @forelse ($booklist as $book)
-                                                            <div class="single-slide">
-                                                                <div class="product-card card-style-list">
-                                                                    <div class="card-image">                                                                                                                                     
-                                                                        @if ($book->photo)
-                                                                            <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-                                                                        @else
-                                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                                        @endif
+                                                        <div class="single-slide">
+                                                            <div class="product-card card-style-list">
+                                                                <div class="card-image">
+                                                                    @if ($book->photo)
+                                                                    <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                    @else
+                                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                    @endif
+                                                                </div>
+                                                                <div class="product-card--body">
+                                                                    <div class="product-header">
+                                                                        <a href="" class="author">
+                                                                            Fpple
+                                                                        </a>
+                                                                        <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
                                                                     </div>
-                                                                    <div class="product-card--body">
-                                                                        <div class="product-header">
-                                                                            <a href="" class="author">
-                                                                                Fpple
-                                                                            </a>
-                                                                            <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
-                                                                        </div>
-                                                                        <div class="price-block">
-                                                                            <span class="price">{{$book->price}}</span>
-                                                                            <!-- <del class="price-old">£51.20</del>
+                                                                    <div class="price-block">
+                                                                        <span class="price">{{$book->price}}</span>
+                                                                        <!-- <del class="price-old">£51.20</del>
                                                                             <span class="price-discount">20%</span> -->
-                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>                                       
+                                                            </div>
+                                                        </div>
                                                         @empty
-                                                            <p>There is no book!</p>
-                                                        @endforelse  
+                                                        <p>There is no book!</p>
+                                                        @endforelse
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane" id="men2" role="tabpanel" aria-labelledby="men-tab2">
-                                                    <div class="product-slider product-list-slider multiple-row slider-border-multiple-row  sb-slick-slider"
-                                                        data-slick-setting='{
+                                                    <div class="product-slider product-list-slider multiple-row slider-border-multiple-row  sb-slick-slider" data-slick-setting='{
                                                             "autoplay": true,
                                                             "autoplaySpeed": 8000,
                                                             "slidesToShow": 2,
@@ -700,39 +675,37 @@
                                                             {"breakpoint":768, "settings": {"slidesToShow": 1} }
                                                         ]'>
                                                         @forelse ($booklist as $book)
-                                                            <div class="single-slide">
-                                                                <div class="product-card card-style-list">
-                                                                    <div class="card-image">                                                                                                                                                                                                      
-                                                                        @if ($book->photo)
-                                                                            <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-                                                                        @else
-                                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                                        @endif 
+                                                        <div class="single-slide">
+                                                            <div class="product-card card-style-list">
+                                                                <div class="card-image">
+                                                                    @if ($book->photo)
+                                                                    <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                    @else
+                                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                    @endif
+                                                                </div>
+                                                                <div class="product-card--body">
+                                                                    <div class="product-header">
+                                                                        <a href="" class="author">
+                                                                            Hpple
+                                                                        </a>
+                                                                        <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
                                                                     </div>
-                                                                    <div class="product-card--body">
-                                                                        <div class="product-header">
-                                                                            <a href="" class="author">
-                                                                                Hpple
-                                                                            </a>
-                                                                            <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
-                                                                        </div>
-                                                                        <div class="price-block">
-                                                                            <span class="price">{{$book->price}}</span>
-                                                                            <!-- <del class="price-old">£51.20</del>
+                                                                    <div class="price-block">
+                                                                        <span class="price">{{$book->price}}</span>
+                                                                        <!-- <del class="price-old">£51.20</del>
                                                                             <span class="price-discount">20%</span> -->
-                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>                                   
+                                                            </div>
+                                                        </div>
                                                         @empty
-                                                            <p>There is no book!</p>
-                                                        @endforelse  
+                                                        <p>There is no book!</p>
+                                                        @endforelse
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane" id="woman2" role="tabpanel"
-                                                    aria-labelledby="woman-tab2">
-                                                    <div class="product-slider product-list-slider multiple-row slider-border-multiple-row  sb-slick-slider"
-                                                        data-slick-setting='{
+                                                <div class="tab-pane" id="woman2" role="tabpanel" aria-labelledby="woman-tab2">
+                                                    <div class="product-slider product-list-slider multiple-row slider-border-multiple-row  sb-slick-slider" data-slick-setting='{
                                                                 "autoplay": true,
                                                                 "autoplaySpeed": 8000,
                                                                 "slidesToShow": 2,
@@ -744,32 +717,32 @@
                                                                 {"breakpoint":768, "settings": {"slidesToShow": 1} }
                                                             ]'>
                                                         @forelse ($booklist as $book)
-                                                            <div class="single-slide">
-                                                                <div class="product-card card-style-list">
-                                                                    <div class="card-image">                                                                                                                                                                                                      
-                                                                        @if ($book->photo)
-                                                                            <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-                                                                        @else
-                                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                                        @endif
+                                                        <div class="single-slide">
+                                                            <div class="product-card card-style-list">
+                                                                <div class="card-image">
+                                                                    @if ($book->photo)
+                                                                    <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                                    @else
+                                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                    @endif
+                                                                </div>
+                                                                <div class="product-card--body">
+                                                                    <div class="product-header">
+                                                                        <a href="" class="author">
+                                                                            Gpple
+                                                                        </a>
+                                                                        <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
                                                                     </div>
-                                                                    <div class="product-card--body">
-                                                                        <div class="product-header">
-                                                                            <a href="" class="author">
-                                                                                Gpple
-                                                                            </a>
-                                                                            <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
-                                                                        </div>
-                                                                        <div class="price-block">
-                                                                            <span class="price">{{$book->price}}}</span>
-                                                                            <!-- <del class="price-old">£51.20</del>
+                                                                    <div class="price-block">
+                                                                        <span class="price">{{$book->price}}}</span>
+                                                                        <!-- <del class="price-old">£51.20</del>
                                                                             <span class="price-discount">20%</span> -->
-                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        </div>
                                                         @empty
-                                                            <p>There is no book!</p>
+                                                        <p>There is no book!</p>
                                                         @endforelse
                                                     </div>
                                                 </div>
@@ -802,15 +775,13 @@
                                                         <h3 class="title"><a href="blog-details.html">How to Water and Care
                                                                 for Mounted</a></h3>
                                                     </div>
-                                                    <p class="meta-para"><i class="fas fa-user-edit"></i>Post by <a
-                                                            href="#">Hastech</a></p>
+                                                    <p class="meta-para"><i class="fas fa-user-edit"></i>Post by <a href="#">Hastech</a></p>
                                                     <article class="blog-paragraph">
                                                         <h2 class="sr-only">blog-paragraph</h2>
                                                         <p>Virtual reality and 3-D technology are already well-established
                                                             in the entertainment...</p>
                                                     </article>
-                                                    <a href="blog-details.html" class="card-link">Read More <i
-                                                            class="fas fa-chevron-circle-right"></i></a>
+                                                    <a href="blog-details.html" class="card-link">Read More <i class="fas fa-chevron-circle-right"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -832,15 +803,13 @@
                                                         <h3 class="title"><a href="blog-details.html">How to Grow Epiphytic
                                                                 Tropical Plants</a></h3>
                                                     </div>
-                                                    <p class="meta-para"><i class="fas fa-user-edit"></i>Post by <a
-                                                            href="#">Hastech</a></p>
+                                                    <p class="meta-para"><i class="fas fa-user-edit"></i>Post by <a href="#">Hastech</a></p>
                                                     <article class="blog-paragraph">
                                                         <h2 class="sr-only">blog-paragraph</h2>
                                                         <p>Virtual reality and 3-D technology are already well-established
                                                             in the entertainment...</p>
                                                     </article>
-                                                    <a href="blog-details.html" class="card-link">Read More <i
-                                                            class="fas fa-chevron-circle-right"></i></a>
+                                                    <a href="blog-details.html" class="card-link">Read More <i class="fas fa-chevron-circle-right"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -862,15 +831,13 @@
                                                         <h3 class="title"><a href="blog-details.html">How To Pot Up and Care
                                                                 For Juvenile</a></h3>
                                                     </div>
-                                                    <p class="meta-para"><i class="fas fa-user-edit"></i>Post by <a
-                                                            href="#">Hastech</a></p>
+                                                    <p class="meta-para"><i class="fas fa-user-edit"></i>Post by <a href="#">Hastech</a></p>
                                                     <article class="blog-paragraph">
                                                         <h2 class="sr-only">blog-paragraph</h2>
                                                         <p>Virtual reality and 3-D technology are already well-established
                                                             in the entertainment...</p>
                                                     </article>
-                                                    <a href="blog-details.html" class="card-link">Read More <i
-                                                            class="fas fa-chevron-circle-right"></i></a>
+                                                    <a href="blog-details.html" class="card-link">Read More <i class="fas fa-chevron-circle-right"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -881,4 +848,15 @@
                     </div>
                 </div>
             </section>
+@endsection
+
+@section("custom.script")
+<script>
+    function addChart(method, id){
+        alert(id);
+    }
+    function addWishlist(method, id){
+        alert(id);
+    }
+</script>
 @endsection
