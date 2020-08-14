@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Model\Stock;
+use App\Model\Book;
 use Illuminate\Http\Request;
+use App\DataTables\StockDataTable;
+use Illuminate\Support\Facades\Auth;
 
 class StockController extends Controller
 {
@@ -12,9 +15,9 @@ class StockController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(StockDataTable $dataTable)
     {
-        //
+        return $dataTable->render('backend.stock.index');
     }
 
     /**
@@ -24,7 +27,7 @@ class StockController extends Controller
      */
     public function create()
     {
-        //
+        return view("backend.stock.add");
     }
 
     /**
@@ -35,7 +38,26 @@ class StockController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validateWithBag('stocks', [
+            'adjustment' => ['required'],
+            'quantity' => ['required'],
+            'book_id' => ['required']
+        ]);
+        if(!Book::find($request->book_id)){
+            return back()->withInput();
+        }
+
+        $new = new Stock();
+        $new->book_id = $request->book_id;
+        $new->user_id = Auth::User()->id;
+        $new->adjustment = $request->adjustment;
+        $new->quantity = $request->quantity;
+        $new->description = $request->desc;
+        if($new->save()){
+            return redirect()->route('backend.stock.index');
+        }else{
+            return redirect()->route('backend.stock.index');
+        }
     }
 
     /**

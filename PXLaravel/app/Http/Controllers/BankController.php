@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Bank;
 use Illuminate\Http\Request;
+use App\DataTables\BankDataTable;
 
 class BankController extends Controller
 {
@@ -12,9 +13,9 @@ class BankController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(BankDataTable $dataTable)
     {
-        //
+        return $dataTable->render('backend.bank.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class BankController extends Controller
      */
     public function create()
     {
-        //
+        return view("backend.bank.add");
     }
 
     /**
@@ -35,7 +36,18 @@ class BankController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validateWithBag('banks', [
+            'account' => ['required', 'unique:banks', 'max:255']
+        ]);
+        $new = new Bank();
+        $new->name = $request->name;
+        $new->account = $request->account;
+        $new->description = $request->desc;
+        if ($request->hasFile('logo')) {
+            $new->photo = $request->file('logo')->getClientOriginalName();
+        }
+        $new->save();
+        return redirect()->route("backend.bank.index");
     }
 
     /**
@@ -46,7 +58,7 @@ class BankController extends Controller
      */
     public function show(Bank $bank)
     {
-        //
+        return view("backend.bank.detail")->with("bank",$bank);
     }
 
     /**
@@ -57,7 +69,7 @@ class BankController extends Controller
      */
     public function edit(Bank $bank)
     {
-        //
+        return $bank;
     }
 
     /**
@@ -80,6 +92,11 @@ class BankController extends Controller
      */
     public function destroy(Bank $bank)
     {
-        //
+        if($bank){
+            $bank->delete();
+            return redirect()->route("backend.bank.index");
+        }else{
+            return redirect()->route("backend.bank.index");
+        }
     }
 }

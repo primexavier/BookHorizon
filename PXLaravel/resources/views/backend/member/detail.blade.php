@@ -8,9 +8,12 @@
                 <div class="card-header">Detail Member</div>
 
                 <div class="card-body">
-                    Name : {{$member->name}}<br>
+                    First Name : {{$member->last_name}}<br>
+                    Last Name : {{$member->first_name}}<br>
+                    Display Name : {{$member->display_name}}<br>
+                    Sharing Profile : {{$member->privacy}}<br>
                     Email : {{$member->email}}<br>
-                    Status : {{$member->email}}<br>
+                    Status : {{$member->delete_at}}<br>
                 </div>
             </div>
         </div>

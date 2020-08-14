@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Category;
 use Illuminate\Http\Request;
+use App\DataTables\CategoryDataTable;
 
 class CategoryController extends Controller
 {
@@ -12,9 +13,9 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(CategoryDataTable $dataTable)
     {
-        //
+        return $dataTable->render('backend.category.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view("backend.category.add");
     }
 
     /**
@@ -35,7 +36,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        return view("backend.blog.add");
+        $validatedData = $request->validateWithBag('categories', [
+            'name' => ['required', 'unique:categories', 'max:255']
+        ]);
+        $new = new Category();
+        $new->name = $request->name;
+        $new->description = $request->desc;
+        $new->save();
+        return redirect()->route("backend.category.index");
     }
 
     /**
@@ -46,7 +54,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view("backend.category.detail")->with("category",$category);
     }
 
     /**
@@ -57,7 +65,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return $category;
     }
 
     /**
@@ -80,6 +88,11 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        if($category){
+            $category->delete();
+            return redirect()->route("backend.category.index");
+        }else{
+            return redirect()->route("backend.category.index");
+        }
     }
 }

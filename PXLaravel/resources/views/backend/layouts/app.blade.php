@@ -1,3 +1,4 @@
+{{$test = Users::get()}}
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -52,11 +53,20 @@
                                     <a class="dropdown-item" href="{{route('backend.author.index')}}" >
                                         Author
                                     </a>
-                                    <a class="dropdown-item" href="{{route('backend.book.index')}}" >
-                                        Book
+                                    <a class="dropdown-item" href="{{route('backend.bank.index')}}" >
+                                        Bank
                                     </a>
                                     <a class="dropdown-item" href="{{route('backend.blog.index')}}" >
                                         Blog
+                                    </a>
+                                    <a class="dropdown-item" href="{{route('backend.book.index')}}" >
+                                        Book
+                                    </a>
+                                    <a class="dropdown-item" href="{{route('backend.category.index')}}" >
+                                        Category
+                                    </a>
+                                    <a class="dropdown-item" href="{{route('backend.currency.index')}}" >
+                                        Currency
                                     </a>
                                     <a class="dropdown-item" href="{{route('backend.genre.index')}}" >
                                         Genre
@@ -64,11 +74,20 @@
                                     <a class="dropdown-item" href="{{route('backend.member.index')}}" >
                                         Member
                                     </a>
+                                    <a class="dropdown-item" href="{{route('backend.membership.index')}}" >
+                                        Membership
+                                    </a>
                                     <a class="dropdown-item" href="{{route('backend.users.index')}}" >
                                         User
                                     </a>
                                     <a class="dropdown-item" href="{{route('backend.setting.index')}}" >
                                         Setting
+                                    </a>
+                                    <a class="dropdown-item" href="{{route('backend.supplier.index')}}" >
+                                        Supplier
+                                    </a>
+                                    <a class="dropdown-item" href="{{route('backend.stock.index')}}" >
+                                        Stock
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

@@ -20,6 +20,7 @@ class CreateAuthorsTable extends Migration
             $table->timestamps(0);	
         });
         Schema::table('books', function (Blueprint $table) {
+            $table->unsignedBigInteger("author_id")->default(0);
             $table->foreign('author_id')->references('id')->on('authors');
         });
     }

@@ -61,7 +61,6 @@ class BookController extends Controller
             $new->photo = $request->file('photo')->getClientOriginalName();
         }
         $new->save();
-        
         return redirect()->route("backend.book.index");
     }
 

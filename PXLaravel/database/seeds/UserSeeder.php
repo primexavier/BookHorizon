@@ -16,10 +16,19 @@ class UserSeeder extends Seeder
             'email' => 'admin@admin.com',
             'level' => 0,
             'password' => Hash::make('admin'),
+            'first_name' =>  "admin",
+            'last_name' =>  "admin",
+            'display_name' => "admin",
+            'privacy' => true,
         ]);
         DB::table('authors')->insert([
             'id' => 1,
             'name' => "admin",
+        ]);
+        DB::table('suppliers')->insert([
+            'id' => 1,
+            'name' => "supplier",
+            'description' => "supplier",
         ]);
     }
 }

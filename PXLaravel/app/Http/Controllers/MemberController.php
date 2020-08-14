@@ -12,7 +12,7 @@ class MemberController extends Controller
 {
     public function index(MemberDataTable $dataTable)
     {
-        return $dataTable->render('backend.users.index');
+        return $dataTable->render('backend.member.index');
     }
 
     /**
@@ -31,6 +31,10 @@ class MemberController extends Controller
         $new = new User();
         $new->name = $request->name;
         $new->email = $request->email;
+        $new->first_name = $request->name;
+        $new->last_name = $request->last_name;
+        $new->display_name = $request->display_name;
+        $new->privacy = $request->privacy;
         $new->password = Hash::make($request->password);
         $new->level = 2;
         if($new->save()){
@@ -86,9 +90,19 @@ class MemberController extends Controller
      * @param  \App\Model\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        $member = User::where("id",$id)->first();
-        return view("backend.member.detail")->with("member",$member);
+        return view("backend.member.detail")->with("member",$user);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Model\Book  $book
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(User $user)
+    {
+        return view("backend.member.edit")->with("member",$user);
     }
 }

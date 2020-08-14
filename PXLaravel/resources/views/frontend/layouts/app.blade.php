@@ -1,3 +1,4 @@
+{{$test = Users::get()}}
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -24,8 +25,8 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <ul class="header-top-list">
-                                    <li class="dropdown-trigger currency-dropdown"><a href="">Rp</a><i
-                                            class="fas fa-chevron-down dropdown-arrow"></i>
+                                    <li class="dropdown-trigger currency-dropdown">
+                                        <a href="">Rp</a><i class="fas fa-chevron-down dropdown-arrow"></i>
                                         <ul class="dropdown-box">
                                             <li><a href="#">Rp Rupiah</a></li>
                                             <!-- <li><a href="#">£ Pound Sterling</a></li>

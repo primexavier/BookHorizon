@@ -7,6 +7,12 @@ use App\Model\User;
 use App\Model\Genre;
 use App\Model\Transaction;
 use App\Model\Author;
+use App\Model\Currency;
+use App\Model\Bank;
+use App\Model\Category;
+use App\Model\Supplier;
+use App\Model\Stock;
+use App\Model\Membership;
 
 /*
 |--------------------------------------------------------------------------
@@ -107,6 +113,60 @@ Route::group(['prefix' => 'backend'], function () {
             Route::post('/update/{author}', 'AuthorController@update')->name('backend.author.update');
             Route::get('/detail/{author}', 'AuthorController@show')->name('backend.author.detail');
             Route::post('/delete/{author}', 'AuthorController@destroy')->name('backend.author.delete');
+        });
+        Route::group(['prefix' => 'currency'], function () {
+            Route::get('/', 'CurrencyController@index')->name('backend.currency.index');
+            Route::get('/create', 'CurrencyController@create')->name('backend.currency.create');
+            Route::post('/create', 'CurrencyController@store')->name('backend.currency.store');
+            Route::get('/update/{currency}', 'CurrencyController@edit')->name('backend.currency.edit');
+            Route::post('/update/{currency}', 'CurrencyController@update')->name('backend.currency.update');
+            Route::get('/detail/{currency}', 'CurrencyController@show')->name('backend.currency.detail');
+            Route::post('/delete/{currency}', 'CurrencyController@destroy')->name('backend.currency.delete');
+        });
+        Route::group(['prefix' => 'bank'], function () {
+            Route::get('/', 'BankController@index')->name('backend.bank.index');
+            Route::get('/create', 'BankController@create')->name('backend.bank.create');
+            Route::post('/create', 'BankController@store')->name('backend.bank.store');
+            Route::get('/update/{bank}', 'BankController@edit')->name('backend.bank.edit');
+            Route::post('/update/{bank}', 'BankController@update')->name('backend.bank.update');
+            Route::get('/detail/{bank}', 'BankController@show')->name('backend.bank.detail');
+            Route::post('/delete/{bank}', 'BankController@destroy')->name('backend.bank.delete');
+        });
+        Route::group(['prefix' => 'category'], function () {
+            Route::get('/', 'CategoryController@index')->name('backend.category.index');
+            Route::get('/create', 'CategoryController@create')->name('backend.category.create');
+            Route::post('/create', 'CategoryController@store')->name('backend.category.store');
+            Route::get('/update/{category}', 'CategoryController@edit')->name('backend.category.edit');
+            Route::post('/update/{category}', 'CategoryController@update')->name('backend.category.update');
+            Route::get('/detail/{category}', 'CategoryController@show')->name('backend.category.detail');
+            Route::post('/delete/{category}', 'CategoryController@destroy')->name('backend.category.delete');
+        });
+        Route::group(['prefix' => 'supplier'], function () {
+            Route::get('/', 'SupplierController@index')->name('backend.supplier.index');
+            Route::get('/create', 'SupplierController@create')->name('backend.supplier.create');
+            Route::post('/create', 'SupplierController@store')->name('backend.supplier.store');
+            Route::get('/update/{supplier}', 'SupplierController@edit')->name('backend.supplier.edit');
+            Route::post('/update/{supplier}', 'SupplierController@update')->name('backend.supplier.update');
+            Route::get('/detail/{supplier}', 'SupplierController@show')->name('backend.supplier.detail');
+            Route::post('/delete/{supplier}', 'SupplierController@destroy')->name('backend.supplier.delete');
+        });
+        Route::group(['prefix' => 'stock'], function () {
+            Route::get('/', 'StockController@index')->name('backend.stock.index');
+            Route::get('/create', 'StockController@create')->name('backend.stock.create');
+            Route::post('/create', 'StockController@store')->name('backend.stock.store');
+            Route::get('/update/{stock}', 'StockController@edit')->name('backend.stock.edit');
+            Route::post('/update/{stock}', 'StockController@update')->name('backend.stock.update');
+            Route::get('/detail/{stock}', 'StockController@show')->name('backend.stock.detail');
+            Route::post('/delete/{stock}', 'StockController@destroy')->name('backend.stock.delete');
+        });
+        Route::group(['prefix' => 'membership'], function () {
+            Route::get('/', 'MembershipController@index')->name('backend.membership.index');
+            Route::get('/create', 'MembershipController@create')->name('backend.membership.create');
+            Route::post('/create', 'MembershipController@store')->name('backend.membership.store');
+            Route::get('/update/{membership}', 'MembershipController@edit')->name('backend.membership.edit');
+            Route::post('/update/{membership}', 'MembershipController@update')->name('backend.membership.update');
+            Route::get('/detail/{membership}', 'MembershipController@show')->name('backend.membership.detail');
+            Route::post('/delete/{membership}', 'MembershipController@destroy')->name('backend.membership.delete');
         });
         Route::group(['prefix' => 'setting'], function () {
             Route::get('/', 'SettingController@index')->name('backend.setting.index');

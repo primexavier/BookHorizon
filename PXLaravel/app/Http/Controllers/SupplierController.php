@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Supplier;
 use Illuminate\Http\Request;
+use App\DataTables\SupplierDataTable;
 
 class SupplierController extends Controller
 {
@@ -12,9 +13,9 @@ class SupplierController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(SupplierDataTable $dataTable)
     {
-        //
+        return $dataTable->render('backend.supplier.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        //
+        return view("backend.supplier.add");
     }
 
     /**
@@ -35,7 +36,14 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validateWithBag('suppliers', [
+            'name' => ['required', 'unique:suppliers', 'max:255'],
+        ]);
+        $new = new Supplier();
+        $new->name = $request->name;
+        $new->description = $request->desc;
+        $new->save();
+        return redirect()->route("backend.supplier.index");
     }
 
     /**
@@ -46,7 +54,7 @@ class SupplierController extends Controller
      */
     public function show(Supplier $supplier)
     {
-        //
+        return view("backend.supplier.detail")->with("supplier",$supplier);
     }
 
     /**
