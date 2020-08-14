@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Model\Genre;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\DataTables\GenreDataTable;
 
 class GenreController extends Controller
 {
@@ -12,10 +14,11 @@ class GenreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(GenreDataTable $dataTable)
     {
-        //
+        return $dataTable->render('backend.genre.index');
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +27,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        return view("backend.genre.add");
     }
 
     /**
@@ -35,7 +38,15 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        return view("backend.blog.add");
+        $validatedData = $request->validateWithBag('genres', [
+            'genre' => ['required', 'unique:genres', 'max:255']
+        ]);
+        $new = new Genre();
+        $new->genre = $request->genre;
+        $new->parent_id = $request->parent;
+        $new->save();
+        
+        return redirect()->route("backend.genre.index");
     }
 
     /**
@@ -46,7 +57,7 @@ class GenreController extends Controller
      */
     public function show(Genre $genre)
     {
-        //
+        return view("backend.genre.detail")->with("genre",$genre);
     }
 
     /**
@@ -57,7 +68,7 @@ class GenreController extends Controller
      */
     public function edit(Genre $genre)
     {
-        //
+        return redirect()->route("backend.genre.index");
     }
 
     /**

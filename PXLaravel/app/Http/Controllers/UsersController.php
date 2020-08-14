@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\User;
 use App\DataTables\UsersDataTable;
 use Illuminate\Http\Request;
-use App\Model\User;
 use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller

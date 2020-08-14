@@ -9,5 +9,8 @@ class Blog extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
-
+    public function users()
+    {
+        return $this->belongsTo('App\Model\User','user_id')->first()->name;
+    }
 }

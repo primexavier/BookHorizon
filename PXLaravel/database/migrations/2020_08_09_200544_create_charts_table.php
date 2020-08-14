@@ -15,7 +15,17 @@ class CreateChartsTable extends Migration
     {
         Schema::create('charts', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger("book_id");
+            $table->unsignedBigInteger("user_id");
+            $table->integer("transaction_type");
+            $table->softDeletes('deleted_at', 0);	
+            $table->timestamps(0);
+        });
+        Schema::table('charts', function (Blueprint $table) {
+            $table->foreign('book_id')->references('id')->on('books');
+        });
+        Schema::table('charts', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -26,6 +36,18 @@ class CreateChartsTable extends Migration
      */
     public function down()
     {
+        if (Schema::hasColumn('charts', 'book_id'))
+        {
+            Schema::table('charts', function (Blueprint $table) {
+                $table->dropForeign(['book_id']);
+            });
+        }
+        if (Schema::hasColumn('charts', 'user_id'))
+        {
+            Schema::table('charts', function (Blueprint $table) {
+                $table->dropForeign(['user_id']);
+            });
+        }
         Schema::dropIfExists('charts');
     }
 }

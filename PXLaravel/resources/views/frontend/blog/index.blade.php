@@ -27,7 +27,7 @@
                 </a>
                 <div class="card-content">
                   <h3 class="title"><a href="{{ route('blog.detail',$blog->id) }}/">{{ \Illuminate\Support\Str::limit($blog->title, 40, $end='...')}}</a></h3>
-                  <p class="post-meta"><span>{{$blog->created_at}} </span> | <a href="#">Hastech</a></p>
+                <p class="post-meta"><span>{{$blog->created_at}} </span> | <a href="#">{{$blog->users()}}</a></p>
                   <article>
                     <h2 class="sr-only">
                       Blog Article

@@ -43,6 +43,7 @@ class BookController extends Controller
             'title' => ['required', 'unique:books', 'max:255']
         ]);
         $new = new Book();
+        $new->author_id = $request->authors_id;
         $new->title = $request->title;
         $new->isbn = $request->isbn;
         $new->publication_city = $request->pcity;

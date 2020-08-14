@@ -27,9 +27,9 @@
               "swipe": false,
               "asNavFor": ".product-slider-nav"
               }'>
-                    @if ($book->photo)
+                    @if ($bookDetail->photo)
                     <div class="single-slide">
-                        <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                        <img src="{{ asset('frontend/image/book') }}/{{$bookDetail->photo}}" alt="">
                     </div>
                     @else
                     <div class="single-slide">
@@ -49,9 +49,9 @@
               "asNavFor": ".product-details-slider",
               "focusOnSelect": true
               }'>
-                    @if ($book->photo)
+                    @if ($bookDetail->photo)
                     <div class="single-slide">
-                        <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                        <img src="{{ asset('frontend/image/book') }}/{{$bookDetail->photo}}" alt="">
                     </div>
                     @else
                     <div class="single-slide">
@@ -63,16 +63,17 @@
             <div class="col-lg-7">
                 <div class="product-details-info pl-lg--30 ">
                     <!-- <p class="tag-block">Tags: <a href="#">Movado</a>, <a href="#">Omega</a></p> -->
-                    <h3 class="product-title">{{$book->title}}</h3>
+                    <h3 class="product-title">{{$bookDetail->title}}</h3>
                     <ul class="list-unstyled">
-                        <li>Ex Tax: <span class="list-value"> {{$book->price}}</span></li>
+                        <li>Ex Tax: <span class="list-value"> {{$bookDetail->price}}</span></li>
                         <li>Brands: <a href="#" class="list-value font-weight-bold"> Canon</a></li>
                         <li>Product Code: <span class="list-value"> model1</span></li>
                         <li>Reward Points: <span class="list-value"> 200</span></li>
                         <li>Availability: <span class="list-value"> In Stock</span></li>
+                        <li>Author: <span class="list-value">{{$bookDetail->author()}}</span></li>
                     </ul>
                     <div class="price-block">
-                        <span class="price-new">{{$book->price}}</span>
+                        <span class="price-new">Rp {{$bookDetail->price}}</span>
                         <!-- <del class="price-old">£91.86</del> -->
                     </div>
                     <!-- <div class="rating-widget">
@@ -90,7 +91,7 @@
 							</div> -->
                     <article class="product-details-article">
                         <h4 class="sr-only">book Summery</h4>
-                        <p>{{$book->description}}</p>
+                        <p>{{$bookDetail->description}}</p>
                     </article>
                     <div class="add-to-cart-row">
 						<!-- 
@@ -101,6 +102,9 @@
 						-->
                         <div class="add-cart-btn">
                             <a href="" class="btn btn-outlined--primary">Buy Now</a>
+                        </div>&nbsp; 
+                        <div class="add-cart-btn">
+                            <a href="" class="btn btn-outlined--primary">Rent Now</a>
                         </div>
                     </div>
                 </div>
@@ -125,7 +129,7 @@
                 <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab1">
                     <article class="review-article">
                         <h1 class="sr-only">Tab Article</h1>
-                        <p>{{$book->description}}</p>
+                        <p>{{$bookDetail->description}}</p>
                     </article>
                 </div>
                 <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab2">
@@ -244,9 +248,9 @@
                     <div class="product-card">
                         <div class="product-header">
                             <a href="" class="author">
-                                Lpple
+                                {{$book->author()}}
                             </a>
-                            <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
+                            <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 25, $end='...')}}</a></h3>
                         </div>
                         <div class="product-card--body">
                             <div class="card-image">
@@ -269,6 +273,9 @@
                                         </a>
 										<a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
                                             <i class="fas fa-heart"></i>
+                                        </a>
+										<a onclick="AddRent('book',{{$book->id}})" class="single-btn">
+                                            <i class="fas fa-clock"></i>
                                         </a>
                                         {{-- <a href="compare.html" class="single-btn">
                                             <i class="fas fa-random"></i>

@@ -101,11 +101,9 @@
                             <div class="social-block">
                                 <h3 class="title">STAY CONNECTED</h3>
                                 <ul class="social-list list-inline">
-                                    <li class="single-social facebook"><a href=""><i class="ion ion-social-facebook"></i></a>
-                                    </li>
+                                    <li class="single-social facebook"><a href=""><i class="ion ion-social-facebook"></i></a></li>
                                     <li class="single-social twitter"><a href=""><i class="ion ion-social-twitter"></i></a></li>
-                                    <li class="single-social google"><a href=""><i
-                                                class="ion ion-social-googleplus-outline"></i></a></li>
+                                    <li class="single-social google"><a href=""><i class="ion ion-social-googleplus-outline"></i></a></li>
                                     <li class="single-social youtube"><a href=""><i class="ion ion-social-youtube"></i></a></li>
                                 </ul>
                             </div>
@@ -120,7 +118,7 @@
                         <a href="#" class="payment-block">
                             <img src="{{ asset('frontend/image/icon/payment.png') }}" alt="">
                         </a>
-                        <p class="copyright-text">Copyright © 2019 <a href="#" class="author">PrimeXovers</a>. All Right Reserved.
+                        <p class="copyright-text">Copyright © {{ date("Y") }} <a href="#" class="author">PrimeXovers</a>. All Right Reserved.
                             <br>
                             Design By PrimeXovers</p>
                     </div>

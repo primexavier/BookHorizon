@@ -19,6 +19,9 @@ class CreateAuthorsTable extends Migration
             $table->softDeletes('deleted_at', 0);	
             $table->timestamps(0);	
         });
+        Schema::table('books', function (Blueprint $table) {
+            $table->foreign('author_id')->references('id')->on('authors');
+        });
     }
 
     /**
@@ -28,6 +31,12 @@ class CreateAuthorsTable extends Migration
      */
     public function down()
     {
+        if (Schema::hasColumn('books', 'author_id'))
+        {
+            Schema::table('books', function (Blueprint $table) {
+                $table->dropForeign(['author_id']);
+            });
+        }
         Schema::dropIfExists('authors');
     }
 }

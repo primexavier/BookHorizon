@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Author;
 use Illuminate\Http\Request;
+use App\DataTables\AuthorDataTable;
 
 class AuthorController extends Controller
 {
@@ -12,9 +13,9 @@ class AuthorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(AuthorDataTable $dataTable)
     {
-        //
+        return $dataTable->render('backend.author.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return view("backend.author.add");
     }
 
     /**
@@ -35,7 +36,14 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        return view("backend.blog.add");
+        $validatedData = $request->validateWithBag('authors', [
+            'name' => ['required', 'unique:authors', 'max:255']
+        ]);
+        $new = new Author();
+        $new->name = $request->name;
+        $new->save();
+        
+        return redirect()->route("backend.author.index");
     }
 
     /**
@@ -46,7 +54,7 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
-        //
+        return view("backend.author.detail")->with("author",$author);
     }
 
     /**
@@ -57,7 +65,7 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
-        //
+        return $author;
     }
 
     /**

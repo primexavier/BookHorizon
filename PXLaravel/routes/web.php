@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Model\Book;
 use App\Model\Blog;
 use App\Model\User;
+use App\Model\Genre;
 use App\Model\Transaction;
+use App\Model\Author;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +20,13 @@ use App\Model\Transaction;
 */
 
 Route::get('/', 'FrontEndController@index')->name('index');
-
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/book/{id}/detail', 'FrontEndController@bookDetail')->name('book.detail');
 Route::get('/blog', 'FrontEndController@blogIndex')->name('blog.index');
 Route::get('/blog/{id}/detail', 'FrontEndController@blogDetail')->name('blog.detail');
 Route::get('/contact', 'ContactController@index')->name('contact.index');
+Route::get('/checkout', 'FrontEndController@checkout')->name('checkout');
+Route::get('/addChart', 'FrontEndController@addChart')->name('add.chart');
+Route::post('/addChart', 'FrontEndController@addChart')->name('add.chart');
 
 Auth::routes();
 
@@ -31,6 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'user'], function () {
         Route::get('/profile', 'MemberController@profile')->name('profile');
     });
+    Route::get('/wishlist', 'HomeController@wishlist')->name('wishlist');
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
@@ -85,6 +89,24 @@ Route::group(['prefix' => 'backend'], function () {
             Route::post('/update/{transaction}', 'TransactionsController@update')->name('backend.transactions.update');
             Route::get('/detail/{transaction}', 'TransactionsController@show')->name('backend.transactions.detail');
             Route::post('/delete/{transaction}', 'TransactionsController@destroy')->name('backend.transactions.delete');
+        });
+        Route::group(['prefix' => 'genre'], function () {
+            Route::get('/', 'GenreController@index')->name('backend.genre.index');
+            Route::get('/create', 'GenreController@create')->name('backend.genre.create');
+            Route::post('/create', 'GenreController@store')->name('backend.genre.store');
+            Route::get('/update/{genre}', 'GenreController@edit')->name('backend.genre.edit');
+            Route::post('/update/{genre}', 'GenreController@update')->name('backend.genre.update');
+            Route::get('/detail/{genre}', 'GenreController@show')->name('backend.genre.detail');
+            Route::post('/delete/{genre}', 'GenreController@destroy')->name('backend.genre.delete');
+        });
+        Route::group(['prefix' => 'author'], function () {
+            Route::get('/', 'AuthorController@index')->name('backend.author.index');
+            Route::get('/create', 'AuthorController@create')->name('backend.author.create');
+            Route::post('/create', 'AuthorController@store')->name('backend.author.store');
+            Route::get('/update/{author}', 'AuthorController@edit')->name('backend.author.edit');
+            Route::post('/update/{author}', 'AuthorController@update')->name('backend.author.update');
+            Route::get('/detail/{author}', 'AuthorController@show')->name('backend.author.detail');
+            Route::post('/delete/{author}', 'AuthorController@destroy')->name('backend.author.delete');
         });
         Route::group(['prefix' => 'setting'], function () {
             Route::get('/', 'SettingController@index')->name('backend.setting.index');

@@ -49,11 +49,17 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{route('backend.author.index')}}" >
+                                        Author
+                                    </a>
                                     <a class="dropdown-item" href="{{route('backend.book.index')}}" >
                                         Book
                                     </a>
                                     <a class="dropdown-item" href="{{route('backend.blog.index')}}" >
                                         Blog
+                                    </a>
+                                    <a class="dropdown-item" href="{{route('backend.genre.index')}}" >
+                                        Genre
                                     </a>
                                     <a class="dropdown-item" href="{{route('backend.member.index')}}" >
                                         Member

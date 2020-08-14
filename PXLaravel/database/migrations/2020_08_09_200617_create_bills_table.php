@@ -15,7 +15,9 @@ class CreateBillsTable extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string("name");
+            $table->softDeletes('deleted_at', 0);	
+            $table->timestamps(0);
         });
     }
 

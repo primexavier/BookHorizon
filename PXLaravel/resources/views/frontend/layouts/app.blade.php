@@ -49,14 +49,14 @@
                                                     English
                                                 </a>
                                             </li>
-                                            <li> 
+                                            {{-- <li> 
                                                 <a href="/">
                                                     <span class="flag-img">
                                                         <img src="{{ asset('frontend/image/icon/germany-flag.png') }}" alt="">
                                                     </span>
                                                     Germany
                                                 </a>
-                                            </li>
+                                            </li> --}}
                                         </ul>
                                     </li>
                                 </ul>
@@ -65,14 +65,14 @@
                                 <ul class="header-top-list">
                                     @guest
                                     @else
-                                    <li>
+                                    {{-- <li>
                                         <a href="">
                                             <i class="icons-left fas fa-random"></i>
                                             My Compare
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li class="dropdown-trigger language-dropdown">
-                                        <a href="">
+                                    <a href="{{route('wishlist')}}">
                                             <i class="icons-left fas fa-heart"></i>
                                             wishlist (0)
                                         </a>
@@ -100,7 +100,7 @@
                                     @guest
                                     @else
                                     <li>
-                                        <a href="">
+                                        <a href="{{route('checkout')}}">
                                             <i class="icons-left fas fa-share"></i>
                                             Checkout
                                         </a>
@@ -145,14 +145,22 @@
                                         @endguest
                                         <div class="cart-block">
                                             <div class="cart-total">
-                                                <!-- <span class="text-number">
-                                                    1
-                                                </span> -->
+                                                <span class="text-number">
+                                                    @if(Auth::User())
+                                                        {{Auth::User()->chart()->count()}}  
+                                                    @else
+                                                        0
+                                                    @endif                                                  
+                                                </span>
                                                 <span class="text-item">
                                                     Shopping Cart
                                                 </span>
                                                 <span class="price">
-                                                    £0.00
+                                                    @if(Auth::User())
+                                                       Rp {{Auth::User()->chart()->count()}}  
+                                                    @else
+                                                       Rp 0
+                                                    @endif        
                                                     <!-- <i class="fas fa-chevron-down"></i> -->
                                                 </span>
                                             </div>
@@ -919,7 +927,7 @@
                                 <div class="col-lg-7 mt--30 mt-lg--30">
                                     <div class="product-details-info pl-lg--30 ">
                                         <p class="tag-block">Tags: <a href="#">Movado</a>, <a href="#">Omega</a></p>
-                                        <h3 class="product-title">Beats EP Wired On-Ear Headphone-Black</h3>
+                                        <h3 id="modalProductTitle" class="product-title">Beats EP Wired On-Ear Headphone-Black</h3>
                                         <ul class="list-unstyled">
                                             <li>Ex Tax: <span class="list-value"> £60.24</span></li>
                                             <li>Brands: <a href="#" class="list-value font-weight-bold"> Canon</a></li>

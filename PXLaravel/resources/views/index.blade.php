@@ -159,12 +159,12 @@
                                                 <div class="product-card--body">
                                                     <div class="product-header">
                                                         <a href="#" class="author">
-                                                            Fpple
+                                                            {{$book->author()}}
                                                         </a>
-                                                        <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
+                                                        <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">{{$book->price}}</span>
+                                                        <span class="price">Rp {{$book->price}}</span>
                                                         <!-- <del class="price-old">{{$book->price+($book->price*0.2)}}</del> -->
                                                         <!-- <span class="price-discount">20%</span> -->
                                                     </div>
@@ -201,10 +201,10 @@
                                         <div class="single-slide">
                                             <div class="product-card">
                                                 <div class="product-header">
-                                                    <a href="" class="author">
-                                                        Ypple
+                                                    <a href="" class="author">                                                        
+                                                        {{$book->author()}}
                                                     </a>
-                                                    <h3><a href="{{ route('book.detail',$spesialOffer->id) }}"></a>{{$spesialOffer->title}}</h3>
+                                                    <h3><a href="{{ route('book.detail',$spesialOffer->id) }}"></a>{{ \Illuminate\Support\Str::limit($spesialOffer->title, 40, $end='...')}}</h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
@@ -228,6 +228,12 @@
                                                                 <a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
+                                                                <a onclick="AddRent('book',{{$book->id}})" class="single-btn">
+                                                                    <i class="fas fa-clock"></i>
+                                                                </a>
+                                                                <a onclick="AddRent('book',{{$book->id}})" class="single-btn">
+                                                                    <i class="fas fa-clock"></i>
+                                                                </a>
                                                                 <!-- <a href="compare.html" class="single-btn">
                                                                     <i class="fas fa-random"></i>
                                                                 </a> -->
@@ -238,7 +244,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="price-block">
-                                                        <span class="price">{{$spesialOffer->price}}</span>
+                                                        <span class="price">Rp {{$spesialOffer->price}}</span>
                                                         <!-- <del class="price-old">£51.20</del>
                                                             <span class="price-discount">20%</span> -->
                                                     </div>
@@ -400,10 +406,10 @@
                                                     <div class="single-slide">
                                                         <div class="product-card">
                                                             <div class="product-header">
-                                                                <a href="" class="author">
-                                                                    jpple
+                                                                <a class="author">
+                                                                    {{$book->author()}}
                                                                 </a>
-                                                                <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
+                                                                <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
@@ -427,6 +433,9 @@
                                                                             <a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
                                                                                 <i class="fas fa-heart"></i>
                                                                             </a>
+                                                                            <a onclick="AddRent('book',{{$book->id}})" class="single-btn">
+                                                                                <i class="fas fa-clock"></i>
+                                                                            </a>
                                                                             <!-- <a href="compare.html" class="single-btn">
                                                                                 <i class="fas fa-random"></i>
                                                                             </a> -->
@@ -437,7 +446,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="price-block">
-                                                                    <span class="price">{{$book->price}}</span>
+                                                                    <span class="price">Rp {{$book->price}}</span>
                                                                     <!-- <del class="price-old">£51.20</del>
                                                                         <span class="price-discount">20%</span> -->
                                                                 </div>
@@ -467,9 +476,9 @@
                                                         <div class="product-card">
                                                             <div class="product-header">
                                                                 <a href="" class="author">
-                                                                    Apple
+                                                                    {{$book->author()}}
                                                                 </a>
-                                                                <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
+                                                                <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
@@ -493,6 +502,9 @@
                                                                             <a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
                                                                                 <i class="fas fa-heart"></i>
                                                                             </a>
+                                                                            <a onclick="AddRent('book',{{$book->id}})" class="single-btn">
+                                                                                <i class="fas fa-clock"></i>
+                                                                            </a>
                                                                             <!-- <a href="compare.html" class="single-btn">
                                                                                 <i class="fas fa-random"></i>
                                                                             </a> -->
@@ -503,7 +515,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="price-block">
-                                                                    <span class="price">{{$book->price}}</span>
+                                                                    <span class="price">Rp {{$book->price}}</span>
                                                                     <!-- <del class="price-old">£51.20</del>
                                                                         <span class="price-discount">20%</span> -->
                                                                 </div>
@@ -533,10 +545,9 @@
                                                         <div class="product-card">
                                                             <div class="product-header">
                                                                 <a href="" class="author">
-                                                                    Apple
+                                                                    {{$book->author()}}
                                                                 </a>
-                                                                <h3><a href="{{ route('book.detail',1) }}">iPad with
-                                                                        Retina Display</a></h3>
+                                                                <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
@@ -560,6 +571,9 @@
                                                                             <a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
                                                                                 <i class="fas fa-heart"></i>
                                                                             </a>
+                                                                            <a onclick="AddRent('book',{{$book->id}})" class="single-btn">
+                                                                                <i class="fas fa-clock"></i>
+                                                                            </a>
                                                                             <!-- <a href="compare.html" class="single-btn">
                                                                                 <i class="fas fa-random"></i>
                                                                             </a> -->
@@ -570,7 +584,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="price-block">
-                                                                    <span class="price">£51.20</span>
+                                                                <span class="price">Rp {{$book->price}}</span>
                                                                     <!-- <del class="price-old">£51.20</del>
                                                                         <span class="price-discount">20%</span> -->
                                                                 </div>
@@ -645,12 +659,12 @@
                                                                 <div class="product-card--body">
                                                                     <div class="product-header">
                                                                         <a href="" class="author">
-                                                                            Fpple
+                                                                            {{$book->author()}}
                                                                         </a>
-                                                                        <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
+                                                                        <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
-                                                                        <span class="price">{{$book->price}}</span>
+                                                                        <span class="price">Rp {{$book->price}}</span>
                                                                         <!-- <del class="price-old">£51.20</del>
                                                                             <span class="price-discount">20%</span> -->
                                                                     </div>
@@ -689,10 +703,10 @@
                                                                         <a href="" class="author">
                                                                             Hpple
                                                                         </a>
-                                                                        <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
+                                                                        <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
-                                                                        <span class="price">{{$book->price}}</span>
+                                                                        <span class="price">Rp {{$book->price}}</span>
                                                                         <!-- <del class="price-old">£51.20</del>
                                                                             <span class="price-discount">20%</span> -->
                                                                     </div>
@@ -731,10 +745,10 @@
                                                                         <a href="" class="author">
                                                                             Gpple
                                                                         </a>
-                                                                        <h3><a href="{{ route('book.detail',$book->id) }}">{{$book->title}}</a></h3>
+                                                                        <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
-                                                                        <span class="price">{{$book->price}}}</span>
+                                                                        <span class="price">Rp {{$book->price}}</span>
                                                                         <!-- <del class="price-old">£51.20</del>
                                                                             <span class="price-discount">20%</span> -->
                                                                     </div>
@@ -852,8 +866,17 @@
 
 @section("custom.script")
 <script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
     function addChart(method, id){
-        alert(id);
+        var jqxhr = $.post( "/addChart", { id: id }, function(data) {
+            alert(data);
+        }).fail(function() {
+            alert( "error" );
+        });
     }
     function addWishlist(method, id){
         alert(id);

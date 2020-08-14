@@ -9,7 +9,11 @@ class Book extends Model
 {
     use SoftDeletes;
     protected $fillable = [
-        'title', 'isbn', 'publication_city', 'format','pages','weight','dimension','purchase_price','start_qty','purchase_date','vendor',
+        'author_id','title', 'isbn', 'publication_city', 'format','pages','weight','dimension','purchase_price','start_qty','purchase_date','vendor',
     ];
     protected $dates = ['deleted_at'];
+    public function author()
+    {
+        return $this->belongsTo('App\Model\Author')->first()->name;
+    }
 }
