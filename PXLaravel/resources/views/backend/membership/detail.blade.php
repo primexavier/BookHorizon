@@ -8,6 +8,8 @@
                 <div class="card-header">Membership Detail</div>
                 <div class="card-body">
                     Name : {{$membership->name}} </br>
+                    Price : {{$membership->price}} </br>
+                    Duration : {{$membership->duration}} </br>
                     Description : {{$membership->description}} </br>
                 </div>
             </div>

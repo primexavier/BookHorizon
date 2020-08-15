@@ -228,10 +228,7 @@
                                                                 <a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
-                                                                <a onclick="AddRent('book',{{$book->id}})" class="single-btn">
-                                                                    <i class="fas fa-clock"></i>
-                                                                </a>
-                                                                <a onclick="AddRent('book',{{$book->id}})" class="single-btn">
+                                                                <a onclick="addChart('rent',{{$book->id}})" class="single-btn">
                                                                     <i class="fas fa-clock"></i>
                                                                 </a>
                                                                 <!-- <a href="compare.html" class="single-btn">
@@ -433,7 +430,7 @@
                                                                             <a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
                                                                                 <i class="fas fa-heart"></i>
                                                                             </a>
-                                                                            <a onclick="AddRent('book',{{$book->id}})" class="single-btn">
+                                                                            <a onclick="addChart('book',{{$book->id}})" class="single-btn">
                                                                                 <i class="fas fa-clock"></i>
                                                                             </a>
                                                                             <!-- <a href="compare.html" class="single-btn">
@@ -502,7 +499,7 @@
                                                                             <a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
                                                                                 <i class="fas fa-heart"></i>
                                                                             </a>
-                                                                            <a onclick="AddRent('book',{{$book->id}})" class="single-btn">
+                                                                            <a onclick="addChart('rent',{{$book->id}})" class="single-btn">
                                                                                 <i class="fas fa-clock"></i>
                                                                             </a>
                                                                             <!-- <a href="compare.html" class="single-btn">
@@ -571,7 +568,7 @@
                                                                             <a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
                                                                                 <i class="fas fa-heart"></i>
                                                                             </a>
-                                                                            <a onclick="AddRent('book',{{$book->id}})" class="single-btn">
+                                                                            <a onclick="addChart('rent',{{$book->id}})" class="single-btn">
                                                                                 <i class="fas fa-clock"></i>
                                                                             </a>
                                                                             <!-- <a href="compare.html" class="single-btn">

@@ -10,30 +10,16 @@
 							<!-- My Account Tab Menu Start -->
 							<div class="col-lg-3 col-12">
 								<div class="myaccount-tab-menu nav" role="tablist">
-									<a href="#dashboad" class="active" data-toggle="tab">
-										<i class="fas fa-tachometer-alt"></i>
-										Dashboard
-									</a>
-									<a href="#orders" data-toggle="tab"><i class="fa fa-cart-arrow-down"></i> Orders</a>
-									<a href="#download" data-toggle="tab"><i class="fas fa-download"></i> Download</a>
-									<a href="#payment-method" data-toggle="tab">
-										<i class="fa fa-credit-card"></i>
-										Bill
-									</a>
-									<a href="#payment-method" data-toggle="tab">
-										<i class="fa fa-credit-card"></i>
-										Payment Method
-									</a>
-									<a href="#payment-method" data-toggle="tab">
-										<i class="fa fa-credit-card"></i>
-										Payment History
-									</a>
-									<a href="#address-edit" data-toggle="tab"><i class="fa fa-map-marker"></i>
-										address</a>
-									<a href="#account-info" data-toggle="tab"><i class="fa fa-user"></i> Account
-										Details</a>
-									<a href="#privacy" data-toggle="tab"><i class="fa fa-user"></i> Privacy </a>
-									<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i> Logout</a>
+									<a href="{{route('profile')}}" class="active"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+									<a href="{{route('order.list')}}"><i class="fa fa-cart-arrow-down"></i> Orders</a>
+									<a href="{{route('download.list')}}"><i class="fas fa-download"></i> Download</a>
+									<a href="{{route('bill.list')}}"><i class="fa fa-credit-card"></i>Bill</a>
+									<a href="{{route('payment.method')}}"><i class="fa fa-credit-card"></i>Payment Method</a>
+									<a href="{{route('payment.list')}}"><i class="fa fa-credit-card"></i>Payment History</a>
+									<a href="{{route('address.list')}}"><i class="fa fa-map-marker"></i>address</a>                                        
+									<a href="{{route('profile.edit')}}"><i class="fa fa-user"></i>Account Details</a>
+									<a href="{{route('privacy.setting')}}"><i class="fa fa-user"></i> Privacy </a>
+									<a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt"></i> Logout</a>
 								</div>
 							</div>
 							<!-- My Account Tab Menu End -->

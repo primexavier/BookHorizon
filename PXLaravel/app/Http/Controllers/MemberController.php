@@ -3,8 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Model\User;
+use App\Model\Transaction;
+use App\Model\Download;
+use App\Model\Bill;
+use App\Model\Payment;
+use App\Model\PaymentMethod;
+use App\Model\Address;
 use Illuminate\Http\Request;
 use App\DataTables\MemberDataTable;
+use App\DataTables\OrdersDataTable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -81,7 +88,83 @@ class MemberController extends Controller
         $userID = Auth::id();
         $user = User::where('id',$userID)->first();
 
-        return view('frontend.profile.index')->with('userDetail', $user);
+        return view('frontend.profile.myprofile')->with('userDetail', $user);
+    }
+
+    public function orderlist()
+    {
+        $userID = Auth::id();
+        $user = User::where('id',$userID)->first();
+        $transaction = Transaction::where('user_id',Auth::User()->id)->get();
+        return view('frontend.profile.order')
+        ->with('transaction', $transaction)
+        ->with('userDetail', $user);
+    }
+
+    public function downloadList()
+    {
+        $userID = Auth::id();
+        $user = User::where('id',$userID)->first();
+        $download = Download::where('user_id',Auth::User()->id)->get();
+        return view('frontend.profile.download')
+        ->with('download', $download)
+        ->with('userDetail', $user);
+    }
+
+    public function billList()
+    {
+        $userID = Auth::id();
+        $user = User::where('id',$userID)->first();
+        $bill = Bill::where('user_id',Auth::User()->id)->get();
+        return view('frontend.profile.bill')
+        ->with('bill', $bill)
+        ->with('userDetail', $user);
+    }
+
+    public function paymentList()
+    {
+        $userID = Auth::id();
+        $user = User::where('id',$userID)->first();
+        $payment = Payment::where('user_id',Auth::User()->id)->get();
+        return view('frontend.profile.payment')
+        ->with('payment', $payment)
+        ->with('userDetail', $user);
+    }
+
+    public function addressList()
+    {
+        $userID = Auth::id();
+        $user = User::where('id',$userID)->first();
+        $address = Address::where('user_id',Auth::User()->id)->get();
+        return view('frontend.profile.address')
+        ->with('address', $address)
+        ->with('userDetail', $user);
+    }
+
+    public function paymentMethod()
+    {
+        $userID = Auth::id();
+        $user = User::where('id',$userID)->first();
+        $bill = Bill::where('user_id',Auth::User()->id)->get();
+        return view('frontend.profile.payment-method')
+        ->with('paymentMethod', $bill)
+        ->with('userDetail', $user);
+    }
+
+    public function editProfile()
+    {
+        $userID = Auth::id();
+        $user = User::where('id',$userID)->first();
+        return view('frontend.profile.editprofile')
+        ->with('userDetail', $user);
+    }
+
+    public function privacy()
+    {
+        $userID = Auth::id();
+        $user = User::where('id',$userID)->first();
+        return view('frontend.profile.privacy')
+        ->with('userDetail', $user);
     }
 
     /**

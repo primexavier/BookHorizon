@@ -5,9 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Bank Index</div>
+                <div class="card-header">Promotion Index</div>
                 <div class="card-body">                
-                    <form method="POST" action="{{route('backend.bank.update')}}">
+                    <form method="POST" action="{{route('backend.promotion.update', $promotion->id)}}">
                         @csrf
                         <div class="card-body">
                             <div class="row">

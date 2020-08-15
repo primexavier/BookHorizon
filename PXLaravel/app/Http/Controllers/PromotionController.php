@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Promotion;
 use Illuminate\Http\Request;
+use App\DataTables\PromotionDataTable;
 
 class PromotionController extends Controller
 {
@@ -12,9 +13,9 @@ class PromotionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(PromotionDataTable $dataTable)
     {
-        //
+        return $dataTable->render('backend.promotion.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class PromotionController extends Controller
      */
     public function create()
     {
-        //
+        return view("backend.promotion.add");
     }
 
     /**
@@ -35,7 +36,29 @@ class PromotionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validateWithBag('memberships', [
+            'name' => ['required'],
+            'start' => ['required'],
+            'end' => ['required'],
+            'promotion_total' => ['required']
+        ]);
+        $new = new Promotion();
+        $new->name = $request->name;
+        $new->start = $request->start;
+        $new->end = $request->end;
+        $new->type = $request->promotion_type;
+        if($request->promotion_by == 1){
+            $new->is_percent = true;
+        }else{
+            $new->is_percent = false;
+        }
+        $new->total = $request->promotion_total;
+        $new->description = $request->desc;
+        if($new->save()){
+            return redirect()->route('backend.promotion.index');
+        }else{
+            return redirect()->route('backend.promotion.index');
+        }
     }
 
     /**
@@ -46,7 +69,7 @@ class PromotionController extends Controller
      */
     public function show(Promotion $promotion)
     {
-        //
+        return view("backend.promotion.detail")->with("promotion",$promotion);
     }
 
     /**
@@ -57,7 +80,7 @@ class PromotionController extends Controller
      */
     public function edit(Promotion $promotion)
     {
-        //
+        return view("backend.promotion.edit")->with("promotion",$promotion);
     }
 
     /**
@@ -69,7 +92,7 @@ class PromotionController extends Controller
      */
     public function update(Request $request, Promotion $promotion)
     {
-        //
+        return $promotion;
     }
 
     /**
@@ -80,6 +103,11 @@ class PromotionController extends Controller
      */
     public function destroy(Promotion $promotion)
     {
-        //
+        if($promotion){
+            $promotion->delete();
+            return redirect()->route("backend.promotion.index");
+        }else{                
+            return redirect()->route("backend.promotion.index");
+        }
     }
 }

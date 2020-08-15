@@ -14,6 +14,10 @@
                                 <input type="checkbox" name="mtmode" id="mtmode">
                                 <label class="form-check-label" for="mtmode" >Maintenance Mode</label>
                             </div>
+                            <div class="form-group">
+                                <label for="Description">Late Charge</label>
+                                <input type="number" class="form-control" placeholder="Late Charge" name="late_charge">
+                            </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </form>

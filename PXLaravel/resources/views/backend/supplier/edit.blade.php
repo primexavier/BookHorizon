@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Supplier Index</div>
                 <div class="card-body">                
-                    <form method="POST" action="{{route('backend.book.update')}}">
+                    <form method="POST" action="{{route('backend.supplier.update')}}">
                         @csrf
                         <div class="card-body">
                             <div class="row">

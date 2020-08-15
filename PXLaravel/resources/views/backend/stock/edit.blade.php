@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Stock Edit</div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('backend.member.update', $member->id)}}">
+                    <form method="POST" action="{{route('backend.stock.update', $member->id)}}">
                         @csrf
                         <div class="card-body">
                             <div class="row">

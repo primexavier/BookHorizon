@@ -36,20 +36,16 @@ class MembershipController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validateWithBag('users', [
+        $validatedData = $request->validateWithBag('memberships', [
             'name' => ['required'],
-            'password' => ['required'],
-            'email' => ['required', 'unique:users']
+            'price' => ['required'],
+            'duration' => ['required']
         ]);
-        $new = new User();
+        $new = new Membership();
         $new->name = $request->name;
-        $new->email = $request->email;
-        $new->first_name = $request->name;
-        $new->last_name = $request->last_name;
-        $new->display_name = $request->display_name;
-        $new->privacy = $request->privacy;
-        $new->password = Hash::make($request->password);
-        $new->level = 2;
+        $new->duration = $request->duration;
+        $new->price = $request->price;
+        $new->description = $request->desc;
         if($new->save()){
             return redirect()->route('backend.membership.index');
         }else{
@@ -65,7 +61,7 @@ class MembershipController extends Controller
      */
     public function show(Membership $membership)
     {
-        return view("backend.member.detail")->with("member",$user);
+        return view("backend.membership.detail")->with("membership",$membership);
     }
 
     /**
@@ -76,7 +72,7 @@ class MembershipController extends Controller
      */
     public function edit(Membership $membership)
     {
-        return view("backend.member.edit")->with("member",$membership);
+        return view("backend.membership.edit")->with("membership",$membership);
     }
 
     /**
@@ -101,9 +97,9 @@ class MembershipController extends Controller
     {
         if($membership){
             $membership->delete();
-            return redirect()->route("backend.member.index");
+            return redirect()->route("backend.membership.index");
         }else{                
-            return redirect()->route("backend.member.index");
+            return redirect()->route("backend.membership.index");
         }
     }
 }

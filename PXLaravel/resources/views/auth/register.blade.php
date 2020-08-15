@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('frontend.layouts.app')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 				<div class="login-form">
@@ -45,7 +45,17 @@
 							<div class="col-md-12">
                                 <button type="submit" class="btn btn-outlined">
                                     {{ __('Register') }}
-                                </button>
+                                </button>                                 
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif                                                 
+                                @if (Route::has('login'))
+                                    <a class="btn btn-link" href="{{ route('login') }}">
+                                        {{ __('Login') }}
+                                    </a>
+                                @endif
 							</div>
 						</div>
 					</div>

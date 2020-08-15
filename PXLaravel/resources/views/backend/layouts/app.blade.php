@@ -1,4 +1,3 @@
-{{$test = Users::get()}}
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -76,6 +75,9 @@
                                     </a>
                                     <a class="dropdown-item" href="{{route('backend.membership.index')}}" >
                                         Membership
+                                    </a>
+                                    <a class="dropdown-item" href="{{route('backend.promotion.index')}}" >
+                                        Promotion
                                     </a>
                                     <a class="dropdown-item" href="{{route('backend.users.index')}}" >
                                         User

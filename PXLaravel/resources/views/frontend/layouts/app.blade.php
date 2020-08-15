@@ -1,6 +1,6 @@
-{{$test = Users::get()}}
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,9 +13,10 @@
     <!-- Use Minified Plugins Version For Fast Page Load -->
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('frontend/css/plugins.css') }}" />
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('frontend/css/main.css') }}" />
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/image/favicon.ico') }}"> 
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/image/favicon.ico') }}">
     @yield('customHeader')
 </head>
+
 <body>
     <div id="app">
         <div class="site-wrapper" id="top">
@@ -42,10 +43,11 @@
                                         </a>
                                         <i class="fas fa-chevron-down dropdown-arrow"></i>
                                         <ul class="dropdown-box">
-                                            <li> 
-                                                <a href="/"> 
+                                            <li>
+                                                <a href="/">
                                                     <span class="flag-img">
-                                                        <img src="{{ asset('frontend/image/icon/eng-flag.png') }}" alt="">
+                                                        <img src="{{ asset('frontend/image/icon/eng-flag.png') }}"
+                                                            alt="">
                                                     </span>
                                                     English
                                                 </a>
@@ -53,13 +55,14 @@
                                             {{-- <li> 
                                                 <a href="/">
                                                     <span class="flag-img">
-                                                        <img src="{{ asset('frontend/image/icon/germany-flag.png') }}" alt="">
-                                                    </span>
-                                                    Germany
-                                                </a>
-                                            </li> --}}
-                                        </ul>
-                                    </li>
+                                                        <img src="{{ asset('frontend/image/icon/germany-flag.png') }}"
+                                            alt="">
+                                            </span>
+                                            Germany
+                                            </a>
+                                    </li> --}}
+                                </ul>
+                                </li>
                                 </ul>
                             </div>
                             <div class="col-lg-8 flex-lg-right">
@@ -73,22 +76,22 @@
                                         </a>
                                     </li> --}}
                                     <li class="dropdown-trigger language-dropdown">
-                                    <a href="{{route('wishlist')}}">
+                                        <a href="{{route('wishlist')}}">
                                             <i class="icons-left fas fa-heart"></i>
                                             wishlist (0)
                                         </a>
                                     </li>
                                     <li class="dropdown-trigger language-dropdown">
-                                        <a href="">
+                                        <a href="#">
                                             <i class="icons-left fas fa-user"></i>
                                             My Account
                                         </a>
                                         <i class="fas fa-chevron-down dropdown-arrow"></i>
                                         <ul class="dropdown-box">
                                             <li> <a href="{{ route('profile') }}">My Account</a></li>
-                                            <li> <a href="">Order History</a></li>
-                                            <li> <a href="">Transactions</a></li>
-                                            <li> <a href="">Downloads</a></li>
+                                            <li> <a href="{{ route('order.list') }}">Order History</a></li>
+                                            <li> <a href="{{ route('bill.list') }}">Transactions</a></li>
+                                            <li> <a href="{{ route('download.list') }}">Downloads</a></li>
                                         </ul>
                                     </li>
                                     @endguest
@@ -136,32 +139,34 @@
                                         </div>
                                         @else
                                         <div class="login-block">
-                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                 Logout
                                             </a>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                style="display: none;">
                                                 @csrf
                                             </form>
                                         </div>
                                         @endguest
-                                        <div class="cart-block">
+                                        <div class="cart-block" onClick="location.href='{{route("chart")}}'">
                                             <div class="cart-total">
                                                 <span class="text-number">
                                                     @if(Auth::User())
-                                                        {{Auth::User()->chart()->count()}}  
+                                                    {{Auth::User()->chart()->count()}}
                                                     @else
-                                                        0
-                                                    @endif                                                  
+                                                    0
+                                                    @endif
                                                 </span>
                                                 <span class="text-item">
                                                     Shopping Cart
                                                 </span>
                                                 <span class="price">
                                                     @if(Auth::User())
-                                                       Rp {{Auth::User()->chart()->count()}}  
+                                                    Rp {{Auth::User()->chart()->count()}}
                                                     @else
-                                                       Rp 0
-                                                    @endif        
+                                                    Rp 0
+                                                    @endif
                                                     <!-- <i class="fas fa-chevron-down"></i> -->
                                                 </span>
                                             </div>
@@ -203,8 +208,8 @@
                                 <!-- @if (\Request::is('login') || \Request::is('register') || \Request::is('password/reset') || \Request::is('user/profile') || \Request::is('blog*')|| \Request::is('contact*'))  
                                     <nav class="category-nav primary-nav">
                                 @else -->
-                                    <nav class="category-nav primary-nav">
-                                <!-- @endif -->
+                                <nav class="category-nav primary-nav">
+                                    <!-- @endif -->
                                     <div>
                                         <a href="javascript:void(0)" class="category-trigger">
                                             <i class="fa fa-bars"></i>
@@ -298,8 +303,8 @@
                                             <li class="cat-item hidden-menu-item"><a href="#">Education</a></li>
                                             <li class="cat-item hidden-menu-item"><a href="#">Indoor Living</a></li>
                                             <li class="cat-item"><a href="#" class="js-expand-hidden-menu">More -->
-                                                    <!-- Categories</a></li> -->
-                                        <!-- </ul> -->
+                                            <!-- Categories</a></li> -->
+                                            <!-- </ul> -->
                                     </div>
                                 </nav>
                             </div>
@@ -319,7 +324,7 @@
                                     <ul class="main-menu menu-right li-last-0">
                                         <li class="menu-item">
                                             <a href="/">
-                                                Home 
+                                                Home
                                             </a>
                                         </li>
                                         <!-- Shop -->
@@ -391,7 +396,7 @@
                                         <!-- Blog -->
                                         <li class="menu-item">
                                             <a href="/blog">
-                                                Blog 
+                                                Blog
                                                 <!-- <i class="fas fa-chevron-down dropdown-arrow"></i> -->
                                             </a>
                                             <!-- <ul class="sub-menu three-column">
@@ -748,7 +753,7 @@
                                 <ul class="main-menu menu-right ">
                                     <li class="menu-item">
                                         <a href="/">
-                                            Home 
+                                            Home
                                         </a>
                                     </li>
                                     <!-- Shop -->
@@ -773,27 +778,33 @@
                                                 </ul>
                                             </li>
                                             <li class="cus-col-25">
-                                                <h3 class="menu-title"> <a href="javascript:void(0)">Product Details 1</a>
+                                                <h3 class="menu-title"> <a href="javascript:void(0)">Product Details
+                                                        1</a>
                                                 </h3>
                                                 <ul class="mega-single-block">
                                                     <li><a href="product-details.html">Product Details Page</a></li>
                                                     <li><a href="product-details-affiliate.html">Product Details
                                                             Affiliate</a></li>
-                                                    <li><a href="product-details-group.html">Product Details Group</a></li>
+                                                    <li><a href="product-details-group.html">Product Details Group</a>
+                                                    </li>
                                                     <li><a href="product-details-variable.html">Product Details
                                                             Variables</a></li>
                                                 </ul>
                                             </li>
                                             <li class="cus-col-25">
-                                                <h3 class="menu-title"><a href="javascript:void(0)">Product Details 2</a>
+                                                <h3 class="menu-title"><a href="javascript:void(0)">Product Details
+                                                        2</a>
                                                 </h3>
                                                 <ul class="mega-single-block">
                                                     <li><a href="product-details-left-thumbnail.html">left Thumbnail</a>
                                                     </li>
-                                                    <li><a href="product-details-right-thumbnail.html">Right Thumbnail</a>
+                                                    <li><a href="product-details-right-thumbnail.html">Right
+                                                            Thumbnail</a>
                                                     </li>
-                                                    <li><a href="product-details-left-gallery.html">Left Gallery</a></li>
-                                                    <li><a href="product-details-right-gallery.html">Right Gallery</a></li>
+                                                    <li><a href="product-details-left-gallery.html">Left Gallery</a>
+                                                    </li>
+                                                    <li><a href="product-details-right-gallery.html">Right Gallery</a>
+                                                    </li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -857,21 +868,23 @@
                         </div>
                     </div>
                 </div>
-            </div>            
-            @yield('content')         
-                        <!-- Modal -->
-                        <div class="modal fade modal-quick-view" id="quickModal" tabindex="-1" role="dialog"
+            </div>
+            @yield('content')
+            <!-- Modal -->
+            <div class="modal fade modal-quick-view" id="quickModal" tabindex="-1" role="dialog"
                 aria-labelledby="quickModal" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <button type="button" class="close modal-close-btn ml-auto" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close modal-close-btn ml-auto" data-dismiss="modal"
+                            aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <div class="product-details-modal">
                             <div class="row">
                                 <div class="col-lg-5">
                                     <!-- Product Details Slider Big Image-->
-                                    <div class="product-details-slider sb-slick-slider arrow-type-two" data-slick-setting='{
+                                    <div class="product-details-slider sb-slick-slider arrow-type-two"
+                                        data-slick-setting='{
                 "slidesToShow": 1,
                 "arrows": false,
                 "fade": true,
@@ -880,19 +893,24 @@
                 "asNavFor": ".product-slider-nav"
                 }'>
                                         <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-1.jpg') }}" alt="">
+                                            <img src="{{ asset('frontend/image/products/product-details-1.jpg') }}"
+                                                alt="">
                                         </div>
                                         <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-2.jpg') }}" alt="">
+                                            <img src="{{ asset('frontend/image/products/product-details-2.jpg') }}"
+                                                alt="">
                                         </div>
                                         <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-3.jpg') }}" alt="">
+                                            <img src="{{ asset('frontend/image/products/product-details-3.jpg') }}"
+                                                alt="">
                                         </div>
                                         <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-4.jpg') }}" alt="">
+                                            <img src="{{ asset('frontend/image/products/product-details-4.jpg') }}"
+                                                alt="">
                                         </div>
                                         <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-5.jpg') }}" alt="">
+                                            <img src="{{ asset('frontend/image/products/product-details-5.jpg') }}"
+                                                alt="">
                                         </div>
                                     </div>
                                     <!-- Product Details Slider Nav -->
@@ -909,26 +927,32 @@
                 "focusOnSelect": true
                 }'>
                                         <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-1.jpg') }}" alt="">
+                                            <img src="{{ asset('frontend/image/products/product-details-1.jpg') }}"
+                                                alt="">
                                         </div>
                                         <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-2.jpg') }}" alt="">
+                                            <img src="{{ asset('frontend/image/products/product-details-2.jpg') }}"
+                                                alt="">
                                         </div>
                                         <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-3.jpg') }}" alt="">
+                                            <img src="{{ asset('frontend/image/products/product-details-3.jpg') }}"
+                                                alt="">
                                         </div>
                                         <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-4.jpg') }}" alt="">
+                                            <img src="{{ asset('frontend/image/products/product-details-4.jpg') }}"
+                                                alt="">
                                         </div>
                                         <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-5.jpg') }}" alt="">
+                                            <img src="{{ asset('frontend/image/products/product-details-5.jpg') }}"
+                                                alt="">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-7 mt--30 mt-lg--30">
                                     <div class="product-details-info pl-lg--30 ">
                                         <p class="tag-block">Tags: <a href="#">Movado</a>, <a href="#">Omega</a></p>
-                                        <h3 id="modalProductTitle" class="product-title">Beats EP Wired On-Ear Headphone-Black</h3>
+                                        <h3 id="modalProductTitle" class="product-title">Beats EP Wired On-Ear
+                                            Headphone-Black</h3>
                                         <ul class="list-unstyled">
                                             <li>Ex Tax: <span class="list-value"> £60.24</span></li>
                                             <li>Brands: <a href="#" class="list-value font-weight-bold"> Canon</a></li>
@@ -955,7 +979,8 @@
                                         </div>
                                         <article class="product-details-article">
                                             <h4 class="sr-only">Product Summery</h4>
-                                            <p>Long printed dress with thin adjustable straps. V-neckline and wiring under
+                                            <p>Long printed dress with thin adjustable straps. V-neckline and wiring
+                                                under
                                                 the Dust with ruffles
                                                 at the bottom
                                                 of the
@@ -999,4 +1024,5 @@
     @include('frontend.layouts.script')
     @yield('custom.script')
 </body>
+
 </html>

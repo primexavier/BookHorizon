@@ -15,9 +15,14 @@ class CreateDownloadsTable extends Migration
     {
         Schema::create('downloads', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("user_id");       
             $table->string("name");
+            $table->string("file");
+            $table->string("expired");
+            $table->boolean("is_active");
             $table->softDeletes('deleted_at', 0);	
             $table->timestamps(0);
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -28,6 +33,12 @@ class CreateDownloadsTable extends Migration
      */
     public function down()
     {
+        if (Schema::hasColumn('downloads', 'user_id'))
+        {
+            Schema::table('downloads', function (Blueprint $table) {
+                $table->dropForeign(['user_id']);
+            });
+        }
         Schema::dropIfExists('downloads');
     }
 }

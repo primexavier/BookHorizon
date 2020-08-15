@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Currency Index</div>
                 <div class="card-body">                
-                    <form method="POST" action="{{route('backend.book.update')}}">
+                    <form method="POST" action="{{route('backend.currency.update')}}">
                         @csrf
                         <div class="card-body">
                             <div class="row">

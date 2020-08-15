@@ -13,6 +13,7 @@ use App\Model\Category;
 use App\Model\Supplier;
 use App\Model\Stock;
 use App\Model\Membership;
+use App\Model\Promotion;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,9 @@ Route::get('/book/{id}/detail', 'FrontEndController@bookDetail')->name('book.det
 Route::get('/blog', 'FrontEndController@blogIndex')->name('blog.index');
 Route::get('/blog/{id}/detail', 'FrontEndController@blogDetail')->name('blog.detail');
 Route::get('/contact', 'ContactController@index')->name('contact.index');
+
 Route::get('/checkout', 'FrontEndController@checkout')->name('checkout');
+Route::get('/chart', 'FrontEndController@checkout')->name('chart');
 Route::get('/addChart', 'FrontEndController@addChart')->name('add.chart');
 Route::post('/addChart', 'FrontEndController@addChart')->name('add.chart');
 
@@ -39,6 +42,15 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'user'], function () {
         Route::get('/profile', 'MemberController@profile')->name('profile');
+        Route::get('/editprofile', 'MemberController@editProfile')->name('profile.edit');
+        Route::post('/editprofile', 'MemberController@updateProfile')->name('profile.update');
+        Route::get('/orders', 'MemberController@orderList')->name('order.list');
+        Route::get('/download', 'MemberController@downloadList')->name('download.list');
+        Route::get('/bill', 'MemberController@billList')->name('bill.list');
+        Route::get('/payment-method', 'MemberController@paymentMethod')->name('payment.method');
+        Route::get('/payment', 'MemberController@paymentList')->name('payment.list');
+        Route::get('/address', 'MemberController@addressList')->name('address.list');
+        Route::get('/privacy', 'MemberController@privacy')->name('privacy.setting');
     });
     Route::get('/wishlist', 'HomeController@wishlist')->name('wishlist');
     Route::get('/home', 'HomeController@index')->name('home');
@@ -167,6 +179,15 @@ Route::group(['prefix' => 'backend'], function () {
             Route::post('/update/{membership}', 'MembershipController@update')->name('backend.membership.update');
             Route::get('/detail/{membership}', 'MembershipController@show')->name('backend.membership.detail');
             Route::post('/delete/{membership}', 'MembershipController@destroy')->name('backend.membership.delete');
+        });
+        Route::group(['prefix' => 'promotion'], function () {
+            Route::get('/', 'PromotionController@index')->name('backend.promotion.index');
+            Route::get('/create', 'PromotionController@create')->name('backend.promotion.create');
+            Route::post('/create', 'PromotionController@store')->name('backend.promotion.store');
+            Route::get('/update/{promotion}', 'PromotionController@edit')->name('backend.promotion.edit');
+            Route::post('/update/{promotion}', 'PromotionController@update')->name('backend.promotion.update');
+            Route::get('/detail/{promotion}', 'PromotionController@show')->name('backend.promotion.detail');
+            Route::post('/delete/{promotion}', 'PromotionController@destroy')->name('backend.promotion.delete');
         });
         Route::group(['prefix' => 'setting'], function () {
             Route::get('/', 'SettingController@index')->name('backend.setting.index');
