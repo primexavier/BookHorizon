@@ -434,14 +434,3 @@
     </div>
 </main>
 @endsection
-
-@section("custom.script")
-<script>
-    function addChart(method, id){
-        alert(id);
-    }
-    function addWishlist(method, id){
-        alert(id);
-    }
-</script>
-@endsection

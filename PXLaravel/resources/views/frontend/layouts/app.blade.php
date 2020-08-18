@@ -314,7 +314,7 @@
                                         <i class="fas fa-headphones-alt"></i>
                                     </div>
                                     <div class="text">
-                                        <p>Free Support 24/7</p>
+                                        <p>Contact Us</p>
                                         <p class="font-weight-bold number">+0000 0000 0000</p>
                                     </div>
                                 </div>
@@ -448,7 +448,7 @@
                                 </a>
                             </div>
                             <div class="col-md-5 order-3 order-md-2">
-                                <nav class="category-nav   ">
+                                <nav class="category-nav">
                                     <div>
                                         <a href="javascript:void(0)" class="category-trigger">
                                             <i class="fa fa-bars"></i>

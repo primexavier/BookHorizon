@@ -34,8 +34,10 @@ Route::get('/contact', 'ContactController@index')->name('contact.index');
 
 Route::get('/checkout', 'FrontEndController@checkout')->name('checkout');
 Route::get('/chart', 'FrontEndController@checkout')->name('chart');
-Route::get('/addChart', 'FrontEndController@addChart')->name('add.chart');
-Route::post('/addChart', 'FrontEndController@addChart')->name('add.chart');
+Route::get('/addChart/{id}', 'FrontEndController@addChart')->name('add.chart');
+Route::post('/addChart/{id}', 'FrontEndController@addChart')->name('add.chart');
+Route::get('/addWishlist/{id}', 'FrontEndController@addWishlist')->name('add.chart');
+Route::post('/addWishlist/{id}', 'FrontEndController@addWishlist')->name('add.chart');
 
 Auth::routes();
 

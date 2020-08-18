@@ -126,17 +126,18 @@ class FrontEndController extends Controller
      */
     public function addChart(Request $request)
     {
+        if(!Auth::User()){
+            return response("login", 200)->header('Content-Type', 'text/plain');
+        }
         $addChart = new Chart;
         $addChart->book_id = $request->id;
         $addChart->user_id = Auth::User()->id;
         $addChart->transaction_type = 1;
         $addChart->save();
         if(!$addChart){
-            return response($request->id, 500)
-                      ->header('Content-Type', 'text/plain');
+            return response($request->id, 500)->header('Content-Type', 'text/plain');
         }else{
-            return response($request->id, 200)
-                      ->header('Content-Type', 'text/plain');
+            return response($request->id, 200)->header('Content-Type', 'text/plain');
         }
     }
 }

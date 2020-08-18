@@ -862,21 +862,4 @@
 @endsection
 
 @section("custom.script")
-<script>
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    function addChart(method, id){
-        var jqxhr = $.post( "/addChart", { id: id }, function(data) {
-            alert(data);
-        }).fail(function() {
-            alert( "error" );
-        });
-    }
-    function addWishlist(method, id){
-        alert(id);
-    }
-</script>
 @endsection
