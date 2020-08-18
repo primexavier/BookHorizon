@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Model\Chart');
     }
+
+    public function wishlist()
+    {
+        return $this->hasMany('App\Model\Wishlist');
+    }
 }

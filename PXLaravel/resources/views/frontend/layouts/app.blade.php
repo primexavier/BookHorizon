@@ -20,7 +20,20 @@
 <body>
     <div id="app">
         <div class="site-wrapper" id="top">
-            <div class="site-header header-4 mb--20 d-none d-lg-block">
+            <div class="site-header header-4 mb--20 d-none d-lg-block">            
+                <div class="header-top header-top--style-2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 d-flex justify-content-center">                            
+                                <ul class="header-top-list">
+                                    <li>
+                                        !! Buy And Payment is Still Progress !!
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="header-top header-top--style-2">
                     <div class="container">
                         <div class="row">
@@ -78,7 +91,13 @@
                                     <li class="dropdown-trigger language-dropdown">
                                         <a href="{{route('wishlist')}}">
                                             <i class="icons-left fas fa-heart"></i>
-                                            wishlist (0)
+                                            wishlist 
+                                            @guest
+                                                (0)
+                                            @else
+                                                ({{ Auth::User()->wishlist()->count() }})
+                                            @endif
+
                                         </a>
                                     </li>
                                     <li class="dropdown-trigger language-dropdown">
@@ -163,7 +182,7 @@
                                                 </span>
                                                 <span class="price">
                                                     @if(Auth::User())
-                                                    Rp {{Auth::User()->chart()->count()}}
+                                                    Rp 0
                                                     @else
                                                     Rp 0
                                                     @endif
@@ -885,65 +904,32 @@
                                     <!-- Product Details Slider Big Image-->
                                     <div class="product-details-slider sb-slick-slider arrow-type-two"
                                         data-slick-setting='{
-                "slidesToShow": 1,
-                "arrows": false,
-                "fade": true,
-                "draggable": false,
-                "swipe": false,
-                "asNavFor": ".product-slider-nav"
-                }'>
+                                        "slidesToShow": 1,
+                                        "arrows": false,
+                                        "fade": true,
+                                        "draggable": false,
+                                        "swipe": false,
+                                        "asNavFor": ".product-slider-nav"
+                                        }'>
                                         <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-1.jpg') }}"
-                                                alt="">
-                                        </div>
-                                        <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-2.jpg') }}"
-                                                alt="">
-                                        </div>
-                                        <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-3.jpg') }}"
-                                                alt="">
-                                        </div>
-                                        <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-4.jpg') }}"
-                                                alt="">
-                                        </div>
-                                        <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-5.jpg') }}"
-                                                alt="">
+                                            <img src="{{ asset('frontend/image/products/product-details-1.jpg') }}" alt="">
                                         </div>
                                     </div>
                                     <!-- Product Details Slider Nav -->
                                     <div class="mt--30 product-slider-nav sb-slick-slider arrow-type-two"
                                         data-slick-setting='{
-                "infinite":true,
-                "autoplay": true,
-                "autoplaySpeed": 8000,
-                "slidesToShow": 4,
-                "arrows": true,
-                "prevArrow":{"buttonClass": "slick-prev","iconClass":"fa fa-chevron-left"},
-                "nextArrow":{"buttonClass": "slick-next","iconClass":"fa fa-chevron-right"},
-                "asNavFor": ".product-details-slider",
-                "focusOnSelect": true
-                }'>
+                                        "infinite":true,
+                                        "autoplay": true,
+                                        "autoplaySpeed": 8000,
+                                        "slidesToShow": 4,
+                                        "arrows": true,
+                                        "prevArrow":{"buttonClass": "slick-prev","iconClass":"fa fa-chevron-left"},
+                                        "nextArrow":{"buttonClass": "slick-next","iconClass":"fa fa-chevron-right"},
+                                        "asNavFor": ".product-details-slider",
+                                        "focusOnSelect": true
+                                        }'>
                                         <div class="single-slide">
                                             <img src="{{ asset('frontend/image/products/product-details-1.jpg') }}"
-                                                alt="">
-                                        </div>
-                                        <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-2.jpg') }}"
-                                                alt="">
-                                        </div>
-                                        <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-3.jpg') }}"
-                                                alt="">
-                                        </div>
-                                        <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-4.jpg') }}"
-                                                alt="">
-                                        </div>
-                                        <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-5.jpg') }}"
                                                 alt="">
                                         </div>
                                     </div>
@@ -961,36 +947,9 @@
                                             <li>Availability: <span class="list-value"> In Stock</span></li>
                                         </ul>
                                         <div class="price-block">
-                                            <span class="price-new">£73.79</span>
-                                            <del class="price-old">£91.86</del>
+                                            <span class="price-new">Rp 0</span>
                                         </div>
-                                        <div class="rating-widget">
-                                            <div class="rating-block">
-                                                <span class="fas fa-star star_on"></span>
-                                                <span class="fas fa-star star_on"></span>
-                                                <span class="fas fa-star star_on"></span>
-                                                <span class="fas fa-star star_on"></span>
-                                                <span class="fas fa-star "></span>
-                                            </div>
-                                            <div class="review-widget">
-                                                <a href="">(1 Reviews)</a> <span>|</span>
-                                                <a href="">Write a review</a>
-                                            </div>
-                                        </div>
-                                        <article class="product-details-article">
-                                            <h4 class="sr-only">Product Summery</h4>
-                                            <p>Long printed dress with thin adjustable straps. V-neckline and wiring
-                                                under
-                                                the Dust with ruffles
-                                                at the bottom
-                                                of the
-                                                dress.</p>
-                                        </article>
                                         <div class="add-to-cart-row">
-                                            <div class="count-input-block">
-                                                <span class="widget-label">Qty</span>
-                                                <input type="number" class="form-control text-center" value="1">
-                                            </div>
                                             <div class="add-cart-btn">
                                                 <a href="" class="btn btn-outlined--primary"><span
                                                         class="plus-icon">+</span>Add to Cart</a>

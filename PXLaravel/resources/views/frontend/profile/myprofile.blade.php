@@ -40,6 +40,38 @@
 												recent orders, manage your shipping and billing addresses and edit your
                                                 password and account details.</p>    
                                             <br>
+											<div class="alert alert-primary" role="alert">
+													Example Alert
+												</div>
+												<div class="alert alert-secondary" role="alert">
+													Example Alert
+												</div>
+												<div class="alert alert-success" role="alert">
+													Example Alert
+												</div>
+												<div class="alert alert-danger" role="alert">
+													Example Alert
+												</div>
+												<div class="alert alert-warning" role="alert">
+													Example Alert
+												</div>
+												<div class="alert alert-info" role="alert">
+													Example Alert
+												</div>
+												<div class="alert alert-light" role="alert">
+													Example Alert
+												</div>
+												<div class="alert alert-dark" role="alert">
+													Example Alert
+												</div>
+
+												<div class="alert alert-success" role="alert">
+												<h4 class="alert-heading">Well done!</h4>
+												<p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+												<hr>
+												<p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+												</div>
+
                                             <div class="form-group row mb-0">
                                                 <div class="col-md-6 offset-md-4">
                                                    <button type="submit" class="btn btn-primary">

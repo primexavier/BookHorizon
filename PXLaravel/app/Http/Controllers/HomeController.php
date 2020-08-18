@@ -25,14 +25,4 @@ class HomeController extends Controller
     {
         return view('frontend.index');
     }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function wishlist()
-    {
-        return view('frontend.index');
-    }
 }

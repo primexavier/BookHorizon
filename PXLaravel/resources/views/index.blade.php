@@ -234,9 +234,9 @@
                                                                 <!-- <a href="compare.html" class="single-btn">
                                                                     <i class="fas fa-random"></i>
                                                                 </a> -->
-                                                                <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                <!-- <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
                                                                     <i class="fas fa-eye"></i>
-                                                                </a>
+                                                                </a> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -436,9 +436,9 @@
                                                                             <!-- <a href="compare.html" class="single-btn">
                                                                                 <i class="fas fa-random"></i>
                                                                             </a> -->
-                                                                            <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                            <!-- <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
                                                                                 <i class="fas fa-eye"></i>
-                                                                            </a>
+                                                                            </a> -->
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -505,9 +505,9 @@
                                                                             <!-- <a href="compare.html" class="single-btn">
                                                                                 <i class="fas fa-random"></i>
                                                                             </a> -->
-                                                                            <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                            <!-- <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
                                                                                 <i class="fas fa-eye"></i>
-                                                                            </a>
+                                                                            </a> -->
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -574,9 +574,9 @@
                                                                             <!-- <a href="compare.html" class="single-btn">
                                                                                 <i class="fas fa-random"></i>
                                                                             </a> -->
-                                                                            <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                            <!-- <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
                                                                                 <i class="fas fa-eye"></i>
-                                                                            </a>
+                                                                            </a> -->
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -859,7 +859,4 @@
                     </div>
                 </div>
             </section>
-@endsection
-
-@section("custom.script")
 @endsection

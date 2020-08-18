@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\Book;
 use App\Model\Blog;
 use App\Model\Chart;
+use App\Model\Wishlist;
 
 class FrontEndController extends Controller
 {
@@ -129,6 +130,9 @@ class FrontEndController extends Controller
         if(!Auth::User()){
             return response("login", 200)->header('Content-Type', 'text/plain');
         }
+        if(!Book::find($request->id)){
+            return response($request->id, 500)->header('Content-Type', 'text/plain');
+        }
         $addChart = new Chart;
         $addChart->book_id = $request->id;
         $addChart->user_id = Auth::User()->id;
@@ -139,5 +143,38 @@ class FrontEndController extends Controller
         }else{
             return response($request->id, 200)->header('Content-Type', 'text/plain');
         }
+    }
+
+    public function addWishlist(Request $request)
+    {
+        if(!Auth::User()){
+            return response("login", 200)->header('Content-Type', 'text/plain');
+        }
+        if(!Book::find($request->id)){
+            return response($request->id, 500)->header('Content-Type', 'text/plain');
+        }
+        $addChart = new Wishlist;
+        $addChart->book_id = $request->id;
+        $addChart->user_id = Auth::User()->id;
+        $addChart->save();
+        if(!$addChart){
+            return response($request->id, 500)->header('Content-Type', 'text/plain');
+        }else{
+            return response($request->id, 200)->header('Content-Type', 'text/plain');
+        }
+    }
+
+    public function chart()
+    {
+        $chart = Chart::where("user_id", Auth::User()->id)->get();
+        return view("frontend.chart")
+        ->with("charts",$chart);
+    }
+
+    public function wishlist()
+    {
+        $wishlist = Wishlist::where("user_id", Auth::User()->id)->get();
+        return view("frontend.wishlist")
+        ->with("wishlists",$wishlist);
     }
 }

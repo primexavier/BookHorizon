@@ -33,8 +33,7 @@
 											<address>
                                                 No Address
 											</address>
-											<a href="#" class="btn btn--primary"><i class="fa fa-edit"></i>Add
-												Address</a>
+											<a href="#" class="btn btn--primary"><i class="fa fa-edit"></i>Add Address</a>
 										</div>
 									</div>
 									<!-- Single Tab Content End -->

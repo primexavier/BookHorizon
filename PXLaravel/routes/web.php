@@ -33,11 +33,10 @@ Route::get('/blog/{id}/detail', 'FrontEndController@blogDetail')->name('blog.det
 Route::get('/contact', 'ContactController@index')->name('contact.index');
 
 Route::get('/checkout', 'FrontEndController@checkout')->name('checkout');
-Route::get('/chart', 'FrontEndController@checkout')->name('chart');
-Route::get('/addChart/{id}', 'FrontEndController@addChart')->name('add.chart');
+Route::get('/chart', 'FrontEndController@chart')->name('chart');
+Route::get('/wishlist', 'FrontEndController@wishlist')->name('wishlist');
 Route::post('/addChart/{id}', 'FrontEndController@addChart')->name('add.chart');
-Route::get('/addWishlist/{id}', 'FrontEndController@addWishlist')->name('add.chart');
-Route::post('/addWishlist/{id}', 'FrontEndController@addWishlist')->name('add.chart');
+Route::post('/addWishlist/{id}', 'FrontEndController@addWishlist')->name('add.wishlist');
 
 Auth::routes();
 
@@ -54,7 +53,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/address', 'MemberController@addressList')->name('address.list');
         Route::get('/privacy', 'MemberController@privacy')->name('privacy.setting');
     });
-    Route::get('/wishlist', 'HomeController@wishlist')->name('wishlist');
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
