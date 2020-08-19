@@ -35,6 +35,8 @@ Route::get('/contact', 'ContactController@index')->name('contact.index');
 Route::get('/checkout', 'FrontEndController@checkout')->name('checkout');
 Route::get('/chart', 'FrontEndController@chart')->name('chart');
 Route::get('/wishlist', 'FrontEndController@wishlist')->name('wishlist');
+Route::get('/addChart/{id}', 'FrontEndController@addChart')->name('add.chart');
+Route::get('/addWishlist/{id}', 'FrontEndController@addWishlist')->name('add.wishlist');
 Route::post('/addChart/{id}', 'FrontEndController@addChart')->name('add.chart');
 Route::post('/addWishlist/{id}', 'FrontEndController@addWishlist')->name('add.wishlist');
 
