@@ -12,8 +12,7 @@
                                                                         "slidesToShow": 1,
                                                                         "dots":true
                                                                         }'>
-                                <div class="single-slide bg-image bg-overlay--white"
-                                    data-bg="{{ asset('frontend/image/bg-images/home-4-slider-1.jpg') }}">
+                                <div class="single-slide bg-image bg-overlay--white" data-bg="{{ asset('frontend/image/bg-images/home-4-slider-1.jpg') }}">
                                     <div class="home-content text-left pl--30">
                                         <div class="row">
                                             <div class="col-lg-5">

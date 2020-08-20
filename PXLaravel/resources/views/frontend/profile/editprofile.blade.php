@@ -29,10 +29,29 @@
 									<!-- Single Tab Content Start -->
 									<div class="tab-pane fade show active" id="account-info" role="tabpanel">
 										<div class="myaccount-content">
-											<h3>Account Details</h3>
+											<h3>Pictures Details</h3>
 											<div class="account-details-form">
 												<form action="{{route('profile.update')}}}">
 													<div class="row">
+														<div class="col-lg-6 col-12  mb--30">
+															<p class="mb-0">Profile Picture</p>
+                                                            @if ($userDetail->photo)
+                            	        		                <img src="{{ asset('frontend/image/book') }}/{{$userDetail->photo}}" alt="">
+                        	                                @else
+                                                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" width="150px">
+                                                            @endif
+														</div>
+														<div class="col-lg-6 col-12  mb--30">
+															<p class="mb-0">Photo ID</p>
+                                                            @if ($userDetail->photo)
+                            	        		                <img src="{{ asset('frontend/image/book') }}/{{$userDetail->photo}}" alt="">
+                        	                                @else
+                                                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" width="300px" height="150px">
+                                                            @endif
+														</div>
+														<div class="col-12  mb--30">
+															<h4>Account Detail</h4>
+														</div>
 														<div class="col-lg-6 col-12  mb--30">
                                                             <input id="first-name" value="{{$userDetail->first_name}}" placeholder="First Name" type="text">
 														</div>
@@ -41,6 +60,18 @@
 														</div>
 														<div class="col-12  mb--30">
 															<input id="display-name" placeholder="Display Name" type="text" value="{{$userDetail->display_name}}">
+														</div>
+														<div class="col-12  mb--30">
+															<input id="phone-number" placeholder="+6212345678" type="text" value="{{$userDetail->phone_number}}">
+														</div>
+														<div class="col-6  mb--30">
+															<input id="birth-day" type="date" value="{{$userDetail->dob}}">
+														</div>
+														<div class="col-6  mb--30">
+															<input id="occupation" type="text" value="{{$userDetail->occupation}}">
+														</div>
+														<div class="col-6  mb--30">
+															<input id="gender" type="text" value="{{$userDetail->gender}}">
 														</div>
 														<div class="col-12  mb--30">
 															<input id="email" placeholder="Email Address" type="email" readonly value="{{$userDetail->email}}">

@@ -188,4 +188,16 @@ class MemberController extends Controller
     {
         return view("backend.member.edit")->with("member",$user);
     }
+
+    public function becomeMember(User $user)
+    {
+        return view("frontend.profile.become")->with("member",$user);
+    }
+
+    public function extendMember(User $user)
+    {
+        return view("frontend.profile.extend")->with("member",$user);
+    }
+
+    
 }

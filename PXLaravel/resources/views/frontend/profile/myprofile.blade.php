@@ -40,29 +40,28 @@
 												recent orders, manage your shipping and billing addresses and edit your
                                                 password and account details.</p>    
                                             <br>
-											<div class="alert alert-primary" role="alert">
-													Example Alert
+											<div class="alert alert-info" role="alert">
+												<h6>Membership Valid</h6>
+												<ul>
+													<li><span id="days"></span> days <span id="hours"></span> Hours <span id="minutes"></span> Minutes <span id="seconds"></span> Seconds</li>
+												</ul>
 												</div>
 												<div class="alert alert-secondary" role="alert">
-													Example Alert
-												</div>
-												<div class="alert alert-success" role="alert">
-													Example Alert
-												</div>
-												<div class="alert alert-danger" role="alert">
-													Example Alert
-												</div>
-												<div class="alert alert-warning" role="alert">
-													Example Alert
-												</div>
-												<div class="alert alert-info" role="alert">
-													Example Alert
-												</div>
-												<div class="alert alert-light" role="alert">
-													Example Alert
-												</div>
-												<div class="alert alert-dark" role="alert">
-													Example Alert
+													Recomendation
+													<table class="table table-bordered">
+														<thead class="thead-light">
+															<tr>
+																<th>Title</th>
+																<th>Share</th>
+															</tr>
+														</thead>
+														<tbody>
+																<tr>
+																	<td>Mostarizing Oil</td>
+																	<td><a href="#">Share</a></td>
+																</tr>
+														</tbody>
+													</table>
 												</div>
 
 												<div class="alert alert-success" role="alert">
@@ -73,10 +72,15 @@
 												</div>
 
                                             <div class="form-group row mb-0">
-                                                <div class="col-md-6 offset-md-4">
-                                                   <button type="submit" class="btn btn-primary">
+                                                <div class="col-md-6">
+                                                   <a href="{{route('become.member')}}" class="btn btn--primary">
                                                         {{ __('Become a Member') }}
-                                                    </button>
+                                                    </a>
+                                                </div>
+												<div class="col-md-6">
+                                                   <a href="{{route('extend.member')}}" class="btn btn--primary">
+                                                        {{ __('Extend Member') }}
+                                                    </a>
                                                 </div>
                                             </div>                                      
 										</div>
@@ -91,4 +95,32 @@
 			</div>
 		</div>
 	</div>
+@endsection
+
+@section('custom.script')
+<script>
+const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
+
+let countDown = new Date('August 30, 2020 07:00:00').getTime(),
+    x = setInterval(function() {    
+
+      let now = new Date().getTime(),
+          distance = countDown - now;
+
+      document.getElementById('days').innerText = Math.floor(distance / (day)),
+        document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+        document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+
+      //do something later when date is reached
+      //if (distance < 0) {
+      //  clearInterval(x);
+      //  'IT'S MY BIRTHDAY!;
+      //}
+
+    }, second)
+</script>
 @endsection
