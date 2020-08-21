@@ -39,6 +39,7 @@ Route::get('/addChart/{id}', 'FrontEndController@addChart')->name('add.chart');
 Route::get('/addWishlist/{id}', 'FrontEndController@addWishlist')->name('add.wishlist');
 Route::post('/addChart/{id}', 'FrontEndController@addChart')->name('add.chart');
 Route::post('/addWishlist/{id}', 'FrontEndController@addWishlist')->name('add.wishlist');
+Route::get('/bookModal/{book}', 'FrontEndController@bookModal')->name('book.modal');
 
 Auth::routes();
 

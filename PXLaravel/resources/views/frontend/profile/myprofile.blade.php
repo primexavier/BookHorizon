@@ -58,7 +58,7 @@
 														<tbody>
 																<tr>
 																	<td>Mostarizing Oil</td>
-																	<td><a href="#">Share</a></td>
+																	<td><a href="#">Share</a> <i class="fas fa-share-alt-square"></i></td>
 																</tr>
 														</tbody>
 													</table>

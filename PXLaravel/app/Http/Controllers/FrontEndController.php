@@ -166,15 +166,28 @@ class FrontEndController extends Controller
 
     public function chart()
     {
-        $chart = Chart::where("user_id", Auth::User()->id)->get();
-        return view("frontend.chart")
-        ->with("charts",$chart);
+        if(Auth::User()){
+            $chart = Chart::where("user_id", Auth::User()->id)->get();
+            return view("frontend.chart")
+            ->with("charts",$chart);
+        }else{
+            return redirect(route("login"));
+        }
     }
 
     public function wishlist()
     {
-        $wishlist = Wishlist::where("user_id", Auth::User()->id)->get();
-        return view("frontend.wishlist")
-        ->with("wishlists",$wishlist);
+        if(Auth::User()){
+            $wishlist = Wishlist::where("user_id", Auth::User()->id)->get();
+            return view("frontend.wishlist")
+            ->with("wishlists",$wishlist);
+        }else{
+            return redirect(route("login"));
+        }
+    }
+
+    public function bookModal(Book $book)
+    {
+        return $book;
     }
 }

@@ -890,12 +890,10 @@
             </div>
             @yield('content')
             <!-- Modal -->
-            <div class="modal fade modal-quick-view" id="quickModal" tabindex="-1" role="dialog"
-                aria-labelledby="quickModal" aria-hidden="true">
+            <div class="modal fade modal-quick-view" id="quickModal" tabindex="-1" role="dialog" aria-labelledby="quickModal" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
-                        <button type="button" class="close modal-close-btn ml-auto" data-dismiss="modal"
-                            aria-label="Close">
+                        <button type="button" class="close modal-close-btn ml-auto" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <div class="product-details-modal">
@@ -911,7 +909,7 @@
                                         "swipe": false,
                                         "asNavFor": ".product-slider-nav"
                                         }'>
-                                        <div class="single-slide">
+                                        <div class="single-slide" id="modal-photos">
                                             <img src="{{ asset('frontend/image/products/product-details-1.jpg') }}" alt="">
                                         </div>
                                     </div>
@@ -928,36 +926,31 @@
                                         "asNavFor": ".product-details-slider",
                                         "focusOnSelect": true
                                         }'>
-                                        <div class="single-slide">
-                                            <img src="{{ asset('frontend/image/products/product-details-1.jpg') }}"
-                                                alt="">
+                                        <div class="single-slide" id="modal-photos">
+                                            <img src="{{ asset('frontend/image/products/product-details-1.jpg') }}" alt="">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-7 mt--30 mt-lg--30">
                                     <div class="product-details-info pl-lg--30 ">
-                                        <p class="tag-block">Tags: <a href="#">Movado</a>, <a href="#">Omega</a></p>
-                                        <h3 id="modalProductTitle" class="product-title">Beats EP Wired On-Ear
-                                            Headphone-Black</h3>
+                                        <p class="tag-block"><span id="modal-tags"></span></p>
+                                        <h3 id="modalProductTitle" class="product-title"><span id="modal-title"></span></h3>
                                         <ul class="list-unstyled">
-                                            <li>Ex Tax: <span class="list-value"> £60.24</span></li>
-                                            <li>Brands: <a href="#" class="list-value font-weight-bold"> Canon</a></li>
-                                            <li>Product Code: <span class="list-value"> model1</span></li>
-                                            <li>Reward Points: <span class="list-value"> 200</span></li>
-                                            <li>Availability: <span class="list-value"> In Stock</span></li>
+                                            <li>Ex Tax: <span id="modal-price-tax" class="list-value"> 4£60.2</span></li>
+                                            <li>Availability: <span id="modal-stock" class="list-value"> In Stock</span></li>
                                         </ul>
                                         <div class="price-block">
-                                            <span class="price-new">Rp 0</span>
+                                            <span class="price-new" id="modal-price">Rp 0</span>
                                         </div>
                                         <div class="add-to-cart-row">
                                             <div class="add-cart-btn">
-                                                <a href="" class="btn btn-outlined--primary"><span
-                                                        class="plus-icon">+</span>Add to Cart</a>
+                                                <a onclick="addChart('modalChart','')" class="btn btn-outlined--primary"><span class="plus-icon">+</span>Add to Cart</a>
                                             </div>
                                         </div>
                                         <div class="compare-wishlist-row">
-                                            <a href="" class="add-link"><i class="fas fa-heart"></i>Add to Wish List</a>
+                                            <a  onclick="addWishlist('modalWishlist','')" class="add-link"><i class="fas fa-heart"></i>Add to Wish List</a>
                                             <!-- <a href="" class="add-link"><i class="fas fa-random"></i>Add to Compare</a> -->
+                                            <input type="hidden" id="modal-book-id" /> 
                                         </div>
                                     </div>
                                 </div>

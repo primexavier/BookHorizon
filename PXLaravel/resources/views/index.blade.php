@@ -234,9 +234,9 @@
                                                                 <!-- <a href="compare.html" class="single-btn">
                                                                     <i class="fas fa-random"></i>
                                                                 </a> -->
-                                                                <!-- <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                <a onclick="toggleDetail({{$book->id}})" data-toggle="modal" data-target="#quickModal" class="single-btn">
                                                                     <i class="fas fa-eye"></i>
-                                                                </a> -->
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -436,7 +436,7 @@
                                                                             <!-- <a href="compare.html" class="single-btn">
                                                                                 <i class="fas fa-random"></i>
                                                                             </a> -->
-                                                                            <!-- <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                            <!-- <a href="#" onclick="toggleDetail({{$book->id}})" data-toggle="modal" data-target="#quickModal" class="single-btn">
                                                                                 <i class="fas fa-eye"></i>
                                                                             </a> -->
                                                                         </div>

@@ -29,35 +29,45 @@
                             {"breakpoint":480, "settings": {"slidesToShow": 1} },
                             {"breakpoint":320, "settings": {"slidesToShow": 1} }
                         ]'>
-                                <div class="single-slide">
-                                    <div class="product-card">
-                                        <div class="product-header">
-                                            <a href="" class="author">
-                                                Membership
-                                            </a>
-                                            <h3><a href="">Ultra Membership</a></h3>
-                                        </div>
-                                        <div class="product-card--body">
-                                            <div class="card-image">
-                                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                <div class="hover-contents">
-                                                    <a href="" class="hover-image">
-                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                    </a>
-                                                    <div class="hover-btns">
-                                                        <a href="#" data-toggle="modal" data-target="#quickModal"
-                                                            class="single-btn">
-                                                            <i class="fas fa-eye"></i>
+                            @if(count($memberships))
+                                @foreach($memberships as $membership)
+                                    <div class="single-slide">
+                                        <div class="product-card">
+                                            <div class="product-header">
+                                                <a href="" class="author">
+                                                    {{$membership}}
+                                                </a>
+                                                <h3><a href="">{{$membership->name}}</a></h3>
+                                            </div>
+                                            <div class="product-card--body">
+                                                <div class="card-image">
+                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                    <div class="hover-contents">
+                                                        <a href="" class="hover-image">
+                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
                                                         </a>
+                                                        <div class="hover-btns">
+                                                            <a href="#" data-toggle="modal" data-target="#quickModal"
+                                                                class="single-btn">
+                                                                <i class="fas fa-eye"></i>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="price-block">
-                                                <span class="price">Rp 10.000</span>
+                                                <div class="price-block">
+                                                    <span class="price">Rp 10.000</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                @endforeach
+                            @else
+                                <div class="single-slide">
+                                    <div class="product-card">
+                                    Curently Nothing Here
+                                    </div>
                                 </div>
+                            @endif
                             </div>
                         </div>
                     </div>

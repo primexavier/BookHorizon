@@ -9,6 +9,7 @@ use App\Model\Bill;
 use App\Model\Payment;
 use App\Model\PaymentMethod;
 use App\Model\Address;
+use App\Model\Membership;
 use Illuminate\Http\Request;
 use App\DataTables\MemberDataTable;
 use App\DataTables\OrdersDataTable;
@@ -191,12 +192,18 @@ class MemberController extends Controller
 
     public function becomeMember(User $user)
     {
-        return view("frontend.profile.become")->with("member",$user);
+        $memberships = Membership::get();
+        return view("frontend.profile.become")
+        ->with("memberships",$memberships)
+        ->with("userDetail",$user);
     }
 
     public function extendMember(User $user)
     {
-        return view("frontend.profile.extend")->with("member",$user);
+        $memberships = Membership::get();
+        return view("frontend.profile.extend")
+        ->with("memberships",$memberships)
+        ->with("userDetail",$user);
     }
 
     
