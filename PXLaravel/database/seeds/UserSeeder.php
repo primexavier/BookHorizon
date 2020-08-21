@@ -30,5 +30,9 @@ class UserSeeder extends Seeder
             'name' => "supplier",
             'description' => "supplier",
         ]);
+        DB::table('Settings')->insert([
+            'id' => 1,
+            'name' => "First Setting",
+        ]);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Setting;
+use App\Model\Banner;
 use Illuminate\Http\Request;
 
-class SettingController extends Controller
+class BannerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $setting = Setting::first();
-        return view("backend.setting.index")
-        ->with("setting",$setting);
+        //
     }
 
     /**
@@ -37,16 +35,16 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        return view("backend.blog.add");
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Model\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Banner $banner)
     {
         //
     }
@@ -54,10 +52,10 @@ class SettingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Model\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Banner $banner)
     {
         //
     }
@@ -66,10 +64,10 @@ class SettingController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Model\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Banner $banner)
     {
         //
     }
@@ -77,10 +75,10 @@ class SettingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Model\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Banner $banner)
     {
         //
     }

@@ -40,6 +40,9 @@
                         	                                @else
                                                                 <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" width="150px">
                                                             @endif
+															<br />
+															<br />
+															<input id="photoProfile"  type="file">
 														</div>
 														<div class="col-lg-6 col-12  mb--30">
 															<p class="mb-0">Photo ID</p>
@@ -47,7 +50,10 @@
                             	        		                <img src="{{ asset('frontend/image/book') }}/{{$userDetail->photo}}" alt="">
                         	                                @else
                                                                 <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" width="300px" height="150px">
-                                                            @endif
+															@endif
+															<br />
+															<br />
+															<input id="photoID"  type="file">
 														</div>
 														<div class="col-12  mb--30">
 															<h4>Account Detail</h4>

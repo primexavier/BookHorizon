@@ -16,6 +16,10 @@ class CreateSettingsTable extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->string("phone")->nullable();
+            $table->string("email")->nullable();
+            $table->string("address")->nullable();
+            $table->string("logo")->nullable();
             $table->softDeletes('deleted_at', 0);	
             $table->timestamps(0);
         });
