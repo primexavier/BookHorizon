@@ -10,7 +10,7 @@
                         <div class="col-lg-12 col-12 mt--30 mt-lg--0">
                             <div class="tab-content" id="myaccountContent">
                                 <!-- Single Tab Content Start -->
-                                <form action="{{route('chart.pay')}}}" medhod="post">
+                                <form action="{{route('chart.pay')}}" medhod="post">
                                     <div class="tab-pane fade show active" id="download" role="tabpanel">
                                         <div class="myaccount-content">
                                             <h3>Chart</h3>
@@ -30,13 +30,13 @@
                                                         <tr>
                                                             <td>{!!chunk_split($chart->book()->title, 40, "<br>")!!}
                                                             </td>
-                                                            <input type="hidden" name="book-id"
+                                                            <input type="hidden" name="bookId[]"
                                                                 value="{{$chart->book_id}}">
                                                             <td>
                                                                 <div class="form-group">
-                                                                    <select name="quantity-transaction"
+                                                                    <select name="quantityTransaction[]"
                                                                         class="form-control"
-                                                                        id="exampleFormControlSelect1">
+                                                                        id="quantityTransaction">
                                                                         <option>1</option>
                                                                         <option>2</option>
                                                                         <option>3</option>
@@ -47,8 +47,8 @@
                                                             </td>
                                                             <td>
                                                                 <div class="form-group">
-                                                                    <select name="type-transaction" class="form-control"
-                                                                        id="exampleFormControlSelect1">
+                                                                    <select name="typeTransaction[]" class="form-control"
+                                                                        id="typeTransaction">
                                                                         <option>Rent</option>
                                                                         <option>Buy</option>
                                                                     </select>

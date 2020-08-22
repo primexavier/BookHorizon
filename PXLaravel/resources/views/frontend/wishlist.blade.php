@@ -25,7 +25,7 @@
 														@if(count($wishlists) > 0)
 															@foreach($wishlists as $wishlist)															
 															<form action="{{route('wishlist.chart')}}" medhod="get">
-																<input type="hidden" name='wishlist-id' value="{{$wishlist->id}}" />
+																<input type="hidden" name='wishlistId' value="{{$wishlist->id}}" >
 																<tr>
 																	<td>{!!chunk_split($wishlist->book()->title, 40, "<br>")!!}</td>
 																	<td><button type="submit" class="btn btn--primary"><i class="fa fa-money"></i>Add To Chart!</a></td>

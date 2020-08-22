@@ -10,6 +10,8 @@ use App\Model\Payment;
 use App\Model\PaymentMethod;
 use App\Model\Address;
 use App\Model\Membership;
+use App\Model\Wishlist;
+use App\Model\Chart;
 use Illuminate\Http\Request;
 use App\DataTables\MemberDataTable;
 use App\DataTables\OrdersDataTable;
@@ -207,8 +209,28 @@ class MemberController extends Controller
     }
 
     public function wishlistChart(Request $request){
+        if($request->wishlistId){
+            $wishlist = Wishlist::where("user_id",$request->wishlistId)->first();
+            if($wishlist){
+                $newChart = new Chart;
+                $newChart->user_id = Auth::User()->id;
+                $newChart->book_id = $wishlist->book_id;
+                $newChart->transaction_type = 1;
+                if($newChart->save()){
+                    $wishlist->delete();
+                }
+            }
+        }
 
+        return redirect(route("wishlist"));
+    }
 
-
+    public function chartPay (Request $request){
+        for($x = 0; $x < count($request->bookId);$x++){
+            echo $request->bookId[$x]."<br>";
+            echo $request->quantityTransaction[$x]."<br>";
+            echo $request->typeTransaction[$x]."<br>";
+        }
+        dd($request);
     }
 }
