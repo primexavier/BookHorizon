@@ -225,12 +225,8 @@ class MemberController extends Controller
         return redirect(route("wishlist"));
     }
 
-    public function chartPay (Request $request){
-        for($x = 0; $x < count($request->bookId);$x++){
-            echo $request->bookId[$x]."<br>";
-            echo $request->quantityTransaction[$x]."<br>";
-            echo $request->typeTransaction[$x]."<br>";
-        }
-        dd($request);
+    public function checkout(Request $request){
+
+        return view("frontend.checkout");
     }
 }

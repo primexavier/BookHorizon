@@ -57,7 +57,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/privacy', 'MemberController@privacy')->name('privacy.setting');
         Route::get('/become-member', 'MemberController@becomeMember')->name('become.member');
         Route::get('/extend-member', 'MemberController@extendMember')->name('extend.member');
-        Route::get('/chart-pay', 'MemberController@chartPay')->name('chart.pay');
+        Route::get('/checkout', 'MemberController@checkout')->name('checkout');
         Route::post('/wishlist-chart', 'MemberController@wishlistChart')->name('wishlist.chart');
     });
     Route::get('/home', 'HomeController@index')->name('home');

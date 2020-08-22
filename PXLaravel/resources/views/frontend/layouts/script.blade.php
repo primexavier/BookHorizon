@@ -58,4 +58,25 @@
             alert( "error" );
         });
     }
+    function subcribeEmail(){
+        var email = $("#subcribeEmail").val();
+        if(email){
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if(regex.test(email)){
+                var jqxhr = $.post( "/addSubcribe", { email: email }, function(data) {
+                    if(data == "success"){
+                        alert("subcribe success");
+                    }else{
+                        alert("subcribe Failed");
+                    }
+                }).fail(function() {
+                    alert( "error" );
+                });
+            }else{
+                alert("not an email");
+            }
+        }else{
+            alert("email is empty");
+        }
+    }
 </script>

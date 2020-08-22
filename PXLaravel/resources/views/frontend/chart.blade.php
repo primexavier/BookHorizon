@@ -10,7 +10,7 @@
                         <div class="col-lg-12 col-12 mt--30 mt-lg--0">
                             <div class="tab-content" id="myaccountContent">
                                 <!-- Single Tab Content Start -->
-                                <form action="{{route('chart.pay')}}" medhod="post">
+                                <form action="{{route('checkout')}}" medhod="post">
                                     <div class="tab-pane fade show active" id="download" role="tabpanel">
                                         <div class="myaccount-content">
                                             <h3>Chart</h3>

@@ -105,7 +105,7 @@
                             <button onclick="addChart('book','{{ $bookDetail->id }}')" class="btn btn-outlined--primary">Buy Now</button>
                         </div>&nbsp; 
                         <div class="add-cart-btn">
-                            <a href="" class="btn btn-outlined--primary">Rent Now</a>
+                            <a  onclick="addChart('rent','{{ $bookDetail->id }}')" class="btn btn-outlined--primary">Rent Now</a>
                         </div>
                     </div>
                     <div class="compare-wishlist-row">
