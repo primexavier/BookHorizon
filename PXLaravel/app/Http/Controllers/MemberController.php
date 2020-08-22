@@ -206,5 +206,9 @@ class MemberController extends Controller
         ->with("userDetail",$user);
     }
 
-    
+    public function wishlistChart(Request $request){
+
+
+
+    }
 }
