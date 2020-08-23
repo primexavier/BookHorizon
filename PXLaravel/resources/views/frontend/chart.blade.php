@@ -18,6 +18,7 @@
                                                 <table class="table table-bordered">
                                                     <thead class="thead-light">
                                                         <tr>
+                                                            <th>Action</th>
                                                             <th>Book</th>
                                                             <th>Quantity</th>
                                                             <th>Rent / Buy</th>
@@ -28,6 +29,11 @@
                                                         @if(count($charts) > 0)
                                                         @foreach($charts as $chart)
                                                         <tr>
+												            <td class="pro-remove">
+                                                                <a href="{{route('chart.delete',$chart->id)}}" style="cursor:pointer">
+                                                                    <i class="far fa-trash-alt"></i>
+                                                                </a>
+                                                            </td>
                                                             <td>{!!chunk_split($chart->book()->title, 40, "<br>")!!}
                                                             </td>
                                                             <input type="hidden" name="bookId[]"

@@ -48,7 +48,7 @@ class AuthorDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('author-table')
+                    ->setTableId('data-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')

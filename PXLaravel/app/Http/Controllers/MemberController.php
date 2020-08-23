@@ -225,8 +225,22 @@ class MemberController extends Controller
         return redirect(route("wishlist"));
     }
 
-    public function checkout(Request $request){
+    public function checkout(Request $request)
+    {
+        $charts = Chart::where("user_id",Auth::user()->id)->get();
+        $paymentMethods = PaymentMethod::get();
+        $address = Address::where("user_id",Auth::user()->id)->first();
 
-        return view("frontend.checkout");
+        return view("frontend.checkout")
+        ->with("charts",$charts)
+        ->with("paymentMethods",$paymentMethods)
+        ->with("address",$address);
+    }
+
+    public function deleteChart(Chart $chart)
+    {        
+        if($chart->delete()){
+            return redirect()->route("chart");
+        }
     }
 }

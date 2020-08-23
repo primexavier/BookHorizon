@@ -59,6 +59,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/extend-member', 'MemberController@extendMember')->name('extend.member');
         Route::get('/checkout', 'MemberController@checkout')->name('checkout');
         Route::post('/wishlist-chart', 'MemberController@wishlistChart')->name('wishlist.chart');
+        Route::get('/chart-delete/{chart}', 'MemberController@deleteChart')->name('chart.delete');
+        Route::get('/pay/confirmation', 'MemberController@payComfirmation')->name('pay.confirmation');
     });
     Route::get('/home', 'HomeController@index')->name('home');
 });

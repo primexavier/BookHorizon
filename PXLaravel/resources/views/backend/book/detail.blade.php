@@ -25,6 +25,7 @@
                     weight : {{$book->weight}} </br>
                     dimension : {{$book->dimension}} </br>
                     purchase_price : {{$book->purchase_price}} </br>
+                    price : {{$book->price}} </br>
                     start_qty : {{$book->start_qty}} </br>
                     purchase_date : {{$book->purchase_date}} </br>
                     vendor : {{$book->vendor}} </br>

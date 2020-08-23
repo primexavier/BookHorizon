@@ -55,7 +55,7 @@ class BookController extends Controller
         $new->vendor = $request->vendor;
         $new->purchase_price = $request->pprice;
         $new->start_qty = $request->qty;
-        $new->purchase_price = $request->pdate;
+        $book->price = $request->price;
         $new->description = $request->desc;
         if ($request->hasFile('photo')) {
             $new->photo = $request->file('photo')->getClientOriginalName();
@@ -83,7 +83,7 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        return $book;
+        return view("backend.book.edit")->with("book",$book);
     }
 
     /**
@@ -95,7 +95,33 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        if($request->title != $book->title){
+            $validatedData = $request->validateWithBag('books', [
+                'title' => ['required', 'unique:books', 'max:255']
+            ]);           
+        }
+        $book->author_id = 1; //$request->authors_id;
+        $book->title = $request->title;
+        $book->isbn = $request->isbn;
+        $book->publication_city = $request->pcity;
+        $book->format = $request->format;
+        $book->product_code = $request->pcode;
+        $book->pages = $request->pages;
+        $book->dimension = $request->dimension;
+        $book->weight = $request->weight;
+        $book->vendor = $request->vendor;
+        $book->purchase_price = $request->pprice;
+        $book->price = $request->price;
+        $book->start_qty = $request->qty;
+        $book->description = $request->desc;
+        if ($request->hasFile('photo')) {
+            $book->photo = $request->file('photo')->getClientOriginalName();
+        }
+        if($book->save()){
+            return redirect(route("backend.book.detail",$book->id));
+        }else{            
+            return back();
+        }
     }
 
     /**

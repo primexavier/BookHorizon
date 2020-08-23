@@ -25,13 +25,13 @@
                         <div class="col-12">
                             <h1 class="quick-title">Checkout</h1>
                             <!-- Slide Down Trigger  -->
-                            <div class="checkout-quick-box">
+                            <!-- <div class="checkout-quick-box">
                                 <p><i class="far fa-sticky-note"></i>Returning customer? <a href="javascript:"
                                         class="slide-trigger" data-target="#quick-login">Click
                                         here to login</a></p>
-                            </div>
+                            </div> -->
                             <!-- Slide Down Blox ==> Login Box  -->
-                            <div class="checkout-slidedown-box" id="quick-login">
+                            <!-- <div class="checkout-slidedown-box" id="quick-login">
                                 <form action="./">
                                     <div class="quick-login-form">
                                         <p>If you have shopped with us before, please enter your details in the
@@ -49,7 +49,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="d-flex align-items-center flex-wrap">
-                                                <a href="#" class="btn btn-outlined   mr-3">Login</a>
+                                                <a href="#" class="btn btn-outlined mr-3">Login</a>
                                                 <div class="d-inline-flex align-items-center">
                                                     <input type="checkbox" id="accept_terms" class="mb-0 mr-1">
                                                     <label for="accept_terms" class="mb-0">I’ve read and accept
@@ -61,22 +61,22 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div> -->
                             <!-- Slide Down Trigger  -->
-                            <div class="checkout-quick-box">
+                            <!-- <div class="checkout-quick-box">
                                 <p><i class="far fa-sticky-note"></i>Have a coupon? <a href="javascript:"
                                         class="slide-trigger" data-target="#quick-cupon">
                                         Click here to enter your code</a></p>
-                            </div>
+                            </div> -->
                             <!-- Slide Down Blox ==> Cupon Box -->
-                            <div class="checkout-slidedown-box" id="quick-cupon">
+                            <!-- <div class="checkout-slidedown-box" id="quick-cupon">
                                 <form action="./">
                                     <div class="checkout_coupon">
                                         <input type="text" class="mb-0" placeholder="Coupon Code">
                                         <a href="" class="btn btn-outlined">Apply coupon</a>
                                     </div>
                                 </form>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="col-lg-7 mb--20">
                             <!-- Billing Address -->
@@ -85,16 +85,16 @@
                                 <div class="row">
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>First Name*</label>
-                                        <input type="text" placeholder="First Name">
+                                        <input type="text" placeholder="First Name" value="{{Auth::User()->first_name}}">
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Last Name*</label>
-                                        <input type="text" placeholder="Last Name">
+                                        <input type="text" placeholder="Last Name" value="{{Auth::User()->last_name}}">
                                     </div>
-                                    <div class="col-12 mb--20">
+                                    <!-- <div class="col-12 mb--20">
                                         <label>Company Name</label>
                                         <input type="text" placeholder="Company Name">
-                                    </div>
+                                    </div> -->
                                     <div class="col-12 col-12 mb--20">
                                         <label>Country*</label>
                                         <select class="nice-select">
@@ -107,30 +107,45 @@
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Email Address*</label>
-                                        <input type="email" placeholder="Email Address">
+                                        <input type="email" placeholder="Email Address" value="{{Auth::User()->email}}">
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Phone no*</label>
-                                        <input type="text" placeholder="Phone number">
+                                        <input type="text" placeholder="Phone number" value="{{Auth::User()->phone}}">
                                     </div>
                                     <div class="col-12 mb--20">
                                         <label>Address*</label>
+                                        @if($address)
+                                        <input type="text" placeholder="Address line 1" value="{{$address->full_address}}">
+                                        @else
                                         <input type="text" placeholder="Address line 1">
-                                        <input type="text" placeholder="Address line 2">
+                                        @endif
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Town/City*</label>
-                                        <input type="text" placeholder="Town/City">
+                                        @if($address)
+                                        <input type="text" placeholder="Address line 1" value="{{$address->city}}">
+                                        @else
+                                        <input type="text" placeholder="Address line 1">
+                                        @endif
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>State*</label>
-                                        <input type="text" placeholder="State">
+                                        @if($address)
+                                        <input type="text" placeholder="Address line 1" value="{{$address->state}}">
+                                        @else
+                                        <input type="text" placeholder="Address line 1">
+                                        @endif
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Zip Code*</label>
-                                        <input type="text" placeholder="Zip Code">
+                                        @if($address)
+                                        <input type="text" placeholder="Address line 1" value="{{$address->zip_code}}">
+                                        @else
+                                        <input type="text" placeholder="Address line 1">
+                                        @endif
                                     </div>
-                                    <div class="col-12 mb--20 ">
+                                    <!-- <div class="col-12 mb--20 ">
                                         <div class="block-border check-bx-wrapper">
                                             <div class="check-box">
                                                 <input type="checkbox" id="create_account">
@@ -141,7 +156,7 @@
                                                 <label for="shiping_address">Ship to Different Address</label>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <!-- Shipping Address -->
@@ -211,34 +226,42 @@
                                         <h2 class="checkout-title">YOUR ORDER</h2>
                                         <h4>Product <span>Total</span></h4>
                                         <ul>
-                                            <li><span class="left">Cillum dolore tortor nisl X 01</span> <span
-                                                    class="right">$25.00</span></li>
-                                            <li><span class="left">Auctor gravida pellentesque X 02 </span><span
-                                                    class="right">$50.00</span></li>
-                                            <li><span class="left">Condimentum posuere consectetur X 01</span>
-                                                <span class="right">$29.00</span></li>
-                                            <li><span class="left">Habitasse dictumst elementum X 01</span>
-                                                <span class="right">$10.00</span></li>
+                                            <?php $totalSum = 0; ?> 
+                                            @foreach($charts as $chart)
+                                            <li>
+                                                <span class="left">{{$chart->book()->title}} ({{$chart->transaction_type}})</span>
+                                                <span class="right">Rp {{$chart->book()->price}}</span>
+                                            </li>
+                                            <?php $totalSum += $chart->book()->price; ?> 
+                                            @endforeach
                                         </ul>
-                                        <p>Sub Total <span>$104.00</span></p>
-                                        <p>Shipping Fee <span>$00.00</span></p>
-                                        <h4>Grand Total <span>$104.00</span></h4>
-                                        <div class="method-notice mt--25">
-                                            <article>
+                                        <p>Sub Total <span>Rp {{$totalSum}}</span></p>
+                                        <p>Shipping Fee <span>Rp 0 </span></p>
+                                        <h4>Grand Total <span>Rp {{($totalSum+0)}}</span></h4>
+                                        <div class="method-notice mt--25">                                            
+                                            @foreach($paymentMethods as $paymentMethod)
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                    <label class="form-check-label" for="exampleCheck1">{{ $paymentMethod->name }}</label>
+                                                </div>
+                                            @endforeach
+                                            <!-- <article>
                                                 <h3 class="d-none sr-only">blog-article</h3>
                                                 Sorry, it seems that there are no available payment methods for
                                                 your state. Please contact us if you
                                                 require
                                                 assistance
                                                 or wish to make alternate arrangements.
-                                            </article>
+                                            </article> -->
                                         </div>
                                         <div class="term-block">
                                             <input type="checkbox" id="accept_terms2">
                                             <label for="accept_terms2">I’ve read and accept the terms &
                                                 conditions</label>
                                         </div>
-                                        <button class="place-order w-100">Place order</button>
+                                        <form action="{{route('pay.confirmation')}}">
+                                            <button type="submit" class="place-order w-100">Place order</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
