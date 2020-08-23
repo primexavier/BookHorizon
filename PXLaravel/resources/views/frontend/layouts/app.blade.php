@@ -21,7 +21,7 @@
     <div id="app">
         <div class="site-wrapper" id="top">
             <div class="site-header header-4 mb--20 d-none d-lg-block">            
-                <div class="header-top header-top--style-2">
+                <!-- <div class="header-top header-top--style-2">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12 d-flex justify-content-center">                            
@@ -33,7 +33,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="header-top header-top--style-2">
                     <div class="container">
                         <div class="row">
