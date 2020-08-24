@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
             'last_name' =>  "admin",
             'display_name' => "admin",
             'privacy' => true,
+            'phone_no' => '0812354862',
         ]);
         DB::table('authors')->insert([
             'id' => 1,

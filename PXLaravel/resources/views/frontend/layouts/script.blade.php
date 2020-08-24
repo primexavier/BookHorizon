@@ -94,4 +94,20 @@
             alert( "error" );
         });
     }
+    function getCity(id){
+        alert(id);
+        // var jqxhr = $.get( "/bookModal/"+id+"/",  function(data) {
+        //     if(data){
+        //         var bookDetail = data;
+        //         $("#modal-tags").html("");
+        //         $("#modal-title").html(bookDetail["title"]);
+        //         $("#modal-book-id").val(bookDetail["id"]);
+        //         $("#quickModal").click()
+        //     }else{                
+        //         alert("Book view eror");
+        //     }
+        // }).fail(function() {
+        //     alert( "error" );
+        // });
+    }
 </script>

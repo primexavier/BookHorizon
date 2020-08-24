@@ -1,7 +1,6 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-
 <section class="breadcrumb-section">
     <h2 class="sr-only">Site Breadcrumb</h2>
     <div class="container">
@@ -98,11 +97,12 @@
                                     <div class="col-12 col-12 mb--20">
                                         <label>Country*</label>
                                         <select class="nice-select">
-                                            <option>Bangladesh</option>
+                                            <option>Indonesia</option>
+                                            {{-- <option>Bangladesh</option>
                                             <option>China</option>
                                             <option>country</option>
                                             <option>India</option>
-                                            <option>Japan</option>
+                                            <option>Japan</option> --}}
                                         </select>
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
@@ -124,17 +124,29 @@
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Town/City*</label>
                                         @if($address)
-                                        <input type="text" placeholder="Address line 1" value="{{$address->city}}">
+                                            <select class="nice-select">
+                                                <option value="">Pilih Kota</option>
+                                            </select>
                                         @else
-                                        <input type="text" placeholder="Address line 1">
+                                            <select class="nice-select">
+                                                <option value="">Pilih Kota</option>
+                                            </select>
                                         @endif
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>State*</label>
                                         @if($address)
-                                        <input type="text" placeholder="Address line 1" value="{{$address->state}}">
+                                            <select class="nice-select">
+                                                @foreach($provinces as $province)
+                                                    <option onchange="getCity(this.value)" value="{{$province->province_id}}">{{$province->province}}</option>
+                                                @endforeach
+                                            </select>
                                         @else
-                                        <input type="text" placeholder="Address line 1">
+                                            <select onchange="getCity(this.value)"  class="nice-select">
+                                                @foreach($provinces as $province)
+                                                    <option value="{{$province->province_id}}">{{$province->province}}</option>
+                                                @endforeach
+                                            </select>
                                         @endif
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
@@ -191,11 +203,12 @@
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Country*</label>
                                         <select class="nice-select">
-                                            <option>Bangladesh</option>
+                                            <option>Indonesia</option>
+                                            {{-- <option>Bangladesh</option>
                                             <option>China</option>
                                             <option>country</option>
                                             <option>India</option>
-                                            <option>Japan</option>
+                                            <option>Japan</option> --}}
                                         </select>
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">

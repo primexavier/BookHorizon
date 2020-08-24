@@ -230,17 +230,47 @@ class MemberController extends Controller
         $charts = Chart::where("user_id",Auth::user()->id)->get();
         $paymentMethods = PaymentMethod::get();
         $address = Address::where("user_id",Auth::user()->id)->first();
-
+        $provinces = MemberController::getProvince(NULL);
         return view("frontend.checkout")
         ->with("charts",$charts)
         ->with("paymentMethods",$paymentMethods)
-        ->with("address",$address);
+        ->with("address",$address)
+        ->with("provinces",$provinces);
     }
 
     public function deleteChart(Chart $chart)
     {        
         if($chart->delete()){
             return redirect()->route("chart");
+        }
+    }
+
+    public function getProvince($province_id){        
+        $curl = curl_init();
+        if(!$province_id){
+            $province = "?id=".$province_id;
+        }else{
+            $province = "";
+        }
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.rajaongkir.com/starter/province".$province,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+              "key: 106e7050f0400a42b414fb308db9dc00"
+            ),
+          ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+        if ($err) {
+            return null;
+        } else {
+            return json_decode($response)->rajaongkir->results;
         }
     }
 }

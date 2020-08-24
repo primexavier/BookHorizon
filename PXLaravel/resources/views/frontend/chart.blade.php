@@ -1,5 +1,6 @@
 @extends('frontend.layouts.app')
 
+
 @section('content')
 <div class="site-wrapper" id="top">
     <div class="page-section inner-page-sec-padding">
@@ -10,7 +11,6 @@
                         <div class="col-lg-12 col-12 mt--30 mt-lg--0">
                             <div class="tab-content" id="myaccountContent">
                                 <!-- Single Tab Content Start -->
-                                <form action="{{route('checkout')}}" medhod="post">
                                     <div class="tab-pane fade show active" id="download" role="tabpanel">
                                         <div class="myaccount-content">
                                             <h3>Chart</h3>
@@ -74,12 +74,10 @@
                                                 </table>
                                             </div>
                                             <div class="d-flex flex-row-reverse">
-                                                <button type="submit" class="btn btn--primary"><i
-                                                        class="fa fa-money"></i>Pay!</a>
+                                                <button onclick="location.href = '{{route('checkout')}}';" type="submit" class="btn btn--primary"><i class="fa fa-money"></i>Pay!</a>
                                             </div>
                                         </div>
                                     </div>
-                                </form>
                                 <!-- Single Tab Content End -->
                             </div>
                         </div>
