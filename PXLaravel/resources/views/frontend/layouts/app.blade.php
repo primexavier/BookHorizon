@@ -144,8 +144,10 @@
                             </div>
                             <div class="col-lg-5">
                                 <div class="header-search-block">
-                                    <input type="text" placeholder="Search entire store here">
-                                    <button>Search</button>
+                                    <form action="{{ route('book.search') }}" method="get">
+                                        <input name="searchBook" type="text" placeholder="Search entire store here">
+                                        <button type="submit">Search</button>
+                                    </form>
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -162,8 +164,7 @@
                                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                 Logout
                                             </a>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                style="display: none;">
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                 @csrf
                                             </form>
                                         </div>

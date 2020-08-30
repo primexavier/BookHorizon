@@ -37,9 +37,14 @@ Route::get('/chart', 'FrontEndController@chart')->name('chart');
 Route::get('/wishlist', 'FrontEndController@wishlist')->name('wishlist');
 Route::get('/addChart/{id}', 'FrontEndController@addChart')->name('add.chart');
 Route::get('/addWishlist/{id}', 'FrontEndController@addWishlist')->name('add.wishlist');
+Route::get('/bookModal/{book}', 'FrontEndController@bookModal')->name('book.modal');
 Route::post('/addChart/{id}', 'FrontEndController@addChart')->name('add.chart');
 Route::post('/addWishlist/{id}', 'FrontEndController@addWishlist')->name('add.wishlist');
-Route::get('/bookModal/{book}', 'FrontEndController@bookModal')->name('book.modal');
+
+Route::get('/getprovince/{id}', 'FrontEndController@getProvince')->name('province.list');
+Route::get('/getcity/{provinceId}/{cityId}', 'FrontEndController@getCity')->name('city.detail');
+Route::get('/getcity/{provinceId}', 'FrontEndController@getCity')->name('city.list');
+Route::get('/searchBook', 'FrontEndController@searchBook')->name('book.search');
 
 Auth::routes();
 
@@ -47,7 +52,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'user'], function () {
         Route::get('/profile', 'MemberController@profile')->name('profile');
         Route::get('/editprofile', 'MemberController@editProfile')->name('profile.edit');
-        Route::post('/editprofile', 'MemberController@updateProfile')->name('profile.update');
         Route::get('/orders', 'MemberController@orderList')->name('order.list');
         Route::get('/download', 'MemberController@downloadList')->name('download.list');
         Route::get('/bill', 'MemberController@billList')->name('bill.list');
@@ -58,9 +62,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/become-member', 'MemberController@becomeMember')->name('become.member');
         Route::get('/extend-member', 'MemberController@extendMember')->name('extend.member');
         Route::get('/checkout', 'MemberController@checkout')->name('checkout');
-        Route::post('/wishlist-chart', 'MemberController@wishlistChart')->name('wishlist.chart');
         Route::get('/chart-delete/{chart}', 'MemberController@deleteChart')->name('chart.delete');
-        Route::get('/pay/confirmation', 'MemberController@payComfirmation')->name('pay.confirmation');
+        Route::post('/wishlist-chart', 'MemberController@wishlistChart')->name('wishlist.chart');
+        Route::post('/editprofile', 'MemberController@updateProfile')->name('profile.update');
+        Route::post('/pay/confirmation', 'MemberController@pay')->name('pay.confirmation');
     });
     Route::get('/home', 'HomeController@index')->name('home');
 });

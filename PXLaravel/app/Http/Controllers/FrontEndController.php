@@ -190,4 +190,77 @@ class FrontEndController extends Controller
     {
         return $book;
     }
+
+    public static function getProvince($province_id){        
+        $curl = curl_init();
+        if($province_id){
+            $province = "?id=".$province_id;
+        }else{
+            $province = "";
+        }
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.rajaongkir.com/starter/province".$province,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+              "key: 106e7050f0400a42b414fb308db9dc00"
+            ),
+          ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+        if ($err) {
+            return null;
+        } else {
+            return json_decode($response)->rajaongkir->results;
+        }
+    }
+
+    public function getCity($provinceId, $cityId = NULL){   
+        if($provinceId){
+            $province = "?province=".$provinceId;
+        }else{
+            $province = "";
+        }     
+        if($cityId){
+            $province = $province."&id=".$cityId;
+        }
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.rajaongkir.com/starter/city".$province,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+              "key: 106e7050f0400a42b414fb308db9dc00"
+            ),
+          ));
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+        if ($err) {
+            return null;
+        } else {
+            if($cityId){
+                $response = str_replace(chr(0), '', $response);
+                $contents = utf8_encode($response);
+                $results = json_decode($contents);
+                return response()->json([$results->rajaongkir->results]);
+            }else{
+                return json_decode($response)->rajaongkir->results;
+            }
+        }
+    }
+
+    public function searchBook(Request $request){   
+        $searchedBook = Book::where('title', 'like', '%'.$request->searchBook.'%')->get();
+        return view('frontend.search')->with("searchBooks",$searchedBook);
+    }
 }

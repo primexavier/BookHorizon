@@ -176,11 +176,11 @@
                                         @endforelse
                                     </div>
                                 </div>
-                                <div class="single-block text-center">
+                                <!-- <div class="single-block text-center">
                                     <a href="" class="promo-image home-sidebar-promo promo-overlay">
                                         <img src="{{ asset('frontend/image/others/home-side-promo.jpg') }}" alt="">
                                     </a>
-                                </div>
+                                </div> -->
                                 <div class="single-block text-center">
                                     <h3 class="home-sidebar-title style-2">
                                         Special offer
@@ -256,22 +256,23 @@
                                         @endforelse
                                     </div>
                                 </div>
-                                <div class="single-block">
+                                <!-- <div class="single-block">
                                     <h3 class="home-sidebar-title">
                                         CLIENT TESTIMONIALS
                                     </h3>
                                     <div class="sb-slick-slider testimonial-slider slider-one-column" data-slick-setting='{
-                    "autoplay": true,
-                    "autoplaySpeed": 8000,
-                    "slidesToShow":1,
-                    "dots":true
-                }' data-slick-responsive='[
-                    {"breakpoint":1200, "settings": {"slidesToShow": 1} },
-                    {"breakpoint":992, "settings": {"slidesToShow": 2} },
-                    {"breakpoint":768, "settings": {"slidesToShow": 2} },
-                    {"breakpoint":575, "settings": {"slidesToShow": 1} },
-                    {"breakpoint":490, "settings": {"slidesToShow": 1} }
-                ]'>
+                                                            "autoplay": true,
+                                                            "autoplaySpeed": 8000,
+                                                            "slidesToShow":1,
+                                                            "dots":true
+                                                            }'
+                                                            data-slick-responsive='[
+                                                            {"breakpoint":1200, "settings": {"slidesToShow": 1} },
+                                                            {"breakpoint":992, "settings": {"slidesToShow": 2} },
+                                                            {"breakpoint":768, "settings": {"slidesToShow": 2} },
+                                                            {"breakpoint":575, "settings": {"slidesToShow": 1} },
+                                                            {"breakpoint":490, "settings": {"slidesToShow": 1} }
+                                            ]'>
                                         <div class="single-slide">
                                             <div class="testimonial-card">
                                                 <div class="testimonial-image">
@@ -358,7 +359,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col-lg-8">
@@ -596,7 +597,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="single-block">
+                                <!-- <div class="single-block">
                                     <div class="row space-db--30">
                                         <div class="col-lg-8 mb--30">
                                             <a href="" class="promo-image promo-overlay">
@@ -609,7 +610,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="single-block">
                                     <div class="home-right-block bg-white">
                                         <div class="sb-custom-tab text-lg-left text-center">
@@ -761,7 +762,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="single-block">
+                                <!-- <div class="single-block">
                                     <div class="blog-slider sb-slick-slider slider-one-column" data-slick-setting='{
                                             "autoplay": false,
                                             "autoplaySpeed": 8000,
@@ -853,7 +854,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
