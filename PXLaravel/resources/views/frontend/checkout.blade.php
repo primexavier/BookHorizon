@@ -272,7 +272,8 @@
                                             <label for="accept_terms2">I’ve read and accept the terms &
                                                 conditions</label>
                                         </div>
-                                        <form action="{{route('pay.confirmation')}}">
+                                        <form action="{{route('pay.confirmation')}}" method="post">              
+                                            @csrf
                                             <button type="submit" class="place-order w-100">Place order</button>
                                         </form>
                                     </div>

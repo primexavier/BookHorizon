@@ -66,6 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/wishlist-chart', 'MemberController@wishlistChart')->name('wishlist.chart');
         Route::post('/editprofile', 'MemberController@updateProfile')->name('profile.update');
         Route::post('/pay/confirmation', 'MemberController@pay')->name('pay.confirmation');
+        Route::get('/transaction/detail/{transaction}', 'MemberController@transactiondetail')->name('transaction.detail');
     });
     Route::get('/home', 'HomeController@index')->name('home');
 });

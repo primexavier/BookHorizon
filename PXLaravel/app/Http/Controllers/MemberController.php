@@ -247,8 +247,14 @@ class MemberController extends Controller
 
     public function pay(Request $request)
     {        
-        return $request->id;
+        
+        return redirect()->route("transaction.detail",1);
     }
 
+    public function transactionDetail($transaction)
+    {        
+        $transaction = "";
+        return view("frontend.transaction-detail")->with("transaction",$transaction);
 
+    }
 }
