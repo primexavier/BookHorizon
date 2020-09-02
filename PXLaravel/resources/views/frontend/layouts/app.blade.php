@@ -583,7 +583,7 @@
                                 <div class="mobile-header-btns header-top-widget">
                                     <ul class="header-links">
                                         <li class="sin-link">
-                                            <a href="/cart" class="cart-link link-icon">
+                                            <a href="{{route("chart")}}" class="cart-link link-icon">
                                                 <i class="ion-bag"></i>
                                             </a>
                                         </li>
@@ -718,26 +718,24 @@
                         <nav class="off-canvas-nav">
                             <ul class="mobile-menu menu-block-2">
                                 <li class="menu-item-has-children">
-                                    <a href="#">Currency - USD $ <i class="fas fa-angle-down"></i></a>
+                                    <a href="#">Currency - Rp Rp <i class="fas fa-angle-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li> <a href="/usd">USD $</a></li>
-                                        <li> <a href="/eur">EUR €</a></li>
+                                        <li><a href="#">Rp Rupiah</a></li>
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="#">Lang - Eng<i class="fas fa-angle-down"></i></a>
                                     <ul class="sub-menu">
                                         <li>Eng</li>
-                                        <li>Ban</li>
                                     </ul>
                                 </li>
                                 <li class="menu-item-has-children">
                                     <a href="#">My Account <i class="fas fa-angle-down"></i></a>
                                     <ul class="sub-menu">
-                                        <li><a href="">My Account</a></li>
-                                        <li><a href="">Order History</a></li>
-                                        <li><a href="">Transactions</a></li>
-                                        <li><a href="">Downloads</a></li>
+                                        <li> <a href="{{ route('profile') }}">My Account</a></li>
+                                        <li> <a href="{{ route('order.list') }}">Order History</a></li>
+                                        <li> <a href="{{ route('bill.list') }}">Transactions</a></li>
+                                        <li> <a href="{{ route('download.list') }}">Downloads</a></li>
                                     </ul>
                                 </li>
                             </ul>

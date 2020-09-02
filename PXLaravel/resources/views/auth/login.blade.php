@@ -13,7 +13,7 @@
 							<div class="row">
 								<div class="col-md-12 col-12 mb--15">
 									<label for="email">{{ __('E-Mail Address') }}</label>
-                                    <input class="mb-0 form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                    <input class="mb-0 form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" placeholder="Enter your email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                     @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
