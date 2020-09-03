@@ -67,15 +67,17 @@
                                                         @endforeach
                                                         @else
                                                         <tr>
-                                                            <td colspan=4>Data Chart kosong!</td>
+                                                            <td colspan=5>Data Chart kosong!</td>
                                                         </tr>
                                                         @endif
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <div class="d-flex flex-row-reverse">
-                                                <button onclick="location.href = '{{route('checkout')}}';" type="submit" class="btn btn--primary"><i class="fa fa-money"></i>Pay!</a>
-                                            </div>
+                                            @if(count($charts) > 0)
+                                                <div class="d-flex flex-row-reverse">
+                                                    <button onclick="location.href = '{{route('checkout')}}';" type="submit" class="btn btn--primary"><i class="fa fa-money"></i>Pay!</a>
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                 <!-- Single Tab Content End -->

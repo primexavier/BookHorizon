@@ -95,19 +95,20 @@
         });
     }
     function getCity(id){
-        alert(id);
-        // var jqxhr = $.get( "/bookModal/"+id+"/",  function(data) {
-        //     if(data){
-        //         var bookDetail = data;
-        //         $("#modal-tags").html("");
-        //         $("#modal-title").html(bookDetail["title"]);
-        //         $("#modal-book-id").val(bookDetail["id"]);
-        //         $("#quickModal").click()
-        //     }else{                
-        //         alert("Book view eror");
-        //     }
-        // }).fail(function() {
-        //     alert( "error" );
-        // });
+        var jqxhr = $.get( "/getcity/"+id+"/",  function(data) {
+            $("#cityName").find('option').remove().end();
+            if(data){
+                $('#cityName').prop('disabled', false);
+                data.forEach(element => {         
+                    console.log(element.city_name);  
+                    $("#cityName").append(`<option value="${element.city_id}">${element.city_name}</option>`);        
+                });
+            }else{                
+                $('#cityName').prop('disabled', 'disabled');     
+            }
+        }).fail(function() {
+            $('#cityName').prop('disabled', 'disabled');   
+            alert( "error" );
+        });
     }
 </script>

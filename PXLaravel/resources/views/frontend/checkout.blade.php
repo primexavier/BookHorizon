@@ -124,11 +124,11 @@
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Town/City*</label>
                                         @if($address)
-                                            <select class="nice-select">
+                                            <select class="form-control" class="nice-select" id="cityName">
                                                 <option value="">Pilih Kota</option>
                                             </select>
                                         @else
-                                            <select class="nice-select">
+                                            <select class="form-control" disabled="disabled" id="cityName">
                                                 <option value="">Pilih Kota</option>
                                             </select>
                                         @endif

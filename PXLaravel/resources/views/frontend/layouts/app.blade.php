@@ -606,9 +606,9 @@
                     <div class="off-canvas-inner">
                         <!-- search box start -->
                         <div class="search-box offcanvas">
-                            <form>
-                                <input type="text" placeholder="Search Here">
-                                <button class="search-btn"><i class="ion-ios-search-strong"></i></button>
+                            <form action="{{ route('book.search') }}" method="get">
+                                <input type="search" placeholder="Search Here">
+                                <button class="search-btn" type="submit"><i class="ion-ios-search-strong"></i></button>
                             </form>
                         </div>
                         <!-- search box end -->
@@ -775,10 +775,11 @@
                                         </a>
                                     </li>
                                     <!-- Shop -->
-                                    <li class="menu-item has-children mega-menu">
-                                        <a href="javascript:void(0)">shop <i
-                                                class="fas fa-chevron-down dropdown-arrow"></i></a>
-                                        <ul class="sub-menu four-column">
+                                    {{-- <li class="menu-item has-children mega-menu"> --}}
+                                    <li class="menu-item">
+                                        <a href="{{ route('index') }}">shop </a>
+                                            {{-- <i class="fas fa-chevron-down dropdown-arrow"></i></a> --}}
+                                        {{-- <ul class="sub-menu four-column">
                                             <li class="cus-col-25">
                                                 <h3 class="menu-title"><a href="javascript:void(0)">Shop Grid </a></h3>
                                                 <ul class="mega-single-block">
@@ -825,7 +826,7 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                        </ul>
+                                        </ul> --}}
                                     </li>
                                     <!-- Pages -->
                                     <!-- <li class="menu-item has-children">
@@ -935,8 +936,8 @@
                                         <p class="tag-block"><span id="modal-tags"></span></p>
                                         <h3 id="modalProductTitle" class="product-title"><span id="modal-title"></span></h3>
                                         <ul class="list-unstyled">
-                                            <li>Ex Tax: <span id="modal-price-tax" class="list-value"> 4£60.2</span></li>
-                                            <li>Availability: <span id="modal-stock" class="list-value"> In Stock</span></li>
+                                            <li>Ex Tax: <span id="modal-price-tax" class="list-value">0</span></li>
+                                            <li>Availability: <span id="modal-stock" class="list-value">0</span></li>
                                         </ul>
                                         <div class="price-block">
                                             <span class="price-new" id="modal-price">Rp 0</span>
