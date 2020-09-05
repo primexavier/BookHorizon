@@ -116,6 +116,7 @@
         $('#zipCode').val();     
         var jqxhr = $.get( "/getcity/"+province_id+"/"+id+"/",  function(data) {
             if(data){
+                console.log(data[0]);
                 $('#zipCode').val(data[0].postal_code);
                 $('#couriers').prop('disabled', false);
             }else{                

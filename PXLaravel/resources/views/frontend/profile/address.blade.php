@@ -30,9 +30,27 @@
 									<div class="tab-pane fade show active" id="address-edit" role="tabpanel">
 										<div class="myaccount-content">
 											<h3>Billing Address</h3>
+											@if($addresses->count() > 0)
+												@foreach($addresses as $address)
+													<address>
+														Full Address : {{$address->full_address}}
+														<br>
+														Phone No : {{$address->phone_no}}
+														<br>
+														Postal Code : {{$address->zip_code}}
+														<br>
+														Country ID : {{$address->country_id}}
+														<br>
+														Province ID : {{$address->province_id}}
+														<br>
+														City ID : {{$address->city_id}}
+													</address>
+												@endforeach
+											@else
 											<address>
                                                 No Address
 											</address>
+											@endif
 											<a href="#" class="btn btn--primary"><i class="fa fa-edit"></i>Add Address</a>
 										</div>
 									</div>

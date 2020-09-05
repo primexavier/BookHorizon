@@ -19,7 +19,7 @@ class CreateAddressesTable extends Migration
             $table->string("name");
             $table->string("la")->nullable();
             $table->string("lg")->nullable();
-            $table->string("phone");
+            $table->string("phone_no");
             $table->text("full_address");
             $table->integer("country_id");
             $table->integer("province_id");

@@ -99,7 +99,7 @@
                                     <div class="col-12 col-12 mb--20">
                                         <label>Country*</label>
                                         <select required="required" class="nice-select" name="country_id">
-                                            <option>Indonesia</option>
+                                            <option value="1">Indonesia</option>
                                             {{-- <option>Bangladesh</option>
                                             <option>China</option>
                                             <option>country</option>
@@ -113,7 +113,7 @@
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Phone no*</label>
-                                        <input required="required" name="phone_no"  type="text" placeholder="Phone number" value="{{Auth::User()->phone}}">
+                                        <input required="required" name="phone_no"  type="text" placeholder="Phone number" value="{{Auth::User()->phone_no}}">
                                     </div>
                                     <div class="col-12 mb--20">
                                         <label>Address*</label>
@@ -127,24 +127,26 @@
                                         <label>Town/City*</label>
                                         @if($address)
                                             <select onchange="getZipCode(this.value)" required="required" name="city_id" class="form-control" class="nice-select" id="cityName">
-                                                <option value="">Pilih Kota</option>
+                                                <option value="">Pilih City</option>
                                             </select>
                                         @else
                                             <select onchange="getZipCode(this.value)" required="required" name="city_id" class="form-control" disabled="disabled" id="cityName">
-                                                <option value="">Pilih Kota</option>
+                                                <option value="">Pilih City</option>
                                             </select>
                                         @endif
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>State*</label>
                                         @if($address)
-                                            <select id="province_id" required="required" name="stateId" class="nice-select">
+                                            <select id="province_id" onchange="getCity(this.value)" required="required" name="province_id" class="nice-select">
+                                                <option value="">Pick State</option>
                                                 @foreach($provinces as $province)
-                                                    <option onchange="getCity(this.value)" value="{{$province->province_id}}">{{$province->province}}</option>
+                                                    <option value="{{$province->province_id}}">{{$province->province}}</option>
                                                 @endforeach
                                             </select>
                                         @else
-                                            <select id="province_id" name="stateId" onchange="getCity(this.value)"  class="nice-select">
+                                            <select id="province_id" nchange="getCity(this.value)" name="province_id" o class="nice-select">
+                                                <option value="">Pick State</option>
                                                 @foreach($provinces as $province)
                                                     <option value="{{$province->province_id}}">{{$province->province}}</option>
                                                 @endforeach
@@ -154,9 +156,9 @@
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Zip Code*</label>
                                         @if($address)
-                                        <input id="zipCode" required="required" name="zipCode" type="text" placeholder="Address line 1" value="{{$address->zip_code}}">
+                                            <input id="zipCode" required="required" name="zipCode" type="text" placeholder="Address line 1" value="{{$address->zip_code}}">
                                         @else
-                                        <input id="zipCode" required="required" name="zipCode" type="text" placeholder="Address line 1">
+                                            <input id="zipCode" required="required" name="zipCode" type="text" placeholder="Address line 1">
                                         @endif
                                     </div>
                                     <!-- <div class="col-12 mb--20 ">
@@ -276,8 +278,8 @@
                                         <p>Sub Total <span>Rp {{$totalSum}}</span></p>
                                         <p>Shipping Fee <span id="shippingFee">Rp 0 </span></p>
                                         <h4>Grand Total <span id="grandTotal">Rp {{($totalSum+0)}}</span></h4>
-                                        <input type="hidden" id="grandTotalInput" value="{{($totalSum+0)}}">
-                                        <input type="hidden" id="subTotalInput" value="{{$totalSum}}">
+                                        <input type="hidden" id="grandTotalInput" value="{{($totalSum+0)}}" name="grandTotalInput">
+                                        <input type="hidden" id="subTotalInput" value="{{$totalSum}}" name="subTotalInput">
                                             <div class="method-notice mt--25">                 
                                                 <fieldset class="form-group">
                                                     <div class="row">

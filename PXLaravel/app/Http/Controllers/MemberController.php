@@ -129,9 +129,9 @@ class MemberController extends Controller
     {
         $userID = Auth::id();
         $user = User::where('id',$userID)->first();
-        $bill = Bill::where('user_id',Auth::User()->id)->get();
+        $bills = Bill::where('user_id',Auth::User()->id)->get();
         return view('frontend.profile.bill')
-        ->with('bill', $bill)
+        ->with('bills', $bills)
         ->with('userDetail', $user);
     }
 
@@ -151,7 +151,7 @@ class MemberController extends Controller
         $user = User::where('id',$userID)->first();
         $address = Address::where('user_id',Auth::User()->id)->get();
         return view('frontend.profile.address')
-        ->with('address', $address)
+        ->with('addresses', $address)
         ->with('userDetail', $user);
     }
 
@@ -283,6 +283,14 @@ class MemberController extends Controller
                 }
             }
 
+            $newBill = new Bill;
+            $newBill->name = "Transaction - {$user_id} No {$newTransaction->id}";
+            $newBill->user_id = $user_id;
+            $newBill->transaction_id = $newTransaction->id;
+            $newBill->total = $request->grandTotalInput;
+            $newBill->is_active = true;
+            $newBill->save();
+
             $newAddress = new Address;
             $newAddress->user_id = $user_id;
             $newAddress->name = "Defauilt";
@@ -293,6 +301,7 @@ class MemberController extends Controller
             $newAddress->country_id = $request->country_id;
             $newAddress->province_id = $request->province_id;
             $newAddress->city_id = $request->city_id;
+            $newAddress->zip_code = $request->zipCode;
             $newAddress->save();
 
             if(!Auth::user()->phone_no){
@@ -363,5 +372,9 @@ class MemberController extends Controller
                 return null;
             }
         }
+    }
+
+    public function confirmPay($id){
+        return $id;
     }
 }

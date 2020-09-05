@@ -30,7 +30,38 @@
 									<div class="tab-pane fade show active" id="payment-method" role="tabpanel">
 										<div class="myaccount-content">
 											<h3>Bill</h3>
+											@if($bills->count() > 0)											
+												<div class="myaccount-table table-responsive text-center">
+													<table class="table table-bordered">
+														<thead class="thead-light">
+															<tr>
+																<th>No</th>
+																<th>Date</th>
+																<th>Expire</th>
+																<th>Download</th>
+															</tr>
+														</thead>
+														<tbody>
+															@if(count($bills) > 0)
+																@foreach($bills as $bill)
+																	<tr>
+																		<td>{{$bill->id}}</td>
+																		<td>{{$bill->created_at}}</td>
+																		<td>{{$bill->created_at}}</td>
+																		<td><a href="{{route('confirm.payment',$bill->id)}}" class="btn">Upload Receipt</a></td>
+																	</tr>
+																@endforeach
+															@else                                                            
+																<tr>                                                                
+																	<td colspan="4">No Dowload Available!</td>
+																</tr>
+															@endif
+														</tbody>
+													</table>
+												</div>
+											@else
 											<p class="saved-message">Bill No Available Yet!</p>
+											@endif
 										</div>
 									</div>
 									<!-- Single Tab Content End -->
