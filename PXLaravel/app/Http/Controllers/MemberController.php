@@ -290,6 +290,9 @@ class MemberController extends Controller
             $newAddress->la = 0;
             $newAddress->full_address = $request->address;
             $newAddress->phone = $request->phone_no;
+            $newAddress->country_id = $request->country_id;
+            $newAddress->province_id = $request->province_id;
+            $newAddress->city_id = $request->city_id;
             $newAddress->save();
 
             if(!Auth::user()->phone_no){
