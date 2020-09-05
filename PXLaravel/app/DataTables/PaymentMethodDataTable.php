@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Model\Transaction;
+use App\Model\PaymentMethod;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class OrdersDataTable extends DataTable
+class PaymentMethodDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,17 +21,17 @@ class OrdersDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)          
-            ->addColumn('action', '<a href="{{route(\'orders.detail\',$id)}}" class="btn btn-info" style="color:white"><i class="fas fa-info"></i></a> 
-            <a href="{{route(\'orders.print\',$id)}}" style="color:white" class="btn btn-success"><i class="fas fa-edit"></i></a>');
+            ->addColumn('action', '<a href="{{route(\'backend.paymentMethod.detail\',$id)}}" class="btn btn-info" style="color:white"><i class="fas fa-info"></i></a> 
+            <a href="{{route(\'backend.paymentMethod.edit\',$id)}}" style="color:white" class="btn btn-success"><i class="fas fa-edit"></i></a>');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Model\Order $model
+     * @param \App\PaymentMethodDataTable $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Transaction $model)
+    public function query(PaymentMethod $model)
     {
         return $model->newQuery();
     }
@@ -44,7 +44,7 @@ class OrdersDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('order-table')
+                    ->setTableId('paymentMethod-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -63,7 +63,7 @@ class OrdersDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('status'),
+            Column::make('name'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')
@@ -81,6 +81,6 @@ class OrdersDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Orders_' . date('YmdHis');
+        return 'PaymentMethod_' . date('YmdHis');
     }
 }

@@ -21,6 +21,10 @@ class CreateAddressesTable extends Migration
             $table->string("lg")->nullable();
             $table->string("phone");
             $table->text("full_address");
+            $table->integer("country_id");
+            $table->integer("province_id");
+            $table->integer("city_id");
+            $table->integer("zip_code");
             $table->softDeletes('deleted_at', 0);	
             $table->timestamps(0);
             $table->foreign('user_id')->references('id')->on('users');

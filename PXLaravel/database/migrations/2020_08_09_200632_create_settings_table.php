@@ -20,6 +20,8 @@ class CreateSettingsTable extends Migration
             $table->string("email")->nullable();
             $table->string("address")->nullable();
             $table->string("logo")->nullable();
+            $table->integer("province_id")->nullable();
+            $table->integer("city_id")->nullable();
             $table->softDeletes('deleted_at', 0);	
             $table->timestamps(0);
         });

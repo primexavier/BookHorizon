@@ -100,7 +100,7 @@
             if(data){
                 $('#cityName').prop('disabled', false);
                 data.forEach(element => {         
-                    console.log(element.city_name);  
+                    $("#shippingMethod").append(`<option value="">Pick City</option>`);  
                     $("#cityName").append(`<option value="${element.city_id}">${element.city_name}</option>`);        
                 });
             }else{                
@@ -110,5 +110,53 @@
             $('#cityName').prop('disabled', 'disabled');   
             alert( "error" );
         });
+    }
+    function getZipCode(id){
+        var province_id = $( "#provinceId option:selected" ).val();
+        $('#zipCode').val();     
+        var jqxhr = $.get( "/getcity/"+province_id+"/"+id+"/",  function(data) {
+            if(data){
+                $('#zipCode').val(data[0].postal_code);
+                $('#couriers').prop('disabled', false);
+            }else{                
+                $('#zipCode').val();     
+            }
+        }).fail(function() {
+            $('#zipCode').val();     
+            alert( "error" );
+        });
+        // alert(id);
+    }
+    function getShippingCost(courier){ 
+        var city_id = $( "#cityName option:selected" ).val();
+        var jqxhr = $.get( "/getCost/"+courier+"/"+city_id+"/"+1+"/",  function(data) {
+            $("#shippingMethod").find('option').remove().end(); 
+            $('#shippingCost').val();
+            $('#shippingCourier').val();
+            $('#shippingCode').val();   
+            if(data){
+                $('#shippingMethod').prop('disabled', false);
+                    $("#shippingMethod").append(`<option value="">Pick Shipping</option>`);  
+                data.forEach(element => {         
+                    $("#shippingMethod").append(`<option value="${element.service}">${element.description} - ${element.cost[0].value}</option>`);        
+                });
+            }else{                
+                $('#cityName').prop('disabled', 'disabled');       
+            }
+        }).fail(function() {
+            $('#cityName').prop('disabled', 'disabled');        
+            alert( "error" );
+        });
+    }
+    function setShippingMethod(value){ 
+        var text = $( "#shippingMethod option:selected" ).text();
+        var shippingCode = $( "#shippingMethod option:selected" ).val();
+        var subTotal = $('#subTotalInput').val();
+        var shippingCost = text.split('- ')[1];
+        $('#shippingCost').val(shippingCost);
+        $('#shippingFee').html(`Rp ${shippingCost}`);
+        $('#grandTotal').html(`Rp ${+shippingCost + +subTotal}`);
+        $('#grandTotalInput').html(`Rp ${+shippingCost + +subTotal}`);
+        $('#shippingCode').val(shippingCode);
     }
 </script>

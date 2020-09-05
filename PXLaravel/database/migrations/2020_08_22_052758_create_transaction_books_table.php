@@ -15,7 +15,12 @@ class CreateTransactionBooksTable extends Migration
     {
         Schema::create('transaction_books', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger("transaction_id");
+            $table->unsignedBigInteger("book_id");
+            $table->softDeletes('deleted_at', 0);	
+            $table->timestamps(0);	
+            $table->foreign('transaction_id')->references('id')->on('transactions');
+            $table->foreign('book_id')->references('id')->on('books');
         });
     }
 
@@ -26,6 +31,18 @@ class CreateTransactionBooksTable extends Migration
      */
     public function down()
     {
+        if (Schema::hasColumn('transaction_books', 'book_id'))
+        {
+            Schema::table('transactions', function (Blueprint $table) {
+                $table->dropForeign(['book_id']);
+            });
+        }
+        if (Schema::hasColumn('transaction_books', 'transaction_id'))
+        {
+            Schema::table('transactions', function (Blueprint $table) {
+                $table->dropForeign(['transaction_id']);
+            });
+        }
         Schema::dropIfExists('transaction_books');
     }
 }

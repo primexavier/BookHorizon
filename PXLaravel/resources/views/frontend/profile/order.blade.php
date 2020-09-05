@@ -35,7 +35,6 @@
 													<thead class="thead-light">
 														<tr>
 															<th>No</th>
-															<th>Name</th>
 															<th>Date</th>
 															<th>Status</th>
 															<th>Total</th>
@@ -43,15 +42,16 @@
 														</tr>
 													</thead>
 													<tbody>
-                                                        @if(count($transaction) > 0)
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Mostarizing Oil</td>
-                                                                <td>Aug 22, 2018</td>
-                                                                <td>Pending</td>
-                                                                <td>$45</td>
-                                                                <td><a href="cart.html" class="btn">View</a></td>
-                                                            </tr>    
+                                                        @if(count($transactions) > 0)
+															@foreach($transactions as $transaction)
+																<tr>
+																	<td>{{$transaction->id}}</td>
+																	<td>{{$transaction->created_at}}</td>
+																	<td>{{$transaction->status}} waiting Payment</td>
+																	<td>{{($transaction->grand_total)}}</td>
+																	<td><a href="{{route('transaction.detail',$transaction->id)}}" class="btn">View</a></td>
+																</tr>    
+															@endforeach
                                                         @else
                                                             <tr>
                                                             <td colspan="6">you Haven't Order Yet, Rent Book <a href="{{route('index')}}">Here</a></td>

@@ -18,9 +18,8 @@
                                             <div class="col-lg-5">
                                                 <span class="title-small">Magazine Cover</span>
                                                 <h1>Mockup.</h1>
-                                                <p>Cover up front of book and
-                                                    <br>leave summary</p>
-                                                <a href="{{route("index")}}" class="btn btn-outlined--pink">
+                                                <p>Cover up front of book and <br>leave summary</p>
+                                                <a href="{{route('index')}}" class="btn btn-outlined--pink">
                                                     Shop Now
                                                 </a>
                                             </div>

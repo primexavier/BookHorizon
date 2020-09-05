@@ -16,13 +16,12 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("user_id");
-            $table->unsignedBigInteger("book_id");
-            $table->integer("price");
+            $table->integer("sub_total")->nullable();
+            $table->integer("shipping_cost")->nullable();
+            $table->integer("grand_total")->nullable();
+            $table->integer("product_total");
             $table->softDeletes('deleted_at', 0);	
             $table->timestamps(0);	
-        });
-        Schema::table('transactions', function (Blueprint $table) {
-            $table->foreign('book_id')->references('id')->on('books');
         });
         Schema::table('transactions', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
@@ -38,9 +37,6 @@ class CreateTransactionsTable extends Migration
     {
         Schema::table('transactions', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
-        });
-        Schema::table('transactions', function (Blueprint $table) {
-            $table->dropForeign(['book_id']);
         });
         Schema::dropIfExists('transactions');
     }

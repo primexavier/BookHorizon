@@ -25,10 +25,11 @@
                     <p>Your order has been received.</p>
                 </div>
                 <ul class="order-details-list">
-                    <li>Order Number: <strong>{{$transaction->no}}</strong></li>
+                    <li>Order Number: <strong>{{$transaction->id}}</strong></li>
                     <li>Date: <strong>{{$transaction->created_at}}</strong></li>
-                    <li>Total: <strong>$117.00</strong></li>
-                    <li>Payment Method: <strong>{{$transaction->paymeny_type}}</strong></li>
+                    <li>Status: <strong>Waiting Payment</strong></li>
+                    <li>Total: <strong>Rp {{$transaction->grand_total}}</strong></li>
+                    <li>Payment Method: <strong>{{$transaction->payment_type_id}}</strong></li>
                 </ul>
                 <p>Pay with cash upon delivery.</p>
                 <h3 class="order-table-title">Order Details</h3>
@@ -43,7 +44,7 @@
                         <tbody>
                             @foreach($books as $book)
                             <tr>
-                                <td><a href="{{route('book.detail',$book->id)}}">{{$book->title}}</a> <strong>1</strong></td>
+                                <td><a href="{{route('book.detail',$book->id)}}">{{$book->title}}</a> (rented 3 Days) <strong>{{$transactionBook[0]->transaction_type_id}}</strong></td>
                                 <td><span>{{$book->price}}</span></td>
                             </tr>
                             @endforeach
@@ -51,15 +52,15 @@
                         <tfoot>
                             <tr>
                                 <th>Subtotal:</th>
-                                <td><span>$117.00</span></td>
+                                <td><span>Rp {{$transaction->sub_total}}</span></td>
                             </tr>
                             <tr>
                                 <th>Payment Method:</th>
-                                <td>Cash on Delivery</td>
+                                <td>{{$transaction->payment_method_id}}</td>
                             </tr>
                             <tr>
                                 <th>Total:</th>
-                                <td><span>$117.00</span></td>
+                                <td><span>Rp {{$transaction->grand_total}}</span></td>
                             </tr>
                         </tfoot>
                     </table>

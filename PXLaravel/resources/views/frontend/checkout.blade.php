@@ -22,6 +22,8 @@
                 <div class="checkout-form">
                     <div class="row row-40">
                         <div class="col-12">
+                            <form action="{{route('pay.confirmation')}}" method="post">              
+                            @csrf
                             <h1 class="quick-title">Checkout</h1>
                             <!-- Slide Down Trigger  -->
                             <!-- <div class="checkout-quick-box">
@@ -84,11 +86,11 @@
                                 <div class="row">
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>First Name*</label>
-                                        <input type="text" placeholder="First Name" value="{{Auth::User()->first_name}}">
+                                        <input name="first_name" type="text" placeholder="First Name" value="{{Auth::User()->first_name}}">
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Last Name*</label>
-                                        <input type="text" placeholder="Last Name" value="{{Auth::User()->last_name}}">
+                                        <input name="last_name" type="text" placeholder="Last Name" value="{{Auth::User()->last_name}}">
                                     </div>
                                     <!-- <div class="col-12 mb--20">
                                         <label>Company Name</label>
@@ -96,7 +98,7 @@
                                     </div> -->
                                     <div class="col-12 col-12 mb--20">
                                         <label>Country*</label>
-                                        <select class="nice-select">
+                                        <select required="required" class="nice-select" name="country_id">
                                             <option>Indonesia</option>
                                             {{-- <option>Bangladesh</option>
                                             <option>China</option>
@@ -107,28 +109,28 @@
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Email Address*</label>
-                                        <input type="email" placeholder="Email Address" value="{{Auth::User()->email}}">
+                                        <input required="required" name="email" type="email" placeholder="Email Address" value="{{Auth::User()->email}}">
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Phone no*</label>
-                                        <input type="text" placeholder="Phone number" value="{{Auth::User()->phone}}">
+                                        <input required="required" name="phone_no"  type="text" placeholder="Phone number" value="{{Auth::User()->phone}}">
                                     </div>
                                     <div class="col-12 mb--20">
                                         <label>Address*</label>
                                         @if($address)
-                                        <input type="text" placeholder="Address line 1" value="{{$address->full_address}}">
+                                            <input required="required" name="address" type="text" placeholder="Address line 1" value="{{$address->full_address}}">
                                         @else
-                                        <input type="text" placeholder="Address line 1">
+                                            <input required="required" name="address" type="text" placeholder="Address line 1">
                                         @endif
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Town/City*</label>
                                         @if($address)
-                                            <select class="form-control" class="nice-select" id="cityName">
+                                            <select onchange="getZipCode(this.value)" required="required" name="cityId" class="form-control" class="nice-select" id="cityName">
                                                 <option value="">Pilih Kota</option>
                                             </select>
                                         @else
-                                            <select class="form-control" disabled="disabled" id="cityName">
+                                            <select onchange="getZipCode(this.value)" required="required" name="cityId" class="form-control" disabled="disabled" id="cityName">
                                                 <option value="">Pilih Kota</option>
                                             </select>
                                         @endif
@@ -136,13 +138,13 @@
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>State*</label>
                                         @if($address)
-                                            <select class="nice-select">
+                                            <select id="provinceId" required="required" name="stateId" class="nice-select">
                                                 @foreach($provinces as $province)
                                                     <option onchange="getCity(this.value)" value="{{$province->province_id}}">{{$province->province}}</option>
                                                 @endforeach
                                             </select>
                                         @else
-                                            <select onchange="getCity(this.value)"  class="nice-select">
+                                            <select id="provinceId" name="stateId" onchange="getCity(this.value)"  class="nice-select">
                                                 @foreach($provinces as $province)
                                                     <option value="{{$province->province_id}}">{{$province->province}}</option>
                                                 @endforeach
@@ -152,9 +154,9 @@
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Zip Code*</label>
                                         @if($address)
-                                        <input type="text" placeholder="Address line 1" value="{{$address->zip_code}}">
+                                        <input id="zipCode" required="required" name="zipCode" type="text" placeholder="Address line 1" value="{{$address->zip_code}}">
                                         @else
-                                        <input type="text" placeholder="Address line 1">
+                                        <input id="zipCode" required="required" name="zipCode" type="text" placeholder="Address line 1">
                                         @endif
                                     </div>
                                     <!-- <div class="col-12 mb--20 ">
@@ -227,8 +229,7 @@
                             </div>
                             <div class="order-note-block mt--30">
                                 <label for="order-note">Order notes</label>
-                                <textarea id="order-note" cols="30" rows="10" class="order-note"
-                                    placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                <textarea name="note" id="order-note" cols="30" rows="10" class="order-note" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
                             </div>
                         </div>
                         <div class="col-lg-5">
@@ -242,38 +243,63 @@
                                             <?php $totalSum = 0; ?> 
                                             @foreach($charts as $chart)
                                             <li>
-                                                <span class="left">{{$chart->book()->title}} ({{$chart->transaction_type}})</span>
+                                                <span class="left">{{$chart->book()->title}} (Rent 3 Days)</span>
                                                 <span class="right">Rp {{$chart->book()->price}}</span>
                                             </li>
                                             <?php $totalSum += $chart->book()->price; ?> 
                                             @endforeach
-                                        </ul>
+                                        </ul>          
+                                            <div class="method-notice mt--25">                 
+                                                <fieldset class="form-group">
+                                                    <div class="row">
+                                                        @foreach($couriers as $courier)
+                                                            <div class="col-sm-12">
+                                                                <div class="form-check">
+                                                                    <input onclick="getShippingCost('{{$courier->code}}')" disabled="disabled" class="form-check-input" type="radio" name="couriers" id="couriers" value="{{$courier->id}}">
+                                                                    <label class="form-check-label" for="courier{{$courier->id}}">
+                                                                        {{$courier->name}}
+                                                                    </label>
+                                                                    <div class="row" id="ongkir">                                                    
+                                                                        <select onchange="setShippingMethod(this.text)" required="required" name="shippingMethod" class="form-control" class="nice-select" id="shippingMethod" disabled="disabled">
+                                                                            <option value="">Pick Shipping</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+                                                </fieldset>
+                                            </div>              
+                                         <input type="hidden" name="shippingCost" id="shippingCost" value="0">
+                                         <input type="hidden" name="shippingCourier" id="shippingCourier" value="">
+                                         <input type="hidden" name="shippingCode" id="shippingCode" value="">
                                         <p>Sub Total <span>Rp {{$totalSum}}</span></p>
-                                        <p>Shipping Fee <span>Rp 0 </span></p>
-                                        <h4>Grand Total <span>Rp {{($totalSum+0)}}</span></h4>
-                                        <div class="method-notice mt--25">                                            
-                                            @foreach($paymentMethods as $paymentMethod)
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                    <label class="form-check-label" for="exampleCheck1">{{ $paymentMethod->name }}</label>
-                                                </div>
-                                            @endforeach
-                                            <!-- <article>
-                                                <h3 class="d-none sr-only">blog-article</h3>
-                                                Sorry, it seems that there are no available payment methods for
-                                                your state. Please contact us if you
-                                                require
-                                                assistance
-                                                or wish to make alternate arrangements.
-                                            </article> -->
-                                        </div>
+                                        <p>Shipping Fee <span id="shippingFee">Rp 0 </span></p>
+                                        <h4>Grand Total <span id="grandTotal">Rp {{($totalSum+0)}}</span></h4>
+                                        <input type="hidden" id="grandTotalInput" value="{{($totalSum+0)}}">
+                                        <input type="hidden" id="subTotalInput" value="{{$totalSum}}">
+                                            <div class="method-notice mt--25">                 
+                                                <fieldset class="form-group">
+                                                    <div class="row">
+                                                        @foreach($paymentMethods as $paymentMethod)
+                                                            <div class="col-sm-12">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod{{$paymentMethod->id}}" value="{{$paymentMethod->id}}">
+                                                                    </br>
+                                                                    <label class="form-check-label" for="paymentMethod{{$paymentMethod->id}}">
+                                                                        {{$paymentMethod->name}}
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+                                                </fieldset>
+                                            </div>
                                         <div class="term-block">
                                             <input type="checkbox" id="accept_terms2">
                                             <label for="accept_terms2">I’ve read and accept the terms &
                                                 conditions</label>
                                         </div>
-                                        <form action="{{route('pay.confirmation')}}" method="post">              
-                                            @csrf
                                             <button type="submit" class="place-order w-100">Place order</button>
                                         </form>
                                     </div>

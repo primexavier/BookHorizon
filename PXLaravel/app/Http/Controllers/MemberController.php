@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Model\User;
 use App\Model\Transaction;
+use App\Model\TransactionBook;
+use App\Model\TransactionMembership;
 use App\Model\Download;
 use App\Model\Bill;
 use App\Model\Payment;
@@ -12,6 +14,9 @@ use App\Model\Address;
 use App\Model\Membership;
 use App\Model\Wishlist;
 use App\Model\Chart;
+use App\Model\Setting;
+use App\Model\Book;
+use App\Model\Courier;
 use Illuminate\Http\Request;
 use App\DataTables\MemberDataTable;
 use App\DataTables\OrdersDataTable;
@@ -90,8 +95,14 @@ class MemberController extends Controller
     {
         $userID = Auth::id();
         $user = User::where('id',$userID)->first();
+        $membership = TransactionMembership::get();
+        // $transactionBook = TransactionBook::where("user_id",$userID)->get();
+        $books = Book::where("id",1)->get();
 
-        return view('frontend.profile.myprofile')->with('userDetail', $user);
+        return view('frontend.profile.myprofile')
+        ->with('membership', $membership)
+        ->with('userDetail', $user)
+        ->with('books', $books);
     }
 
     public function orderlist()
@@ -100,7 +111,7 @@ class MemberController extends Controller
         $user = User::where('id',$userID)->first();
         $transaction = Transaction::where('user_id',Auth::User()->id)->get();
         return view('frontend.profile.order')
-        ->with('transaction', $transaction)
+        ->with('transactions', $transaction)
         ->with('userDetail', $user);
     }
 
@@ -228,14 +239,20 @@ class MemberController extends Controller
     public function checkout(Request $request)
     {
         $charts = Chart::where("user_id",Auth::user()->id)->get();
-        $paymentMethods = PaymentMethod::get();
-        $address = Address::where("user_id",Auth::user()->id)->first();
-        $provinces = FrontEndController::getProvince(NULL);
-        return view("frontend.checkout")
-        ->with("charts",$charts)
-        ->with("paymentMethods",$paymentMethods)
-        ->with("address",$address)
-        ->with("provinces",$provinces);
+        if($charts->count() > 0){
+            $paymentMethods = PaymentMethod::get();
+            $address = Address::where("user_id",Auth::user()->id)->first();
+            $provinces = FrontEndController::getProvince(NULL);
+            $couriers = Courier::get();
+            return view("frontend.checkout")
+            ->with("charts",$charts)
+            ->with("paymentMethods",$paymentMethods)
+            ->with("address",$address)
+            ->with("provinces",$provinces)
+            ->with("couriers",$couriers);                
+        }else{
+            return redirect(route("index"));
+        }
     }
 
     public function deleteChart(Chart $chart)
@@ -247,14 +264,101 @@ class MemberController extends Controller
 
     public function pay(Request $request)
     {        
-        
-        return redirect()->route("transaction.detail",1);
+        $user_id = Auth::user()->id;
+        $charts = Chart::where("user_id",$user_id)->get();
+        if($charts->count() > 0){
+            $newTransaction = new Transaction;
+            $newTransaction->user_id = $user_id;
+            $newTransaction->sub_total = $request->subTotalInput;
+            $newTransaction->shipping_cost = $request->shippingCost;
+            $newTransaction->product_total = $charts->count();
+            $newTransaction->save();
+
+            foreach($charts as $chart){
+                $newTransactionDetail = new TransactionBook;
+                $newTransactionDetail->transaction_id = $newTransaction->id;
+                $newTransactionDetail->book_id = $chart->book_id;
+                if($newTransactionDetail->save()){
+                    $chart->delete();
+                }
+            }
+
+            $newAddress = new Address;
+            $newAddress->user_id = $user_id;
+            $newAddress->name = "Defauilt";
+            $newAddress->lg = 0;
+            $newAddress->la = 0;
+            $newAddress->full_address = $request->address;
+            $newAddress->phone = $request->phone_no;
+            $newAddress->save();
+
+            if(!Auth::user()->phone_no){
+                $updateUser = User::where('id'.$user_id)->first();
+                $updateUser->phone_no = $request->phone_no;
+                $updateUser->save();
+            }
+
+            return redirect()->route("transaction.detail",$newTransaction->id);
+            
+        }else{
+            return redirect(route("index"));
+        }
     }
 
-    public function transactionDetail($transaction)
+    public function transactionDetail(Transaction $transaction)
+    {        
+        $transactionBook = TransactionBook::where('transaction_id',$transaction->id)->get();
+        if($transactionBook->count() > 0){
+            $books = Book::where("id",$transactionBook[0]->id)->get();
+            return view("frontend.transaction-detail")
+            ->with("transaction",$transaction)
+            ->with("transactionBook",$transactionBook)
+            ->with("books",$books);
+        }else{
+            $transaction->delete();
+            return redirect(route('order.list'));
+
+        }
+    }
+
+    public function addTransaction(Request $request)
     {        
         $transaction = "";
         return view("frontend.transaction-detail")->with("transaction",$transaction);
+    }
 
+    public function getShippingCost($courier,$city_id,$weight){
+        $setting = Setting::First();
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.rajaongkir.com/starter/cost",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "POST",
+        CURLOPT_POSTFIELDS => "origin={$setting->city_id}&destination=$city_id&weight={$weight}&courier={$courier}",
+        CURLOPT_HTTPHEADER => array(
+            "content-type: application/x-www-form-urlencoded",
+            "key: 106e7050f0400a42b414fb308db9dc00"
+        ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        if ($err) {
+            echo "cURL Error #:" . $err;
+        } else {
+            if(count(json_decode($response)->rajaongkir->results) > 0){
+                return json_decode($response)->rajaongkir->results[0]->costs;
+            }else{
+                return null;
+            }
+        }
     }
 }

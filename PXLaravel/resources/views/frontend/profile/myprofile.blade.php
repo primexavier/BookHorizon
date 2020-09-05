@@ -40,11 +40,15 @@
 												recent orders, manage your shipping and billing addresses and edit your
                                                 password and account details.</p>    
                                             <br>
-											<div class="alert alert-info" role="alert">
-												<h6>Membership Valid</h6>
-												<ul>
-													<li><span id="days"></span> days <span id="hours"></span> Hours <span id="minutes"></span> Minutes <span id="seconds"></span> Seconds</li>
-												</ul>
+												<div class="alert alert-info" role="alert">
+													@if($membership->count() > 0)
+													<h6>Membership Valid</h6>
+													<ul>
+														<li><span id="days"></span> days <span id="hours"></span> Hours <span id="minutes"></span> Minutes <span id="seconds"></span> Seconds</li>
+													</ul>
+													@else
+														<h6>You are Not Valid Membership</h6>
+													@endif
 												</div>
 												<div class="alert alert-secondary" role="alert">
 													Recomendation
@@ -56,10 +60,12 @@
 															</tr>
 														</thead>
 														<tbody>
+															@foreach($books as $book)
 																<tr>
-																	<td>Mostarizing Oil</td>
-																	<td><a href="#">Share</a> <i class="fas fa-share-alt-square"></i></td>
+																	<td>{{$book->title}}</td>
+																	<td><a href="{{route('book.detail',$book->id)}}">Share</a> <i class="fas fa-share-alt-square"></i></td>
 																</tr>
+															@endforeach
 														</tbody>
 													</table>
 												</div>

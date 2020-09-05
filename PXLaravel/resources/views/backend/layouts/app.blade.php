@@ -76,6 +76,9 @@
                                     <a class="dropdown-item" href="{{route('backend.membership.index')}}" >
                                         Membership
                                     </a>
+                                    <a class="dropdown-item" href="{{route('backend.paymentMethod.index')}}" >
+                                        Payment Method
+                                    </a>
                                     <a class="dropdown-item" href="{{route('backend.promotion.index')}}" >
                                         Promotion
                                     </a>

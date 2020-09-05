@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\PaymentMethod;
 use Illuminate\Http\Request;
+use App\DataTables\PaymentMethodDataTable;
 
 class PaymentMethodController extends Controller
 {
@@ -12,9 +13,9 @@ class PaymentMethodController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(PaymentMethodDataTable $dataTable)
     {
-        //
+        return $dataTable->render('backend.paymentMethod.index');
     }
 
     /**
@@ -24,7 +25,7 @@ class PaymentMethodController extends Controller
      */
     public function create()
     {
-        //
+        return view("backend.paymentMethod.add");
     }
 
     /**
@@ -35,7 +36,17 @@ class PaymentMethodController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validateWithBag('payment_methods', [
+            'name' => ['required'],
+        ]);
+        $new = new PaymentMethod();
+        $new->name = $request->name;
+        $new->description = $request->desc;
+        if($new->save()){
+            return redirect()->route('backend.paymentMethod.index');
+        }else{
+            return redirect()->route('backend.paymentMethod.index');
+        }
     }
 
     /**

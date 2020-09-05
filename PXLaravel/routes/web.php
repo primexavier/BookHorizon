@@ -14,6 +14,7 @@ use App\Model\Supplier;
 use App\Model\Stock;
 use App\Model\Membership;
 use App\Model\Promotion;
+use App\Model\PaymentMethod;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,7 @@ Route::get('/getprovince/{id}', 'FrontEndController@getProvince')->name('provinc
 Route::get('/getcity/{provinceId}/{cityId}', 'FrontEndController@getCity')->name('city.detail');
 Route::get('/getcity/{provinceId}', 'FrontEndController@getCity')->name('city.list');
 Route::get('/searchBook', 'FrontEndController@searchBook')->name('book.search');
+Route::get('/getCost/{courier}/{city_id}/{weight}', 'MemberController@getShippingCost')->name('cost.shipping');
 
 Auth::routes();
 
@@ -63,10 +65,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/extend-member', 'MemberController@extendMember')->name('extend.member');
         Route::get('/checkout', 'MemberController@checkout')->name('checkout');
         Route::get('/chart-delete/{chart}', 'MemberController@deleteChart')->name('chart.delete');
+        Route::get('/transaction/detail/{transaction}', 'MemberController@transactiondetail')->name('transaction.detail');
         Route::post('/wishlist-chart', 'MemberController@wishlistChart')->name('wishlist.chart');
         Route::post('/editprofile', 'MemberController@updateProfile')->name('profile.update');
         Route::post('/pay/confirmation', 'MemberController@pay')->name('pay.confirmation');
-        Route::get('/transaction/detail/{transaction}', 'MemberController@transactiondetail')->name('transaction.detail');
     });
     Route::get('/home', 'HomeController@index')->name('home');
 });
@@ -203,6 +205,15 @@ Route::group(['prefix' => 'backend'], function () {
             Route::post('/update/{promotion}', 'PromotionController@update')->name('backend.promotion.update');
             Route::get('/detail/{promotion}', 'PromotionController@show')->name('backend.promotion.detail');
             Route::post('/delete/{promotion}', 'PromotionController@destroy')->name('backend.promotion.delete');
+        });
+        Route::group(['prefix' => 'paymentMethod'], function () {
+            Route::get('/', 'PaymentMethodController@index')->name('backend.paymentMethod.index');
+            Route::get('/create', 'PaymentMethodController@create')->name('backend.paymentMethod.create');
+            Route::post('/create', 'PaymentMethodController@store')->name('backend.paymentMethod.store');
+            Route::get('/update/{paymentmethod}', 'PaymentMethodController@edit')->name('backend.paymentMethod.edit');
+            Route::post('/update/{paymentmethod}', 'PaymentMethodController@update')->name('backend.paymentMethod.update');
+            Route::get('/detail/{paymentmethod}', 'PaymentMethodController@show')->name('backend.paymentMethod.detail');
+            Route::post('/delete/{paymentmethod}', 'PaymentMethodController@destroy')->name('backend.paymentMethod.delete');
         });
         Route::group(['prefix' => 'setting'], function () {
             Route::get('/', 'SettingController@index')->name('backend.setting.index');

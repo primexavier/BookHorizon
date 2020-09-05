@@ -34,6 +34,19 @@ class UserSeeder extends Seeder
         DB::table('settings')->insert([
             'id' => 1,
             'name' => "First Setting",
+            'province_id' => 17,
+            'city_id' => 48
+        ]);
+        DB::table('couriers')->insert([
+            'id' => 1,
+            'name' => "JNE",
+            'code' => "jne",
+            'logo' => "JNE"
+        ]);
+        DB::table('payment_methods')->insert([
+            'id' => 1,
+            'name' => "Bank",
+            'description' => "Bank",
         ]);
     }
 }
