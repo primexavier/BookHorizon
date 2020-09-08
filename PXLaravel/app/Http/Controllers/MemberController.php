@@ -159,9 +159,9 @@ class MemberController extends Controller
     {
         $userID = Auth::id();
         $user = User::where('id',$userID)->first();
-        $bill = Bill::where('user_id',Auth::User()->id)->get();
+        $paymentMethods = paymentMethod::get();
         return view('frontend.profile.payment-method')
-        ->with('paymentMethod', $bill)
+        ->with('paymentMethods', $paymentMethods)
         ->with('userDetail', $user);
     }
 
@@ -297,7 +297,7 @@ class MemberController extends Controller
             $newAddress->lg = 0;
             $newAddress->la = 0;
             $newAddress->full_address = $request->address;
-            $newAddress->phone = $request->phone_no;
+            $newAddress->phone_no = $request->phone_no;
             $newAddress->country_id = $request->country_id;
             $newAddress->province_id = $request->province_id;
             $newAddress->city_id = $request->city_id;

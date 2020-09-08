@@ -145,7 +145,7 @@
                                                 @endforeach
                                             </select>
                                         @else
-                                            <select id="province_id" nchange="getCity(this.value)" name="province_id" o class="nice-select">
+                                            <select id="province_id" onchange="getCity(this.value)" name="province_id" o class="nice-select">
                                                 <option value="">Pick State</option>
                                                 @foreach($provinces as $province)
                                                     <option value="{{$province->province_id}}">{{$province->province}}</option>

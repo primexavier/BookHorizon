@@ -39,6 +39,9 @@ Route::get('/wishlist', 'FrontEndController@wishlist')->name('wishlist');
 Route::get('/addChart/{id}', 'FrontEndController@addChart')->name('add.chart');
 Route::get('/addWishlist/{id}', 'FrontEndController@addWishlist')->name('add.wishlist');
 Route::get('/bookModal/{book}', 'FrontEndController@bookModal')->name('book.modal');
+
+Route::get('/payment-method/{paymentmethod}', 'FrontEndController@paymentMethodList')->name('payment-method.list');
+
 Route::post('/addChart/{id}', 'FrontEndController@addChart')->name('add.chart');
 Route::post('/addWishlist/{id}', 'FrontEndController@addWishlist')->name('add.wishlist');
 

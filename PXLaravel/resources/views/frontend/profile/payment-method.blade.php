@@ -26,11 +26,35 @@
 							<!-- My Account Tab Content Start -->
 							<div class="col-lg-9 col-12 mt--30 mt-lg--0">
 								<div class="tab-content" id="myaccountContent">
+
 									<!-- Single Tab Content Start -->
 									<div class="tab-pane fade show active" id="payment-method" role="tabpanel">
 										<div class="myaccount-content">
 											<h3>Payment Method</h3>
-											<p class="saved-message">You Can't Saved Your Payment Method yet.</p>
+											@if($paymentMethods->count() > 0)											
+												<div class="myaccount-table table-responsive text-center">
+													<table class="table table-bordered">
+														<thead class="thead-light">
+															<tr>
+																<th>No</th>
+																<th>Name</th>
+																<th>Links</th>
+															</tr>
+														</thead>
+														<tbody>
+															@foreach($paymentMethods as $paymentMethod)
+																<tr>
+																	<td>{{$paymentMethod->id}}</td>
+																	<td>{{$paymentMethod->name}}</td>
+																	<td><a href="{{route('payment-method.list',$paymentMethod->id)}}" class="btn">Payment Method List</a></td>
+																</tr>
+															@endforeach
+														</tbody>
+													</table>
+												</div>
+											@else
+											<p class="saved-message">Bill No Available Yet!</p>
+											@endif
 										</div>
 									</div>
 									<!-- Single Tab Content End -->
