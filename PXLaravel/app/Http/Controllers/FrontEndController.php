@@ -262,7 +262,8 @@ class FrontEndController extends Controller
 
     public function searchBook(Request $request){   
         $searchedBook = Book::where('title', 'like', '%'.$request->searchBook.'%')->get();
-        return view('frontend.search')->with("searchBooks",$searchedBook);
+        return view('frontend.search')
+        ->with("searchBooks",$searchedBook);
     }
 
     public function paymentMethodList(PaymentMethod $paymentmethod){

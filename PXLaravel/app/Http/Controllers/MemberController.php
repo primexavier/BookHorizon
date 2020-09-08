@@ -374,7 +374,8 @@ class MemberController extends Controller
         }
     }
 
-    public function confirmPay($id){
-        return $id;
+    public function confirmPay(Bill $bill){
+        return view("frontend.profile.upload-receipt")
+        ->with("bill",$bill);
     }
 }

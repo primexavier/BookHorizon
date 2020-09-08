@@ -30,7 +30,15 @@
 									<div class="tab-pane fade show active" id="payment-method" role="tabpanel">
 										<div class="myaccount-content">
                                             <h3>Bill</h3>
-                                            Upload Bill
+											Upload Bill - {{$bill->id}} <br>
+											Name : {{$bill->transaction_id}} <br>
+											
+											<form method="post" action="{{route('upload.bill',$bill->id)}}">
+												<img id="blah" src="{{ asset('frontend/image/book') }}/empty.jpg" alt="your image" width="200px" height="250px" />		
+												<br>
+												<br>									  
+												<input onchange="readURL(this)" type="file" name="receipt" required="requored">
+											</form>
 										</div>
 									</div>
 									<!-- Single Tab Content End -->
@@ -43,4 +51,20 @@
 			</div>
 		</div>
 	</div>
+@endsection
+
+@section("custom.script")
+<script>
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#blah').attr('src', e.target.result);
+    }
+    
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+</script>
 @endsection
