@@ -47,7 +47,7 @@
 																	<td>{{$bookRented->id}}</td>
 																	<td>{{$bookRented->created_at}}</td>
 																	<td>{{$bookRented->created_at}}</td>
-																	</tr>
+																</tr>
 															@endforeach
 														</tbody>
 													</table>
