@@ -8,6 +8,7 @@ use App\Model\Book;
 use App\Model\Blog;
 use App\Model\Chart;
 use App\Model\Wishlist;
+use App\Model\Bank;
 use App\Model\PaymentMethod;
 
 class FrontEndController extends Controller
@@ -267,6 +268,10 @@ class FrontEndController extends Controller
     }
 
     public function paymentMethodList(PaymentMethod $paymentmethod){
-        return $paymentmethod;
+        $banks = Bank::get();
+    
+        return view('frontend.payment-method')
+        ->with("banks", $banks)
+        ;
     }
 }

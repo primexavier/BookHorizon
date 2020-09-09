@@ -272,6 +272,7 @@ class MemberController extends Controller
             $newTransaction->sub_total = $request->subTotalInput;
             $newTransaction->shipping_cost = $request->shippingCost;
             $newTransaction->product_total = $charts->count();
+            $newTransaction->grand_total = $request->grandTotalInput;
             $newTransaction->save();
 
             foreach($charts as $chart){
@@ -375,6 +376,11 @@ class MemberController extends Controller
     }
 
     public function confirmPay(Bill $bill){
+        return view("frontend.profile.upload-receipt")
+        ->with("bill",$bill);
+    }
+
+    public function uploadBill(Bill $bill, Request $request){
         return view("frontend.profile.upload-receipt")
         ->with("bill",$bill);
     }

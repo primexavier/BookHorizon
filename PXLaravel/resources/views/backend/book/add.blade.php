@@ -19,8 +19,9 @@
                                 <div class="row">
                                     <div class="col-md-12">       
                                         <div class="form-group">
+                                            <img id="imageShow" src="{{ asset('frontend/image/book') }}/empty.jpg" alt="your image" width="200px" height="250px" />													
                                             <label for="exampleFormControlFile1">Photo</label>
-                                            <input type="file" class="form-control-file" accept="image/x-png,image/gif,image/jpeg" name="photo">
+                                            <input onchange="readURL(this)" type="file" class="form-control-file" accept="image/x-png,image/gif,image/jpeg" name="photo">
                                         </div>    
                                         <div class="form-group">
                                             <label for="title">Title</label>
@@ -101,4 +102,18 @@
 
 @push('scripts')
     <script src="{{ mix('js/app.js') }}"></script>
+    
+    <script>
+        function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+            $('#imageShow').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+        }
+    </script>
 @endpush

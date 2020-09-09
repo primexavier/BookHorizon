@@ -31,13 +31,19 @@
 										<div class="myaccount-content">
                                             <h3>Bill</h3>
 											Upload Bill - {{$bill->id}} <br>
-											Name : {{$bill->transaction_id}} <br>
+											Name : {{$bill->name}} <br>
+											Total : {{$bill->total}} <br>
+											Transaction No : {{$bill->transaction()->id}} <br>
 											
 											<form method="post" action="{{route('upload.bill',$bill->id)}}">
-												<img id="blah" src="{{ asset('frontend/image/book') }}/empty.jpg" alt="your image" width="200px" height="250px" />		
+												@csrf
+												<img id="imageShow" src="{{ asset('frontend/image/book') }}/empty.jpg" alt="your image" width="200px" height="250px" />		
 												<br>
 												<br>									  
-												<input onchange="readURL(this)" type="file" name="receipt" required="requored">
+												<input onchange="readURL(this)" type="file" name="receipt" required="required">
+												<br>
+												<br>
+												<button type="submit" class="btn btn-secondary">Upload</button>
 											</form>
 										</div>
 									</div>
@@ -60,7 +66,7 @@ function readURL(input) {
     var reader = new FileReader();
     
     reader.onload = function(e) {
-      $('#blah').attr('src', e.target.result);
+      $('#imageShow').attr('src', e.target.result);
     }
     
     reader.readAsDataURL(input.files[0]); // convert to base64 string

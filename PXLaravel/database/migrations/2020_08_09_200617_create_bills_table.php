@@ -19,6 +19,7 @@ class CreateBillsTable extends Migration
             $table->unsignedBigInteger("user_id");
             $table->unsignedBigInteger("transaction_id");
             $table->integer("total");   
+            $table->string("photo")->nullable();   
             $table->boolean("is_active");            
             $table->softDeletes('deleted_at', 0);	
             $table->timestamps(0);

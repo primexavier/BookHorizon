@@ -33,13 +33,13 @@ class CreateTransactionBooksTable extends Migration
     {
         if (Schema::hasColumn('transaction_books', 'book_id'))
         {
-            Schema::table('transactions', function (Blueprint $table) {
+            Schema::table('transaction_books', function (Blueprint $table) {
                 $table->dropForeign(['book_id']);
             });
         }
         if (Schema::hasColumn('transaction_books', 'transaction_id'))
         {
-            Schema::table('transactions', function (Blueprint $table) {
+            Schema::table('transaction_books', function (Blueprint $table) {
                 $table->dropForeign(['transaction_id']);
             });
         }
