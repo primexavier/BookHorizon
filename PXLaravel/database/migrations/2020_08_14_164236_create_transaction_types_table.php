@@ -15,7 +15,10 @@ class CreateTransactionTypesTable extends Migration
     {
         Schema::create('transaction_types', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string("name");
+            $table->text("description")->nullable();
+            $table->softDeletes('deleted_at', 0);	
+            $table->timestamps(0);	
         });
     }
 

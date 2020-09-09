@@ -279,6 +279,7 @@ class MemberController extends Controller
                 $newTransactionDetail = new TransactionBook;
                 $newTransactionDetail->transaction_id = $newTransaction->id;
                 $newTransactionDetail->book_id = $chart->book_id;
+                $newTransactionDetail->transaction_type_id = 1;
                 if($newTransactionDetail->save()){
                     $chart->delete();
                 }
