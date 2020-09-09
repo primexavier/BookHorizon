@@ -10,10 +10,10 @@
 							<!-- My Account Tab Menu Start -->
 							<div class="col-lg-3 col-12">
 								<div class="myaccount-tab-menu nav" role="tablist">
-									<a href="{{route('profile')}}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+									<a href="{{route('profile')}}" class="active"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
 									<a href="{{route('order.list')}}"><i class="fa fa-cart-arrow-down"></i> Orders</a>
 									<a href="{{route('download.list')}}"><i class="fas fa-download"></i> Download</a>
-									<a href="{{route('bill.list')}}" class="active"><i class="fa fa-credit-card"></i>Bill</a>
+									<a href="{{route('bill.list')}}"><i class="fa fa-credit-card"></i>Bill</a>
 									<a href="{{route('rented.list')}}"><i class="fa fa-credit-card"></i>Rented</a>
 									<a href="{{route('payment.method')}}"><i class="fa fa-credit-card"></i>Payment Method</a>
 									<a href="{{route('payment.list')}}"><i class="fa fa-credit-card"></i>Payment History</a>
