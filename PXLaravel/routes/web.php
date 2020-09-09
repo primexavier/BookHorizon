@@ -63,6 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/payment-method', 'MemberController@paymentMethod')->name('payment.method');
         Route::get('/payment', 'MemberController@paymentList')->name('payment.list');
         Route::get('/address', 'MemberController@addressList')->name('address.list');
+        Route::get('/rented', 'MemberController@rentedList')->name('rented.list');
         Route::get('/privacy', 'MemberController@privacy')->name('privacy.setting');
         Route::get('/become-member', 'MemberController@becomeMember')->name('become.member');
         Route::get('/extend-member', 'MemberController@extendMember')->name('extend.member');

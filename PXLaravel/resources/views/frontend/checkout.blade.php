@@ -287,7 +287,7 @@
                                                             <div class="col-sm-12">
                                                                 <div class="form-check">
                                                                     <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod{{$paymentMethod->id}}" value="{{$paymentMethod->id}}">
-                                                                    </br>
+                                                                    <br />
                                                                     <label class="form-check-label" for="paymentMethod{{$paymentMethod->id}}">
                                                                         {{$paymentMethod->name}}
                                                                     </label>

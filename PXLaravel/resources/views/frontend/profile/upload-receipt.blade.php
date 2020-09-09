@@ -13,7 +13,8 @@
 									<a href="{{route('profile')}}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
 									<a href="{{route('order.list')}}"><i class="fa fa-cart-arrow-down"></i> Orders</a>
 									<a href="{{route('download.list')}}"><i class="fas fa-download"></i> Download</a>
-									<a href="{{route('bill.list')}}"  class="active"><i class="fa fa-credit-card"></i>Bill</a>
+									<a href="{{route('bill.list')}}" class="active"><i class="fa fa-credit-card"></i>Bill</a>
+									<a href="{{route('rented.list')}}"><i class="fa fa-credit-card"></i>Rented</a>
 									<a href="{{route('payment.method')}}"><i class="fa fa-credit-card"></i>Payment Method</a>
 									<a href="{{route('payment.list')}}"><i class="fa fa-credit-card"></i>Payment History</a>
 									<a href="{{route('address.list')}}"><i class="fa fa-map-marker"></i>address</a>                                        
@@ -35,12 +36,15 @@
 											Total : {{$bill->total}} <br>
 											Transaction No : {{$bill->transaction()->id}} <br>
 											
-											<form method="post" action="{{route('upload.bill',$bill->id)}}">
-												@csrf
+											@if($bill->photo)
 												<img id="imageShow" src="{{ asset('frontend/image/book') }}/empty.jpg" alt="your image" width="200px" height="250px" />		
+											@else
+												<img id="imageShow" src="{{ asset('frontend/image/book') }}/empty.jpg" alt="your image" width="200px" height="250px" />		
+											@endif
+											<form method="post" enctype="multipart/form-data" action="{{route('upload.bill',$bill->id)}}">
+												@csrf
 												<br>
-												<br>									  
-												<input onchange="readURL(this)" type="file" name="receipt" required="required">
+												<input onchange="readURL(this)" type="file" name="receipt" required="required">						  
 												<br>
 												<br>
 												<button type="submit" class="btn btn-secondary">Upload</button>

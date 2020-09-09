@@ -264,6 +264,7 @@ class MemberController extends Controller
 
     public function pay(Request $request)
     {        
+        dd($request);
         $user_id = Auth::user()->id;
         $charts = Chart::where("user_id",$user_id)->get();
         if($charts->count() > 0){
@@ -381,7 +382,16 @@ class MemberController extends Controller
     }
 
     public function uploadBill(Bill $bill, Request $request){
+        $path = $request->file('receipt')->store('public/receipt/'.$bill->id);
+        $bill->photo = $path;
+        $bill->save();
         return view("frontend.profile.upload-receipt")
         ->with("bill",$bill);
+    }
+
+    public function rentedList(){
+        $bookRenteds = Transaction::where('user_id',Auth::user()->id);
+        return view("frontend.profile.rented")
+        ->with("bookRenteds",$bookRenteds);
     }
 }

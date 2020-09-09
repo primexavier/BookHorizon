@@ -28,39 +28,33 @@
 							<div class="col-lg-9 col-12 mt--30 mt-lg--0">
 								<div class="tab-content" id="myaccountContent">
 									<!-- Single Tab Content Start -->
-									<div class="tab-pane fade show active" id="orders" role="tabpanel">
+									<div class="tab-pane fade show active" id="payment-method" role="tabpanel">
 										<div class="myaccount-content">
-											<h3>Orders</h3>
-											<div class="myaccount-table table-responsive text-center">
-												<table class="table table-bordered">
-													<thead class="thead-light">
-														<tr>
-															<th>No</th>
-															<th>Date</th>
-															<th>Status</th>
-															<th>Total</th>
-															<th>Action</th>
-														</tr>
-													</thead>
-													<tbody>
-                                                        @if(count($transactions) > 0)
-															@foreach($transactions as $transaction)
+											<h3>Book Rented</h3>
+											@if($bookRenteds->count() > 0)											
+												<div class="myaccount-table table-responsive text-center">
+													<table class="table table-bordered">
+														<thead class="thead-light">
+															<tr>
+																<th>No</th>
+																<th>Title</th>
+																<th>Expire</th>
+															</tr>
+														</thead>
+														<tbody>
+															@foreach($bookRenteds as $bookRented)
 																<tr>
-																	<td>{{$transaction->id}}</td>
-																	<td>{{$transaction->created_at}}</td>
-																	<td>{{$transaction->status}} waiting Payment</td>
-																	<td>{{($transaction->grand_total)}}</td>
-																	<td><a href="{{route('transaction.detail',$transaction->id)}}" class="btn">View</a></td>
-																</tr>    
+																	<td>{{$bookRented->id}}</td>
+																	<td>{{$bookRented->created_at}}</td>
+																	<td>{{$bookRented->created_at}}</td>
+																	</tr>
 															@endforeach
-                                                        @else
-                                                            <tr>
-                                                            <td colspan="6">you Haven't Order Yet, Rent Book <a href="{{route('index')}}">Here</a></td>
-                                                            </tr>
-                                                        @endif
-													</tbody>
-												</table>
-											</div>
+														</tbody>
+													</table>
+												</div>
+											@else
+											<p class="saved-message">No Book Rented Yet!</p>
+											@endif
 										</div>
 									</div>
 									<!-- Single Tab Content End -->

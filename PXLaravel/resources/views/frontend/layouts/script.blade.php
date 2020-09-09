@@ -158,7 +158,7 @@
         $('#shippingCost').val(shippingCost);
         $('#shippingFee').html(`Rp ${shippingCost}`);
         $('#grandTotal').html(`Rp ${+shippingCost + +subTotal}`);
-        $('#grandTotalInput').html(`Rp ${+shippingCost + +subTotal}`);
+        $('#grandTotalInput').val(shippingCost + subTotal);
         $('#shippingCode').val(shippingCode);
     }
 </script>
