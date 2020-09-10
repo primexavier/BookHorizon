@@ -43,7 +43,7 @@ class BookController extends Controller
             'title' => ['required', 'unique:books', 'max:255']
         ]);
         $new = new Book();
-        $new->author_id = $request->authors_id;
+        $new->author_id = 1;
         $new->title = $request->title;
         $new->isbn = $request->isbn;
         $new->publication_city = $request->pcity;
@@ -55,8 +55,9 @@ class BookController extends Controller
         $new->vendor = $request->vendor;
         $new->purchase_price = $request->pprice;
         $new->start_qty = $request->qty;
-        $book->price = $request->price;
+        $new->price = $request->price;
         $new->description = $request->desc;
+        $new->supplier_id = 1;
         if ($request->hasFile('photo')) {
             $new->photo = $request->file('photo')->getClientOriginalName();
         }

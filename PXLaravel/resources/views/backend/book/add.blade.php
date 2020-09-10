@@ -73,7 +73,7 @@
                                         </div>       
                                         <div class="form-group">
                                             <label for="">Price</label>
-                                            <input type="text" class="form-control" placeholder="Price" name="price">
+                                            <input type="number" class="form-control" placeholder="Price" name="price">
                                         </div>       
                                         <div class="form-group">
                                             <label for="">Purchase Date</label>
