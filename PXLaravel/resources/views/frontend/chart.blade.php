@@ -44,22 +44,22 @@
                                                                 <div class="form-group">
                                                                     <select name="quantityTransaction[{{$chart->id}}]"
                                                                         class="form-control"
-                                                                        id="quantityTransaction">
+                                                                        id="quantityTransaction{{$chart->id}}">
                                                                         <option>1</option>
                                                                     </select>
                                                                 </div>
                                                             </td>
                                                             <td>
                                                                 <div class="form-group">
-                                                                    <select name="typeTransaction[{{$chart->id}}]" onchange="TransactionTypeChange(this.value,{{$chart->id}})" class="form-control" id="typeTransaction">
+                                                                    <select name="typeTransaction[{{$chart->id}}]" onchange="TransactionTypeChange(this.value,{{$chart->id}})" class="form-control" id="typeTransaction{{$chart->id}}">
                                                                         @foreach($transactionTypes as $transactionType)
                                                                             <option value="{{$transactionType->id}}">{{$transactionType->name}}</option>
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
                                                             </td>
-                                                            <td>Rp <span id="totalPrice[{{$chart->id}}]">{{$chart->total()}}</td>
-                                                            <input type="hidden" id="initialPrice[{{$chart->id}}]" name="initialPrice[{{$chart->id}}]" value="{{$chart->total()}}">
+                                                            <td>Rp <span id="totalPrice{{$chart->id}}">{{$chart->total()}}</span></td>
+                                                            <input type="hidden" id="initialPrice{{$chart->id}}" name="initialPrice[{{$chart->id}}]" value="{{$chart->total()}}">
                                                         </tr>
                                                         @endforeach
                                                         @else

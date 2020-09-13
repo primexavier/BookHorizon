@@ -164,11 +164,10 @@
     }
     function TransactionTypeChange(value,chartId){
         if(value != 1){
-            $('#initialPrice['+chartId+']').html(0);
+            $('#totalPrice'+chartId).html(0);
         }else{
-            var price = $('#initialPrice['+chartId+']').val();
-            console.log('#initialPrice['+chartId+']');
-            $('#totalPrice['+chartId+']').html(price);
+            var price = $('#initialPrice'+chartId).val();
+            $('#totalPrice'+chartId).html(price);
         }
     }
 </script>

@@ -246,9 +246,17 @@
                                             @foreach($charts as $chart)
                                             <li>
                                                 <span class="left">{{$chart->book()->title}} ({{$chart->transactionType()->name}})</span>
-                                                <span class="right">Rp {{$chart->book()->price}}</span>
+                                                @if($chart->transactionType()->id == 1)
+                                                    <span class="right">Rp {{$chart->book()->price}}</span>
+                                                @else
+                                                    <span class="right">Rp 0</span>
+                                                @endif
                                             </li>
-                                            <?php $totalSum += $chart->book()->price; ?> 
+                                            @if($chart->transactionType()->id == 1)
+                                                <?php $totalSum + 0; ?> 
+                                            @else
+                                                <?php $totalSum += $chart->book()->price; ?> 
+                                            @endif
                                             @endforeach
                                         </ul>          
                                             <div class="method-notice mt--25">                 

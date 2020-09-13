@@ -27,38 +27,34 @@
               "swipe": false,
               "asNavFor": ".product-slider-nav"
               }'>
-                    @if ($bookDetail->photo)
                     <div class="single-slide">
-                        <img src="{{ asset('frontend/image/book') }}/{{$bookDetail->photo}}" alt="">
+                        @if ($bookDetail->bookimage())
+                            <img src="/storage/{{$bookDetail->bookimage()->image()->url}}" style="margin:auto; min-width: 300px; max-width:350px; max-height:300px; min-height:450px" alt="">
+                        @else
+                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 300px; max-width:350px; max-height:300px; min-height:450px">
+                        @endif
                     </div>
-                    @else
-                    <div class="single-slide">
-                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                    </div>
-                    @endif
                 </div>
                 <!-- Product Details Slider Nav -->
                 <div class="mt--30 product-slider-nav sb-slick-slider arrow-type-two" data-slick-setting='{
-            "infinite":true,
-              "autoplay": true,
-              "autoplaySpeed": 8000,
-              "slidesToShow": 4,
-              "arrows": true,
-              "prevArrow":{"buttonClass": "slick-prev","iconClass":"fa fa-chevron-left"},
-              "nextArrow":{"buttonClass": "slick-next","iconClass":"fa fa-chevron-right"},
-              "asNavFor": ".product-details-slider",
-              "focusOnSelect": true
-              }'>
-              
-                    @if ($bookDetail->photo)
+                    "infinite":true,
+                    "autoplay": true,
+                    "autoplaySpeed": 8000,
+                    "slidesToShow": 4,
+                    "arrows": true,
+                    "prevArrow":{"buttonClass": "slick-prev","iconClass":"fa fa-chevron-left"},
+                    "nextArrow":{"buttonClass": "slick-next","iconClass":"fa fa-chevron-right"},
+                    "asNavFor": ".product-details-slider",
+                    "focusOnSelect": true
+                    }'>
+
                     <div class="single-slide">
-                        <img src="{{ asset('frontend/image/book') }}/{{$bookDetail->photo}}" alt="">
+                        @if ($bookDetail->bookimage())
+                            <img src="/storage/{{$bookDetail->bookimage()->image()->url}}" alt="">
+                        @else
+                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                        @endif
                     </div>
-                    @else
-                    <div class="single-slide">
-                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                    </div>
-                    @endif
                 </div>
             </div>
             <div class="col-lg-7">
@@ -95,21 +91,24 @@
                         <p>{{$bookDetail->description}}</p>
                     </article>
                     <div class="add-to-cart-row">
-						<!-- 
+                        <!-- 
 							<div class="count-input-block">
 								<span class="widget-label">Qty</span>
 								<input type="number" class="form-control text-center" value="1">
 							</div> 
 						-->
                         <div class="add-cart-btn">
-                            <button onclick="addChart('book','{{ $bookDetail->id }}')" class="btn btn-outlined--primary">Buy Now</button>
-                        </div>&nbsp; 
+                            <button onclick="addChart('book','{{ $bookDetail->id }}')"
+                                class="btn btn-outlined--primary">Buy Now</button>
+                        </div>&nbsp;
                         <div class="add-cart-btn">
-                            <a  onclick="addChart('rent','{{ $bookDetail->id }}')" class="btn btn-outlined--primary">Rent Now</a>
+                            <a onclick="addChart('rent','{{ $bookDetail->id }}')" class="btn btn-outlined--primary">Rent
+                                Now</a>
                         </div>
                     </div>
                     <div class="compare-wishlist-row">
-                        <button onclick="addWishlist('book','{{ $bookDetail->id }}')" class="add-link"><i class="fas fa-heart"></i>Add to Wish List</button>
+                        <button onclick="addWishlist('book','{{ $bookDetail->id }}')" class="add-link"><i
+                                class="fas fa-heart"></i>Add to Wish List</button>
                         <!-- <a href="" class="add-link"><i class="fas fa-random"></i>Add to Compare</a> -->
                     </div>
                 </div>
@@ -255,39 +254,50 @@
                             <a href="" class="author">
                                 {{$book->author()}}
                             </a>
-                            <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 25, $end='...')}}</a></h3>
+                            <h3><a
+                                    href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 25, $end='...')}}</a>
+                            </h3>
                         </div>
                         <div class="product-card--body">
                             <div class="card-image">
-                                @if ($book->photo)
-                                <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-                                @else
-                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                @endif
+                                <div class="single-slide">
+                                    @if ($book->bookimage())
+                                    <img src="/storage/{{$book->bookimage()->image()->url}}"
+                                        style="margin:auto; min-width: 100px; max-width:150px; max-height:250px; min-height:200px"
+                                        alt="">
+                                    @else
+                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt=""
+                                        style="margin:auto; min-width: 100px; max-width:150px; max-height:250px; min-height:200px">
+                                    @endif
+                                </div>
                                 <div class="hover-contents">
-                                    <a href="{{ route('book.detail',$book->id) }}" class="hover-image">
-										@if ($book->photo)
-										<img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-										@else
-										<img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-										@endif
-                                    </a>
+                                    <div class="single-slide">
+                                        @if ($book->bookimage())
+                                        <img src="/storage/{{$book->bookimage()->image()->url}}"
+                                            style="margin:auto; min-width: 100px; max-width:150px; max-height:250px; min-height:200px"
+                                            alt="">
+                                        @else
+                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt=""
+                                            style="margin:auto; min-width: 100px; max-width:150px; max-height:250px; min-height:200px">
+                                        @endif
+                                    </div>
                                     <div class="hover-btns">
                                         <a onclick="addChart('book',{{$book->id}})" class="single-btn">
                                             <i class="fas fa-shopping-basket"></i>
                                         </a>
-										<a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
+                                        <a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
                                             <i class="fas fa-heart"></i>
                                         </a>
-										<a onclick="AddRent('book',{{$book->id}})" class="single-btn">
+                                        <a onclick="addChart('book',{{$book->id}})" class="single-btn">
                                             <i class="fas fa-clock"></i>
                                         </a>
                                         <!-- <a href="compare.html" class="single-btn">
                                             <i class="fas fa-random"></i>
                                         </a> -->
-                                        <!-- <a href="#" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                        <a onclick="toggleDetail({{$book->id}})" data-toggle="modal"
+                                            data-target="#quickModal" class="single-btn">
                                             <i class="fas fa-eye"></i>
-                                        </a> -->
+                                        </a>
                                     </div>
                                 </div>
                             </div>
