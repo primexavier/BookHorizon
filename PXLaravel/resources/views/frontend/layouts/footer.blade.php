@@ -52,11 +52,9 @@
                                     <img src="{{ asset('frontend/image/logo--footer.png') }}" alt="">
                                 </div>
                                 <div class="footer-contact">
-                                    <p><span class="label">Address:</span><span class="text">Example Street 98, HH2 BacHa, New
-                                            York,
-                                            USA</span></p>
-                                    <p><span class="label">Phone:</span><span class="text">+18088 234 5678</span></p>
-                                    <p><span class="label">Email:</span><span class="text">suport@hastech.com</span></p>
+                                    <p><span class="label">Address:</span><span class="text">Tunas 2 Blok A No. 2, Batam</span></p>
+                                    <p><span class="label">Phone:</span><span class="text">0813 8908 4342</span></p>
+                                    <p><span class="label">Email:</span><span class="text">admin@bookhorizonlibrary.com</span></p>
                                 </div>
                             </div>
                         </div>
