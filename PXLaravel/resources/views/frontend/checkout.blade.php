@@ -127,7 +127,7 @@
                                         <label>Town/City*</label>
                                         @if($address)
                                             <select onchange="getZipCode(this.value)" required="required" name="city_id" class="form-control" class="nice-select" id="cityName">
-                                                <option value="">Pilih City</option>
+                                                <option value="{{$address->city_id}}">{{$address->city_id}}</option>
                                             </select>
                                         @else
                                             <select onchange="getZipCode(this.value)" required="required" name="city_id" class="form-control" disabled="disabled" id="cityName">
@@ -139,7 +139,7 @@
                                         <label>State*</label>
                                         @if($address)
                                             <select id="province_id" onchange="getCity(this.value)" required="required" name="province_id" class="nice-select">
-                                                <option value="">Pick State</option>
+                                                <option value="{{$address->province_id}}">{{$address->id}}</option>
                                                 @foreach($provinces as $province)
                                                     <option value="{{$province->province_id}}">{{$province->province}}</option>
                                                 @endforeach
@@ -294,11 +294,10 @@
                                                         @foreach($paymentMethods as $paymentMethod)
                                                             <div class="col-sm-12">
                                                                 <div class="form-check">
-                                                                    <input required="required" check class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod{{$paymentMethod->id}}" value="{{$paymentMethod->id}}">
-                                                                    <br />
                                                                     <label class="form-check-label" for="paymentMethod{{$paymentMethod->id}}">
                                                                         {{$paymentMethod->name}}
                                                                     </label>
+                                                                    <input required="required" class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod{{$paymentMethod->id}}" value="{{$paymentMethod->id}}">
                                                                 </div>
                                                             </div>
                                                         @endforeach

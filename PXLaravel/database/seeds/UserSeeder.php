@@ -43,9 +43,26 @@ class UserSeeder extends Seeder
             'code' => "jne",
             'logo' => "JNE"
         ]);
+        DB::table('couriers')->insert([
+            'id' => 2,
+            'name' => "TIKI",
+            'code' => "tiki",
+            'logo' => "TIKI"
+        ]);
+        DB::table('couriers')->insert([
+            'id' => 3,
+            'name' => "Post Indonesia",
+            'code' => "pos",
+            'logo' => "POS Indonesia"
+        ]);
         DB::table('payment_methods')->insert([
             'id' => 1,
-            'name' => "Bank",
+            'name' => "Transfer Bank",
+            'description' => "Bank",
+        ]);
+        DB::table('payment_methods')->insert([
+            'id' => 2,
+            'name' => "COD",
             'description' => "Bank",
         ]);
         DB::table('transaction_types')->insert([

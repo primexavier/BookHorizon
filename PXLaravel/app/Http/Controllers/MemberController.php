@@ -337,6 +337,8 @@ class MemberController extends Controller
                 $updateUser->save();
             }
 
+            
+
             return redirect()->route("transaction.detail",$newTransaction->id);
             
         }else{
