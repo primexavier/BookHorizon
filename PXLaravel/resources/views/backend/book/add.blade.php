@@ -65,7 +65,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="">Purchase Price</label>
-                                            <input type="text" class="form-control" placeholder="Purchase Price" name="pprice">
+                                            <input type="text" class="form-control" placeholder="Purchase Price" name="pprice" required="required"> 
                                         </div>    
                                         <div class="form-group">
                                             <label for="">Start Qty</label>
@@ -73,7 +73,7 @@
                                         </div>       
                                         <div class="form-group">
                                             <label for="">Price</label>
-                                            <input type="number" class="form-control" placeholder="Price" name="price">
+                                            <input type="number" class="form-control" placeholder="Price" name="price" required="required"> 
                                         </div>       
                                         <div class="form-group">
                                             <label for="">Purchase Date</label>
