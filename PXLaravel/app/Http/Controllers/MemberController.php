@@ -237,7 +237,32 @@ class MemberController extends Controller
     }
 
     public function checkout(Request $request)
-    {
+    {  
+        $charts = Chart::where("user_id",Auth::user()->id)->get();
+        if($charts->count() > 0){
+            foreach($request->charId as $chardId){
+                $bookDetailData = Chart::where('id',$chardId)->first();
+                $bookDetailData->transaction_type_id = $request->typeTransaction[$chardId];
+                $bookDetailData->save();
+            }
+
+            $paymentMethods = PaymentMethod::get();
+            $address = Address::where("user_id",Auth::user()->id)->first();
+            $provinces = FrontEndController::getProvince(NULL);
+            $couriers = Courier::get();
+            return redirect(route("checkout.view"))
+            ->with("charts",$charts)
+            ->with("paymentMethods",$paymentMethods)
+            ->with("address",$address)
+            ->with("provinces",$provinces)
+            ->with("couriers",$couriers);                
+        }else{
+            return redirect(route("index"));
+        }
+    }
+    
+    public function checkoutView(Request $request)
+    {  
         $charts = Chart::where("user_id",Auth::user()->id)->get();
         if($charts->count() > 0){
             $paymentMethods = PaymentMethod::get();

@@ -20,4 +20,8 @@ class Chart extends Model
     public function total(){
         return $this->belongsTo('App\Model\Book','book_id')->first()->price;
     }
+
+    public function transactionType(){
+        return $this->belongsTo('App\Model\TransactionType','transaction_type_id')->first();
+    }
 }

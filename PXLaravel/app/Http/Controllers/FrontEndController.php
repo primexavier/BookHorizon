@@ -10,6 +10,7 @@ use App\Model\Chart;
 use App\Model\Wishlist;
 use App\Model\Bank;
 use App\Model\PaymentMethod;
+use App\Model\TransactionType;
 
 class FrontEndController extends Controller
 {
@@ -138,7 +139,7 @@ class FrontEndController extends Controller
         $addChart = new Chart;
         $addChart->book_id = $request->id;
         $addChart->user_id = Auth::User()->id;
-        $addChart->transaction_type = 1;
+        $addChart->transaction_type_id = 1;
         $addChart->save();
         if(!$addChart){
             return response($request->id, 500)->header('Content-Type', 'text/plain');
@@ -169,8 +170,10 @@ class FrontEndController extends Controller
     public function chart()
     {
         if(Auth::User()){
+            $transactionTypes = TransactionType::get();
             $chart = Chart::where("user_id", Auth::User()->id)->get();
             return view("frontend.chart")
+            ->with("transactionTypes",$transactionTypes)
             ->with("charts",$chart);
         }else{
             return redirect(route("login"));
@@ -271,7 +274,6 @@ class FrontEndController extends Controller
         $banks = Bank::get();
     
         return view('frontend.payment-method')
-        ->with("banks", $banks)
-        ;
+        ->with("banks", $banks);
     }
 }

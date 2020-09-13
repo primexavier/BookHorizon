@@ -16,4 +16,8 @@ class Book extends Model
     {
         return $this->belongsTo('App\Model\Author')->first()->name;
     }
+    public function bookImage()
+    {
+        return $this->hasOne('App\Model\BookImage')->first();
+    }
 }

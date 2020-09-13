@@ -50,13 +50,23 @@ class UserSeeder extends Seeder
         ]);
         DB::table('transaction_types')->insert([
             'id' => 1,
-            'name' => "Rent",
-            'description' => "Rent",
+            'name' => "Buy",
+            'description' => "Buy",
         ]);
         DB::table('transaction_types')->insert([
             'id' => 2,
-            'name' => "Buy",
-            'description' => "Buy",
+            'name' => "Rent 1 Day",
+            'description' => "Rent",
+        ]);
+        DB::table('transaction_types')->insert([
+            'id' => 3,
+            'name' => "Rent 2 Day",
+            'description' => "Rent",
+        ]);
+        DB::table('transaction_types')->insert([
+            'id' => 4,
+            'name' => "Rent 3 Day",
+            'description' => "Rent",
         ]);
     }
 }

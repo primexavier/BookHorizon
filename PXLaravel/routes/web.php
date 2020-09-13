@@ -33,7 +33,6 @@ Route::get('/blog', 'FrontEndController@blogIndex')->name('blog.index');
 Route::get('/blog/{id}/detail', 'FrontEndController@blogDetail')->name('blog.detail');
 Route::get('/contact', 'ContactController@index')->name('contact.index');
 
-Route::get('/checkout', 'FrontEndController@checkout')->name('checkout');
 Route::get('/chart', 'FrontEndController@chart')->name('chart');
 Route::get('/wishlist', 'FrontEndController@wishlist')->name('wishlist');
 Route::get('/addChart/{id}', 'FrontEndController@addChart')->name('add.chart');
@@ -67,10 +66,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/privacy', 'MemberController@privacy')->name('privacy.setting');
         Route::get('/become-member', 'MemberController@becomeMember')->name('become.member');
         Route::get('/extend-member', 'MemberController@extendMember')->name('extend.member');
-        Route::get('/checkout', 'MemberController@checkout')->name('checkout');
         Route::get('/chart-delete/{chart}', 'MemberController@deleteChart')->name('chart.delete');
         Route::get('/pay/confirmation/{bill}', 'MemberController@confirmPay')->name('confirm.payment');
         Route::get('/transaction/detail/{transaction}', 'MemberController@transactiondetail')->name('transaction.detail');
+        Route::get('/checkout', 'MemberController@checkoutView')->name('checkout.view');
+        Route::post('/checkout', 'MemberController@checkout')->name('checkout');
         Route::post('/wishlist-chart', 'MemberController@wishlistChart')->name('wishlist.chart');
         Route::post('/editprofile', 'MemberController@updateProfile')->name('profile.update');
         Route::post('/pay/confirmation', 'MemberController@pay')->name('pay.confirmation');

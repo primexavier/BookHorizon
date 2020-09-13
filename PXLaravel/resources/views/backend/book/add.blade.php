@@ -11,7 +11,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Book Create</div>
-                <form method="POST" action="{{route('backend.book.store')}}">
+                <form method="POST" action="{{route('backend.book.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="row">

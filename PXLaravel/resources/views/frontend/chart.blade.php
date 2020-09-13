@@ -13,6 +13,8 @@
                                 <!-- Single Tab Content Start -->
                                     <div class="tab-pane fade show active" id="download" role="tabpanel">
                                         <div class="myaccount-content">
+                                            <form method="post" action="{{route('checkout')}}">
+                                            @csrf
                                             <h3>Chart</h3>
                                             <div class="myaccount-table table-responsive text-center">
                                                 <table class="table table-bordered">
@@ -36,33 +38,28 @@
                                                             </td>
                                                             <td>{!!chunk_split($chart->book()->title, 40, "<br>")!!}
                                                             </td>
-                                                            <input type="hidden" name="bookId[]"
-                                                                value="{{$chart->book_id}}">
+                                                            <input type="hidden" name="bookId[{{$chart->id}}]" value="{{$chart->book_id}}">
+                                                            <input type="hidden" name="charId[{{$chart->id}}]" value="{{$chart->id}}">
                                                             <td>
                                                                 <div class="form-group">
-                                                                    <select name="quantityTransaction[]"
+                                                                    <select name="quantityTransaction[{{$chart->id}}]"
                                                                         class="form-control"
                                                                         id="quantityTransaction">
                                                                         <option>1</option>
-                                                                        <option>2</option>
-                                                                        <option>3</option>
-                                                                        <option>4</option>
-                                                                        <option>5</option>
                                                                     </select>
                                                                 </div>
                                                             </td>
                                                             <td>
                                                                 <div class="form-group">
-                                                                    <select name="typeTransaction[]" class="form-control"
-                                                                        id="typeTransaction">
-                                                                        <option>Rent</option>
-                                                                        <option>Buy</option>
+                                                                    <select name="typeTransaction[{{$chart->id}}]" onchange="TransactionTypeChange(this.value,{{$chart->id}})" class="form-control" id="typeTransaction">
+                                                                        @foreach($transactionTypes as $transactionType)
+                                                                            <option value="{{$transactionType->id}}">{{$transactionType->name}}</option>
+                                                                        @endforeach
                                                                     </select>
                                                                 </div>
                                                             </td>
-                                                            <td>Rp {{$chart->total()}}</td>
-                                                            <input type="hidden" name="book-id"
-                                                                value="{{$chart->total()}}">
+                                                            <td>Rp <span id="totalPrice[{{$chart->id}}]">{{$chart->total()}}</td>
+                                                            <input type="hidden" id="initialPrice[{{$chart->id}}]" name="initialPrice[{{$chart->id}}]" value="{{$chart->total()}}">
                                                         </tr>
                                                         @endforeach
                                                         @else
@@ -75,9 +72,10 @@
                                             </div>
                                             @if(count($charts) > 0)
                                                 <div class="d-flex flex-row-reverse">
-                                                    <button onclick="location.href = '{{route('checkout')}}';" type="submit" class="btn btn--primary"><i class="fa fa-money"></i>Pay!</a>
+                                                    <button type="submit" class="btn btn--primary"><i class="fa fa-money"></i>Pay!</a>
                                                 </div>
                                             @endif
+                                            </form>
                                         </div>
                                     </div>
                                 <!-- Single Tab Content End -->

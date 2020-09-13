@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Model\Book;
+use App\Model\Image;
+use App\Model\BookImage;
 use App\Imports\BookImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\DataTables\BookDataTable;
+use Illuminate\Support\Facades\Storage;
 
 
 class BookController extends Controller
@@ -58,10 +61,25 @@ class BookController extends Controller
         $new->price = $request->price;
         $new->description = $request->desc;
         $new->supplier_id = 1;
-        if ($request->hasFile('photo')) {
-            $new->photo = $request->file('photo')->getClientOriginalName();
-        }
         $new->save();
+
+        if ($request->hasFile('photo')) {
+            if ($request->file('photo')->isValid()) {
+                $extension = $request->photo->extension();
+                $request->photo->storeAs('\public\image\book', $new->id.".".$extension);
+                $url = "image\book\\".$new->id.".".$extension;
+                $newImage = new Image();
+                $newImage->name = $new->title;
+                $newImage->url = $url;
+                $newImage->save();
+
+                $ImageBook = new BookImage();
+                $ImageBook->book_id = $new->id;
+                $ImageBook->image_id = $newImage->id;
+                $ImageBook->save();
+            }
+        }
+
         return redirect()->route("backend.book.index");
     }
 
@@ -73,7 +91,10 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        return view("backend.book.detail")->with("book",$book);
+        $bookImages = BookImage::where('book_id',$book->id)->get();
+        return view("backend.book.detail")
+        ->with("bookImages",$bookImages)
+        ->with("book",$book);
     }
 
     /**

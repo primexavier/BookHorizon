@@ -99,7 +99,8 @@
             $("#cityName").find('option').remove().end();
             if(data){
                 $('#cityName').prop('disabled', false);
-                $("#shippingMethod").append(`<option value="">Pick City</option>`);  
+                $("#shippingMethod").append(`<option value="">Pick Shipping</option>`);  
+                $("#cityName").append(`<option value="">Pick City</option>`);  
                 data.forEach(element => {         
                     $("#cityName").append(`<option value="${element.city_id}">${element.city_name}</option>`);        
                 });
@@ -160,5 +161,14 @@
         $('#grandTotal').html(`Rp ${+shippingCost + +subTotal}`);
         $('#grandTotalInput').val(+shippingCost + +subTotal);
         $('#shippingCode').val(shippingCode);
+    }
+    function TransactionTypeChange(value,chartId){
+        if(value != 1){
+            $('#initialPrice['+chartId+']').html(0);
+        }else{
+            var price = $('#initialPrice['+chartId+']').val();
+            console.log('#initialPrice['+chartId+']');
+            $('#totalPrice['+chartId+']').html(price);
+        }
     }
 </script>

@@ -149,16 +149,16 @@
                                         <div class="single-slide">
                                             <div class="product-card card-style-list">
                                                 <div class="card-image">
-                                                    @if ($book->photo)
-                                                    <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
+                                                    @if ($book->bookimage())
+                                                        <img src="/storage/{{$book->bookimage()->image()->url}}" width="150" alt="">
                                                     @else
-                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
                                                     @endif
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="product-header">
                                                         <a href="#" class="author">
-                                                            {{$book->author()}}
+                                                            {{$book->author()}} 
                                                         </a>
                                                         <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
                                                     </div>
@@ -201,39 +201,39 @@
                                             <div class="product-card">
                                                 <div class="product-header">
                                                     <a href="" class="author">                                                        
-                                                        {{$book->author()}}
+                                                        {{$spesialOffer->author()}}
                                                     </a>
                                                     <h3><a href="{{ route('book.detail',$spesialOffer->id) }}"></a>{{ \Illuminate\Support\Str::limit($spesialOffer->title, 40, $end='...')}}</h3>
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="card-image">
-                                                        @if ($spesialOffer->photo)
-                                                        <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-                                                        @else
-                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                        @endif
+                                                            @if ($spesialOffer->bookimage())
+                                                                <img src="/storage/{{$spesialOffer->bookimage()->image()->url}}" alt="">
+                                                            @else
+                                                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                            @endif
                                                         <div class="hover-contents">
                                                             <a href="{{ route('book.detail',$spesialOffer->id) }}" class="hover-image">
-                                                                @if ($spesialOffer->photo)
-                                                                <img src="{{ asset('frontend/image/book') }}/{{$book->photo}}" alt="">
-                                                                @else
+                                                            @if ($spesialOffer->bookimage())
+                                                                <img src="/storage/{{$spesialOffer->bookimage()->image()->url}}" alt="">
+                                                            @else
                                                                 <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                                @endif
+                                                            @endif
                                                             </a>
                                                             <div class="hover-btns">
-                                                                <a onclick="addChart('book',{{$book->id}})" class="single-btn">
+                                                                <a onclick="addChart('book',{{$spesialOffer->id}})" class="single-btn">
                                                                     <i class="fas fa-shopping-basket"></i>
                                                                 </a>
-                                                                <a onclick="addWishlist('book',{{$book->id}})" class="single-btn">
+                                                                <a onclick="addWishlist('book',{{$spesialOffer->id}})" class="single-btn">
                                                                     <i class="fas fa-heart"></i>
                                                                 </a>
-                                                                <a onclick="addChart('rent',{{$book->id}})" class="single-btn">
+                                                                <a onclick="addChart('rent',{{$spesialOffer->id}})" class="single-btn">
                                                                     <i class="fas fa-clock"></i>
                                                                 </a>
                                                                 <!-- <a href="compare.html" class="single-btn">
                                                                     <i class="fas fa-random"></i>
                                                                 </a> -->
-                                                                <a onclick="toggleDetail({{$book->id}})" data-toggle="modal" data-target="#quickModal" class="single-btn">
+                                                                <a onclick="toggleDetail({{$spesialOffer->id}})" data-toggle="modal" data-target="#quickModal" class="single-btn">
                                                                     <i class="fas fa-eye"></i>
                                                                 </a>
                                                             </div>

@@ -17,7 +17,7 @@ class CreateChartsTable extends Migration
             $table->id();
             $table->unsignedBigInteger("book_id");
             $table->unsignedBigInteger("user_id");
-            $table->integer("transaction_type");
+            $table->unsignedBigInteger("transaction_type_id");
             $table->softDeletes('deleted_at', 0);	
             $table->timestamps(0);
         });

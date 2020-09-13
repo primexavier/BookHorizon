@@ -22,7 +22,7 @@
                 <div class="checkout-form">
                     <div class="row row-40">
                         <div class="col-12">
-                            <form action="{{route('pay.confirmation')}}" method="post">              
+                            <form method="post" action="{{route('pay.confirmation')}}">              
                             @csrf
                             <h1 class="quick-title">Checkout</h1>
                             <!-- Slide Down Trigger  -->
@@ -86,11 +86,11 @@
                                 <div class="row">
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>First Name*</label>
-                                        <input name="first_name" type="text" placeholder="First Name" value="{{Auth::User()->first_name}}">
+                                        <input required="required" name="first_name" type="text" placeholder="First Name" value="{{Auth::User()->first_name}}">
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Last Name*</label>
-                                        <input name="last_name" type="text" placeholder="Last Name" value="{{Auth::User()->last_name}}">
+                                        <input required="required" name="last_name" type="text" placeholder="Last Name" value="{{Auth::User()->last_name}}">
                                     </div>
                                     <!-- <div class="col-12 mb--20">
                                         <label>Company Name</label>
@@ -99,7 +99,7 @@
                                     <div class="col-12 col-12 mb--20">
                                         <label>Country*</label>
                                         <select required="required" class="nice-select" name="country_id">
-                                            <option value="1">Indonesia</option>
+                                            <option  value="1">Indonesia</option>
                                             {{-- <option>Bangladesh</option>
                                             <option>China</option>
                                             <option>country</option>
@@ -145,7 +145,7 @@
                                                 @endforeach
                                             </select>
                                         @else
-                                            <select id="province_id" onchange="getCity(this.value)" name="province_id" o class="nice-select">
+                                            <select required="required" id="province_id" onchange="getCity(this.value)" name="province_id" o class="nice-select">
                                                 <option value="">Pick State</option>
                                                 @foreach($provinces as $province)
                                                     <option value="{{$province->province_id}}">{{$province->province}}</option>
@@ -156,9 +156,9 @@
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Zip Code*</label>
                                         @if($address)
-                                            <input id="zipCode" required="required" name="zipCode" type="text" placeholder="Address line 1" value="{{$address->zip_code}}">
+                                            <input id="zipCode" required="required" name="zipCode" type="number" placeholder="Address line 1" value="{{$address->zip_code}}" readonly>
                                         @else
-                                            <input id="zipCode" required="required" name="zipCode" type="text" placeholder="Address line 1">
+                                            <input id="zipCode" required="required" name="zipCode" type="number" placeholder="Address line 1"  readonly>
                                         @endif
                                     </div>
                                     <!-- <div class="col-12 mb--20 ">
@@ -245,7 +245,7 @@
                                             <?php $totalSum = 0; ?> 
                                             @foreach($charts as $chart)
                                             <li>
-                                                <span class="left">{{$chart->book()->title}} (Rent 3 Days)</span>
+                                                <span class="left">{{$chart->book()->title}} ({{$chart->transactionType()->name}})</span>
                                                 <span class="right">Rp {{$chart->book()->price}}</span>
                                             </li>
                                             <?php $totalSum += $chart->book()->price; ?> 
@@ -257,12 +257,12 @@
                                                         @foreach($couriers as $courier)
                                                             <div class="col-sm-12">
                                                                 <div class="form-check">
-                                                                    <input onclick="getShippingCost('{{$courier->code}}')" disabled="disabled" class="form-check-input" type="radio" name="couriers" id="couriers" value="{{$courier->id}}">
+                                                                    <input required="required" onclick="getShippingCost('{{$courier->code}}')" disabled="disabled" class="form-check-input" type="radio" name="couriers" id="couriers" value="{{$courier->id}}">
                                                                     <label class="form-check-label" for="courier{{$courier->id}}">
                                                                         {{$courier->name}}
                                                                     </label>
                                                                     <div class="row" id="ongkir">                                                    
-                                                                        <select onchange="setShippingMethod(this.text)" required="required" name="shippingMethod" class="form-control" class="nice-select" id="shippingMethod" disabled="disabled">
+                                                                        <select required="required" onchange="setShippingMethod(this.text)" required="required" name="shippingMethod" class="form-control" class="nice-select" id="shippingMethod" disabled="disabled">
                                                                             <option value="">Pick Shipping</option>
                                                                         </select>
                                                                     </div>
@@ -286,7 +286,7 @@
                                                         @foreach($paymentMethods as $paymentMethod)
                                                             <div class="col-sm-12">
                                                                 <div class="form-check">
-                                                                    <input class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod{{$paymentMethod->id}}" value="{{$paymentMethod->id}}">
+                                                                    <input required="required" check class="form-check-input" type="radio" name="paymentMethod" id="paymentMethod{{$paymentMethod->id}}" value="{{$paymentMethod->id}}">
                                                                     <br />
                                                                     <label class="form-check-label" for="paymentMethod{{$paymentMethod->id}}">
                                                                         {{$paymentMethod->name}}
@@ -298,7 +298,7 @@
                                                 </fieldset>
                                             </div>
                                         <div class="term-block">
-                                            <input type="checkbox" id="accept_terms2">
+                                            <input required="required" type="checkbox" id="accept_terms2">
                                             <label for="accept_terms2">I’ve read and accept the terms &
                                                 conditions</label>
                                         </div>

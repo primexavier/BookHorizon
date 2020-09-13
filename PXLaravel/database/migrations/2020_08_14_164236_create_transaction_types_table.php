@@ -20,6 +20,9 @@ class CreateTransactionTypesTable extends Migration
             $table->softDeletes('deleted_at', 0);	
             $table->timestamps(0);	
         });
+        Schema::table('charts', function (Blueprint $table) {
+            $table->foreign('transaction_type_id')->references('id')->on('transaction_types');
+        });
     }
 
     /**
@@ -29,6 +32,12 @@ class CreateTransactionTypesTable extends Migration
      */
     public function down()
     {
+        if (Schema::hasColumn('charts', 'transaction_type_id'))
+        {
+            Schema::table('charts', function (Blueprint $table) {
+                $table->dropForeign(['transaction_type_id']);
+            });
+        }
         Schema::dropIfExists('transaction_types');
     }
 }
