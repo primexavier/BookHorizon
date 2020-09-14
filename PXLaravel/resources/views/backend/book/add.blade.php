@@ -83,7 +83,7 @@
                                     <div class="col-md-12">        
                                         <div class="form-group">
                                             <label for="title">Description</label>
-                                            <input type="text" class="form-control" placeholder="Book Email" name="desc">
+                                            <textarea rows="3" type="text" class="form-control" placeholder="Desciprtion" name="desc"> </textarea>
                                         </div>              
                                     </div>           
                                 </div>        

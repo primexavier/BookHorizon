@@ -19,6 +19,10 @@ class CreatePublishersTable extends Migration
             $table->softDeletes('deleted_at', 0);	
             $table->timestamps(0);	
         });
+        Schema::table('books', function (Blueprint $table) {
+            $table->unsignedBigInteger("publisher_id")->default(0);
+            $table->foreign('publisher_id')->references('id')->on('publishers');
+        });
     }
 
     /**
@@ -28,6 +32,12 @@ class CreatePublishersTable extends Migration
      */
     public function down()
     {
+        if (Schema::hasColumn('books', 'publisher_id'))
+        {
+            Schema::table('books', function (Blueprint $table) {
+                $table->dropForeign(['publisher_id']);
+            });
+        }
         Schema::dropIfExists('publishers');
     }
 }

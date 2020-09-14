@@ -62,18 +62,18 @@
                     <!-- <p class="tag-block">Tags: <a href="#">Movado</a>, <a href="#">Omega</a></p> -->
                     <h3 class="product-title">{{$bookDetail->title}}</h3>
                     <ul class="list-unstyled">
-                        <li>Ex Tax: <span class="list-value"> {{$bookDetail->price}}</span></li>
-                        <li>Brands: <a href="#" class="list-value font-weight-bold"> Canon</a></li>
-                        <li>Product Code: <span class="list-value"> model1</span></li>
-                        <li>Reward Points: <span class="list-value"> 200</span></li>
+                        <li>By Author: <span class="list-value">{{$bookDetail->author()}}</span></li>
+                        <!-- <li>Ex Tax: <span class="list-value"> {{$bookDetail->price}}</span></li> -->
+                        <!-- <li>Brands: <a href="#" class="list-value font-weight-bold"> Canon</a></li> -->
+                        <!-- <li>Product Code: <span class="list-value"> model1</span></li> -->
+                        <!-- <li>Reward Points: <span class="list-value"> 200</span></li> -->
                         <li>Availability: <span class="list-value"> In Stock</span></li>
-                        <li>Author: <span class="list-value">{{$bookDetail->author()}}</span></li>
                     </ul>
                     <div class="price-block">
                         <span class="price-new">Rp {{$bookDetail->price}}</span>
-                        <!-- <del class="price-old">£91.86</del> -->
+                        <del class="price-old">You Save Rp {{$bookDetail->price+10}}</del>
                     </div>
-                    <!-- <div class="rating-widget">
+                    <div class="rating-widget">
 								<div class="rating-block">
 									<span class="fas fa-star star_on"></span>
 									<span class="fas fa-star star_on"></span>
@@ -85,7 +85,7 @@
 									<a href="">(1 Reviews)</a> <span>|</span>
 									<a href="">Write a review</a>
 								</div>
-							</div> -->
+							</div>
                     <article class="product-details-article">
                         <h4 class="sr-only">book Summery</h4>
                         <p>{{$bookDetail->description}}</p>
@@ -122,12 +122,12 @@
                         DESCRIPTION
                     </a>
                 </li>
-                <!-- <li class="nav-item">
+                <li class="nav-item">
 							<a class="nav-link" id="tab2" data-toggle="tab" href="#tab-2" role="tab"
 								aria-controls="tab-2" aria-selected="true">
 								REVIEWS (1)
 							</a>
-						</li> -->
+						</li>
             </ul>
             <div class="tab-content space-db--20" id="myTabContent">
                 <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab1">
@@ -211,7 +211,7 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="tab-product-details">
+        <div class="tab-product-details">
   <div class="brand">
     <img src="image/others/review-tab-product-details.jpg') }}" alt="">
   </div>
@@ -228,7 +228,7 @@
       <dd class="value">Maxi Dress</dd>
     </dl>
   </section>
-</div> -->
+</div>
     </div>
     <!--================================= RELATED PRODUCTS BOOKS ===================================== -->
     <section class="">
