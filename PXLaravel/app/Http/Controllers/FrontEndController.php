@@ -21,8 +21,8 @@ class FrontEndController extends Controller
      */
     public function index()
     {
-        $booklist = Book::get();
-        $spesialOffers = Book::inRandomOrder()->limit(5)->get();
+        $booklist = Book::limit(20)->get();
+        $spesialOffers = Book::inRandomOrder()->limit(0)->get();
         $newArrivals = Book::orderByDesc('id')->limit(10)->get();
         return view("index")
         ->with("booklist",$booklist)

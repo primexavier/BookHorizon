@@ -94,6 +94,8 @@ Route::group(['prefix' => 'backend'], function () {
             Route::post('/delete/{book}', 'BookController@delete')->name('backend.book.delete');
             Route::post('/import', 'BookController@importExcel')->name('backend.book.import');
             Route::get('/import', 'BookController@importExcel')->name('backend.book.import');
+            Route::get('/import-add', 'BookController@ImportCreate')->name('backend.book.import.add');
+            Route::post('/import-store', 'BookController@ImportStore')->name('backend.book.import.store');
         });
         Route::group(['prefix' => 'blogs'], function () {
             Route::get('/', 'BlogController@index')->name('backend.blog.index');

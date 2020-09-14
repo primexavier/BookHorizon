@@ -14,7 +14,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\DataTables\BookDataTable;
 use Illuminate\Support\Facades\Storage;
-
+use Carbon\Carbon;
 
 class BookController extends Controller
 {
@@ -192,12 +192,7 @@ class BookController extends Controller
 
     }
 
-    public function importExcel(Request $request)
-    {
-        Excel::import(new BookImport, "book.xlsx");
-        
-        return redirect('/backend/books')->with('success', 'All good!');
-    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -215,4 +210,30 @@ class BookController extends Controller
         }
     }    
 
+    public function importExcel(Request $request)
+    {
+        Excel::import(new BookImport, "book.xlsx");
+        
+        return redirect('/backend/books')->with('success', 'All good!');
+    }
+
+    public function ImportCreate()
+    {
+        return view('backend.book.import-create');
+    }
+
+    public function ImportStore(Request $request)
+    {
+        if($request->hasFile('importExcel')){
+            if($request->file('importExcel')->isValid()){
+                $mytime = Carbon::now();
+                $extension = $request->importExcel->extension();
+                $name = $mytime->timestamp;
+                $request->importExcel->storeAs('\public\book\import', $name.".".$extension);
+                $url = "book\import\\".$name.".".$extension;
+                Excel::import(new BookImport, 'storage\\'.$url);
+                return redirect('/backend/books')->with('success', 'All good!');
+            }
+        }
+    }
 }

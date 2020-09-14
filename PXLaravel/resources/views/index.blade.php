@@ -2,7 +2,7 @@
 
 @section('content') 
             <!--================================= Hero Area ===================================== -->
-            <!-- <section class="hero-area hero-slider-4 ">
+            <section class="hero-area hero-slider-4 ">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-9 offset-lg-3">
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-            </section> -->
+            </section>
             <!--================================= Home Features Section ===================================== -->
             <section class="mb--30">
                 <h2 class="sr-only">Feature Section</h2>
@@ -157,9 +157,9 @@
                                                 </div>
                                                 <div class="product-card--body">
                                                     <div class="product-header">
-                                                        <a href="#" class="author">
+                                                        <!-- <a href="#" class="author">
                                                             {{$book->author()}} 
-                                                        </a>
+                                                        </a> -->
                                                         <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
                                                     </div>
                                                     <div class="price-block">
@@ -200,9 +200,9 @@
                                         <div class="single-slide">
                                             <div class="product-card">
                                                 <div class="product-header">
-                                                    <a href="" class="author">                                                        
+                                                    <!-- <a href="" class="author">                                                        
                                                         {{$spesialOffer->author()}}
-                                                    </a>
+                                                    </a> -->
                                                     <h3><a href="{{ route('book.detail',$spesialOffer->id) }}"></a>{{ \Illuminate\Support\Str::limit($spesialOffer->title, 40, $end='...')}}</h3>
                                                 </div>
                                                 <div class="product-card--body">
@@ -251,7 +251,13 @@
                                             </div>
                                         </div>
                                         @empty
-                                        <p>There is no book!</p>
+                                        <div class="single-slide">
+                                            <div class="product-card">
+                                                <div class="product-card--body">
+                                                    We will let You know when new Offers arrives!
+                                                </div>
+                                            </div>
+                                        </div>
                                         @endforelse
                                     </div>
                                 </div>
@@ -368,7 +374,7 @@
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="shop-tab" data-toggle="tab" href="#shop" role="tab" aria-controls="shop" aria-selected="true">
-                                                    Featured Products
+                                                    Featured Books
                                                 </a>
                                                 <span class="arrow-icon"></span>
                                             </li>
@@ -380,7 +386,7 @@
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" id="woman-tab" data-toggle="tab" href="#woman" role="tab" aria-controls="woman" aria-selected="false">
-                                                    Most view products
+                                                    Most view Books
                                                 </a>
                                                 <span class="arrow-icon"></span>
                                             </li>
@@ -403,9 +409,9 @@
                                                     <div class="single-slide">
                                                         <div class="product-card">
                                                             <div class="product-header">
-                                                                <a class="author">
+                                                                <!-- <a class="author">
                                                                     {{$book->author()}}
-                                                                </a>
+                                                                </a> -->
                                                                 <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
@@ -472,9 +478,9 @@
                                                     <div class="single-slide">
                                                         <div class="product-card">
                                                             <div class="product-header">
-                                                                <a href="" class="author">
+                                                                <!-- <a href="" class="author">
                                                                     {{$book->author()}}
-                                                                </a>
+                                                                </a> -->
                                                                 <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
@@ -541,9 +547,9 @@
                                                     <div class="single-slide">
                                                         <div class="product-card">
                                                             <div class="product-header">
-                                                                <a href="" class="author">
+                                                                <!-- <a href="" class="author">
                                                                     {{$book->author()}}
-                                                                </a>
+                                                                </a> -->
                                                                 <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
                                                             </div>
                                                             <div class="product-card--body">
@@ -655,9 +661,9 @@
                                                                 </div>
                                                                 <div class="product-card--body">
                                                                     <div class="product-header">
-                                                                        <a href="" class="author">
+                                                                        <!-- <a href="" class="author">
                                                                             {{$book->author()}}
-                                                                        </a>
+                                                                        </a> -->
                                                                         <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -697,9 +703,9 @@
                                                                 </div>
                                                                 <div class="product-card--body">
                                                                     <div class="product-header">
-                                                                        <a href="" class="author">
+                                                                        <!-- <a href="" class="author">
                                                                             Hpple
-                                                                        </a>
+                                                                        </a> -->
                                                                         <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
                                                                     </div>
                                                                     <div class="price-block">
@@ -739,9 +745,9 @@
                                                                 </div>
                                                                 <div class="product-card--body">
                                                                     <div class="product-header">
-                                                                        <a href="" class="author">
+                                                                        <!-- <a href="" class="author">
                                                                             Gpple
-                                                                        </a>
+                                                                        </a> -->
                                                                         <h3><a href="{{ route('book.detail',$book->id) }}">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
                                                                     </div>
                                                                     <div class="price-block">

@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="header-top header-top--style-2">
+                <!-- <div class="header-top header-top--style-2">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-4">
@@ -43,8 +43,8 @@
                                         <a href="">Rp</a><i class="fas fa-chevron-down dropdown-arrow"></i>
                                         <ul class="dropdown-box">
                                             <li><a href="#">Rp Rupiah</a></li>
-                                            <!-- <li><a href="#">£ Pound Sterling</a></li>
-                                            <li><a href="#">$ US Dollar</a></li> -->
+                                            <li><a href="#">£ Pound Sterling</a></li>
+                                            <li><a href="#">$ US Dollar</a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown-trigger language-dropdown">
@@ -133,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="header-middle pt--10 pb--10">
                     <div class="container">
                         <div class="row align-items-center">
@@ -414,12 +414,12 @@
                                             </ul>
                                         </li> -->
                                         <!-- Blog -->
-                                        <li class="menu-item">
+                                        <!-- <li class="menu-item">
                                             <a href="/blog">
                                                 Blog
-                                                <!-- <i class="fas fa-chevron-down dropdown-arrow"></i> -->
+                                                <i class="fas fa-chevron-down dropdown-arrow"></i>
                                             </a>
-                                            <!-- <ul class="sub-menu three-column">
+                                            <ul class="sub-menu three-column">
                                                 <li class="cus-col-33">
                                                     <h3 class="menu-title"><a href="javascript:void(0)">Blog Grid</a></h3>
                                                     <ul class="mega-single-block">
@@ -446,11 +446,11 @@
                                                         <li><a href="blog-details-left-sidebar.html">left Sidebar</a></li>
                                                     </ul>
                                                 </li>
-                                            </ul> -->
+                                            </ul>
                                         </li>
                                         <li class="menu-item">
                                             <a href="/contact">Contact</a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </div>
                             </div>
@@ -459,7 +459,7 @@
                 </div>
             </div>
             <div class="site-mobile-menu">
-                <header class="mobile-header d-block d-lg-none pt--10 pb-md--10">
+                <!-- <header class="mobile-header d-block d-lg-none pt--10 pb-md--10">
                     <div class="container">
                         <div class="row align-items-sm-end align-items-center">
                             <div class="col-md-4 col-7">
@@ -597,24 +597,20 @@
                             </div>
                         </div>
                     </div>
-                </header>
+                </header> -->
                 <!--Off Canvas Navigation Start-->
                 <aside class="off-canvas-wrapper">
                     <div class="btn-close-off-canvas">
                         <i class="ion-android-close"></i>
                     </div>
                     <div class="off-canvas-inner">
-                        <!-- search box start -->
                         <div class="search-box offcanvas">
                             <form action="{{ route('book.search') }}" method="get">
                                 <input type="search" placeholder="Search Here">
                                 <button class="search-btn" type="submit"><i class="ion-ios-search-strong"></i></button>
                             </form>
                         </div>
-                        <!-- search box end -->
-                        <!-- mobile menu start -->
                         <div class="mobile-navigation">
-                            <!-- mobile menu navigation start -->
                             <nav class="off-canvas-nav">
                                 <ul class="mobile-menu main-mobile-menu">
                                     <li class="menu-item">
@@ -708,8 +704,8 @@
                                             <li><a href="contact-2.html">contact 02</a></li>
                                         </ul>
                                     </li> -->
-                                    <li><a href="/blog">Blog</a></li>
-                                    <li><a href="/contact">Contact</a></li>
+                                    <!-- <li><a href="/blog">Blog</a></li>
+                                    <li><a href="/contact">Contact</a></li> -->
                                 </ul>
                             </nav>
                             <!-- mobile menu navigation end -->
@@ -740,7 +736,7 @@
                                 </li>
                             </ul>
                         </nav>
-                        <div class="off-canvas-bottom">
+                        <!-- <div class="off-canvas-bottom">
                             <div class="contact-list mb--10">
                                 <a href="" class="sin-contact"><i class="fas fa-mobile-alt"></i>(12345) 78790220</a>
                                 <a href="" class="sin-contact"><i class="fas fa-envelope"></i>examle@handart.com</a>
@@ -753,7 +749,7 @@
                                 <a href="#" class="single-icon"><i class="fab fa-google-plus-g"></i></a>
                                 <a href="#" class="single-icon"><i class="fab fa-instagram"></i></a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </aside>
                 <!--Off Canvas Navigation End-->
@@ -775,11 +771,11 @@
                                         </a>
                                     </li>
                                     <!-- Shop -->
-                                    {{-- <li class="menu-item has-children mega-menu"> --}}
+                                    <!-- <li class="menu-item has-children mega-menu">
                                     <li class="menu-item">
                                         <a href="{{ route('index') }}">shop </a>
-                                            {{-- <i class="fas fa-chevron-down dropdown-arrow"></i></a> --}}
-                                        {{-- <ul class="sub-menu four-column">
+                                            <i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                                        <ul class="sub-menu four-column">
                                             <li class="cus-col-25">
                                                 <h3 class="menu-title"><a href="javascript:void(0)">Shop Grid </a></h3>
                                                 <ul class="mega-single-block">
@@ -827,7 +823,7 @@
                                                 </ul>
                                             </li>
                                         </ul> --}}
-                                    </li>
+                                    </li> -->
                                     <!-- Pages -->
                                     <!-- <li class="menu-item has-children">
                                         <a href="javascript:void(0)">Pages <i
@@ -845,12 +841,12 @@
                                         </ul>
                                     </li> -->
                                     <!-- Blog -->
-                                    <li class="menu-item">
+                                    <!-- <li class="menu-item">
                                         <a href="/blog">
                                             Blog
-                                            <!-- <i class="fas fa-chevron-down dropdown-arrow"></i> -->
+                                            <i class="fas fa-chevron-down dropdown-arrow"></i>
                                         </a>
-                                        <!-- <ul class="sub-menu three-column">
+                                        <ul class="sub-menu three-column">
                                             <li class="cus-col-33">
                                                 <h3 class="menu-title"><a href="javascript:void(0)">Blog Grid</a></h3>
                                                 <ul class="mega-single-block">
@@ -877,11 +873,11 @@
                                                     <li><a href="blog-details-left-sidebar.html">left Sidebar</a></li>
                                                 </ul>
                                             </li>
-                                        </ul> -->
+                                        </ul>
                                     </li>
                                     <li class="menu-item">
                                         <a href="/contact">Contact</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
                         </div>

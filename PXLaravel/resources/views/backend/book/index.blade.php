@@ -11,7 +11,10 @@
             <div class="card">
                 <div class="card-header">Book Index</div>
 
-                <div class="card-body">       
+                <div class="card-body">     
+                    <button onclick="window.location.href='{{route('backend.book.import.add')}}'" type="button" class="btn btn-primary">Import</button>
+                    <br>
+                    <br>
                     {{$dataTable->table()}}
                 </div>
             </div>
