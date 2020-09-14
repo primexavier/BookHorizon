@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Model\Book;
+use App\Model\Author;
+use App\Model\Publisher;
+use App\Model\Supplier;
+use App\Model\Language;
 use App\Model\Image;
 use App\Model\BookImage;
 use App\Imports\BookImport;
@@ -31,7 +35,15 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view("backend.book.add");
+        $authors = Author::get();
+        $publishers = Publisher::get();
+        $suppliers = Supplier::get();
+        $languages = Language::get();
+        return view("backend.book.add")
+        ->with("authors",$authors)
+        ->with("publishers",$publishers)
+        ->with("suppliers",$suppliers)
+        ->with("languages",$languages);
     }
 
     /**
@@ -46,7 +58,6 @@ class BookController extends Controller
             'title' => ['required', 'unique:books', 'max:255']
         ]);
         $new = new Book();
-        $new->author_id = 1;
         $new->title = $request->title;
         $new->isbn = $request->isbn;
         $new->publication_city = $request->pcity;
@@ -60,9 +71,10 @@ class BookController extends Controller
         $new->start_qty = $request->qty;
         $new->price = $request->price;
         $new->description = $request->desc;
-        $new->supplier_id = 1;
-        $new->language_id = 1;
-        $new->publisher_id = 1;
+        $new->supplier_id = $request->supplierId;
+        $new->language_id = $request->languageId;
+        $new->publisher_id = $request->publisherId;
+        $new->author_id = $request->authorId;
         $new->save();
 
         if ($request->hasFile('photo')) {

@@ -19,8 +19,8 @@
                                 <div class="row">
                                     <div class="col-md-12">       
                                         <div class="form-group">
-                                            <img id="imageShow" src="{{ asset('frontend/image/book') }}/empty.jpg" alt="your image" width="200px" height="250px" />													
-                                            <label for="exampleFormControlFile1">Photo</label>
+                                            <label for="exampleFormControlFile1">Photo</label><br>
+                                            <img id="imageShow" src="{{ asset('frontend/image/book') }}/empty.jpg" alt="your image" width="200px" height="250px" />	<br><br>											
                                             <input onchange="readURL(this)" type="file" class="form-control-file" accept="image/x-png,image/gif,image/jpeg" name="photo">
                                         </div>    
                                         <div class="form-group">
@@ -80,6 +80,46 @@
                                             <input type="date" class="form-control" placeholder="Purchase Date" name="pdate">
                                         </div>        
                                     </div>
+                                    <div class="col-md-12">        
+                                        <div class="form-group">
+                                            <label for="title">Aurthors</label>
+                                            <select  class="form-control"  name="authorId" class="selectpicker" data-live-search="true">
+                                                @foreach($authors as $author)
+                                                    <option value="{{$author->id}}" data-tokens="ketchup mustard">{{$author->name}}</option>
+                                                @endforeach
+                                            </select>                                        
+                                        </div>              
+                                    </div>     
+                                    <div class="col-md-12">        
+                                        <div class="form-group">
+                                            <label for="title">Publishers</label>
+                                            <select  class="form-control"  name="publisherId" class="selectpicker" data-live-search="true">
+                                                @foreach($publishers as $publisher)
+                                                    <option value="{{$publisher->id}}" data-tokens="ketchup mustard">{{$publisher->name}}</option>
+                                                @endforeach
+                                            </select>                                        
+                                        </div>              
+                                    </div>                                         
+                                    <div class="col-md-12">        
+                                        <div class="form-group">
+                                            <label for="title">Supplier</label>
+                                            <select  class="form-control"  name="supplierId" class="selectpicker" data-live-search="true">
+                                                @foreach($suppliers as $supplier)
+                                                    <option value="{{$supplier->id}}" data-tokens="ketchup mustard">{{$supplier->name}}</option>
+                                                @endforeach
+                                            </select>                                        
+                                        </div>              
+                                    </div>                                        
+                                    <div class="col-md-12">        
+                                        <div class="form-group">
+                                            <label for="title">Language</label>
+                                            <select  class="form-control"  name="languageId" class="selectpicker" data-live-search="true">
+                                                @foreach($languages as $language)
+                                                    <option value="{{$language->id}}" data-tokens="ketchup mustard">{{$language->name}}</option>
+                                                @endforeach
+                                            </select>                                        
+                                        </div>              
+                                    </div>     
                                     <div class="col-md-12">        
                                         <div class="form-group">
                                             <label for="title">Description</label>
