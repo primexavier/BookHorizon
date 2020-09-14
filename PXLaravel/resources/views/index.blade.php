@@ -649,7 +649,7 @@
                         
                                                             {"breakpoint":768, "settings": {"slidesToShow": 1} }
                                                         ]'>
-                                                        @forelse ($booklist as $book)
+                                                        @forelse ($category1 as $book)
                                                         <div class="single-slide">
                                                             <div class="product-card card-style-list">
                                                                 <div class="card-image">
@@ -691,7 +691,7 @@
                         
                                                             {"breakpoint":768, "settings": {"slidesToShow": 1} }
                                                         ]'>
-                                                        @forelse ($booklist as $book)
+                                                        @forelse ($category2 as $book)
                                                         <div class="single-slide">
                                                             <div class="product-card card-style-list">
                                                                 <div class="card-image">
@@ -733,7 +733,7 @@
                             
                                                                 {"breakpoint":768, "settings": {"slidesToShow": 1} }
                                                             ]'>
-                                                        @forelse ($booklist as $book)
+                                                        @forelse ($category3 as $book)
                                                         <div class="single-slide">
                                                             <div class="product-card card-style-list">
                                                                 <div class="card-image">

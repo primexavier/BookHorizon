@@ -34,7 +34,28 @@ class FrontEndController extends Controller
         }else{
             $featuredBooks = Book::inRandomOrder()->limit(10)->get();
         }
+        $category1 = BookCategory::groupBy('book_id')->where('category_id',1)->limit(10)->pluck('book_id');
+        if($category1->count()>0){
+            $category1Book = Book::whereIn("id", $category1)->get();
+        }else{
+            $category1Book = Book::inRandomOrder()->limit(10)->get();
+        }
+        $category2 = BookCategory::groupBy('book_id')->where('category_id',2)->limit(10)->pluck('book_id');
+        if($category2->count()>0){
+            $category2Book = Book::whereIn("id", $category2)->get();
+        }else{
+            $category2Book = Book::inRandomOrder()->limit(10)->get();
+        }
+        $category3 = BookCategory::groupBy('book_id')->where('category_id',3)->limit(10)->pluck('book_id');
+        if($category3->count()>0){
+            $category3Book = Book::whereIn("id", $category3)->get();
+        }else{
+            $category3Book = Book::inRandomOrder()->limit(10)->get();
+        }
         return view("index")
+        ->with("category1",$category1Book)
+        ->with("category2",$category2Book)
+        ->with("category3",$category3Book)
         ->with("booklist",$booklist)
         ->with("spesialOffers",$spesialOffers)
         ->with("newArrivals",$newArrivals)
