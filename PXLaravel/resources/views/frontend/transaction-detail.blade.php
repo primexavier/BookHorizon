@@ -42,12 +42,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($books as $book)
-                            <tr>
-                                <td><a href="{{route('book.detail',$book->id)}}">{{$book->title}}</a> (rented 3 Days) <strong>{{$transactionBook[0]->transaction_type_id}}</strong></td>
-                                <td><span>{{$book->price}}</span></td>
-                            </tr>
-                            @endforeach
+                            @if($books)
+                                @foreach($books as $book)
+                                <tr>
+                                    <td><a href="{{route('book.detail',$book->id)}}">{{$book->title}}</a> (rented 3 Days) <strong>{{$transactionBook[0]->transaction_type_id}}</strong></td>
+                                    <td><span>{{$book->price}}</span></td>
+                                </tr>
+                                @endforeach
+                            @endif
+                            @if($memberships)
+                                @foreach($memberships as $membeship)
+                                <tr>
+                                    <td><a href="#">{{$membeship->name}}</a> <strong>{{$transactionMembership[0]->transaction_type_id}}</strong></td>
+                                    <td><span>{{$membeship->price}}</span></td>
+                                </tr>
+                                @endforeach
+
+                            @endif
                         </tbody>
                         <tfoot>
                             <tr>

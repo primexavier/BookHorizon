@@ -336,8 +336,7 @@ class MemberController extends Controller
                 $updateUser->phone_no = $request->phone_no;
                 $updateUser->save();
             }
-
-            
+           
 
             return redirect()->route("transaction.detail",$newTransaction->id);
             
@@ -354,10 +353,23 @@ class MemberController extends Controller
             return view("frontend.transaction-detail")
             ->with("transaction",$transaction)
             ->with("transactionBook",$transactionBook)
-            ->with("books",$books);
+            ->with("books",$books)
+            ->with("transactionMembership",null)
+            ->with("memberships",null);
         }else{
-            $transaction->delete();
-            return redirect(route('order.list'));
+            $transactionMembership = TransactionMembership::where('transaction_id',$transaction->id)->get();
+            if($transactionMembership->count() > 0){
+                $memberships = Membership::where("id",$transactionMembership[0]->id)->get();
+                return view("frontend.transaction-detail")
+                ->with("transaction",$transaction)
+                ->with("transactionBook",null)
+                ->with("books",null)
+                ->with("transactionMembership",$transactionMembership)
+                ->with("memberships",$memberships);
+            }else{
+                $transaction->delete();
+                return redirect(route('order.list'));
+            }
 
         }
     }
@@ -420,5 +432,43 @@ class MemberController extends Controller
         $bookRenteds = Transaction::where('user_id',Auth::user()->id);
         return view("frontend.profile.rented")
         ->with("bookRenteds",$bookRenteds);
+    }
+
+    public function checkoutMembership ($id){
+        if(Auth::user()){
+            $membership = Membership::where('id',$id)->first();
+            $paymentMethods = PaymentMethod::get();
+            return view('frontend.profile.checkout-membership')
+            ->with("membership",$membership)
+            ->with("paymentMethods",$paymentMethods);
+        }else{
+            return redirect(route('index'));
+        }
+    }
+
+    public function paymembership(Request $request){
+        $user_id = Auth::user()->id;
+        $newTransaction = new Transaction;
+        $newTransaction->user_id = $user_id;
+        $newTransaction->sub_total = $request->subTotalInput;
+        $newTransaction->shipping_cost = $request->shippingCost;
+        $newTransaction->product_total = 1;
+        $newTransaction->grand_total = $request->grandTotalInput;
+        $newTransaction->save();
+
+        $newTransactionMembership = new TransactionMembership;
+        $newTransactionMembership->transaction_id = $newTransaction->id;
+        $newTransactionMembership->membership_id = $request->membershipId;
+        $newTransactionMembership->save();
+
+        $newBill = new Bill;
+        $newBill->name = "Transaction - {$user_id} No {$newTransaction->id}";
+        $newBill->user_id = $user_id;
+        $newBill->transaction_id = $newTransaction->id;
+        $newBill->total = $request->grandTotalInput;
+        $newBill->is_active = true;
+        $newBill->save();
+
+        return redirect()->route("transaction.detail",$newTransaction->id);
     }
 }

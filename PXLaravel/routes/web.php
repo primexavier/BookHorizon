@@ -71,10 +71,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/pay/confirmation/{bill}', 'MemberController@confirmPay')->name('confirm.payment');
         Route::get('/transaction/detail/{transaction}', 'MemberController@transactiondetail')->name('transaction.detail');
         Route::get('/checkout', 'MemberController@checkoutView')->name('checkout.view');
+        Route::get('/checkout-member/{id}', 'MemberController@checkoutMembership')->name('checkout.membership');
         Route::post('/checkout', 'MemberController@checkout')->name('checkout');
         Route::post('/wishlist-chart', 'MemberController@wishlistChart')->name('wishlist.chart');
         Route::post('/editprofile', 'MemberController@updateProfile')->name('profile.update');
         Route::post('/pay/confirmation', 'MemberController@pay')->name('pay.confirmation');
+        Route::post('/pay/membership', 'MemberController@paymembership')->name('pay.membership');
         Route::post('/pay/confirmation/{bill}', 'MemberController@uploadBill')->name('upload.bill');
     });
     Route::get('/home', 'HomeController@index')->name('home');
