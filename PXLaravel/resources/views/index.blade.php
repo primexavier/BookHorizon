@@ -150,9 +150,9 @@
                                             <div class="product-card card-style-list">
                                                 <div class="card-image">
                                                     @if ($book->bookimage())
-                                                        <img src="/storage/{{$book->bookimage()->image()->url}}" style="min-width: 150px; max-width:200px; max-height:300px; min-height:250px" alt="">
+                                                        <img src="/storage/{{$book->bookimage()->image()->url}}" style="min-width: 150px; max-width:150px; max-height:250px; min-height:250px" alt="">
                                                     @else
-                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="min-width: 150px; max-width:200px; max-height:300px; min-height:250px" >
+                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" style="min-width: 150px; max-width:150px; max-height:250px; min-height:250px" alt="">
                                                     @endif
                                                 </div>
                                                 <div class="product-card--body">
@@ -208,16 +208,16 @@
                                                 <div class="product-card--body">
                                                     <div class="card-image">
                                                         @if ($spesialOffer->bookimage())                                                    
-                                                            <img src="/storage/{{$spesialOffer->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" alt="">
+                                                            <img src="/storage/{{$spesialOffer->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px;" alt="">
                                                         @else
-                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" >
+                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px;" >
                                                         @endif
                                                         <div class="hover-contents">
                                                             <a href="{{ route('book.detail',$spesialOffer->id) }}" class="hover-image">
                                                             @if ($spesialOffer->bookimage())
-                                                                <img src="/storage/{{$spesialOffer->bookimage()->image()->url}}" style="min-width: 150px; max-width:200px; max-height:300px; min-height:250px" alt="">
+                                                                <img src="/storage/{{$spesialOffer->bookimage()->image()->url}}" style="min-width: 150px; max-width:150px; max-height:250px; min-height:250px" alt="">
                                                             @else
-                                                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="min-width: 150px; max-width:200px; max-height:300px; min-height:250px" >
+                                                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="min-width: 150px; max-width:150px; max-height:250px; min-height:250px" >
                                                             @endif
                                                             </a>
                                                             <div class="hover-btns">
@@ -417,16 +417,16 @@
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     @if ($book->bookimage())                                                    
-                                                                        <img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" alt="">
+                                                                        <img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" alt="">
                                                                     @else
-                                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" >
+                                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" >
                                                                     @endif
                                                                     <div class="hover-contents">
                                                                         <a href="{{ route('book.detail',$book->id) }}" class="hover-image">
                                                                         @if ($book->bookimage())                                                    
-                                                                            <img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" alt="">
+                                                                            <img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" alt="">
                                                                         @else
-                                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" >
+                                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" >
                                                                         @endif
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -486,16 +486,16 @@
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     @if ($book->bookimage())                                                    
-                                                                        <img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" alt="">
+                                                                        <img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" alt="">
                                                                     @else
-                                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" >
+                                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" >
                                                                     @endif
                                                                     <div class="hover-contents">
                                                                         <a href="{{ route('book.detail',$book->id) }}" class="hover-image">
                                                                             @if ($book->bookimage())                                                    
-                                                                                <img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" alt="">
+                                                                                <img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" alt="">
                                                                             @else
-                                                                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" >
+                                                                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" >
                                                                             @endif
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -555,16 +555,16 @@
                                                             <div class="product-card--body">
                                                                 <div class="card-image">
                                                                     @if ($book->bookimage())                                                    
-                                                                        <img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" alt="">
+                                                                        <img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" alt="">
                                                                     @else
-                                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" >
+                                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" >
                                                                     @endif
                                                                     <div class="hover-contents">
                                                                         <a href="{{ route('book.detail',1) }}" class="hover-image">
                                                                             @if ($book->bookimage())                                                    
-                                                                                <img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" alt="">
+                                                                                <img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" alt="">
                                                                             @else
-                                                                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" >
+                                                                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" >
                                                                             @endif
                                                                         </a>
                                                                         <div class="hover-btns">
@@ -654,9 +654,9 @@
                                                             <div class="product-card card-style-list">
                                                                 <div class="card-image">
                                                                     @if ($book->bookimage())                                                    
-                                                                        <img src="/storage/{{$book->bookimage()->image()->url}}" style="min-width: 100px; max-width:150px; max-height:250px; min-height:200px" alt="">
+                                                                        <img src="/storage/{{$book->bookimage()->image()->url}}" style="min-width: 150px; max-width:150px; max-height:250px; min-height:250px" alt="">
                                                                     @else
-                                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="min-width: 100px; max-width:150px; max-height:250px; min-height:200px" >
+                                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="min-width: 100p150pxx; max-width:150px; max-height:250px; min-height:250px" >
                                                                     @endif
                                                                 </div>
                                                                 <div class="product-card--body">
@@ -696,9 +696,9 @@
                                                             <div class="product-card card-style-list">
                                                                 <div class="card-image">
                                                                     @if ($book->bookimage())                                                    
-                                                                        <img src="/storage/{{$book->bookimage()->image()->url}}" style="min-width: 100px; max-width:150px; max-height:250px; min-height:200px" alt="">
+                                                                        <img src="/storage/{{$book->bookimage()->image()->url}}" style="min-width: 150px; max-width:150px; max-height:250px; min-height:250px" alt="">
                                                                     @else
-                                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="min-width: 100px; max-width:150px; max-height:250px; min-height:200px" >
+                                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="min-width: 100p150pxx; max-width:150px; max-height:250px; min-height:250px" >
                                                                     @endif
                                                                 </div>
                                                                 <div class="product-card--body">
@@ -738,9 +738,9 @@
                                                             <div class="product-card card-style-list">
                                                                 <div class="card-image">
                                                                     @if ($book->bookimage())                                                    
-                                                                        <img src="/storage/{{$book->bookimage()->image()->url}}" style="min-width: 100px; max-width:150px; max-height:250px; min-height:200px" alt="">
+                                                                        <img src="/storage/{{$book->bookimage()->image()->url}}" style="min-width: 150px; max-width:150px; max-height:250px; min-height:250px" alt="">
                                                                     @else
-                                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="min-width: 100px; max-width:150px; max-height:250px; min-height:200px" >
+                                                                        <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="min-width: 100p150pxx; max-width:150px; max-height:250px; min-height:250px" >
                                                                     @endif
                                                                 </div>
                                                                 <div class="product-card--body">
