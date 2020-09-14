@@ -23,9 +23,11 @@ class FrontEndController extends Controller
     {
         $booklist = Book::get();
         $spesialOffers = Book::inRandomOrder()->limit(5)->get();
+        $newArrivals = Book::orderByDesc('id')->limit(10)->get();
         return view("index")
         ->with("booklist",$booklist)
-        ->with("spesialOffers",$spesialOffers);
+        ->with("spesialOffers",$spesialOffers)
+        ->with("newArrivals",$newArrivals);
     }
 
     public function bookDetail($id)
