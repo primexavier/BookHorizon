@@ -16,6 +16,14 @@ class Book extends Model
     {
         return $this->belongsTo('App\Model\Author')->first()->name;
     }
+    public function publisher()
+    {
+        return $this->belongsTo('App\Model\Publisher')->first()->name;
+    }
+    public function supplier()
+    {
+        return $this->belongsTo('App\Model\Supplier')->first()->name;
+    }
     public function bookImage()
     {
         return $this->hasOne('App\Model\BookImage')->first();

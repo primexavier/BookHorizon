@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Model\Book;
+use App\Model\BookCategory;
 use App\Model\Blog;
 use App\Model\Chart;
 use App\Model\Wishlist;
@@ -264,7 +265,8 @@ class FrontEndController extends Controller
     public function searchBook(Request $request){   
         $categories = Category::get();
         if($request->category){
-            $searchedBook = Book::where('title', 'like', '%'.$request->searchBook.'%')->get();
+            $bookCategory = BookCategory::pluck('book_id');
+            $searchedBook = Book::whereIn('id',$bookCategory)->where('title', 'like', '%'.$request->searchBook.'%')->get();
             return view('frontend.search')
             ->with("searchBooks",$searchedBook)
             ->with("categories",$categories);

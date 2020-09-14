@@ -77,32 +77,36 @@
                                     </div>
                                     <div class="col-md-12">        
                                         <div class="form-group">
-                                            <label for="title">Aurthors</label>
-                                            <select  class="form-control"  name="authorId" class="selectpicker" data-live-search="true">
+                                            <label for="title">Authors</label>
+                                            <input type="text" class="form-control" placeholder="Authors Name" name="authorId">
+                                            <!-- <select  class="form-control"  name="authorId" class="selectpicker" data-live-search="true">
                                                 @foreach($authors as $author)
                                                     <option value="{{$author->id}}" data-tokens="ketchup mustard">{{$author->name}}</option>
                                                 @endforeach
-                                            </select>                                        
+                                            </select>                                         -->
                                         </div>              
                                     </div>     
                                     <div class="col-md-12">        
                                         <div class="form-group">
                                             <label for="title">Publishers</label>
-                                            <select  class="form-control"  name="publisherId" class="selectpicker" data-live-search="true">
+                                            <input type="text" class="form-control" placeholder="Publisher Name" name="publisherId">
+                                            <!-- <select  class="form-control"  name="publisherId" class="selectpicker" data-live-search="true">
                                                 @foreach($publishers as $publisher)
                                                     <option value="{{$publisher->id}}" data-tokens="ketchup mustard">{{$publisher->name}}</option>
                                                 @endforeach
-                                            </select>                                        
+                                            </select>                                         -->
                                         </div>              
                                     </div>                                         
                                     <div class="col-md-12">        
                                         <div class="form-group">
                                             <label for="title">Supplier</label>
-                                            <select  class="form-control"  name="supplierId" class="selectpicker" data-live-search="true">
+                                            
+                                            <input type="text" class="form-control" placeholder="Supplier Name" name="supplierId">
+                                            <!-- <select  class="form-control"  name="supplierId" class="selectpicker" data-live-search="true">
                                                 @foreach($suppliers as $supplier)
                                                     <option value="{{$supplier->id}}" data-tokens="ketchup mustard">{{$supplier->name}}</option>
                                                 @endforeach
-                                            </select>                                        
+                                            </select>                                         -->
                                         </div>              
                                     </div>                                        
                                     <div class="col-md-12">        

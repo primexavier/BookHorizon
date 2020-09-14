@@ -139,24 +139,24 @@
 									<div class="product-card card-style-list">
 										<div class="product-grid-content">
 											<div class="product-header">
-												<a href="" class="author">
+												<!-- <a href="" class="author">
 													{{$book->author()}}
-												</a>
+												</a> -->
 												<h3><a href="{{ route('book.detail',$book->id) }}">Here Is A Quick Cure For Book</a></h3>
 											</div>
 											<div class="product-card--body">
 												<div class="card-image">
 													@if ($book->bookimage())                                                    
-														<img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" alt="">
+														<img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" alt="">
 													@else
-														<img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" >
+														<img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" >
 													@endif
 													<div class="hover-contents">
 														<a href="{{ route('book.detail',$book->id) }}" class="hover-image">
 															@if ($book->bookimage())                                                    
-																<img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" alt="">
+																<img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" alt="">
 															@else
-																<img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" >
+																<img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" >
 															@endif
 														</a>
 														<div class="hover-btns">
@@ -186,16 +186,16 @@
 										<div class="product-list-content">
 											<div class="card-image">
 												@if ($book->bookimage())                                                    
-													<img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" alt="">
+													<img src="/storage/{{$book->bookimage()->image()->url}}" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" alt="">
 												@else
-													<img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:200px; max-height:300px; min-height:250px" >
+													<img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" style="margin:auto; min-width: 150px; max-width:150px; max-height:250px; min-height:250px" >
 												@endif
 											</div>
 											<div class="product-card--body">
 												<div class="product-header">
-													<a href="" class="author">
+													<!-- <a href="" class="author">
 														{{$book->author()}}
-													</a>
+													</a> -->
 													<h3><a href="{{ route('book.detail',$book->id) }}" tabindex="0">{{$book->title}}</a></h3>
 												</div>
 												<article>
@@ -272,7 +272,11 @@
 								<h3 class="sidebar-title">Categories</h3>
 								<ul class="sidebar-menu--shop">
 									@foreach($categories as $category)
-									<li><a href="{{$_SERVER['REQUEST_URI']}}&category={{$category->id}}">{{$category->name}}</a></li>
+										@if(isset($_GET['category']))
+											<li><a href="{{substr($_SERVER['REQUEST_URI'],0,-1)}}{{$category->id}}">{{$category->name}}</a></li>
+										@else
+											<li><a href="{{$_SERVER['REQUEST_URI']}}&category={{$category->id}}">{{$category->name}}</a></li>
+										@endif
 									@endforeach
 								</ul>
 							</div>
