@@ -8,11 +8,9 @@
                 <div class="card-header">Book Detail</div>
                 <div class="card-body">
                     @if ($bookImages->count() > 0)
-                        @foreach($bookImages as $bookimage)
                             <div class="single-slide">
-                                <img src="/storage/{{ $bookimage->Image()->url }}" width="150px" alt="">
+                                <img src="/storage/{{ $bookImages->Image()->url }}" width="150px" alt="">
                             </div>
-                        @endforeach
 					@else
 						<div class="single-slide">
 							<img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" width="150px">

@@ -105,7 +105,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
-        $bookImages = BookImage::where('book_id',$book->id)->get();
+        $bookImages = BookImage::where('book_id',$book->id)->orderByDesc('id')->first();
         return view("backend.book.detail")
         ->with("bookImages",$bookImages)
         ->with("book",$book);
