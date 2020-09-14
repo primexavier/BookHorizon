@@ -11,21 +11,27 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Book Create</div>
-                <form method="POST" action="{{route('backend.book.update', $book->id)}}">
+                <form method="POST" action="{{route('backend.book.update', $book->id)}}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
-                                    <div class="col-md-12">       
+                                    <div class="col-md-12">         
                                         <div class="form-group">
-                                            <label for="exampleFormControlFile1">Photo</label>
-                                            <input type="file" class="form-control-file" accept="image/x-png,image/gif,image/jpeg" name="photo">
+                                            <label for="exampleFormControlFile1">Photo</label><br>                                            
+                                            @if ($book->bookimage())
+                                                <img id="imageShow" src="/storage/{{$book->bookimage()->image()->url}}" alt="your image" width="200px" height="250px" >
+                                            @else
+                                                <img id="imageShow" src="{{ asset('frontend/image/book') }}/empty.jpg" alt="your image" width="200px" height="250px" >
+                                            @endif
+                                            	<br><br>											
+                                            <input onchange="readURL(this)" type="file" class="form-control-file" accept="image/x-png,image/gif,image/jpeg" name="photo">
                                         </div>    
                                         <div class="form-group">
                                             <label for="title">Title</label>
-                                            <input type="text" class="form-control" placeholder="Book Email" name="title" value="{{$book->title}}">
-                                        </div>              
+                                            <input type="text" class="form-control" placeholder="Book Title" name="title" value="{{$book->title}}">
+                                        </div> 
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -81,10 +87,50 @@
                                     </div>
                                     <div class="col-md-12">        
                                         <div class="form-group">
-                                            <label for="title">Description</label>
-                                            <input type="text" class="form-control" placeholder="Book Desc" name="desc" value="{{$book->description}}">
+                                            <label for="title">Aurthors</label>
+                                            <select  class="form-control"  name="authorId" class="selectpicker" data-live-search="true">
+                                                @foreach($authors as $author)
+                                                    <option value="{{$author->id}}" data-tokens="ketchup mustard">{{$author->name}}</option>
+                                                @endforeach
+                                            </select>                                        
                                         </div>              
-                                    </div>           
+                                    </div>     
+                                    <div class="col-md-12">        
+                                        <div class="form-group">
+                                            <label for="title">Publishers</label>
+                                            <select  class="form-control"  name="publisherId" class="selectpicker" data-live-search="true">
+                                                @foreach($publishers as $publisher)
+                                                    <option value="{{$publisher->id}}" data-tokens="ketchup mustard">{{$publisher->name}}</option>
+                                                @endforeach
+                                            </select>                                        
+                                        </div>              
+                                    </div>                                         
+                                    <div class="col-md-12">        
+                                        <div class="form-group">
+                                            <label for="title">Supplier</label>
+                                            <select  class="form-control"  name="supplierId" class="selectpicker" data-live-search="true">
+                                                @foreach($suppliers as $supplier)
+                                                    <option value="{{$supplier->id}}" data-tokens="ketchup mustard">{{$supplier->name}}</option>
+                                                @endforeach
+                                            </select>                                        
+                                        </div>              
+                                    </div>                                        
+                                    <div class="col-md-12">        
+                                        <div class="form-group">
+                                            <label for="title">Language</label>
+                                            <select  class="form-control"  name="languageId" class="selectpicker" data-live-search="true">
+                                                @foreach($languages as $language)
+                                                    <option value="{{$language->id}}" data-tokens="ketchup mustard">{{$language->name}}</option>
+                                                @endforeach
+                                            </select>                                        
+                                        </div>              
+                                    </div>     
+                                    <div class="col-md-12">        
+                                        <div class="form-group">
+                                            <label for="title">Description</label>
+                                            <textarea rows="3" type="text" class="form-control" placeholder="Desciprtion" name="desc"> </textarea>
+                                        </div>              
+                                    </div>       
                                 </div>        
                             </div>
                             <div class="col-md-12">
@@ -101,4 +147,18 @@
 
 @push('scripts')
     <script src="{{ mix('js/app.js') }}"></script>
+    
+    <script>
+        function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function(e) {
+            $('#imageShow').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+        }
+    </script>
 @endpush

@@ -119,7 +119,15 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        return view("backend.book.edit")->with("book",$book);
+        $authors = Author::get();
+        $publishers = Publisher::get();
+        $suppliers = Supplier::get();
+        $languages = Language::get();
+        return view("backend.book.edit")->with("book",$book)
+        ->with("authors",$authors)
+        ->with("publishers",$publishers)
+        ->with("suppliers",$suppliers)
+        ->with("languages",$languages);
     }
 
     /**
@@ -151,7 +159,20 @@ class BookController extends Controller
         $book->start_qty = $request->qty;
         $book->description = $request->desc;
         if ($request->hasFile('photo')) {
-            $book->photo = $request->file('photo')->getClientOriginalName();
+            if ($request->file('photo')->isValid()) {
+                $extension = $request->photo->extension();
+                $request->photo->storeAs('\public\image\book', $book->id.".".$extension);
+                $url = "image\book\\".$book->id.".".$extension;
+                $newImage = new Image();
+                $newImage->name = $book->title;
+                $newImage->url = $url;
+                $newImage->save();
+
+                $ImageBook = new BookImage();
+                $ImageBook->book_id = $book->id;
+                $ImageBook->image_id = $newImage->id;
+                $ImageBook->save();
+            }
         }
         if($book->save()){
             return redirect(route("backend.book.detail",$book->id));
