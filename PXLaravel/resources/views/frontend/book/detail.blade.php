@@ -82,7 +82,7 @@
 									<span class="fas fa-star "></span>
 								</div>
 								<div class="review-widget">
-									<a href="">(1 Reviews)</a> <span>|</span>
+									<a href="">(0 Reviews)</a> <span>|</span>
 									<a href="">Write a review</a>
 								</div>
 							</div>
