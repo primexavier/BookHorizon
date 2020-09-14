@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReviewsTable extends Migration
+class CreateBookGenresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateReviewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('book_genres', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("user_id");
+            $table->unsignedBigInteger("genre_id");
             $table->unsignedBigInteger("book_id");
-            $table->integer("rating");
             $table->softDeletes('deleted_at', 0);	
             $table->timestamps(0);	
             $table->foreign('book_id')->references('id')->on('books');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('genre_id')->references('id')->on('genres');
         });
     }
 
@@ -32,18 +31,18 @@ class CreateReviewsTable extends Migration
      */
     public function down()
     {
-        if (Schema::hasColumn('reviews', 'book_id'))
+        if (Schema::hasColumn('book_genres', 'book_id'))
         {
-            Schema::table('reviews', function (Blueprint $table) {
-                $table->dropForeign(['user_id']);
+            Schema::table('book_genres', function (Blueprint $table) {
+                $table->dropForeign(['book_id']);
             });
         }
-        if (Schema::hasColumn('reviews', 'image_id'))
+        if (Schema::hasColumn('book_genres', 'genre_id'))
         {
-            Schema::table('reviews', function (Blueprint $table) {
-                $table->dropForeign(['user_id']);
+            Schema::table('book_genres', function (Blueprint $table) {
+                $table->dropForeign(['genre_id']);
             });
         }
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('book_genres');
     }
 }

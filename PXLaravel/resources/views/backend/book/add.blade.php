@@ -1,10 +1,5 @@
 @extends('backend.layouts.app')
 
-@push('scripts')
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-@endpush
-
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -116,6 +111,26 @@
                                             <select  class="form-control"  name="languageId" class="selectpicker" data-live-search="true">
                                                 @foreach($languages as $language)
                                                     <option value="{{$language->id}}" data-tokens="ketchup mustard">{{$language->name}}</option>
+                                                @endforeach
+                                            </select>                                        
+                                        </div>              
+                                    </div>                                       
+                                    <div class="col-md-12">        
+                                        <div class="form-group">
+                                            <label for="title">Categori</label>
+                                            <select  class="form-control"  name="categoryId" class="selectpicker" data-live-search="true">
+                                                @foreach($categories as $category)
+                                                    <option value="{{$category->id}}" data-tokens="ketchup mustard">{{$category->name}}</option>
+                                                @endforeach
+                                            </select>                                        
+                                        </div>              
+                                    </div>                                       
+                                    <div class="col-md-12">        
+                                        <div class="form-group">
+                                            <label for="title">Genre</label>
+                                            <select  class="form-control"  name="genreId" class="selectpicker" data-live-search="true">
+                                                @foreach($genres as $genre)
+                                                    <option value="{{$genre->id}}" data-tokens="ketchup mustard">{{$genre->genre}}</option>
                                                 @endforeach
                                             </select>                                        
                                         </div>              

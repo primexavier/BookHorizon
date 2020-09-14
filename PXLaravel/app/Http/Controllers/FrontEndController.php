@@ -11,6 +11,7 @@ use App\Model\Wishlist;
 use App\Model\Bank;
 use App\Model\PaymentMethod;
 use App\Model\TransactionType;
+use App\Model\Category;
 
 class FrontEndController extends Controller
 {
@@ -24,19 +25,24 @@ class FrontEndController extends Controller
         $booklist = Book::limit(20)->get();
         $spesialOffers = Book::inRandomOrder()->limit(0)->get();
         $newArrivals = Book::orderByDesc('id')->limit(10)->get();
+        $mostViews = Book::orderByDesc('view')->limit(10)->get();
         return view("index")
         ->with("booklist",$booklist)
         ->with("spesialOffers",$spesialOffers)
-        ->with("newArrivals",$newArrivals);
+        ->with("newArrivals",$newArrivals)
+        ->with("mostViews",$mostViews);
     }
 
     public function bookDetail($id)
     {
+
         $booklist = Book::limit(6)->get();        
         $book = Book::where('id',$id)->first();
         if(!$book){
             abort(404);
         }
+        $book->view++;
+        $book->save();
         return view("frontend.book.detail")
         ->with("booklist",$booklist)
         ->with("bookDetail",$book);
@@ -256,9 +262,18 @@ class FrontEndController extends Controller
     }
 
     public function searchBook(Request $request){   
-        $searchedBook = Book::where('title', 'like', '%'.$request->searchBook.'%')->get();
-        return view('frontend.search')
-        ->with("searchBooks",$searchedBook);
+        $categories = Category::get();
+        if($request->category){
+            $searchedBook = Book::where('title', 'like', '%'.$request->searchBook.'%')->get();
+            return view('frontend.search')
+            ->with("searchBooks",$searchedBook)
+            ->with("categories",$categories);
+        }else{
+            $searchedBook = Book::where('title', 'like', '%'.$request->searchBook.'%')->get();
+            return view('frontend.search')
+            ->with("searchBooks",$searchedBook)
+            ->with("categories",$categories);
+        }
     }
 
     public function paymentMethodList(PaymentMethod $paymentmethod){

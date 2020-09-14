@@ -124,13 +124,34 @@
                                                 @endforeach
                                             </select>                                        
                                         </div>              
-                                    </div>     
+                                    </div>  
+                                    <div class="col-md-12">        
+                                        <div class="form-group">
+                                            <label for="title">Categori</label>
+                                            <select  class="form-control"  name="categoryId" class="selectpicker" data-live-search="true">
+                                                @foreach($categories as $category)
+                                                    <option value="{{$category->id}}" data-tokens="ketchup mustard">{{$category->name}}</option>
+                                                @endforeach
+                                            </select>                                        
+                                        </div>              
+                                    </div>                                       
+                                    <div class="col-md-12">        
+                                        <div class="form-group">
+                                            <label for="title">Genre</label>
+                                            <select  class="form-control"  name="genreId" class="selectpicker" data-live-search="true">
+                                                @foreach($genres as $genre)
+                                                    <option value="{{$genre->id}}" data-tokens="ketchup mustard">{{$genre->genre}}</option>
+                                                @endforeach
+                                            </select>                                        
+                                        </div>              
+                                    </div>       
                                     <div class="col-md-12">        
                                         <div class="form-group">
                                             <label for="title">Description</label>
                                             <textarea rows="3" type="text" class="form-control" placeholder="Desciprtion" name="desc"> </textarea>
                                         </div>              
-                                    </div>       
+                                    </div>
+                                           
                                 </div>        
                             </div>
                             <div class="col-md-12">

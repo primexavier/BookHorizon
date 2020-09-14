@@ -9,6 +9,8 @@ use App\Model\Supplier;
 use App\Model\Language;
 use App\Model\Image;
 use App\Model\BookImage;
+use App\Model\Genre;
+use App\Model\Category;
 use App\Imports\BookImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
@@ -39,11 +41,15 @@ class BookController extends Controller
         $publishers = Publisher::get();
         $suppliers = Supplier::get();
         $languages = Language::get();
+        $genres = Genre::get();
+        $categories = Category::get();
         return view("backend.book.add")
         ->with("authors",$authors)
         ->with("publishers",$publishers)
         ->with("suppliers",$suppliers)
-        ->with("languages",$languages);
+        ->with("languages",$languages)
+        ->with("genres",$genres)
+        ->with("categories",$categories);
     }
 
     /**
@@ -123,11 +129,15 @@ class BookController extends Controller
         $publishers = Publisher::get();
         $suppliers = Supplier::get();
         $languages = Language::get();
+        $genres = Genre::get();
+        $categories = Category::get();
         return view("backend.book.edit")->with("book",$book)
         ->with("authors",$authors)
         ->with("publishers",$publishers)
         ->with("suppliers",$suppliers)
-        ->with("languages",$languages);
+        ->with("languages",$languages)
+        ->with("genres",$genres)
+        ->with("categories",$categories);
     }
 
     /**

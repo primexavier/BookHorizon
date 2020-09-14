@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="text">
                                     <h5>Membership</h5>
-                                    <p>join our membership plans.</p>
+                                    <p>join our Membership</p>
                                 </div>
                             </div>
                         </div>
@@ -543,7 +543,7 @@
                                                         {"breakpoint":480, "settings": {"slidesToShow": 1} },
                                                         {"breakpoint":320, "settings": {"slidesToShow": 1} }
                                                     ]'>
-                                                    @forelse ($booklist as $book)
+                                                    @forelse ($mostViews as $book)
                                                     <div class="single-slide">
                                                         <div class="product-card">
                                                             <div class="product-header">
