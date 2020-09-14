@@ -16,28 +16,28 @@
                         {"breakpoint":320, "settings": {"slidesToShow": 1} }
                     ]'>
                         <div class="single-slide">
-                            <img src="{{ asset('frontend/image/others/brand-1.jpg') }}" alt="">
+                            <img src="{{ asset('frontend/image/logo--footer.png') }}" alt="">
                         </div>
                         <div class="single-slide">
-                            <img src="{{ asset('frontend/image/others/brand-2.jpg') }}" alt="">
+                            <img src="{{ asset('frontend/image/logo--footer.png') }}" alt="">
                         </div>
                         <div class="single-slide">
-                            <img src="{{ asset('frontend/image/others/brand-3.jpg') }}" alt="">
+                            <img src="{{ asset('frontend/image/logo--footer.png') }}" alt="">
                         </div>
                         <div class="single-slide">
-                            <img src="{{ asset('frontend/image/others/brand-4.jpg') }}" alt="">
+                            <img src="{{ asset('frontend/image/logo--footer.png') }}" alt="">
                         </div>
                         <div class="single-slide">
-                            <img src="{{ asset('frontend/image/others/brand-5.jpg') }}" alt="">
+                            <img src="{{ asset('frontend/image/logo--footer.png') }}" alt="">
                         </div>
                         <div class="single-slide">
-                            <img src="{{ asset('frontend/image/others/brand-6.jpg') }}" alt="">
+                            <img src="{{ asset('frontend/image/logo--footer.png') }}" alt="">
                         </div>
                         <div class="single-slide">
-                            <img src="{{ asset('frontend/image/others/brand-1.jpg') }}" alt="">
+                            <img src="{{ asset('frontend/image/logo--footer.png') }}" alt="">
                         </div>
                         <div class="single-slide">
-                            <img src="{{ asset('frontend/image/others/brand-2.jpg') }}" alt="">
+                            <img src="{{ asset('frontend/image/logo--footer.png ') }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -64,11 +64,9 @@
                                     <h3>Information</h3>
                                 </div>
                                 <ul class="footer-list normal-list">
-                                    <li><a href="">Prices drop</a></li>
-                                    <li><a href="">New products</a></li>
-                                    <li><a href="">Best sales</a></li>
-                                    <li><a href="">Contact us</a></li>
-                                    <li><a href="">Sitemap</a></li>
+                                    <li><a href="">New Releases</a></li>
+                                    <li><a href="">Best sellers</a></li>
+                                    <li><a href="">Coming Soon</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -78,29 +76,20 @@
                                     <h3>Extras</h3>
                                 </div>
                                 <ul class="footer-list normal-list">
-                                    <li><a href="">Delivery</a></li>
                                     <li><a href="">About Us</a></li>
                                     <li><a href="">Stores</a></li>
-                                    <li><a href="">Contact us</a></li>
+                                    <li><a href="">Contact Us</a></li>
                                     <li><a href="">Sitemap</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class=" col-xl-3 col-lg-4 col-sm-6">
-                            <div class="footer-title">
-                                <h3>Newsletter Subscribe</h3>
-                            </div>
-                            <div class="newsletter-form mb--30">
-                                <input id="subcribeEmail" type="email" class="form-control" placeholder="Enter Your Email Address Here...">
-                                <button onclick="subcribeEmail()" class="btn btn--primary w-100">Subscribe</button>
-                            </div>
+
                             <div class="social-block">
                                 <h3 class="title">STAY CONNECTED</h3>
                                 <ul class="social-list list-inline">
-                                    <li class="single-social facebook"><a href=""><i class="ion ion-social-facebook"></i></a></li>
-                                    <li class="single-social twitter"><a href=""><i class="ion ion-social-twitter"></i></a></li>
-                                    <li class="single-social google"><a href=""><i class="ion ion-social-googleplus-outline"></i></a></li>
-                                    <li class="single-social youtube"><a href=""><i class="ion ion-social-youtube"></i></a></li>
+                                    <li class="single-social facebook"><a href="https://www.facebook.com/bookhorizon/"><i class="ion ion-social-facebook"></i></a></li>
+                                    <li class="single-social google"><a href="https://www.instagram.com/bookhorizon/?hl=en"><i class="ion ion-social-instagram"></i></a></li>
                                 </ul>
                             </div>
                         </div>

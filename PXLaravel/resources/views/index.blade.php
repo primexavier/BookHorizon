@@ -2,7 +2,7 @@
 
 @section('content') 
             <!--================================= Hero Area ===================================== -->
-            <section class="hero-area hero-slider-4 ">
+            <!-- <section class="hero-area hero-slider-4 ">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-9 offset-lg-3">
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!--================================= Home Features Section ===================================== -->
             <section class="mb--30">
                 <h2 class="sr-only">Feature Section</h2>
@@ -56,8 +56,8 @@
                                     <i class="fas fa-shipping-fast"></i>
                                 </div>
                                 <div class="text">
-                                    <h5>Free Shipping Item</h5>
-                                    <p> Orders over $500</p>
+                                    <h5>Shipping to</h5>
+                                    <p> all over Indonesia </p>
                                 </div>
                             </div>
                         </div>
@@ -67,8 +67,8 @@
                                     <i class="fas fa-redo-alt"></i>
                                 </div>
                                 <div class="text">
-                                    <h5>Money Back Guarantee</h5>
-                                    <p>100% money back</p>
+                                    <h5>Rent & Return</h5>
+                                    <p></p>
                                 </div>
                             </div>
                         </div>
@@ -78,8 +78,8 @@
                                     <i class="fas fa-piggy-bank"></i>
                                 </div>
                                 <div class="text">
-                                    <h5>Cash On Delivery</h5>
-                                    <p>Lorem ipsum dolor amet</p>
+                                    <h5>Membership</h5>
+                                    <p>join our membership plans.</p>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="text">
                                     <h5>Help & Support</h5>
-                                    <p>Call us : + 0123.4567.89</p>
+                                    <p>Call us : +62 813 8908 4342</p>
                                 </div>
                             </div>
                         </div>
