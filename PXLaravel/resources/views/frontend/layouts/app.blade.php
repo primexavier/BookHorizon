@@ -235,15 +235,18 @@
                                             <i class="fa fa-bars"></i>
                                             Browse categories
                                         </a>
+                                        @if(!empty($categories))
                                         <ul class="category-menu">
-                                            <li class="cat-item has-children">
-                                                <a href="#">Non Fiction</a>
-                                                <ul class="sub-menu">
+                                            @foreach($categories as $category)
+                                            <li class="cat-item">
+                                                <a href="{{route('book.search')}}?category={{$category->id}}">{{$category->name}}</a>
+                                                <!-- <ul class="sub-menu">
                                                     <li><a href="#">Self-Help /Personal Development</a></li>
                                                     <li><a href="#">Business /Personal Development</a></li>
-                                                </ul>
+                                                </ul> -->
                                             </li>
-                                            <li class="cat-item has-children">
+                                            @endforeach
+                                            <!-- <li class="cat-item has-children">
                                                 <a href="#">Fiction</a>
                                                 <ul class="sub-menu">
                                                     <li><a href="#">Fiction Crime, Mystery & Thriller</a></li>
@@ -277,7 +280,7 @@
                                                         </ul>
                                                     </li>
                                                 </ul>
-                                            </li>
+                                            </li> -->
                                             <!-- <li class="cat-item has-children"><a href="#">Business & Money</a>
                                                 <ul class="sub-menu">
                                                     <li><a href="">Brake Tools</a></li>
@@ -324,7 +327,8 @@
                                             <li class="cat-item hidden-menu-item"><a href="#">Indoor Living</a></li>
                                             <li class="cat-item"><a href="#" class="js-expand-hidden-menu">More -->
                                             <!-- Categories</a></li> -->
-                                            <!-- </ul> -->
+                                        </ul>
+                                        @endif
                                     </div>
                                 </nav>
                             </div>

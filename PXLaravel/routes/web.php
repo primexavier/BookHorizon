@@ -43,6 +43,7 @@ Route::get('/payment-method/{paymentmethod}', 'FrontEndController@paymentMethodL
 
 Route::post('/addChart/{id}', 'FrontEndController@addChart')->name('add.chart');
 Route::post('/addWishlist/{id}', 'FrontEndController@addWishlist')->name('add.wishlist');
+Route::post('/add-comment/{id}', 'FrontEndController@addComment')->name('add.comment');
 
 Route::get('/getprovince/{id}', 'FrontEndController@getProvince')->name('province.list');
 Route::get('/getcity/{provinceId}/{cityId}', 'FrontEndController@getCity')->name('city.detail');

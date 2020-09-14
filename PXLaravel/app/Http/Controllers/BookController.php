@@ -91,7 +91,7 @@ class BookController extends Controller
                 $new->author_id = $newAuthor->id; //$request->authors_id;
             }
         }else{
-            $new->author_id = 1; //$request->authors_id;            
+            $new->author_id = "1"; //$request->authors_id;            
         }
         if($request->publisherId){
             $publisher = Publisher::where("name",$request->authorId)->first();
@@ -104,7 +104,7 @@ class BookController extends Controller
                 $new->publisher_id = $newPublisher->id; //$request->authors_id;
             }
         }else{
-            $new->publisher_id = 1; //$request->authors_id;            
+            $new->publisher_id = "1"; //$request->authors_id;            
         }
         if($request->supplierId){
             $supplier = Supplier::where("name",$request->supplierId)->first();
@@ -117,7 +117,7 @@ class BookController extends Controller
                 $new->supplier_id = $newSupplier->id; //$request->authors_id;
             }
         }else{
-            $new->supplier_id = 1; //$request->authors_id;            
+            $new->supplier_id = "!"; //$request->authors_id;            
         }
         $new->save();
 
@@ -217,45 +217,6 @@ class BookController extends Controller
                 'title' => ['required', 'unique:books', 'max:255']
             ]);           
         }
-        if($request->authorId){
-            $author = Author::where("name",$request->authorId)->first();
-            if($author){
-                $new->author_id = $author->id; //$request->authors_id;
-            }else{
-                $newAuthor = new Author();
-                $newAuthor->name = $request->authorId;
-                $newAuthor->save();
-                $new->author_id = $newAuthor->id; //$request->authors_id;
-            }
-        }else{
-            $new->author_id = 1; //$request->authors_id;            
-        }
-        if($request->publisherId){
-            $publisher = Publisher::where("name",$request->authorId)->first();
-            if($publisher){
-                $new->publisher_id = $publisher->id; //$request->authors_id;
-            }else{
-                $newPublisher = new Author();
-                $newPublisher->name = $request->authorId;
-                $newPublisher->save();
-                $new->publisher_id = $newPublisher->id; //$request->authors_id;
-            }
-        }else{
-            $new->publisher_id = 1; //$request->authors_id;            
-        }
-        if($request->supplierId){
-            $supplier = Supplier::where("name",$request->supplierId)->first();
-            if($supplier){
-                $new->supplier_id = $supplier->id; //$request->authors_id;
-            }else{
-                $newSupplier = new Author();
-                $newSupplier->name = $request->supplierId;
-                $newSupplier->save();
-                $new->supplier_id = $newSupplier->id; //$request->authors_id;
-            }
-        }else{
-            $new->supplier_id = 1; //$request->authors_id;            
-        }
         $book->title = $request->title;
         $book->isbn = $request->isbn;
         $book->publication_city = $request->pcity;
@@ -269,6 +230,45 @@ class BookController extends Controller
         $book->price = $request->price;
         $book->start_qty = $request->qty;
         $book->description = $request->desc;
+        if(!empty($request->authorId)){
+            $author = Author::where("name",$request->authorId)->first();
+            if($author){
+                $book->author_id = $author->id; //$request->authors_id;
+            }else{
+                $newAuthor = new Author();
+                $newAuthor->name = $request->authorId;
+                $newAuthor->save();
+                $book->author_id = $newAuthor->id; //$request->authors_id;
+            }
+        }else{
+            $book->author_id = 1; //$request->authors_id;            
+        }
+        if(!empty($request->publisherId)){
+            $publisher = Publisher::where("name",$request->authorId)->first();
+            if($publisher){
+                $book->publisher_id = $publisher->id; //$request->authors_id;
+            }else{
+                $newPublisher = new Publisher();
+                $newPublisher->name = $request->publisherId;
+                $newPublisher->save();
+                $book->publisher_id = $newPublisher->id; //$request->authors_id;
+            }
+        }else{
+            $book->publisher_id = 1; //$request->authors_id;            
+        }
+        if(!empty($request->supplierId)){
+            $supplier = Supplier::where("name",$request->supplierId)->first();
+            if($supplier){
+                $book->supplier_id = $supplier->id; //$request->authors_id;
+            }else{
+                $newSupplier = new Supplier();
+                $newSupplier->name = $request->supplierId;
+                $newSupplier->save();
+                $new->supplier_id = $newSupplier->id; //$request->authors_id;
+            }
+        }else{
+            $book->supplier_id = 1; //$request->authors_id;            
+        }
         if($request->categoryId){
             $bookCategory = BookCategory::where('book_id',$book->id)->first();
             if($bookCategory){

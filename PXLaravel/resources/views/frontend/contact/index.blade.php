@@ -74,7 +74,7 @@
                             <span class="icon"><i class="fa fa-phone"></i></span>
                             <div class="content">
                                 <h3 class="title">Contact By Phone</h3>
-                                <p>1800.123.4569<br> 1800.123.7777</p>
+                                <p>0813 8908 4342</p>
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@
                             <span class="icon"><i class="fa fa-envelope"></i></span>
                             <div class="content">
                                 <h3 class="title">Contact By Email</h3>
-                                <p>contact@yoursite.com <br> info@lawyersattorneys.com</p>
+                                <p>admin@bookhorizonlibrary.com</p>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                             <span class="icon"><i class="fa fa-map-marker"></i></span>
                             <div class="content">
                                 <h3 class="title">Come To See Us</h3>
-                                <p>7/135 Saint St. London <br> 1130/5 Louis III St. New York</p>
+                                <p>Tunas 2 Blok A No. 2, Batam</p>
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                         <div class="contact-info">
                             <span class="icon"><i class="fa fa-users"></i></span>
                             <div class="content">
-                                <h3 class="title">PrimeXovers Social</h3>
+                                <h3 class="title">bookhorizonlibrary Social</h3>
                                 <ul class="social-list list-inline">
                                     <li class="single-social facebook"><a href=""><i class="ion ion-social-facebook"></i></a></li>
                                     <li class="single-social twitter"><a href=""><i class="ion ion-social-twitter"></i></a></li>

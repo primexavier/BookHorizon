@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Book Detail</div>
                 <div class="card-body">
-                    @if ($bookImages->count() > 0)
+                    @if ($bookImages)
                             <div class="single-slide">
                                 <img src="/storage/{{ $bookImages->Image()->url }}" width="150px" alt="">
                             </div>

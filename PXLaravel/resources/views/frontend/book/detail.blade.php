@@ -80,16 +80,26 @@
                         <del class="price-old">You Save Rp {{$bookDetail->price+10}}</del>
                     </div>
                     <div class="rating-widget">
-								<div class="rating-block">
-									<span class="fas fa-star star_on"></span>
-									<span class="fas fa-star star_on"></span>
-									<span class="fas fa-star star_on"></span>
-									<span class="fas fa-star star_on"></span>
-									<span class="fas fa-star "></span>
-								</div>
+                        @if($reviews->count() > 0)
+							<div class="rating-block">
+								<span class="fas fa-star star_on"></span>
+								<span class="fas fa-star star_on"></span>
+								<span class="fas fa-star star_on"></span>
+								<span class="fas fa-star star_on"></span>
+								<span class="fas fa-star "></span>
+							</div>
+                        @else
+							<div class="rating-block">
+								<span class="fas fa-star"></span>
+								<span class="fas fa-star"></span>
+								<span class="fas fa-star"></span>
+								<span class="fas fa-star"></span>
+								<span class="fas fa-star"></span>
+							</div>
+
+                        @endif
 								<div class="review-widget">
-									<a href="">(0 Reviews)</a> <span>|</span>
-									<a href="">Write a review</a>
+									<a href="">({{$reviews->count()}} Reviews)</a>
 								</div>
 							</div>
                     <article class="product-details-article">
@@ -131,7 +141,7 @@
                 <li class="nav-item">
 							<a class="nav-link" id="tab2" data-toggle="tab" href="#tab-2" role="tab"
 								aria-controls="tab-2" aria-selected="true">
-								REVIEWS (1)
+								REVIEWS ({{$comments->count()}})
 							</a>
 						</li>
             </ul>
@@ -144,75 +154,83 @@
                 </div>
                 <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab2">
                     <div class="review-wrapper">
-                        <h2 class="title-lg mb--20">1 REVIEW FOR AUCTOR GRAVIDA ENIM</h2>
-                        <div class="review-comment mb--20">
-                            <div class="avatar">
-                                <img src="{{ asset('frontend/image/icon/author-logo.png') }}" alt="">
-                            </div>
-                            <div class="text">
-                                <div class="rating-block mb--15">
-                                    <span class="ion-android-star-outline star_on"></span>
-                                    <span class="ion-android-star-outline star_on"></span>
-                                    <span class="ion-android-star-outline star_on"></span>
-                                    <span class="ion-android-star-outline"></span>
-                                    <span class="ion-android-star-outline"></span>
-                                </div>
-                                <h6 class="author">ADMIN – <span class="font-weight-400">March 23, 2015</span>
-                                </h6>
-                                <p>Lorem et placerat vestibulum, metus nisi posuere nisl, in accumsan elit odio
-                                    quis mi.</p>
-                            </div>
-                        </div>
-                        <h2 class="title-lg mb--20 pt--15">ADD A REVIEW</h2>
-                        <div class="rating-row pt-2">
-                            <p class="d-block">Your Rating</p>
-                            <span class="rating-widget-block">
-                                <input type="radio" name="star" id="star1">
-                                <label for="star1"></label>
-                                <input type="radio" name="star" id="star2">
-                                <label for="star2"></label>
-                                <input type="radio" name="star" id="star3">
-                                <label for="star3"></label>
-                                <input type="radio" name="star" id="star4">
-                                <label for="star4"></label>
-                                <input type="radio" name="star" id="star5">
-                                <label for="star5"></label>
-                            </span>
-                            <form action="./" class="mt--15 site-form ">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="message">Comment</label>
-                                            <textarea name="message" id="message" cols="30" rows="10"
-                                                class="form-control"></textarea>
-                                        </div>
+                            @if($comments->count() > 0)
+                                <h2 class="title-lg mb--20">{{$comments->count()}} REVIEW FOR {{$bookDetail->title}}</h2>
+                                @foreach($comments as $comment)
+                                <div class="review-comment mb--20">
+                                    <div class="avatar">
+                                        <img src="{{ asset('frontend/image/icon/author-logo.png') }}" alt="">
                                     </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label for="name">Name *</label>
-                                            <input type="text" id="name" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label for="email">Email *</label>
-                                            <input type="text" id="email" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="form-group">
-                                            <label for="website">Website</label>
-                                            <input type="text" id="website" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <div class="submit-btn">
-                                            <a href="#" class="btn btn-black">Post Comment</a>
-                                        </div>
+                                    <div class="text">
+                                        <!-- <div class="rating-block mb--15">
+                                            <span class="ion-android-star-outline star_on"></span>
+                                            <span class="ion-android-star-outline star_on"></span>
+                                            <span class="ion-android-star-outline star_on"></span>
+                                            <span class="ion-android-star-outline"></span>
+                                            <span class="ion-android-star-outline"></span>
+                                        </div> -->
+                                        <h6 class="author">{{$comment->comment()->user()->name}} – <span class="font-weight-400">{{$comment->created_at}}</span>
+                                        </h6>
+                                        <p>{{$comment->comment()->comment}}</p>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                                @endforeach
+                            @endif
+                            @if(Auth::User())
+                            <h2 class="title-lg mb--20 pt--15">ADD A Comment</h2>
+                            <div class="rating-row pt-2">
+                                <p class="d-block">Your Rating</p>
+                                <span class="rating-widget-block">
+                                    <input type="radio" name="star" id="star1">
+                                    <label for="star1"></label>
+                                    <input type="radio" name="star" id="star2">
+                                    <label for="star2"></label>
+                                    <input type="radio" name="star" id="star3">
+                                    <label for="star3"></label>
+                                    <input type="radio" name="star" id="star4">
+                                    <label for="star4"></label>
+                                    <input type="radio" name="star" id="star5">
+                                    <label for="star5"></label>
+                                </span>
+                                <form action="{{route('add.comment',$bookDetail->id)}}" method="post" class="mt--15 site-form ">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label for="message">Comment</label>
+                                                <textarea required="required" name="message" id="message" cols="30" rows="10"
+                                                    class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label for="name">Name *</label>
+                                                <input type="text" id="name" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label for="email">Email *</label>
+                                                <input type="text" id="email" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label for="website">Website</label>
+                                                <input type="text" id="website" class="form-control">
+                                            </div>
+                                        </div> -->
+                                        <div class="col-lg-4">
+                                            <div class="submit-btn">
+                                                <button type="submit" class="btn btn-black">Post Comment</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            @else                        
+                            <h2 class="title-lg mb--20 pt--15">Login to Comment / Reviews</h2>
+                            @endif
                     </div>
                 </div>
             </div>

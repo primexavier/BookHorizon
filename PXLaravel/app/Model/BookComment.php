@@ -5,12 +5,11 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Comment extends Model
+class BookComment extends Model
 {
     use SoftDeletes;
-    //
-    public function user()
+    public function comment()
     {
-        return $this->belongsTo('App\Model\User')->first();
+        return $this->belongsTo('App\Model\Comment')->first();
     }
 }

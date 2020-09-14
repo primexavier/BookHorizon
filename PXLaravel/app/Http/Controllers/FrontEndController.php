@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Model\Book;
 use App\Model\BookCategory;
+use App\Model\BookComment;
 use App\Model\Blog;
 use App\Model\Chart;
 use App\Model\Wishlist;
@@ -14,6 +15,8 @@ use App\Model\PaymentMethod;
 use App\Model\TransactionType;
 use App\Model\TransactionBook;
 use App\Model\Category;
+use App\Model\Comment;
+use App\Model\Review;
 
 class FrontEndController extends Controller
 {
@@ -24,6 +27,7 @@ class FrontEndController extends Controller
      */
     public function index()
     {
+        $categories = Category::get();
         $booklist = Book::limit(20)->get();
         $spesialOffers = Book::inRandomOrder()->limit(0)->get();
         $newArrivals = Book::orderByDesc('id')->limit(10)->get();
@@ -53,6 +57,7 @@ class FrontEndController extends Controller
             $category3Book = Book::inRandomOrder()->limit(10)->get();
         }
         return view("index")
+        ->with("categories",$categories)
         ->with("category1",$category1Book)
         ->with("category2",$category2Book)
         ->with("category3",$category3Book)
@@ -65,7 +70,8 @@ class FrontEndController extends Controller
 
     public function bookDetail($id)
     {
-
+        $comments = BookComment::where('book_id',$id)->get();
+        $reviews = Review::where('book_id',$id)->get();
         $booklist = Book::limit(6)->get();        
         $book = Book::where('id',$id)->first();
         if(!$book){
@@ -74,6 +80,8 @@ class FrontEndController extends Controller
         $book->view++;
         $book->save();
         return view("frontend.book.detail")
+        ->with("reviews",$reviews)
+        ->with("comments",$comments)
         ->with("booklist",$booklist)
         ->with("bookDetail",$book);
     }
@@ -299,7 +307,7 @@ class FrontEndController extends Controller
     public function searchBook(Request $request){   
         $categories = Category::get();
         if($request->category){
-            $bookCategory = BookCategory::pluck('book_id');
+            $bookCategory = BookCategory::where('id',$request->category)->pluck('book_id');
             $searchedBook = Book::whereIn('id',$bookCategory)->where('title', 'like', '%'.$request->searchBook.'%')->get();
             return view('frontend.search')
             ->with("searchBooks",$searchedBook)
@@ -317,5 +325,26 @@ class FrontEndController extends Controller
     
         return view('frontend.payment-method')
         ->with("banks", $banks);
+    }
+
+    public function addComment($id, Request $request){
+        if(Auth::User()){
+            $validatedData = $request->validateWithBag('comments', [
+                'message' => ['required', 'max:255']
+            ]);
+            $newComment = new Comment();
+            $newComment->user_id = Auth::user()->id;
+            $newComment->comment = $request->message;
+            $newComment->save();
+
+            $newBookComment = new BookComment();
+            $newBookComment->comment_id = $newComment->id;
+            $newBookComment->book_id = $id;
+            $newBookComment->save();
+            
+            return redirect(route("book.detail",$id));
+        }else{
+            return redirect(route("book.detail",$id));
+        }
     }
 }
