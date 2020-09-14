@@ -416,6 +416,11 @@ class MemberController extends Controller
     }
 
     public function confirmPay(Bill $bill){
+        if(!$bill->transaction()){
+            $bill->delete();
+            return redirect()->back();
+        }
+        
         return view("frontend.profile.upload-receipt")
         ->with("bill",$bill);
     }
