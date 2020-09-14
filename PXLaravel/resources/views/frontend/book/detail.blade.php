@@ -62,7 +62,13 @@
                     <!-- <p class="tag-block">Tags: <a href="#">Movado</a>, <a href="#">Omega</a></p> -->
                     <h3 class="product-title">{{$bookDetail->title}}</h3>
                     <ul class="list-unstyled">
+                        <li>{{$bookDetail->format." | "}}{{$bookDetail->language_id}}</li>
                         <li>By Author: <span class="list-value">{{$bookDetail->author()}}</span></li>
+                        <li>Publication City: <span class="list-value">{{$bookDetail->publication_city}}</span></li>
+                        <li>Isbn: <span class="list-value">{{$bookDetail->isbn}}</span></li>
+                        <li>Weight: <span class="list-value">{{$bookDetail->weight}}</span></li>
+                        <li>Dimension: <span class="list-value">{{$bookDetail->dimension}}</span></li>
+                        <li>Pages: <span class="list-value">{{$bookDetail->pages}}</span></li>
                         <!-- <li>Ex Tax: <span class="list-value"> {{$bookDetail->price}}</span></li> -->
                         <!-- <li>Brands: <a href="#" class="list-value font-weight-bold"> Canon</a></li> -->
                         <!-- <li>Product Code: <span class="list-value"> model1</span></li> -->
