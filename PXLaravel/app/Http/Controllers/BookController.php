@@ -61,6 +61,8 @@ class BookController extends Controller
         $new->price = $request->price;
         $new->description = $request->desc;
         $new->supplier_id = 1;
+        $new->language_id = 1;
+        $new->publisher_id = 1;
         $new->save();
 
         if ($request->hasFile('photo')) {

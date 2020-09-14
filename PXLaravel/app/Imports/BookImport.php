@@ -18,6 +18,8 @@ class BookImport implements ToModel, WithHeadingRow
         return new Book([
             'author_id' => 1,
             'supplier_id' => 1,
+            'publisher_id' => 1,
+            'language_id' => 1,
             'title' => $row["title_of_the_book"],
             'isbn' => $row["isbn"],
             'publication_city' => $row["publication_city_country"],

@@ -85,5 +85,16 @@ class UserSeeder extends Seeder
             'name' => "Rent 3 Day",
             'description' => "Rent",
         ]);
+        DB::table('languages')->insert([
+            'id' => 1,
+            'name' => "English",
+            'country' => "England",
+            'description' => "Rent",
+        ]);
+        DB::table('publishers')->insert([
+            'id' => 1,
+            'name' => "Publisher",
+            'description' => "Publisher Test",
+        ]);
     }
 }
