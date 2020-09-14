@@ -405,7 +405,7 @@
                                                         {"breakpoint":480, "settings": {"slidesToShow": 1} },
                                                         {"breakpoint":320, "settings": {"slidesToShow": 1} }
                                                     ]'>
-                                                    @forelse ($booklist as $book)
+                                                    @forelse ($featuredBooks as $book)
                                                     <div class="single-slide">
                                                         <div class="product-card">
                                                             <div class="product-header">

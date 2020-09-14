@@ -12,6 +12,7 @@ use App\Model\Wishlist;
 use App\Model\Bank;
 use App\Model\PaymentMethod;
 use App\Model\TransactionType;
+use App\Model\TransactionBook;
 use App\Model\Category;
 
 class FrontEndController extends Controller
@@ -27,10 +28,17 @@ class FrontEndController extends Controller
         $spesialOffers = Book::inRandomOrder()->limit(0)->get();
         $newArrivals = Book::orderByDesc('id')->limit(10)->get();
         $mostViews = Book::orderByDesc('view')->limit(10)->get();
+        $TransactionDetail = TransactionBook::groupBy('book_id')->limit(10)->pluck('book_id');
+        if($TransactionDetail->count()>0){
+            $featuredBooks = Book::whereIn("id", $TransactionDetail)->get();
+        }else{
+            $featuredBooks = Book::inRandomOrder()->limit(10)->get();
+        }
         return view("index")
         ->with("booklist",$booklist)
         ->with("spesialOffers",$spesialOffers)
         ->with("newArrivals",$newArrivals)
+        ->with("featuredBooks",$featuredBooks)
         ->with("mostViews",$mostViews);
     }
 
