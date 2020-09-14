@@ -177,10 +177,15 @@ class FrontEndController extends Controller
     {
         if(Auth::User()){
             $transactionTypes = TransactionType::get();
-            $chart = Chart::where("user_id", Auth::User()->id)->get();
+            $charts = Chart::where("user_id", Auth::User()->id)->get();
+            foreach($charts as $chart){
+                if(!$chart->book()){
+                    $chart->delete();
+                }
+            }
             return view("frontend.chart")
             ->with("transactionTypes",$transactionTypes)
-            ->with("charts",$chart);
+            ->with("charts",$charts);
         }else{
             return redirect(route("login"));
         }
