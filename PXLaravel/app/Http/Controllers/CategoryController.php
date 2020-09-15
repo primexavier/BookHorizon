@@ -77,7 +77,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        if($category->name != $request->name){
+            $validatedData = $request->validateWithBag('categories', [
+                'name' => ['required', 'unique:categories', 'max:255']
+            ]);
+        }
+        $category->name = $request->name;
+        $category->description = $request->desc;
+        $category->save();
+        return redirect()->route("backend.category.index");
     }
 
     /**

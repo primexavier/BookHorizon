@@ -81,7 +81,16 @@ class GenreController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
-        //
+        if($genre->genre != $request->genre){
+            $validatedData = $request->validateWithBag('genres', [
+                'genre' => ['required', 'unique:genres', 'max:255']
+            ]);
+        }
+        $genre->genre = $request->genre;
+        $genre->parent_id = $request->parent;
+        $genre->save();
+        
+        return redirect()->route("backend.genre.index");
     }
 
     /**

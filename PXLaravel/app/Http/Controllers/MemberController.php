@@ -105,6 +105,25 @@ class MemberController extends Controller
         ->with('books', $books);
     }
 
+    public function update(Request $request, User $user){
+        if($user->email != $request->email){
+            $validatedData = $request->validateWithBag('users', [
+                'name' => ['required'],
+                'email' => ['required', 'unique:users']
+            ]);                
+        }
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->first_name = $request->name;
+        $user->last_name = $request->last_name;
+        $user->display_name = $request->display_name;
+        if($user->save()){
+            return redirect()->route('backend.member.index');
+        }else{
+            return redirect()->route('backend.member.index');
+        }
+    }
+
     public function orderlist()
     {
         $userID = Auth::id();

@@ -12,11 +12,11 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Parent Genre</label>
-                                <input type="number" class="form-control" name="parentGenre">
+                                <input type="number" class="form-control" name="parentGenre" value="{{$genre->parent_id}}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
-                                <input type="text" class="form-control" name="genre">
+                                <input type="text" class="form-control" name="genre" value="{{$genre->genre}}">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
