@@ -160,6 +160,7 @@
                                         </div>
                                         @else
                                         <div class="login-block">
+                                            <a href="{{ route('profile') }}" class="font-weight-bold">My profile</a> <br>
                                             <a href="{{ route('logout') }}"
                                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                 Logout
