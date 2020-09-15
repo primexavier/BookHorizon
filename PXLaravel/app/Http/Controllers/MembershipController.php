@@ -84,7 +84,21 @@ class MembershipController extends Controller
      */
     public function update(Request $request, Membership $membership)
     {
-        return $membership;
+        $validatedData = $request->validateWithBag('memberships', [
+            'name' => ['required'],
+            'price' => ['required'],
+            'duration' => ['required']
+        ]);
+
+        $membership->name = $request->name;
+        $membership->duration = $request->duration;
+        $membership->price = $request->price;
+        $membership->description = $request->desc;
+        if($membership->save()){
+            return redirect()->route('backend.membership.index');
+        }else{
+            return redirect()->route('backend.membership.index');
+        }
     }
 
     /**
