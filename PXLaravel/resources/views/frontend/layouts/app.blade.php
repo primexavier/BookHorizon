@@ -346,13 +346,13 @@
                             <div class="col-lg-6">
                                 <div class="main-navigation flex-lg-right">
                                     <ul class="main-menu menu-right li-last-0">
-                                        @if(Auth::user())
+                                        <!-- @if(Auth::user())
                                         <li class="menu-item">
                                             <a href="{{route('profile')}}">
                                                 My profile
                                             </a>
                                         </li>
-                                        @endif
+                                        @endif -->
                                         <li class="menu-item">
                                             <a href="/">
                                                 Home

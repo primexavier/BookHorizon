@@ -38,7 +38,7 @@
 															<tr>
 																<th>No</th>
 																<th>Date</th>
-																<th>Expire</th>
+																<th>Expired</th>
 																<th>Download</th>
 															</tr>
 														</thead>
@@ -47,8 +47,14 @@
 																<tr>
 																	<td>{{$bill->id}}</td>
 																	<td>{{$bill->created_at}}</td>
-																	<td>{{$bill->created_at}}</td>
-																	<td><a href="{{route('confirm.payment',$bill->id)}}" class="btn">Upload Receipt</a></td>
+																	<td>{{$bill->created_at->addDays(1)}}</td>
+																	<td>
+																	@if(Carbon\Carbon::now() < $bill->created_at->addDays(1))
+																		<a href="{{route('confirm.payment',$bill->id)}}" class="btn">Upload Receipt</a>
+																	@else
+																		Bill Expired
+																	@endif
+																	</td>
 																</tr>
 															@endforeach
 														</tbody>
