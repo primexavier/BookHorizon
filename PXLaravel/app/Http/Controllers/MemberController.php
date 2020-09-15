@@ -437,11 +437,16 @@ class MemberController extends Controller
     }
 
     public function uploadBill(Bill $bill, Request $request){
-        $path = $request->file('receipt')->store('public/receipt/'.$bill->id);
-        $bill->photo = $path;
+        if ($request->hasFile('receipt')) {
+            if ($request->file('receipt')->isValid()) {
+                $extension = $request->receipt->extension();
+                $request->receipt->storeAs('\public\image\bill', 'bill-'.$bill->id.".".$extension);
+                $url = "image\bill\\bill-".$bill->id.".".$extension;
+            }
+        }
+        $bill->photo = $url;
         $bill->save();
-        return view("frontend.profile.upload-receipt")
-        ->with("bill",$bill);
+        return redirect(route('confirm.payment',$bill->id));
     }
 
     public function rentedList(){
