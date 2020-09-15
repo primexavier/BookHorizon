@@ -9,67 +9,42 @@
 
                 <div class="card-body">
                     No Transaction : {{$transaction->id}} <br>
-                    Total : {{$transaction->grandTotal}}<br>
-                    {{$transaction}}<br>
-                    {{$bill}}
+                    Total : Rp {{$transaction->grand_total}}<br>
+                    Status : <br>
                     <table class="table">
                         <thead class="thead-dark">
                             <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
                             </tr>
                         </thead>
                         <tbody>
+                        <?php $no = 0; ?>
+                            @foreach($transactionBook as $book)
+                            <?php $no++; ?>
                             <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                                <th scope="row">{{$no}}</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            @endforeach
+                            @foreach($transactionMember as $membership)
+                            <?php $no++; ?>
+                            <tr>
+                                <th scope="row">{{$no}}</th>
+                                <td>{{$membership->membership()->name}}</td>
+                                <td>Rp {{$membership->transaction()->grand_total}}</td>
+                            </tr>
+                            @endforeach
+                            <tr>
+                                <th scope="row" colspan="2">Shipment</th>
+                                <td>Rp {{$membership->transaction()->shipping_cost}}</td>
                             </tr>
                             <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            </tr>
-                            <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                        </table>
-
-                        <table class="table">
-                        <thead class="thead-light">
-                            <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            </tr>
-                            <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            </tr>
-                            <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
+                                <th scope="row" colspan="2">Total</th>
+                                <td>Rp {{$membership->transaction()->grand_total}}</td>
                             </tr>
                         </tbody>
                     </table>

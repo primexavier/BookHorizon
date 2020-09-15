@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Model\Transaction;
+use App\Model\TransactionBook;
+use App\Model\TransactionMembership;
 use App\Model\Bill;
 use Illuminate\Http\Request;
 use App\DataTables\TransactionDataTable;
@@ -49,8 +51,12 @@ class TransactionController extends Controller
     public function show(Transaction $transaction)
     {
         $bill = Bill::where('transaction_id',$transaction->id)->first();
+        $transactionBook = TransactionBook::where('transaction_id',$transaction->id)->get();
+        $transactionMember = TransactionMembership::where('transaction_id',$transaction->id)->get();
         return view("backend.transaction.detail")
         ->with('transaction',$transaction)
+        ->with('transactionBook',$transactionBook)
+        ->with('transactionMember',$transactionMember)
         ->with('bill',$bill);
         //
     }
