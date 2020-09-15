@@ -20,7 +20,7 @@
             if(data == "login"){
                 alert("Login First !");
             }else{
-                alert("Add To Chart SuccessFull");
+                alert("Add To Cart SuccessFull");
             }
         }).fail(function() {
             alert( "error" );
