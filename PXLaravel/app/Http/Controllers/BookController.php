@@ -285,7 +285,7 @@ class BookController extends Controller
         {
             $bookGenre = BookGenre::where('book_id',$book->id)->first();            
             if($bookGenre){
-                $bookGenre->category_id = $request->categoryId;
+                $bookGenre->genre_id = $request->categoryId;
                 $bookGenre->save();
             }else{
                 $bookGenre = new BookGenre;
