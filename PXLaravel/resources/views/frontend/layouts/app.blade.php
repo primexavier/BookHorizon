@@ -246,6 +246,9 @@
                                                 </ul> -->
                                             </li>
                                             @endforeach
+                                            <li class="cat-item">
+                                                <a href="#">Browse Genre</a>
+                                            </li>
                                             <!-- <li class="cat-item has-children">
                                                 <a href="#">Fiction</a>
                                                 <ul class="sub-menu">

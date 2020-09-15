@@ -49,51 +49,51 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{route('backend.author.index')}}" >
+                                    <!-- <a class="dropdown-item" href="{{route('backend.author.index')}}" >
                                         Author
-                                    </a>
-                                    <a class="dropdown-item" href="{{route('backend.bank.index')}}" >
+                                    </a> -->
+                                    <!-- <a class="dropdown-item" href="{{route('backend.bank.index')}}" >
                                         Bank
-                                    </a>
-                                    <a class="dropdown-item" href="{{route('backend.blog.index')}}" >
+                                    </a> -->
+                                    <!-- <a class="dropdown-item" href="{{route('backend.blog.index')}}" >
                                         Blog
-                                    </a>
+                                    </a> -->
                                     <a class="dropdown-item" href="{{route('backend.book.index')}}" >
                                         Book
                                     </a>
                                     <a class="dropdown-item" href="{{route('backend.category.index')}}" >
                                         Category
                                     </a>
-                                    <a class="dropdown-item" href="{{route('backend.currency.index')}}" >
+                                    <!-- <a class="dropdown-item" href="{{route('backend.currency.index')}}" >
                                         Currency
-                                    </a>
+                                    </a> -->
                                     <a class="dropdown-item" href="{{route('backend.genre.index')}}" >
                                         Genre
                                     </a>
                                     <a class="dropdown-item" href="{{route('backend.member.index')}}" >
                                         Member
                                     </a>
-                                    <a class="dropdown-item" href="{{route('backend.membership.index')}}" >
+                                    <!-- <a class="dropdown-item" href="{{route('backend.membership.index')}}" >
                                         Membership
-                                    </a>
-                                    <a class="dropdown-item" href="{{route('backend.paymentMethod.index')}}" >
+                                    </a> -->
+                                    <!-- <a class="dropdown-item" href="{{route('backend.paymentMethod.index')}}" >
                                         Payment Method
-                                    </a>
-                                    <a class="dropdown-item" href="{{route('backend.promotion.index')}}" >
+                                    </a> -->
+                                    <!-- <a class="dropdown-item" href="{{route('backend.promotion.index')}}" >
                                         Promotion
-                                    </a>
+                                    </a> -->
                                     <a class="dropdown-item" href="{{route('backend.users.index')}}" >
                                         User
                                     </a>
-                                    <a class="dropdown-item" href="{{route('backend.setting.index')}}" >
+                                    <!-- <a class="dropdown-item" href="{{route('backend.setting.index')}}" >
                                         Setting
-                                    </a>
-                                    <a class="dropdown-item" href="{{route('backend.supplier.index')}}" >
+                                    </a> -->
+                                    <!-- <a class="dropdown-item" href="{{route('backend.supplier.index')}}" >
                                         Supplier
-                                    </a>
-                                    <a class="dropdown-item" href="{{route('backend.stock.index')}}" >
+                                    </a> -->
+                                    <!-- <a class="dropdown-item" href="{{route('backend.stock.index')}}" >
                                         Stock
-                                    </a>
+                                    </a> -->
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
