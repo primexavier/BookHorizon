@@ -117,7 +117,7 @@ class BookController extends Controller
                 $new->supplier_id = $newSupplier->id; //$request->authors_id;
             }
         }else{
-            $new->supplier_id = "!"; //$request->authors_id;            
+            $new->supplier_id = "1"; //$request->authors_id;            
         }
         $new->save();
 
