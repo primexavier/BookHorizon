@@ -80,12 +80,12 @@
 
                                             <div class="form-group row mb-0">
                                                 <div class="col-md-6">
-                                                   <a href="{{route('become.member')}}" class="btn btn--primary">
+                                                   <a href="{{route('become.member',Auth::user()->id)}}" class="btn btn--primary">
                                                         {{ __('Become a Member') }}
                                                     </a>
                                                 </div>
 												<div class="col-md-6">
-                                                   <a href="{{route('extend.member')}}" class="btn btn--primary">
+                                                   <a href="{{route('extend.member',Auth::user()->id)}}" class="btn btn--primary">
                                                         {{ __('Extend Member') }}
                                                     </a>
                                                 </div>

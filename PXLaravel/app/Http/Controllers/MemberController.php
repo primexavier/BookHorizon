@@ -205,7 +205,7 @@ class MemberController extends Controller
 
     public function becomeMember(User $user)
     {
-        if($user->phone)
+        if($user->phone_no)
         {
             $memberships = Membership::get();
             return view("frontend.profile.become")
@@ -218,7 +218,7 @@ class MemberController extends Controller
 
     public function extendMember(User $user)
     { 
-        if($user->phone)
+        if($user->phone_no)
         {
             $memberships = Membership::get();
             return view("frontend.profile.extend")

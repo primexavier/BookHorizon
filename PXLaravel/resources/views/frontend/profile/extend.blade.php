@@ -34,9 +34,6 @@
                                     <div class="single-slide">
                                         <div class="product-card">
                                             <div class="product-header">
-                                                <a href="" class="author">
-                                                    {{$membership}}
-                                                </a>
                                                 <h3><a href="">{{$membership->name}}</a></h3>
                                             </div>
                                             <div class="product-card--body">
@@ -47,15 +44,14 @@
                                                             <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
                                                         </a>
                                                         <div class="hover-btns">
-                                                            <a href="#" data-toggle="modal" data-target="#quickModal"
-                                                                class="single-btn">
-                                                                <i class="fas fa-eye"></i>
+                                                            <a href="{{route('checkout.membership',$membership->id)}}" class="single-btn">
+                                                                <i class="fas fa-plus"></i>
                                                             </a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="price-block">
-                                                    <span class="price">Rp 10.000</span>
+                                                    <span class="price">Rp {{$membership->price}}</span>
                                                 </div>
                                             </div>
                                         </div>
