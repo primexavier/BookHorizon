@@ -65,9 +65,8 @@
                                         <h3 style="color:white;">Information</h3>
                                     </div>
                                     <ul class="footer-list normal-list">
-                                        <li><a href="">New Releases</a></li>
-                                        <li><a href="">Best sellers</a></li>
-                                        <li><a href="">Coming Soon</a></li>
+                                        <li><a href="{{route('index')}}">New Releases</a></li>
+                                        <li><a href="{{route('index')}}">Best sellers</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -77,10 +76,9 @@
                                         <h3 style="color:white;">Extras</h3>
                                     </div>
                                     <ul class="footer-list normal-list">
-                                        <li><a href="">About Us</a></li>
-                                        <li><a href="">Stores</a></li>
-                                        <li><a href="">Contact Us</a></li>
-                                        <li><a href="">Sitemap</a></li>
+                                        <li><a href="{{route('index')}}">About Us</a></li>
+                                        <li><a href="{{route('index')}}">Stores</a></li>
+                                        <li><a href="{{route('contact.index')}}">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -94,7 +92,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-12">
-                                <p class="copyright-text">Copyright © {{ date("Y") }} <a href="#" class="author">PrimeXovers</a>. All Right Reserved. <br> Design By PrimeXovers</p>
+                                <p class="copyright-text">Copyright © {{ date("Y") }} <a href="#" class="author">BookHorizonLibary</a>. All Right Reserved. <br> Design By BookHorizonLibary</p>
                             </div>
                         </div>
                         <!-- <p class="copyright-heading">Copyright : </p>

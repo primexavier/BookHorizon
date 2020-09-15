@@ -7,8 +7,8 @@
                 <div class="breadcrumb-contents">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active">Contact 02</li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active">Contact</li>
                         </ol>
                     </nav>
                 </div>
@@ -110,12 +110,10 @@
                             <span class="icon"><i class="fa fa-users"></i></span>
                             <div class="content">
                                 <h3 class="title">bookhorizonlibrary Social</h3>
-                                <ul class="social-list list-inline">
-                                    <li class="single-social facebook"><a href=""><i class="ion ion-social-facebook"></i></a></li>
-                                    <li class="single-social twitter"><a href=""><i class="ion ion-social-twitter"></i></a></li>
-                                    <li class="single-social google"><a href=""><i class="ion ion-social-googleplus-outline"></i></a></li>
-                                    <li class="single-social youtube"><a href=""><i class="ion ion-social-youtube"></i></a></li>
-                                </ul>
+                                    <ul class="social-list list-inline">
+                                        <li class="single-social facebook"><a href="https://www.facebook.com/bookhorizon/"><i class="ion ion-social-facebook"></i></a></li>
+                                        <li class="single-social google"><a href="https://www.instagram.com/bookhorizon/?hl=en"><i class="ion ion-social-instagram"></i></a></li>
+                                    </ul>
                             </div>
                         </div>
                     </div>
