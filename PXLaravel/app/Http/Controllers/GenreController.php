@@ -68,7 +68,8 @@ class GenreController extends Controller
      */
     public function edit(Genre $genre)
     {
-        return redirect()->route("backend.genre.index");
+        return view("backend.genre.edit")
+        ->with("genre",$genre);
     }
 
     /**

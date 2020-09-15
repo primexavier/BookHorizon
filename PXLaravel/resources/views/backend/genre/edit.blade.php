@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">Genre Edit</div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('backend.genre.update')}}">
+                    <form method="POST" action="{{route('backend.genre.update',$genre->id)}}">
                         @csrf
                         <div class="card-body">
                             <div class="form-group">

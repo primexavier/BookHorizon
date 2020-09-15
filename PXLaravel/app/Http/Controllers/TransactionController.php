@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Transaction;
+use App\Model\Bill;
 use Illuminate\Http\Request;
 use App\DataTables\TransactionDataTable;
 
@@ -47,8 +48,10 @@ class TransactionController extends Controller
      */
     public function show(Transaction $transaction)
     {
+        $bill = Bill::where('transaction_id',$transaction->id)->first();
         return view("backend.transaction.detail")
-        ->with('transaction',$transaction);
+        ->with('transaction',$transaction)
+        ->with('bill',$bill);
         //
     }
 
@@ -83,6 +86,7 @@ class TransactionController extends Controller
      */
     public function destroy(Transaction $transaction)
     {
-        //
+        $transaction->delete();
+        return redirect()->route('backend.transactions.index');
     }
 }
