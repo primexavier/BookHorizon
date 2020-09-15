@@ -16,6 +16,12 @@
                                             <form method="post" action="{{route('checkout')}}">
                                             @csrf
                                             <h3>Chart</h3>
+                                                @if(count($charts) > 0)
+                                                    <div class="alert alert-danger" role="alert">
+                                                        <h4 class="alert-heading">Membership</h4>
+                                                        <p>Only Member can Rent!</p>
+                                                    </div>
+                                                @endif
                                             <div class="myaccount-table table-responsive text-center">
                                                 <table class="table table-bordered">
                                                     <thead class="thead-light">
@@ -46,6 +52,10 @@
                                                                         class="form-control"
                                                                         id="quantityTransaction{{$chart->id}}">
                                                                         <option>1</option>
+                                                                        <option>2</option>
+                                                                        <option>3</option>
+                                                                        <option>4</option>
+                                                                        <option>5</option>
                                                                     </select>
                                                                 </div>
                                                             </td>
