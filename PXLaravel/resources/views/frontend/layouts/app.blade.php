@@ -339,7 +339,7 @@
                                     </div>
                                     <div class="text">
                                         <p>Contact Us</p>
-                                        <p class="font-weight-bold number">+0000 0000 0000</p>
+                                        <p class="font-weight-bold number">0813 8908 4342</p>
                                     </div>
                                 </div>
                             </div>
