@@ -131,7 +131,7 @@
                                     </div>  
                                     <div class="col-md-12">        
                                         <div class="form-group">
-                                            <label for="title">Categori</label>
+                                            <label for="title">Category</label>
                                             <select  class="form-control"  name="categoryId" class="selectpicker" data-live-search="true">
                                                 @foreach($categories as $category)
                                                     <option value="{{$category->id}}" data-tokens="ketchup mustard">{{$category->name}}</option>
