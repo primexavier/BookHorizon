@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Transaction;
 use Illuminate\Http\Request;
+use App\DataTables\TransactionDataTable;
 
 class TransactionController extends Controller
 {
@@ -12,9 +13,9 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(TransactionDataTable $dataTable)
     {
-        return view("backend.transaction.index");
+        return $dataTable->render("backend.transaction.index");
     }
 
     /**
@@ -24,7 +25,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        return view("backend.trasanction.add");
+        return view("backend.transaction.add");
     }
 
     /**
@@ -35,7 +36,7 @@ class TransactionController extends Controller
      */
     public function store(Request $request)
     {
-        return view("backend.blog.add");
+        return view("backend.transaction.add");
     }
 
     /**
@@ -46,6 +47,8 @@ class TransactionController extends Controller
      */
     public function show(Transaction $transaction)
     {
+        return view("backend.transaction.detail")
+        ->with('transaction',$transaction);
         //
     }
 
@@ -57,7 +60,7 @@ class TransactionController extends Controller
      */
     public function edit(Transaction $transaction)
     {
-        //
+        return view("backend.transaction.edit");
     }
 
     /**

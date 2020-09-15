@@ -8,7 +8,7 @@
                 <div class="card-header">Transaction Detail</div>
 
                 <div class="card-body">
-
+                    {{$transaction->id}}
                 </div>
             </div>
         </div>

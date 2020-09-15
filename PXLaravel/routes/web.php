@@ -133,7 +133,7 @@ Route::group(['prefix' => 'backend'], function () {
         });
         Route::group(['prefix' => 'transactions'], function () {
             Route::get('/', 'TransactionController@index')->name('backend.transactions.index');
-            Route::get('/create', 'TransactionController@index')->name('backend.transactions.create');
+            Route::get('/create', 'TransactionController@create')->name('backend.transactions.create');
             Route::post('/create', 'TransactionController@store')->name('backend.transactions.store');
             Route::get('/update/{transaction}', 'TransactionController@edit')->name('backend.transactions.edit');
             Route::post('/update/{transaction}', 'TransactionController@update')->name('backend.transactions.update');

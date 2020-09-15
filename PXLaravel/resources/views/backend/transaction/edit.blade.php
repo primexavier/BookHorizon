@@ -8,7 +8,7 @@
                 <div class="card-header">Transaction Edit</div>
 
                 <div class="card-body">
-
+    
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Transaction;
+use App\Model\Transaction;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -22,7 +22,7 @@ class TransactionDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('action', '<a href="{{route(\'backend.transactions.detail\',$id)}}" class="btn btn-info" style="color:white"><i class="fas fa-info"></i></a> 
-            <a href="{{route(\'backend.transactions.update\',$id)}}" style="color:white" class="btn btn-success"><i class="fas fa-edit"></i></a> 
+            <!-- <a href="{{route(\'backend.transactions.update\',$id)}}" style="color:white" class="btn btn-success"><i class="fas fa-edit"></i></a> -->
             <form method="post" action="{{route(\'backend.transactions.delete\',$id)}}" style="display:inline-block">
                 @csrf
                 <button type="submit" style="color:white" class="btn btn-danger"><i class="fas fa-trash"></i></button>
@@ -54,7 +54,7 @@ class TransactionDataTable extends DataTable
                     ->dom('Bfrtip')
                     ->orderBy(1)
                     ->parameters([
-                        'buttons' => ['create','excel','csv','print'],
+                        'buttons' => ['excel','csv','print'],
                     ]);
     }
 
@@ -67,7 +67,7 @@ class TransactionDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('add your columns'),
+            Column::make('user_id'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')
