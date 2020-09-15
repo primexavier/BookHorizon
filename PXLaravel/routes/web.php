@@ -78,6 +78,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/pay/confirmation', 'MemberController@pay')->name('pay.confirmation');
         Route::post('/pay/membership', 'MemberController@paymembership')->name('pay.membership');
         Route::post('/pay/confirmation/{bill}', 'MemberController@uploadBill')->name('upload.bill');
+        Route::post('/change-password', 'FrontEndController@changePassword')->name('profile.changePassword');
     });
     Route::get('/home', 'HomeController@index')->name('home');
 });

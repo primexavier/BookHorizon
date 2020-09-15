@@ -24,6 +24,10 @@ class Book extends Model
     {
         return $this->belongsTo('App\Model\Supplier')->first()->name;
     }
+    public function language()
+    {
+        return $this->belongsTo('App\Model\Language')->first();
+    }
     public function bookImage()
     {
         return $this->hasOne('App\Model\BookImage')->first();

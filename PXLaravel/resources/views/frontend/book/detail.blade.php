@@ -62,7 +62,7 @@
                     <!-- <p class="tag-block">Tags: <a href="#">Movado</a>, <a href="#">Omega</a></p> -->
                     <h3 class="product-title">{{$bookDetail->title}}</h3>
                     <ul class="list-unstyled">
-                        <li>{{$bookDetail->format." | "}}{{$bookDetail->language_id}}</li>
+                        <li>{{$bookDetail->format." | "}}{{$bookDetail->language()->name}}</li>
                         <li>By Author: <span class="list-value">{{$bookDetail->author()}}</span></li>
                         <li>Publication City: <span class="list-value">{{$bookDetail->publication_city}}</span></li>
                         <li>Isbn: <span class="list-value">{{$bookDetail->isbn}}</span></li>

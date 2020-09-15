@@ -487,4 +487,39 @@ class MemberController extends Controller
 
         return redirect()->route("transaction.detail",$newTransaction->id);
     }
+
+    public function updateProfile(Request $request){
+        $user = User::where("id",Auth::user()->id)->first();
+        $user->first_name = $request->fname;
+        $user->last_name = $request->lname;
+        $user->display_name = $request->dname;
+        $user->phone_no = $request->phone;
+        $user->bod = $request->bod;
+        $user->occupation = $request->occupation;
+        $user->gender = $request->gender;
+        $user->email = $request->email;
+
+        if ($request->hasFile('photoId')) {
+            if ($request->file('photoId')->isValid()) {
+                $extension = $request->photoId->extension();
+                $request->photoId->storeAs('\public\image\user', 'photoId'.$user->id.".".$extension);
+                $url = "image\user\\photoId".$user->id.".".$extension;
+                $user->photo_id = $url;
+            }
+        }
+
+        if ($request->hasFile('profilePic')) {
+            if ($request->file('profilePic')->isValid()) {
+                $extension = $request->profilePic->extension();
+                $request->profilePic->storeAs('\public\image\user', 'profilePic'.$user->id.".".$extension);
+                $url = "image\user\\profilePic".$user->id.".".$extension;
+                $user->photo_profile = $url;
+            }
+        }
+
+
+        $user->save();
+
+        dd($request);
+    }
 }
