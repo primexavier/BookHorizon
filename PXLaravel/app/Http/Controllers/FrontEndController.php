@@ -171,14 +171,19 @@ class FrontEndController extends Controller
         if(!Book::find($request->id)){
             return response($request->id, 500)->header('Content-Type', 'text/plain');
         }
-        $addChart = new Chart;
-        $addChart->book_id = $request->id;
-        $addChart->user_id = Auth::User()->id;
-        $addChart->transaction_type_id = 1;
-        $addChart->save();
-        if(!$addChart){
-            return response($request->id, 500)->header('Content-Type', 'text/plain');
-        }else{
+        $existChart = Chart::where('user_id',Auth::user()->id)->where('book_id',$request->id)->first();
+        if(!$existChart){
+            $addChart = new Chart;
+            $addChart->book_id = $request->id;
+            $addChart->user_id = Auth::User()->id;
+            $addChart->transaction_type_id = 1;
+            $addChart->save();
+            if(!$addChart){
+                return response($request->id, 500)->header('Content-Type', 'text/plain');
+            }else{
+                return response($request->id, 200)->header('Content-Type', 'text/plain');
+            }
+        }else{            
             return response($request->id, 200)->header('Content-Type', 'text/plain');
         }
     }
