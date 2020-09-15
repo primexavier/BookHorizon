@@ -132,13 +132,13 @@ Route::group(['prefix' => 'backend'], function () {
             Route::post('/delete/{user}', 'UsersController@destroy')->name('backend.users.delete');
         });
         Route::group(['prefix' => 'transactions'], function () {
-            Route::get('/', 'TransactionsController@index')->name('backend.transactions.index');
-            Route::get('/create', 'TransactionsController@index')->name('backend.transactions.create');
-            Route::post('/create', 'TransactionsController@store')->name('backend.transactions.store');
-            Route::get('/update/{transaction}', 'TransactionsController@edit')->name('backend.transactions.edit');
-            Route::post('/update/{transaction}', 'TransactionsController@update')->name('backend.transactions.update');
-            Route::get('/detail/{transaction}', 'TransactionsController@show')->name('backend.transactions.detail');
-            Route::post('/delete/{transaction}', 'TransactionsController@destroy')->name('backend.transactions.delete');
+            Route::get('/', 'TransactionController@index')->name('backend.transactions.index');
+            Route::get('/create', 'TransactionController@index')->name('backend.transactions.create');
+            Route::post('/create', 'TransactionController@store')->name('backend.transactions.store');
+            Route::get('/update/{transaction}', 'TransactionController@edit')->name('backend.transactions.edit');
+            Route::post('/update/{transaction}', 'TransactionController@update')->name('backend.transactions.update');
+            Route::get('/detail/{transaction}', 'TransactionController@show')->name('backend.transactions.detail');
+            Route::post('/delete/{transaction}', 'TransactionController@destroy')->name('backend.transactions.delete');
         });
         Route::group(['prefix' => 'genre'], function () {
             Route::get('/', 'GenreController@index')->name('backend.genre.index');

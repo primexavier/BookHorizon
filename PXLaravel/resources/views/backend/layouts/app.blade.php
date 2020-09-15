@@ -94,7 +94,7 @@
                                     <!-- <a class="dropdown-item" href="{{route('backend.stock.index')}}" >
                                         Stock
                                     </a> -->
-                                    <a class="dropdown-item" href="{{route('backend.stock.transaction')}}" >
+                                    <a class="dropdown-item" href="{{route('backend.transactions.index')}}" >
                                         Transaction
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
