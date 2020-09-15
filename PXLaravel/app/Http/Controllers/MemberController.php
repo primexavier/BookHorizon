@@ -205,18 +205,29 @@ class MemberController extends Controller
 
     public function becomeMember(User $user)
     {
-        $memberships = Membership::get();
-        return view("frontend.profile.become")
-        ->with("memberships",$memberships)
-        ->with("userDetail",$user);
+        if($user->phone)
+        {
+            $memberships = Membership::get();
+            return view("frontend.profile.become")
+            ->with("memberships",$memberships)
+            ->with("userDetail",$user);
+        }else{
+            return redirect()->route('profile.edit');
+        }       
     }
 
     public function extendMember(User $user)
-    {
-        $memberships = Membership::get();
-        return view("frontend.profile.extend")
-        ->with("memberships",$memberships)
-        ->with("userDetail",$user);
+    { 
+        if($user->phone)
+        {
+            $memberships = Membership::get();
+            return view("frontend.profile.extend")
+            ->with("memberships",$memberships)
+            ->with("userDetail",$user);
+        }else{
+
+            return redirect()->route('profile.edit');
+        }        
     }
 
     public function wishlistChart(Request $request){

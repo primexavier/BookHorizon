@@ -82,6 +82,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
+Route::group(['prefix' => 'backend2'], function () {
+    Route::get('/', 'Backend2Controller@index')->name('baceknd2');
+});
 Route::group(['prefix' => 'backend'], function () {
     Route::group(['middleware' => 'AuthAdmin'], function () {
         Route::get('/', function ()    {

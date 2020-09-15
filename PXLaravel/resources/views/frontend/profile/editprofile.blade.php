@@ -75,15 +75,20 @@
 															<input id="birth-day" type="date" value="{{$userDetail->dob}}">
 														</div>
 														<div class="col-6  mb--30">
-															<input id="occupation" type="text" value="{{$userDetail->occupation}}">
+															<input placeholder="Occupation" id="occupation" type="text" value="{{$userDetail->occupation}}">
 														</div>
 														<div class="col-6  mb--30">
-															<input id="gender" type="text" value="{{$userDetail->gender}}">
+															<input placeholder="Genders" id="gender" type="text" value="{{$userDetail->gender}}">
 														</div>
 														<div class="col-12  mb--30">
 															<input id="email" placeholder="Email Address" type="email" readonly value="{{$userDetail->email}}">
 														</div>
+														<div class="col-12">
+															<button class="btn btn--primary">Save Changes</button>
+														</div>
 														<div class="col-12  mb--30">
+															<br>
+															<br>
 															<h4>Password change</h4>
 														</div>
 														<div class="col-12  mb--30">
