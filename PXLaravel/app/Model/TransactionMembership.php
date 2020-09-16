@@ -11,7 +11,7 @@ class TransactionMembership extends Model
     //
 
     public function membership(){
-        return $this->belongsTo('App\Model\Mmbership','membership_id')->first();
+        return $this->belongsTo('App\Model\Membership','membership_id')->first();
     }
 
     public function transaction(){
