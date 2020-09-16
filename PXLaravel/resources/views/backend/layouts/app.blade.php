@@ -9,7 +9,6 @@
 
     <title>{{ config('app.name', 'Book Horizon') }}</title>
 
-    @stack('headScripts')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -17,6 +16,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
+    @stack('headScripts')
 </head>
 <body>
     <div id="app">
