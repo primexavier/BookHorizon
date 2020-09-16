@@ -104,7 +104,7 @@
 							</div>
                     <article class="product-details-article">
                         <h4 class="sr-only">book Summery</h4>
-                        <p>{{$bookDetail->description}}</p>
+                        <p>{{$bookDetail->summary}}</p>
                     </article>
                     <div class="add-to-cart-row">
                         <!-- 
