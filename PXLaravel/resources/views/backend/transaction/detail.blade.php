@@ -112,9 +112,8 @@
                                     <?php $no++; ?>
                                     <tr>
                                         <th scope="row">{{$no}}</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                        <td>{{$book->book()->title}}</td>
+                                        <td>{{$book->price}}</td>
                                     </tr>
                                     @endforeach
                                     @foreach($transactionMember as $membership)

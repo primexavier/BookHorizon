@@ -9,4 +9,11 @@ class TransactionBook extends Model
 {
     use SoftDeletes;
     //
+    public function book(){
+        return $this->belongsTo('App\Model\Book','book_id')->first();
+    }
+
+    public function transaction(){
+        return $this->belongsTo('App\Model\Transaction','transaction_id')->first();
+    }
 }
