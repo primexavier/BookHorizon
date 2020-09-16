@@ -69,7 +69,9 @@
                 $finishPayment = false;
                 $waitingApprove = false;
 
-                if($transaction->status == 1 || $transaction->status = 0){
+                if($transaction->status == 1 
+                || $transaction->status == 0 
+                || !$transaction->status){
                     $waitingPayment = true;
                 }
 
