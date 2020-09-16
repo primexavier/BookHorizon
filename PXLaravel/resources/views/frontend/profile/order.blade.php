@@ -48,8 +48,8 @@
 																<tr>
 																	<td>{{$transaction->id}}</td>
 																	<td>{{$transaction->created_at}}</td>
-																	<td>{{$transaction->status}} waiting Payment</td>
-																	<td>{{($transaction->grand_total)}}</td>
+																	<td>{{$transaction->status}}</td>
+																	<td>Rp {{($transaction->grand_total)}}</td>
 																	<td><a href="{{route('transaction.detail',$transaction->id)}}" class="btn">View</a></td>
 																</tr>    
 															@endforeach
