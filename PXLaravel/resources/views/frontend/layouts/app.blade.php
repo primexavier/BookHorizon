@@ -168,7 +168,6 @@
                                                 @csrf
                                             </form>
                                         </div>
-                                        @endguest
                                         <div class="cart-block" onClick="location.href='{{route("chart")}}'">
                                             <div class="cart-total">
                                                 <span class="text-number">
@@ -194,6 +193,8 @@
                                         &nbsp
                                         &nbsp
                                         &nbsp
+                                        @guest
+                                        @else
                                         <div class="cart-block2">                                        
                                             <a href="{{ route('profile') }}" class="font-weight-bold">My profile</a> <br>
                                             <div class="cart-dropdown-block">
@@ -221,6 +222,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @endguest
                                     </div>
                                 </div>
                             </div>
