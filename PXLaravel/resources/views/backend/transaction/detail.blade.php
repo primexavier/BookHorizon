@@ -40,7 +40,7 @@
                             @endforeach
                             <tr>
                                 <th scope="row" colspan="2">Shipment</th>
-                                <td>Rp {{$membership->transaction()->shipping_cost}}</td>
+                                <td>Rp <?php if($membership->transaction()->shipping_cost) {echo $membership->transaction()->shipping_cost; }else{ echo '0'; } ?></td>
                             </tr>
                             <tr>
                                 <th scope="row" colspan="2">Total</th>
