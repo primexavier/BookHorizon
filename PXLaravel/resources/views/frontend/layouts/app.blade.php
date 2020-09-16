@@ -199,11 +199,15 @@
                                             <div class="cart-dropdown-block">
                                                 <div class=" single-cart-block ">
                                                     <div class="cart-product">
-                                                        <a href="product-details.html" class="image">
+                                                        <a href="#" class="image">
+                                                            @if(Auth::user()->photo_profile)
                                                             <img src="{{route('index')}}/storage/{{Auth::user()->photo_profile}}" alt="">
+                                                            @else
+                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                            @endif
                                                         </a>
                                                         <div class="content">
-                                                            <h3 class="title"><a href="product-details.html">{{Auth::User()->display_name}}</a>
+                                                            <h3 class="title"><a href="#">{{Auth::User()->display_name}}</a>
                                                             </h3>
                                                             <p class="price">Non Membership</p>
                                                         </div>
@@ -211,8 +215,8 @@
                                                 </div>
                                                 <div class=" single-cart-block ">
                                                     <div class="btn-block">
-                                                        <a href="cart.html" class="btn">My Orders<i class="fas fa-chevron-right"></i></a>
-                                                        <a href="checkout.html" class="btn btn--primary">Member<i class="fas fa-chevron-right"></i></a>
+                                                        <a href="#" class="btn">My Orders<i class="fas fa-chevron-right"></i></a>
+                                                        <a href="#" class="btn btn--primary">Member<i class="fas fa-chevron-right"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -475,7 +479,7 @@
                 </div>
             </div>
             <div class="site-mobile-menu">
-                <!-- <header class="mobile-header d-block d-lg-none pt--10 pb-md--10">
+                <header class="mobile-header d-block d-lg-none pt--10 pb-md--10">
                     <div class="container">
                         <div class="row align-items-sm-end align-items-center">
                             <div class="col-md-4 col-7">
@@ -613,7 +617,7 @@
                             </div>
                         </div>
                     </div>
-                </header> -->
+                </header>
                 <!--Off Canvas Navigation Start-->
                 <aside class="off-canvas-wrapper">
                     <div class="btn-close-off-canvas">
