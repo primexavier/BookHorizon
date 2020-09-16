@@ -200,7 +200,7 @@
                                                 <div class=" single-cart-block ">
                                                     <div class="cart-product">
                                                         <a href="#" class="image">
-                                                            @if(Auth::user()->photo_profile)
+                                                            @if(empty(Auth::user()->photo_profile))
                                                             <img src="{{route('index')}}/storage/{{Auth::user()->photo_profile}}" alt="">
                                                             @else
                                                             <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
