@@ -36,23 +36,23 @@
 													<thead class="thead-light">
 														<tr>
 															<th>No</th>
-															<th>Name</th>
 															<th>Date</th>
-															<th>Status</th>
-															<th>Total</th>
+															<th>Expired</th>
 															<th>Action</th>
 														</tr>
 													</thead>
 													<tbody>
-                                                        @if($payment->count() > 0)
-                                                            <tr>
-                                                                <td>1</td>
-                                                                <td>Mostarizing Oil</td>
-                                                                <td>Aug 22, 2018</td>
-                                                                <td>Pending</td>
-                                                                <td>$45</td>
-                                                                <td><a href="cart.html" class="btn">View</a></td>
-                                                            </tr>
+														@if($payment->count() > 0)
+															@foreach($payment as $bill)
+																<tr>
+																	<td>{{$bill->id}}</td>
+																	<td>{{$bill->created_at}}</td>
+																	<td>{{$bill->created_at->addDays(1)}}</td>
+																	<td>
+																		<a href="{{route('payment.view',$bill->id)}}" class="btn">View</a>																
+																	</td>
+																</tr>
+															@endforeach
                                                         @else
                                                             <tr>
                                                                 <td colspan="6">There is No Payment Made!</td>

@@ -217,8 +217,8 @@
                                                     </div>
                                                     <div class=" single-cart-block ">
                                                         <div class="btn-block">
-                                                            <a href="#" class="btn">My Orders<i class="fas fa-chevron-right"></i></a>
-                                                            <a href="#" class="btn btn--primary">Member<i class="fas fa-chevron-right"></i></a>
+                                                            <a href="{{route('order.list')}}" class="btn">My Orders<i class="fas fa-chevron-right"></i></a>
+                                                            <a href="{{route('become.member',Auth::user()->id)}}" class="btn btn--primary">Member<i class="fas fa-chevron-right"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>

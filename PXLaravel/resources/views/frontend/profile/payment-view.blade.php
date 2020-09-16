@@ -13,10 +13,10 @@
 									<a href="{{route('profile')}}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
 									<a href="{{route('order.list')}}"><i class="fa fa-cart-arrow-down"></i> Orders</a>
 									<a href="{{route('download.list')}}"><i class="fas fa-download"></i> Download</a>
-									<a href="{{route('bill.list')}}" class="active"><i class="fa fa-credit-card"></i>Bill</a>
+									<a href="{{route('bill.list')}}" ><i class="fa fa-credit-card"></i>Bill</a>
 									<a href="{{route('rented.list')}}"><i class="fa fa-credit-card"></i>Rented</a>
 									<a href="{{route('payment.method')}}"><i class="fa fa-credit-card"></i>Payment Method</a>
-									<a href="{{route('payment.list')}}"><i class="fa fa-credit-card"></i>Payment History</a>
+									<a href="{{route('payment.list')}}" class="active"><i class="fa fa-credit-card"></i>Payment History</a>
 									<a href="{{route('address.list')}}"><i class="fa fa-map-marker"></i>address</a>                                        
 									<a href="{{route('profile.edit')}}"><i class="fa fa-user"></i>Account Details</a>
 									<a href="{{route('privacy.setting')}}"><i class="fa fa-user"></i> Privacy </a>
@@ -30,38 +30,16 @@
 									<!-- Single Tab Content Start -->
 									<div class="tab-pane fade show active" id="payment-method" role="tabpanel">
 										<div class="myaccount-content">
-											<h3>Bill</h3>
-											@if($bills->count() > 0)											
-												<div class="myaccount-table table-responsive text-center">
-													<table class="table table-bordered">
-														<thead class="thead-light">
-															<tr>
-																<th>No</th>
-																<th>Date</th>
-																<th>Expired</th>
-																<th>Action</th>
-															</tr>
-														</thead>
-														<tbody>
-															@foreach($bills as $bill)
-																<tr>
-																	<td>{{$bill->id}}</td>
-																	<td>{{$bill->created_at}}</td>
-																	<td>{{$bill->created_at->addDays(1)}}</td>
-																	<td>
-																	@if(Carbon\Carbon::now() < $bill->created_at->addDays(1))
-																		<a href="{{route('confirm.bill',$bill->id)}}" class="btn">Upload Receipt</a>
-																	@else
-																		Bill Expired
-																	@endif
-																	</td>
-																</tr>
-															@endforeach
-														</tbody>
-													</table>
-												</div>
+                                            <h3>Payment</h3>
+											Upload Bill - {{$bill->id}} <br>
+											Name : {{$bill->name}} <br>
+											Total : {{$bill->total}} <br>
+											Transaction No : {{$bill->transaction()->id}} <br>
+											
+											@if($bill->photo)
+												<img id="imageShow" src="../../../storage/{{$bill->photo}}" alt="your image" width="200px" height="250px" />		
 											@else
-											<p class="saved-message">Bill No Available Yet!</p>
+												<img id="imageShow" src="{{ asset('frontend/image/book') }}/empty.jpg" alt="your image" width="200px" height="250px" />		
 											@endif
 										</div>
 									</div>
@@ -75,4 +53,20 @@
 			</div>
 		</div>
 	</div>
+@endsection
+
+@section("custom.script")
+<script>
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#imageShow').attr('src', e.target.result);
+    }
+    
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+</script>
 @endsection

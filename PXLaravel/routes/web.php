@@ -68,7 +68,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/become-member/{user}', 'MemberController@becomeMember')->name('become.member');
         Route::get('/extend-member/{user}', 'MemberController@extendMember')->name('extend.member');
         Route::get('/chart-delete/{chart}', 'MemberController@deleteChart')->name('chart.delete');
-        Route::get('/pay/confirmation/{bill}', 'MemberController@confirmPay')->name('confirm.payment');
+        Route::get('/pay/bill/{bill}', 'MemberController@confirmBill')->name('confirm.bill');
+        Route::get('/payment/view/{bill}', 'MemberController@paymentView')->name('payment.view');
         Route::get('/transaction/detail/{transaction}', 'MemberController@transactiondetail')->name('transaction.detail');
         Route::get('/checkout', 'MemberController@checkoutView')->name('checkout.view');
         Route::get('/checkout-member/{id}', 'MemberController@checkoutMembership')->name('checkout.membership');

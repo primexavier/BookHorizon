@@ -148,7 +148,7 @@ class MemberController extends Controller
     {
         $userID = Auth::id();
         $user = User::where('id',$userID)->first();
-        $bills = Bill::where('user_id',Auth::User()->id)->get();
+        $bills = Bill::where('user_id',Auth::User()->id)->where('status','<',2)->get();
         return view('frontend.profile.bill')
         ->with('bills', $bills)
         ->with('userDetail', $user);
@@ -158,7 +158,7 @@ class MemberController extends Controller
     {
         $userID = Auth::id();
         $user = User::where('id',$userID)->first();
-        $payment = Payment::where('user_id',Auth::User()->id)->get();
+        $payment = Bill::where('user_id',Auth::User()->id)->where('status','>',1)->get();
         return view('frontend.profile.payment')
         ->with('payment', $payment)
         ->with('userDetail', $user);
@@ -448,13 +448,23 @@ class MemberController extends Controller
         }
     }
 
-    public function confirmPay(Bill $bill){
+    public function confirmBill(Bill $bill){
         if(!$bill->transaction()){
             $bill->delete();
             return redirect()->back();
         }
         
         return view("frontend.profile.upload-receipt")
+        ->with("bill",$bill);
+    }
+
+    public function paymentView(Bill $bill){
+        if(!$bill->transaction()){
+            $bill->delete();
+            return redirect()->back();
+        }
+        
+        return view("frontend.profile.payment-view")
         ->with("bill",$bill);
     }
 
