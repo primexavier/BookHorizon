@@ -142,7 +142,7 @@
                                     <img src="{{ asset('frontend/image/logo.png') }}" alt="">
                                 </a>
                             </div>
-                            <div class="col-lg-5">
+                            <div class="col-lg-4">
                                 <div class="header-search-block">
                                     <form action="{{ route('book.search') }}" method="get">
                                         <input name="searchBook" type="text" placeholder="Search entire store here">
@@ -150,7 +150,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-5">
                                 <div class="main-navigation flex-lg-right">
                                     <div class="cart-widget">
                                         @guest
@@ -160,7 +160,6 @@
                                         </div>
                                         @else
                                         <div class="login-block">
-                                            <a href="{{ route('profile') }}" class="font-weight-bold">My profile</a> <br>
                                             <a href="{{ route('logout') }}"
                                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                 Logout
@@ -191,30 +190,32 @@
                                                     <!-- <i class="fas fa-chevron-down"></i> -->
                                                 </span>
                                             </div>
-                                            <!-- <div class="cart-dropdown-block">
+                                        </div>
+                                        &nbsp
+                                        &nbsp
+                                        &nbsp
+                                        <div class="cart-block2">                                        
+                                            <a href="{{ route('profile') }}" class="font-weight-bold">My profile</a> <br>
+                                            <div class="cart-dropdown-block">
                                                 <div class=" single-cart-block ">
                                                     <div class="cart-product">
                                                         <a href="product-details.html" class="image">
-                                                            <img src="{{ asset('frontend/image/products/cart-product-1.jpg') }}" alt="">
+                                                            <img src="{{route('index')}}/storage/{{Auth::user()->photo_profile}}" alt="">
                                                         </a>
                                                         <div class="content">
-                                                            <h3 class="title"><a href="product-details.html">Kodak PIXPRO
-                                                                    Astro Zoom AZ421 16 MP</a>
+                                                            <h3 class="title"><a href="product-details.html">{{Auth::User()->display_name}}</a>
                                                             </h3>
-                                                            <p class="price"><span class="qty">1 ×</span> £87.34</p>
-                                                            <button class="cross-btn"><i class="fas fa-times"></i></button>
+                                                            <p class="price">Non Membership</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class=" single-cart-block ">
                                                     <div class="btn-block">
-                                                        <a href="cart.html" class="btn">View Cart <i
-                                                                class="fas fa-chevron-right"></i></a>
-                                                        <a href="checkout.html" class="btn btn--primary">Check Out <i
-                                                                class="fas fa-chevron-right"></i></a>
+                                                        <a href="cart.html" class="btn">My Orders<i class="fas fa-chevron-right"></i></a>
+                                                        <a href="checkout.html" class="btn btn--primary">Member<i class="fas fa-chevron-right"></i></a>
                                                     </div>
                                                 </div>
-                                            </div> -->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -196,11 +196,11 @@
 													<!-- <a href="" class="author">
 														{{$book->author()}}
 													</a> -->
-													<h3><a href="{{ route('book.detail',$book->id) }}" tabindex="0">{{ \Illuminate\Support\Str::limit($book->title, 20, $end='...')}}</a></h3>
+													<h3><a href="{{ route('book.detail',$book->id) }}" tabindex="0">{{ $book->title }}</a></h3>
 												</div>
 												<article>
 													<h2 class="sr-only">Card List Article</h2>
-													<p>{{ \Illuminate\Support\Str::limit($book->description, 20, $end='...')}}</p>
+													<p>{{ \Illuminate\Support\Str::limit($book->description, 50, $end='...')}}</p>
 												</article>
 												<div class="price-block">
 													<span class="price">Rp {{$book->price}}</span>

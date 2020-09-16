@@ -16532,6 +16532,23 @@ input[type="number"] {
     opacity: 1;
     pointer-events: visible; }
 
+.cart-block2 {
+  padding: 10px 0; 
+}
+.cart-block2:before {
+  font-family: "Font Awesome 5 Brands";
+  font-size: 34px;
+  color: #febd59;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 1;
+  margin-right: 11px; 
+}
+.cart-block2:hover .cart-dropdown-block {
+  opacity: 1;
+  pointer-events: visible; 
+}
+
 .cart-dropdown-block {
   width: 360px;
   font-size: 14px;
