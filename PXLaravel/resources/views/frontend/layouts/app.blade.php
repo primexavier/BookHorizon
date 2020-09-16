@@ -196,33 +196,33 @@
                                         &nbsp
                                         @guest
                                         @else
-                                        <div class="cart-block2">                                        
-                                            <a href="{{ route('profile') }}" class="font-weight-bold">My profile</a> <br>
-                                            <div class="cart-dropdown-block">
-                                                <div class=" single-cart-block ">
-                                                    <div class="cart-product">
-                                                        <a href="#" class="image">
-                                                            @if(!empty(Auth::user()->photo_profile))
-                                                            <img src="{{route('index')}}/storage/{{Auth::user()->photo_profile}}" alt="">
-                                                            @else
-                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                            @endif
-                                                        </a>
-                                                        <div class="content">
-                                                            <h3 class="title"><a href="#">{{Auth::User()->display_name}}</a>
-                                                            </h3>
-                                                            <p class="price">Non Membership</p>
+                                            <div class="cart-block2">                                        
+                                                <a href="{{ route('profile') }}" class="font-weight-bold">My profile</a> <br>
+                                                <div class="cart-dropdown-block">
+                                                    <div class=" single-cart-block ">
+                                                        <div class="cart-product">
+                                                            <a href="#" class="image">
+                                                                @if(!empty(Auth::user()->photo_profile))
+                                                                <img src="{{route('index')}}/storage/{{Auth::user()->photo_profile}}" alt="">
+                                                                @else
+                                                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                @endif
+                                                            </a>
+                                                            <div class="content">
+                                                                <h3 class="title"><a href="#">{{Auth::User()->display_name}}</a>
+                                                                </h3>
+                                                                <p class="price">Non Membership</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class=" single-cart-block ">
+                                                        <div class="btn-block">
+                                                            <a href="#" class="btn">My Orders<i class="fas fa-chevron-right"></i></a>
+                                                            <a href="#" class="btn btn--primary">Member<i class="fas fa-chevron-right"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class=" single-cart-block ">
-                                                    <div class="btn-block">
-                                                        <a href="#" class="btn">My Orders<i class="fas fa-chevron-right"></i></a>
-                                                        <a href="#" class="btn btn--primary">Member<i class="fas fa-chevron-right"></i></a>
-                                                    </div>
-                                                </div>
                                             </div>
-                                        </div>
                                         @endguest
                                     </div>
                                 </div>
@@ -498,7 +498,19 @@
                                             Browse categories
                                         </a>
                                         <ul class="category-menu">
-                                            <li class="cat-item has-children">
+                                            @foreach($categories as $category)
+                                            <li class="cat-item">
+                                                <a href="{{route('book.search')}}?category={{$category->id}}">{{$category->name}}</a>
+                                                <!-- <ul class="sub-menu">
+                                                    <li><a href="#">Self-Help /Personal Development</a></li>
+                                                    <li><a href="#">Business /Personal Development</a></li>
+                                                </ul> -->
+                                            </li>
+                                            @endforeach
+                                            <li class="cat-item">
+                                                <a href="#">Browse Genre</a>
+                                            </li>
+                                            <!-- <li class="cat-item has-children">
                                                 <a href="#">Arts & Photography</a>
                                                 <ul class="sub-menu">
                                                     <li><a href="#">Bags & Cases</a></li>
@@ -597,7 +609,7 @@
                                             <li class="cat-item "><a href="#">Education</a></li>
                                             <li class="cat-item hidden-menu-item"><a href="#">Indoor Living</a></li>
                                             <li class="cat-item"><a href="#" class="js-expand-hidden-menu">More
-                                                    Categories</a></li>
+                                                    Categories</a></li> -->
                                         </ul>
                                     </div>
                                 </nav>
@@ -639,6 +651,13 @@
                                     <li class="menu-item">
                                         <a href="/">Home</a>
                                     </li>
+                                    @if(Auth::user())
+                                        <li class="menu-item">
+                                            <a href="{{route('profile')}}">
+                                                My profile
+                                            </a>
+                                        </li>
+                                    @endif
                                     <!-- <li class="menu-item-has-children">
                                         <a href="#">Blog</a>
                                         <ul class="sub-menu">
