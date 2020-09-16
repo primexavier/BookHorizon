@@ -328,12 +328,14 @@ class MemberController extends Controller
             $newTransaction->shipping_cost = $request->shippingCost;
             $newTransaction->product_total = $charts->count();
             $newTransaction->grand_total = $request->grandTotalInput;
+            $newTransaction->status = 1;
             $newTransaction->save();
 
             foreach($charts as $chart){
                 $newTransactionDetail = new TransactionBook;
                 $newTransactionDetail->transaction_id = $newTransaction->id;
                 $newTransactionDetail->book_id = $chart->book_id;
+                $newTransactionDetail->price = $chart->total();
                 $newTransactionDetail->transaction_type_id = 1;
                 if($newTransactionDetail->save()){
                     $chart->delete();
@@ -342,6 +344,7 @@ class MemberController extends Controller
 
             $newBill = new Bill;
             $newBill->name = "Transaction - {$user_id} No {$newTransaction->id}";
+            $newBill->status = 0;
             $newBill->user_id = $user_id;
             $newBill->transaction_id = $newTransaction->id;
             $newBill->total = $request->grandTotalInput;
@@ -464,7 +467,11 @@ class MemberController extends Controller
             }
         }
         $bill->photo = $url;
+        $bill->status = 2;
         $bill->save();
+        $transaction = Transaction::where('id',$bill->transaction_id)->first();
+        $transaction->status = 2;
+        $transaction->save();
         return redirect(route('confirm.payment',$bill->id));
     }
 

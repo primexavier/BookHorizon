@@ -62,31 +62,47 @@
                 <div class="card-header">Transaction Detail</div>
                 <?php 
                 
-                $transactionStatus = true;
-                $waitingPayment = true;
+                $transactionStatus = false;
+                $waitingPayment = false;
+                $paymentApprove = false;
+                $paymentShipping = false;
+                $finishPayment = false;
+                $waitingApprove = false;
 
                 if($transaction->status == 1){
                     $waitingPayment = true;
                 }
 
-                if( Carbon\Carbon::now() > $transaction->created_at && ($transaction->status == 1 || $transaction->status == 0)){
-                    $transactionStatus = false;
-                    $waitingPayment = false;
+                if($transaction->status == 2){
+                    $waitingApprove = true;
+                }
+
+                if($transaction->status == 4){
+                    $paymentApprove = true;
+                }
+
+                if( Carbon\Carbon::now() > $transaction->created_at->addDays(1) 
+                && ($transaction->status == 0 
+                || $transaction->status == 1
+                || $transaction->status == 2
+                || $transaction->status == 3)){
+                    $transactionStatus = true;
                 }
                 ?>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-
                             No Transaction : {{$transaction->id}} <br>
                             Date : {{$transaction->created_at}} <br>
                             Total : Rp {{$transaction->grand_total}}<br><br>
                             Status :  
                             <button type="button" class="btn <?php if($waitingPayment ){ ?> btn-success <?php } ?>">Waiting Payment</button>
-                            <button type="button" class="btn">Payment Approve</button>
-                            <button type="button" class="btn">Shipping</button>
-                            <button type="button" class="btn">Finish</button>
-                            <button type="button" class="btn <?php if(!$transactionStatus ){ ?> btn-danger <?php } ?>">Expired</button><br><br>
+                            <button type="button" class="btn <?php if($waitingApprove ){ ?> btn-success <?php } ?>">Waiting Approve</button>
+                            <button type="button" class="btn <?php if($paymentApprove ){ ?> btn-success <?php } ?>">Reupload Receipt</button>
+                            <button type="button" class="btn <?php if($paymentApprove ){ ?> btn-success <?php } ?>">Payment Approve</button>
+                            <button type="button" class="btn <?php if($paymentShipping ){ ?> btn-success <?php } ?>">Shipping</button>
+                            <button type="button" class="btn <?php if($finishPayment ){ ?> btn-success <?php } ?>">Finish</button>
+                            <button type="button" class="btn <?php if($transactionStatus ){ ?> btn-danger <?php } ?>">Expired</button><br><br>
                         </div>
                         <div class="col-md-6">
                             Receipt : 
@@ -113,7 +129,7 @@
                                     <tr>
                                         <th scope="row">{{$no}}</th>
                                         <td>{{$book->book()->title}}</td>
-                                        <td>{{$book->price}}</td>
+                                        <td>Rp {{$book->price}}</td>
                                     </tr>
                                     @endforeach
                                     @foreach($transactionMember as $membership)
@@ -134,9 +150,12 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            @if(!$transactionStatus)
                             Transaction Action : <br>
                             <button onclick="alert('approve Payment')" type="button" class="btn btn-success">Approve</button>
                             <button  onclick="alert('Cancel Payment')"  type="button" class="btn btn-danger">Cancel</button>
+                            <button  onclick="alert('Decline Payment')"  type="button" class="btn btn-info">Decline Receipt</button>
+                            @endif
                     </div>
                 </div>
             </div>
