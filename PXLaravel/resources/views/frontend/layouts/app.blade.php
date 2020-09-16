@@ -168,6 +168,7 @@
                                                 @csrf
                                             </form>
                                         </div>
+                                        @endguest
                                         <div class="cart-block" onClick="location.href='{{route("chart")}}'">
                                             <div class="cart-total">
                                                 <span class="text-number">
