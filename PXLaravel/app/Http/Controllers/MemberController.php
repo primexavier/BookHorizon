@@ -550,7 +550,6 @@ class MemberController extends Controller
 
 
         $user->save();
-
-        dd($request);
+        return redirect()->route("profile");
     }
 }
