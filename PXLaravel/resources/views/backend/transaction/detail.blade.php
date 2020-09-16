@@ -127,11 +127,11 @@
                                     @endforeach
                                     <tr>
                                         <th scope="row" colspan="2">Shipment</th>
-                                        <td>Rp <?php if($transactionMember->transaction()->shipping_cost) {echo $transactionMember->transaction()->shipping_cost; }else{ echo '0'; } ?></td>
+                                        <td>Rp <?php if($transaction->shipping_cost) {echo $transaction->shipping_cost; }else{ echo '0'; } ?></td>
                                     </tr>
                                     <tr>
                                         <th scope="row" colspan="2">Total</th>
-                                        <td>Rp {{$membership->transaction()->grand_total}}</td>
+                                        <td>Rp {{$transaction->grand_total}}</td>
                                     </tr>
                                 </tbody>
                             </table>
