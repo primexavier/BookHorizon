@@ -514,6 +514,7 @@ class MemberController extends Controller
         $newBill->transaction_id = $newTransaction->id;
         $newBill->total = $request->grandTotalInput;
         $newBill->is_active = true;
+        $newBill->status = 0;
         $newBill->save();
 
         return redirect()->route("transaction.detail",$newTransaction->id);

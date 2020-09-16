@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Transaction;
 use App\Model\TransactionBook;
 use App\Model\TransactionMembership;
+use App\Model\TransactionShipping;
 use App\Model\Bill;
 use Illuminate\Http\Request;
 use App\DataTables\TransactionDataTable;
@@ -53,10 +54,12 @@ class TransactionController extends Controller
         $bill = Bill::where('transaction_id',$transaction->id)->first();
         $transactionBook = TransactionBook::where('transaction_id',$transaction->id)->get();
         $transactionMember = TransactionMembership::where('transaction_id',$transaction->id)->get();
+        $transactionShipping = TransactionShipping::where('transaction_id',$transaction->id)->first();
         return view("backend.transaction.detail")
         ->with('transaction',$transaction)
         ->with('transactionBook',$transactionBook)
         ->with('transactionMember',$transactionMember)
+        ->with('transactionShipping',$transactionShipping)
         ->with('bill',$bill);
         //
     }
@@ -94,5 +97,43 @@ class TransactionController extends Controller
     {
         $transaction->delete();
         return redirect()->route('backend.transactions.index');
+    }
+
+    public function approveReceipt(Transaction $transaction){
+        $bill = Bill::where('transaction_id',$transaction->id)->first();
+        $bill->status = 2;
+        $bill->save();
+        $transaction->status = 4;
+        $transaction->save();
+        return redirect()->route('backend.transactions.detail',$transaction->id);
+    }
+
+    public function addShipping(Request $request, Transaction $transaction){
+        $newShippingTransaction = new TransactionShipping;
+        $newShippingTransaction->shipping_code = $request->shippingCode;
+        $newShippingTransaction->transaction_id = $transaction->id;
+        $newShippingTransaction->status = 0;
+        $newShippingTransaction->save();
+
+        $transaction->status = 5;
+        $transaction->save();
+        
+        return redirect()->route('backend.transactions.detail',$transaction->id);
+    }
+
+    public function finishTransaction(Transaction $transaction){        
+        $transaction->status = 6;
+        $transaction->save();
+        return redirect()->route('backend.transactions.detail',$transaction->id);
+    }
+
+    public function declineReceipt (Transaction $transaction){         
+        $bills = Bill::where('transaction_id',$transaction->id)->first();
+        $bills->photo = "";
+        $bills->status = 1;
+        $bills->save();        
+        $transaction->status = 1;
+        $transaction->save();
+        return redirect()->route('backend.transactions.detail',$transaction->id);
     }
 }

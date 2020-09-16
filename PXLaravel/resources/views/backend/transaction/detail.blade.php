@@ -68,6 +68,7 @@
                 $paymentShipping = false;
                 $finishPayment = false;
                 $waitingApprove = false;
+                $reuploadReceipt = false;
 
                 if($transaction->status == 1 
                 || $transaction->status == 0 
@@ -79,8 +80,20 @@
                     $waitingApprove = true;
                 }
 
+                if($transaction->status == 3){
+                    $reuploadReceipt = true;
+                }
+
                 if($transaction->status == 4){
                     $paymentApprove = true;
+                }
+
+                if($transaction->status == 5){
+                    $paymentShipping = true;
+                }
+
+                if($transaction->status == 6){
+                    $finishPayment = true;
                 }
 
                 if( Carbon\Carbon::now() > $transaction->created_at->addDays(1) 
@@ -101,19 +114,22 @@
                             Status :  
                             <button type="button" class="btn <?php if($waitingPayment ){ ?> btn-success <?php } ?>">Waiting Payment</button>
                             <button type="button" class="btn <?php if($waitingApprove ){ ?> btn-success <?php } ?>">Waiting Approve</button>
-                            <button type="button" class="btn <?php if($paymentApprove ){ ?> btn-success <?php } ?>">Reupload Receipt</button>
-                            <button type="button" class="btn <?php if($paymentApprove ){ ?> btn-success <?php } ?>">Payment Approve</button>
+                            <button type="button" class="btn <?php if($reuploadReceipt ){ ?> btn-success <?php } ?>">Reupload Receipt</button>
+                            <button type="button" class="btn <?php if($paymentApprove ){ ?> btn-success <?php } ?>">Payment Approve / Waiting Shipping</button>
                             <button type="button" class="btn <?php if($paymentShipping ){ ?> btn-success <?php } ?>">Shipping</button>
                             <button type="button" class="btn <?php if($finishPayment ){ ?> btn-success <?php } ?>">Finish</button>
                             <button type="button" class="btn <?php if($transactionStatus ){ ?> btn-danger <?php } ?>">Expired</button><br><br>
+                            @if($transactionShipping)
+                                Shipping Code : {{$transactionShipping->shipping_code}}
+                            @endif
                         </div>
                         <div class="col-md-6">
                             Receipt : 
                             <br>
-                            @if($bill->photo)
-                            <img src="{{asset('storage/'.$bill->photo)}}" width="300px" height="300px">
+                            @if(!empty($bill->photo))
+                                <img src="{{asset('storage/'.$bill->photo)}}" width="300px" height="300px">
                             @else
-                            Receipt Not Uploaded yet
+                                Receipt Not Uploaded yet
                             @endif
                         </div>
                         <div class="col-md-12">                    
@@ -153,11 +169,24 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            @if(!$transactionStatus)
+                            @if(!$transactionStatus && !$finishPayment)
                             Transaction Action : <br>
-                            <button onclick="alert('approve Payment')" type="button" class="btn btn-success">Approve</button>
-                            <button  onclick="alert('Cancel Payment')"  type="button" class="btn btn-danger">Cancel</button>
-                            <button  onclick="alert('Decline Payment')"  type="button" class="btn btn-info">Decline Receipt</button>
+                                @if($waitingApprove)
+                                    <button onclick="location.href='{{route("backend.transactions.approve-receipt",$transaction->id)}}'" type="button" class="btn btn-success">Approve</button>
+                                @endif
+                                @if($paymentApprove)
+                                    <form action="{{route("backend.transactions.add-shipping",$transaction->id)}}" method="post">
+                                        @csrf
+                                        <input type='text' name="shippingCode" required="required" >
+                                        <button type="submit" class="btn btn-success">Add Shipping Code</button>
+                                        <br><br>
+                                    </form>
+                                @endif
+                                <button  onclick="alert('Cancel Payment')"  type="button" class="btn btn-danger">Cancel</button>
+                                <button onclick="location.href='{{route("backend.transactions.finish",$transaction->id)}}'" type="button" class="btn btn-success">Finish Transaction</button>
+                                @if($waitingApprove)
+                                    <button onclick="location.href='{{route("backend.transactions.decline-receipt",$transaction->id)}}'"  type="button" class="btn btn-info">Decline Receipt</button>
+                                @endif
                             @endif
                     </div>
                 </div>

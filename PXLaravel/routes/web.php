@@ -136,9 +136,14 @@ Route::group(['prefix' => 'backend'], function () {
             Route::get('/create', 'TransactionController@create')->name('backend.transactions.create');
             Route::post('/create', 'TransactionController@store')->name('backend.transactions.store');
             Route::get('/update/{transaction}', 'TransactionController@edit')->name('backend.transactions.edit');
-            Route::post('/update/{transaction}', 'TransactionController@update')->name('backend.transactions.update');
             Route::get('/detail/{transaction}', 'TransactionController@show')->name('backend.transactions.detail');
+            Route::post('/update/{transaction}', 'TransactionController@update')->name('backend.transactions.update');
             Route::post('/delete/{transaction}', 'TransactionController@destroy')->name('backend.transactions.delete');
+            Route::get('/approve-receipt/{transaction}', 'TransactionController@approveReceipt')->name('backend.transactions.approve-receipt');
+            Route::get('/decline-receipt/{transaction}', 'TransactionController@declineReceipt')->name('backend.transactions.decline-receipt');
+            Route::get('/cancel/{transaction}', 'TransactionController@cancel')->name('backend.transactions.cancel');
+            Route::post('/add-shipping/{transaction}', 'TransactionController@addShipping')->name('backend.transactions.add-shipping');
+            Route::get('/finish/{transaction}', 'TransactionController@finishTransaction')->name('backend.transactions.finish');
         });
         Route::group(['prefix' => 'genre'], function () {
             Route::get('/', 'GenreController@index')->name('backend.genre.index');
