@@ -69,7 +69,7 @@
                 $finishPayment = false;
                 $waitingApprove = false;
 
-                if($transaction->status == 1){
+                if($transaction->status == 1 || $transaction->status = 0){
                     $waitingPayment = true;
                 }
 
@@ -87,6 +87,7 @@
                 || $transaction->status == 2
                 || $transaction->status == 3)){
                     $transactionStatus = true;
+                    $waitingPayment = false;
                 }
                 ?>
                 <div class="card-body">
