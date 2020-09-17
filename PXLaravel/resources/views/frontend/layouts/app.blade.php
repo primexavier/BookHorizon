@@ -192,8 +192,6 @@
                                             </div>
                                         </div>
                                         &nbsp
-                                        &nbsp
-                                        &nbsp
                                         @guest
                                         @else
                                             <div class="cart-block2">

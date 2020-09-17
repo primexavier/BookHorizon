@@ -62,8 +62,8 @@
                             @if($transactionMemberships)
                                 @foreach($transactionMemberships as $membeship)
                                 <tr>
-                                    <td><a href="#">{{$membeship->name}}</a> <strong>{{$transactionMembership[0]->transaction_type_id}}</strong></td>
-                                    <td><span>{{$membeship->price}}</span></td>
+                                    <td><a href="#">{{$membeship->membership()->name}}</a></td>
+                                    <td><span>Rp {{$membeship->price}}</span></td>
                                 </tr>
                                 @endforeach
 
