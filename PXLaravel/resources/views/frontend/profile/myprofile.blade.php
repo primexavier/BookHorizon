@@ -70,7 +70,7 @@
 														</tbody>
 													</table>
 												</div>
-												@if($bookRented->count() > 0)
+												@if(!empty($bookRented))
 												<div class="alert alert-danger" role="alert">
 													Book Rented
 													<table class="table table-bordered">
