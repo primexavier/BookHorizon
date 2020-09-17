@@ -58,10 +58,12 @@ class FrontEndController extends Controller
         }else{
             $category3Book = Book::inRandomOrder()->limit(10)->get();
         }
-        $userMembership = UserMembership::where('user_id',Auth::User()->id)
-        ->where('is_active',true)
-        ->where('expired','>', Carbon::now())
-        ->first();
+        if(Auth::User()){
+            $userMembership = UserMembership::where('user_id',Auth::User()->id)
+            ->where('is_active',true)
+            ->where('expired','>', Carbon::now())
+            ->first();
+        }
         return view("index")
         ->with("categories",$categories)
         ->with("category1",$category1Book)
