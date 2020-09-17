@@ -187,6 +187,7 @@ class FrontEndController extends Controller
             $addChart->book_id = $request->id;
             $addChart->user_id = Auth::User()->id;
             $addChart->transaction_type_id = 1;
+            $addChart->duration = 0;
             $addChart->save();
             if(!$addChart){
                 return response($request->id, 500)->header('Content-Type', 'text/plain');

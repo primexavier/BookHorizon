@@ -62,6 +62,7 @@
                                                             <td>
                                                                 <div class="form-group">
                                                                     <select name="typeTransaction[{{$chart->id}}]" onchange="TransactionTypeChange(this.value,{{$chart->id}})" class="form-control" id="typeTransaction{{$chart->id}}">
+                                                                        <option value="{{$chart->transaction_type_id}}">{{$chart->transactionType()->name}}</option>
                                                                         @foreach($transactionTypes as $transactionType)
                                                                             @if($transactionType->id != 1)
                                                                                 @if($userMembership)
@@ -72,6 +73,9 @@
                                                                             @endif
                                                                         @endforeach
                                                                     </select>
+                                                                </div>
+                                                                <div class="form-group" <?php if($chart->transaction_type_id == 1){ ?> style="display:none"<?php } ?> id="RentDay{{$chart->id}}">
+                                                                    <input class="form-control" id="rentDuration{{$chart->id}}" type="number" min="0" max="30" name="rentDuration[{{$chart->id}}]" value="{{$chart->duration}}">
                                                                 </div>
                                                             </td>
                                                             <td>Rp <span id="totalPrice{{$chart->id}}">{{$chart->total()}}</span></td>

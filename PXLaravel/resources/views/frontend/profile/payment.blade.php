@@ -36,6 +36,7 @@
 													<thead class="thead-light">
 														<tr>
 															<th>No</th>
+															<th>No Transaction</th>
 															<th>Date</th>
 															<th>Expired</th>
 															<th>Action</th>
@@ -46,6 +47,7 @@
 															@foreach($payment as $bill)
 																<tr>
 																	<td>{{$bill->id}}</td>
+																	<td>{{$bill->transaction_id}}</td>
 																	<td>{{$bill->created_at}}</td>
 																	<td>{{$bill->created_at->addDays(1)}}</td>
 																	<td>

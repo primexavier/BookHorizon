@@ -165,9 +165,13 @@
     function TransactionTypeChange(value,chartId){
         if(value != 1){
             $('#totalPrice'+chartId).html(0);
+            $('#rentDuration'+chartId).prop('required', true);
+            $('#RentDay'+chartId).show();
         }else{
             var price = $('#initialPrice'+chartId).val();
             $('#totalPrice'+chartId).html(price);
+            $('#rentDuration'+chartId).prop('required', false);
+            $('#RentDay'+chartId).hide();
         }
     }
 </script>
