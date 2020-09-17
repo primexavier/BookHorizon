@@ -16,4 +16,8 @@ class TransactionBook extends Model
     public function transaction(){
         return $this->belongsTo('App\Model\Transaction','transaction_id')->first();
     }
+
+    public function transactionType(){
+        return $this->belongsTo('App\Model\TransactionType','transaction_type_id')->first();
+    }
 }

@@ -174,4 +174,14 @@
             $('#RentDay'+chartId).hide();
         }
     }
+    function ChangeShipping(value){
+        if(value){
+            $('#shippingMethod').prop('disabled', false);
+            $('#couriers').prop('disabled', false);
+        }else{
+            $('#shippingMethod').prop('disabled', true);
+            $('#couriers').prop('disabled', true);
+        }
+        alert(value);
+    }
 </script>

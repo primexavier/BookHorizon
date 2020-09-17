@@ -29,7 +29,7 @@
                     <li>Date: <strong>{{$transaction->created_at}}</strong></li>
                     <li>Status: <strong>Waiting Payment</strong></li>
                     <li>Total: <strong>Rp {{$transaction->grand_total}}</strong></li>
-                    <li>Payment Method: <strong>{{$transaction->payment_type_id}}</strong></li>
+                    <li>Payment Method: <strong> Bank Transfer {{$transaction->transaction_type_id}}</strong></li>
                 </ul>
                 <p>Pay with cash upon delivery.</p>
                 <h3 class="order-table-title">Order Details</h3>
@@ -42,16 +42,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @if($books)
-                                @foreach($books as $book)
+                            @if($transactionBooks)
+                                @foreach($transactionBooks as $transactionBook)
                                 <tr>
-                                    <td><a href="{{route('book.detail',$book->id)}}">{{$book->title}}</a> (rented 3 Days) <strong>{{$transactionBook[0]->transaction_type_id}}</strong></td>
-                                    <td><span>{{$book->price}}</span></td>
+                                    <td>
+                                        <a href="{{route('book.detail',$transactionBook->book_id)}}">{{$transactionBook->book()->title}}</a> 
+                                        <strong> 
+                                            @if($transactionBook->transaction_type_id != 1)
+                                                ({{$transactionBook->transactionType()->name}} {{$transactionBook->duration}} Days)
+                                            @else
+                                                {{$transactionBook->transactionType()->name}}
+                                            @endif 
+                                        </strong>
+                                    </td>
+                                    <td><span>{{$transactionBook->price}}</span></td>
                                 </tr>
                                 @endforeach
                             @endif
-                            @if($memberships)
-                                @foreach($memberships as $membeship)
+                            @if($transactionMemberships)
+                                @foreach($transactionMemberships as $membeship)
                                 <tr>
                                     <td><a href="#">{{$membeship->name}}</a> <strong>{{$transactionMembership[0]->transaction_type_id}}</strong></td>
                                     <td><span>{{$membeship->price}}</span></td>
@@ -67,7 +76,7 @@
                             </tr>
                             <tr>
                                 <th>Payment Method:</th>
-                                <td>{{$transaction->payment_method_id}}</td>
+                                <td>{{$transaction->payment_method_id}} Bank Transfer </td>
                             </tr>
                             <tr>
                                 <th>Total:</th>
