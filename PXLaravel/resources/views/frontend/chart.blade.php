@@ -6,8 +6,6 @@
     <div class="page-section inner-page-sec-padding">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="row">
                         <div class="col-lg-12 col-12 mt--30 mt-lg--0">
                             <div class="tab-content" id="myaccountContent">
                                 <!-- Single Tab Content Start -->
@@ -22,11 +20,11 @@
                                                         <p>Only Member can Rent!</p>
                                                     </div>
                                                 @endif
-                                            <div class="myaccount-table table-responsive text-center">
+                                            <div class="myaccount-table table-responsive">
                                                 <table class="table table-bordered">
                                                     <thead class="thead-light">
                                                         <tr>
-                                                            <th>Action</th>
+                                                            <th class="text-center">Action</th>
                                                             <th>Book</th>
                                                             <th>Quantity</th>
                                                             <th>Rent / Buy</th>
@@ -37,7 +35,7 @@
                                                         @if(count($charts) > 0)
                                                         @foreach($charts as $chart)
                                                         <tr>
-												            <td class="pro-remove">
+												            <td class="pro-remove text-center" >
                                                                 <a href="{{route('chart.delete',$chart->id)}}" style="cursor:pointer">
                                                                     <i class="far fa-trash-alt"></i>
                                                                 </a>
@@ -60,24 +58,35 @@
                                                                 </div>
                                                             </td>
                                                             <td>
-                                                                <div class="form-group">
-                                                                    <select name="typeTransaction[{{$chart->id}}]" onchange="TransactionTypeChange(this.value,{{$chart->id}})" class="form-control" id="typeTransaction{{$chart->id}}">
-                                                                        <option value="{{$chart->transaction_type_id}}">{{$chart->transactionType()->name}}</option>
-                                                                        @foreach($transactionTypes as $transactionType)
-                                                                            @if($chart->transaction_type_id != $transactionType->id)
-                                                                                @if($transactionType->id != 1)
-                                                                                    @if($userMembership)
-                                                                                        <option value="{{$transactionType->id}}">{{$transactionType->name}}</option>
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="form-group">
+                                                                            <select name="typeTransaction[{{$chart->id}}]" onchange="TransactionTypeChange(this.value,{{$chart->id}})" class="form-control" id="typeTransaction{{$chart->id}}">
+                                                                                <option value="{{$chart->transaction_type_id}}">{{$chart->transactionType()->name}}</option>
+                                                                                @foreach($transactionTypes as $transactionType)
+                                                                                    @if($chart->transaction_type_id != $transactionType->id)
+                                                                                        @if($transactionType->id != 1)
+                                                                                            @if($userMembership)
+                                                                                                <option value="{{$transactionType->id}}">{{$transactionType->name}}</option>
+                                                                                            @endif
+                                                                                        @else
+                                                                                            <option value="{{$transactionType->id}}">{{$transactionType->name}}</option>
+                                                                                        @endif
                                                                                     @endif
-                                                                                @else
-                                                                                    <option value="{{$transactionType->id}}">{{$transactionType->name}}</option>
-                                                                                @endif
-                                                                            @endif
-                                                                        @endforeach
-                                                                    </select>
+                                                                                @endforeach
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="form-group" <?php if($chart->transaction_type_id == 1){ ?> style="display:none"<?php } ?> id="RentDay{{$chart->id}}">
-                                                                    <input class="form-control" id="rentDuration{{$chart->id}}" type="number" min="0" max="30" name="rentDuration[{{$chart->id}}]" value="{{$chart->duration}}">
+                                                                <div class="row" <?php if($chart->transaction_type_id == 1){ ?> style="display:none"<?php } ?> id="RentDay{{$chart->id}}">
+                                                                    <div class="col-5" >
+                                                                        <div class="form-group" >
+                                                                            <input class="form-control" id="rentDuration{{$chart->id}}" type="number" min="0" max="30" name="rentDuration[{{$chart->id}}]" value="{{$chart->duration}}">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-4">
+                                                                        <span style="font-weight: bold; padding-top:8px; padding-right:30px;">days </span>
+                                                                    </div>
                                                                 </div>
                                                             </td>
                                                             <td>Rp <span id="totalPrice{{$chart->id}}">{{$chart->total()}}</span></td>
@@ -102,8 +111,6 @@
                                     </div>
                                 <!-- Single Tab Content End -->
                             </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -167,11 +167,13 @@
             $('#totalPrice'+chartId).html(0);
             $('#rentDuration'+chartId).prop('required', true);
             $('#RentDay'+chartId).show();
+            $('#RentDayText'+chartId).show();
         }else{
             var price = $('#initialPrice'+chartId).val();
             $('#totalPrice'+chartId).html(price);
             $('#rentDuration'+chartId).prop('required', false);
             $('#RentDay'+chartId).hide();
+            $('#RentDayText'+chartId).hide();
         }
     }
     function ChangeShipping(value){
