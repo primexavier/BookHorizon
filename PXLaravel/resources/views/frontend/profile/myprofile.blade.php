@@ -51,26 +51,28 @@
 														<h6>You are Not Valid Membership</h6>
 													@endif
 												</div>
-												<div class="alert alert-secondary" role="alert">
-													Recomendation
-													<table class="table table-bordered">
-														<thead class="thead-light">
-															<tr>
-																<th>Title</th>
-																<th>Share</th>
-															</tr>
-														</thead>
-														<tbody>
-															@foreach($books as $book)
+												@if($books->count() > 0)
+													<div class="alert alert-secondary" role="alert">
+														Recomendation
+														<table class="table table-bordered">
+															<thead class="thead-light">
 																<tr>
-																	<td>{{ \Illuminate\Support\Str::limit($book->title, 50, $end='...')}}</td>
-																	<td><a href="{{route('book.detail',$book->id)}}">Share</a> <i class="fas fa-share-alt-square"></i></td>
+																	<th>Title</th>
+																	<th>Share</th>
 																</tr>
-															@endforeach
-														</tbody>
-													</table>
-												</div>
-												@if(!empty($bookRented))
+															</thead>
+															<tbody>
+																@foreach($books as $book)
+																	<tr>
+																		<td>{{ \Illuminate\Support\Str::limit($book->title, 50, $end='...')}}</td>
+																		<td><a href="{{route('book.detail',$book->id)}}">Share</a> <i class="fas fa-share-alt-square"></i></td>
+																	</tr>
+																@endforeach
+															</tbody>
+														</table>
+													</div>
+												@endif
+												@if($bookRented->count() > 0)
 												<div class="alert alert-danger" role="alert">
 													Book Rented
 													<table class="table table-bordered">
