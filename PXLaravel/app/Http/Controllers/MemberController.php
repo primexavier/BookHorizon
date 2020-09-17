@@ -17,11 +17,14 @@ use App\Model\Chart;
 use App\Model\Setting;
 use App\Model\Book;
 use App\Model\Courier;
+use App\Model\UserMembership;
+use App\Model\UserBook;
 use Illuminate\Http\Request;
 use App\DataTables\MemberDataTable;
 use App\DataTables\OrdersDataTable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class MemberController extends Controller
 {
@@ -97,12 +100,32 @@ class MemberController extends Controller
         $user = User::where('id',$userID)->first();
         $membership = TransactionMembership::get();
         // $transactionBook = TransactionBook::where("user_id",$userID)->get();
-        $books = Book::where("id",1)->get();
+        $wishlist = Wishlist::where('user_id',$userID)->pluck('book_id');
+        $booklist = Chart::where('user_id',$userID)->pluck('book_id');
+        $bookUser = UserBook::where('user_id',$userID)->pluck('book_id');
+        $transaction = Transaction::where('user_id',$userID)->pluck('id');
+        $bookTransaction = TransactionBook::whereIn('transaction_id',$transaction)->pluck('book_id')->unique();
+        $books = Book::whereIn("id",$wishlist)
+        ->orWhereIn("id",$booklist)
+        ->orWhereIn("id",$booklist)
+        ->orWhereIn("id",$bookUser)
+        ->orWhereIn("id",$bookTransaction)
+        ->get()
+        ->unique('id');
+
+        $userMembership = UserMembership::where('user_id',Auth::User()->id)
+        ->where('is_active',true)
+        ->where('expired','>', Carbon::now())
+        ->first(); 
+
+        $bookRented = UserBook::where('is_return',false)->get();
 
         return view('frontend.profile.myprofile')
         ->with('membership', $membership)
         ->with('userDetail', $user)
-        ->with('books', $books);
+        ->with('books', $books)
+        ->with('bookRented', $bookRented)
+        ->with('userMembership', $userMembership);
     }
 
     public function update(Request $request, User $user){
@@ -337,7 +360,8 @@ class MemberController extends Controller
                 $newTransactionDetail->transaction_id = $newTransaction->id;
                 $newTransactionDetail->book_id = $chart->book_id;
                 $newTransactionDetail->price = $chart->total();
-                $newTransactionDetail->transaction_type_id = 1;
+                $newTransactionDetail->duration = $chart->duration;
+                $newTransactionDetail->transaction_type_id = $chart->transaction_type_id;
                 if($newTransactionDetail->save()){
                     $chart->delete();
                 }
@@ -382,30 +406,17 @@ class MemberController extends Controller
     public function transactionDetail(Transaction $transaction)
     {        
         $transactionBook = TransactionBook::where('transaction_id',$transaction->id)->get();
-        if($transactionBook->count() > 0){
-            $books = Book::where("id",$transactionBook[0]->id)->get();
-            return view("frontend.transaction-detail")
-            ->with("transaction",$transaction)
-            ->with("transactionBook",$transactionBook)
-            ->with("books",$books)
-            ->with("transactionMembership",null)
-            ->with("memberships",null);
-        }else{
-            $transactionMembership = TransactionMembership::where('transaction_id',$transaction->id)->get();
-            if($transactionMembership->count() > 0){
-                $memberships = Membership::where("id",$transactionMembership[0]->id)->get();
-                return view("frontend.transaction-detail")
-                ->with("transaction",$transaction)
-                ->with("transactionBook",null)
-                ->with("books",null)
-                ->with("transactionMembership",$transactionMembership)
-                ->with("memberships",$memberships);
-            }else{
+        $transactionMembership = TransactionMembership::where('transaction_id',$transaction->id)->get();
+        if($transactionBook->count() < 1){
+            if($transactionMembership->count() < 1){
                 $transaction->delete();
                 return redirect(route('order.list'));
             }
-
         }
+        return view("frontend.transaction-detail")
+        ->with("transaction",$transaction)
+        ->with("transactionBooks",$transactionBook)
+        ->with("transactionMemberships",$transactionMembership);
     }
 
     public function addTransaction(Request $request)

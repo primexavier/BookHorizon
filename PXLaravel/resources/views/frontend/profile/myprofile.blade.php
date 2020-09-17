@@ -42,7 +42,7 @@
                                                 password and account details.</p>    
                                             <br>
 												<div class="alert alert-info" role="alert">
-													@if($membership->count() > 0)
+													@if($userMembership)
 													<h6>Membership Valid</h6>
 													<ul>
 														<li><span id="days"></span> days <span id="hours"></span> Hours <span id="minutes"></span> Minutes <span id="seconds"></span> Seconds</li>
@@ -63,20 +63,40 @@
 														<tbody>
 															@foreach($books as $book)
 																<tr>
-																	<td>{{$book->title}}</td>
+																	<td>{{ \Illuminate\Support\Str::limit($book->title, 50, $end='...')}}</td>
 																	<td><a href="{{route('book.detail',$book->id)}}">Share</a> <i class="fas fa-share-alt-square"></i></td>
 																</tr>
 															@endforeach
 														</tbody>
 													</table>
 												</div>
-
-												<div class="alert alert-success" role="alert">
-												<h4 class="alert-heading">Well done!</h4>
-												<p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-												<hr>
-												<p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+												@if($bookRented->count() > 0)
+												<div class="alert alert-danger" role="alert">
+													Book Rented
+													<table class="table table-bordered">
+														<thead class="thead-light">
+															<tr>
+																<th>Title</th>
+																<th>Expired</th>
+															</tr>
+														</thead>
+														<tbody>
+															@foreach($bookRented as $book)
+																<tr>
+																	<td>{{ \Illuminate\Support\Str::limit($book->title, 50, $end='...')}}</td>
+																	<td>{{$book->expired}}</td>
+																</tr>
+															@endforeach
+														</tbody>
+													</table>
 												</div>
+												@endif
+												{{-- <div class="alert alert-success" role="alert">
+													<h4 class="alert-heading">Well done!</h4>
+													<p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+													<hr>
+													<p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+												</div> --}}
 
                                             <div class="form-group row mb-0">
                                                 <div class="col-md-6">
@@ -110,8 +130,7 @@ const second = 1000,
       minute = second * 60,
       hour = minute * 60,
       day = hour * 24;
-
-let countDown = new Date('October 15, 2020 00:00:00').getTime(),
+let countDown = new Date('{{$userMembership->expired}}').getTime(),
     x = setInterval(function() {    
 
       let now = new Date().getTime(),

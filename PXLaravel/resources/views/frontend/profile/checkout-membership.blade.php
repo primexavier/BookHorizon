@@ -63,7 +63,7 @@
                                         <h4>Product <span>Total</span></h4>
                                         <ul>
                                             <li>
-                                                <span class="left">{{$membership->name}}</span>
+                                                <span class="left">{{$membership->name}} ({{$membership->duration}}) days</span>
                                                 <span class="right">Rp {{$membership->price}}</span>
                                             </li>
                                         </ul>                

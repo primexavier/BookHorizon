@@ -9,6 +9,8 @@ use App\Model\TransactionShipping;
 use App\Model\UserBook;
 use App\Model\UserMembership;
 use App\Model\Bill;
+use App\Model\Book;
+use App\Model\Stock;
 use Illuminate\Http\Request;
 use App\DataTables\TransactionDataTable;
 use Carbon\Carbon;
@@ -133,7 +135,7 @@ class TransactionController extends Controller
                 $newUserBook->book_id = $transactionBook->book_id;
                 $newUserBook->is_active = true;
                 $newUserBook->is_return = false;
-                $newUserBook->expired_at = Carbon::now()->addDays(3);
+                $newUserBook->expired_at = Carbon::now()->addDays($transaction->duration);
                 $newUserBook->save();
             }
             $book = Book::where('id',$transactionBook->book_id)->first();

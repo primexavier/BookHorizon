@@ -47,7 +47,7 @@
 															@foreach($bills as $bill)
 																<tr>
 																	<td>{{$bill->id}}</td>
-																	<td>{{$bill->transcation_id}}</td>
+																	<td>{{$bill->transaction_id}}</td>
 																	<td>{{$bill->created_at}}</td>
 																	<td>{{$bill->created_at->addDays(1)}}</td>
 																	<td>

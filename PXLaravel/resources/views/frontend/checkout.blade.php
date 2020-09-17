@@ -245,7 +245,7 @@
                                             <?php $totalSum = 0; ?> 
                                             @foreach($charts as $chart)
                                             <li>
-                                                <span class="left">{{$chart->book()->title}} ({{$chart->transactionType()->name}})</span>
+                                                <span class="left">{{$chart->book()->title}} ({{$chart->transactionType()->name}} <?php if($chart->transaction_type_id != 1){ ?>{{$chart->duration}} day<?php }  ?>)</span>
                                                 @if($chart->transactionType()->id == 1)
                                                     <span class="right">Rp {{$chart->book()->price}}</span>
                                                 @else
@@ -259,9 +259,15 @@
                                             @endif
                                             @endforeach
                                         </ul>          
-                                            <div class="method-notice mt--25">                 
+                                            <div class="method-notice mt--25">          
                                                 <fieldset class="form-group">
                                                     <div class="row">
+                                                        <div class="col-sm-12">     
+                                                            <div class="form-check">                                                       
+                                                                <input onchange="ChangeShipping(this.checked)" checked type="checkbox" class="form-check-input" id="isShipping" name="isShipping">
+                                                                <label class="form-check-label" for="isShipping">is Shipping</label>
+                                                            </div>
+                                                        </div>
                                                         @foreach($couriers as $courier)
                                                             <div class="col-sm-12">
                                                                 <div class="form-check">
