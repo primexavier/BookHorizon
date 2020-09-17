@@ -58,6 +58,7 @@ class FrontEndController extends Controller
         }else{
             $category3Book = Book::inRandomOrder()->limit(10)->get();
         }
+        $userMembership = null;
         if(Auth::User()){
             $userMembership = UserMembership::where('user_id',Auth::User()->id)
             ->where('is_active',true)
