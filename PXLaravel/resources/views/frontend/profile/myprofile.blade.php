@@ -133,6 +133,7 @@ const second = 1000,
       minute = second * 60,
       hour = minute * 60,
       day = hour * 24;
+	  @if(!empty($userMembership))
 let countDown = new Date('{{$userMembership->expired}}').getTime(),
     x = setInterval(function() {    
 
@@ -151,5 +152,6 @@ let countDown = new Date('{{$userMembership->expired}}').getTime(),
       //}
 
     }, second)
+	@endif
 </script>
 @endsection
