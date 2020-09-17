@@ -6,9 +6,12 @@ use App\Model\Transaction;
 use App\Model\TransactionBook;
 use App\Model\TransactionMembership;
 use App\Model\TransactionShipping;
+use App\Model\UserBook;
+use App\Model\UserMembership;
 use App\Model\Bill;
 use Illuminate\Http\Request;
 use App\DataTables\TransactionDataTable;
+use Carbon\Carbon;
 
 class TransactionController extends Controller
 {
@@ -121,7 +124,38 @@ class TransactionController extends Controller
         return redirect()->route('backend.transactions.detail',$transaction->id);
     }
 
-    public function finishTransaction(Transaction $transaction){        
+    public function finishTransaction(Transaction $transaction){
+        $transactionBooks = TransactionBook::where('transaction_id',$transaction->id)->get();
+        foreach($transactionBooks as $transactionBook){
+            if($transactionBook->transaction_type_id != 1){
+                $newUserBook = new UserBook;
+                $newUserBook->user_id = $transaction->user_id;
+                $newUserBook->book_id = $transactionBook->book_id;
+                $newUserBook->is_active = true;
+                $newUserBook->is_return = false;
+                $newUserBook->expired_at = Carbon::now()->addDays(3);
+                $newUserBook->save();
+            }
+            $book = Book::where('id',$transactionBook->book_id)->first();
+            $book->stock_now = $book->stock_now-1;
+            $book->save(); 
+            $stockAdjustment = new Stock;  
+            $stockAdjustment->book_id = $book->id; 
+            $stockAdjustment->user_id = $transaction->user_id;
+            $stockAdjustment->adjustment = "-1";
+            $stockAdjustment->quantity = "1";
+            $stockAdjustment->description = "Transaction : ".$transaction->id;
+            $stockAdjustment->save();
+        }
+        $transactionMemberships = TransactionMembership::where('transaction_id',$transaction->id)->get();
+        foreach($transactionMemberships as $transactionMembership){
+            $newUserMembership = new UserMembership;
+            $newUserMembership->user_id = $transaction->user_id;
+            $newUserMembership->membership_id = $transactionMembership->membership_id;
+            $newUserMembership->is_active = true;
+            $newUserMembership->expired = Carbon::now()->addDays($transactionMembership->membership()->duration);
+            $newUserMembership->save();
+        }
         $transaction->status = 6;
         $transaction->save();
         return redirect()->route('backend.transactions.detail',$transaction->id);

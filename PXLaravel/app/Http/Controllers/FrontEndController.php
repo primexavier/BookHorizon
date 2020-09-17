@@ -17,6 +17,8 @@ use App\Model\TransactionBook;
 use App\Model\Category;
 use App\Model\Comment;
 use App\Model\Review;
+use App\Model\UserMembership;
+use Carbon\Carbon;
 
 class FrontEndController extends Controller
 {
@@ -56,6 +58,10 @@ class FrontEndController extends Controller
         }else{
             $category3Book = Book::inRandomOrder()->limit(10)->get();
         }
+        $userMembership = UserMembership::where('user_id',Auth::User()->id)
+        ->where('is_active',true)
+        ->where('expired','>', Carbon::now())
+        ->first();
         return view("index")
         ->with("categories",$categories)
         ->with("category1",$category1Book)
@@ -65,7 +71,8 @@ class FrontEndController extends Controller
         ->with("spesialOffers",$spesialOffers)
         ->with("newArrivals",$newArrivals)
         ->with("featuredBooks",$featuredBooks)
-        ->with("mostViews",$mostViews);
+        ->with("mostViews",$mostViews)
+        ->with("userMembership",$userMembership);
     }
 
     public function bookDetail($id)
@@ -217,9 +224,14 @@ class FrontEndController extends Controller
                     $chart->delete();
                 }
             }
+            $userMembership = UserMembership::where('user_id',Auth::User()->id)
+            ->where('is_active',true)
+            ->where('expired','>', Carbon::now())
+            ->first();
             return view("frontend.chart")
             ->with("transactionTypes",$transactionTypes)
-            ->with("charts",$charts);
+            ->with("charts",$charts)
+            ->with("userMembership",$userMembership);
         }else{
             return redirect(route("login"));
         }

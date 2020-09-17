@@ -196,29 +196,44 @@
                                         &nbsp
                                         @guest
                                         @else
-                                            <div class="cart-block2">                                        
-                                                <a href="{{ route('profile') }}" class="font-weight-bold">My profile</a> <br>
-                                                <div class="cart-dropdown-block">
-                                                    <div class=" single-cart-block ">
-                                                        <div class="cart-product">
-                                                            <a href="#" class="image">
-                                                                @if(!empty(Auth::user()->photo_profile))
-                                                                <img src="{{route('index')}}/storage/{{Auth::user()->photo_profile}}" alt="">
-                                                                @else
-                                                                <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                                @endif
-                                                            </a>
-                                                            <div class="content">
-                                                                <h3 class="title"><a href="#">{{Auth::User()->display_name}}</a>
-                                                                </h3>
-                                                                <p class="price">Non Membership</p>
+                                            <div class="cart-block2">
+                                                <div class="row">
+                                                    <div class="col-md-12 d-flex justify-content-center">
+                                                        <i class="fa fa-2x fa-user" aria-hidden="true"></i>      
+                                                    </div>
+                                                    <div class="col-md-12 d-flex justify-content-center">
+                                                        <a href="{{ route('profile') }}" class="font-weight-bold">My profile</a>
+                                                    </div>
+                                                    <div class="cart-dropdown-block">
+                                                        <div class=" single-cart-block ">
+                                                            <div class="cart-product">
+                                                                <a href="#" class="image">
+                                                                    @if(!empty(Auth::user()->photo_profile))
+                                                                    <img src="{{route('index')}}/storage/{{Auth::user()->photo_profile}}" alt="">
+                                                                    @else
+                                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                                    @endif
+                                                                </a>
+                                                                <div class="content">
+                                                                    <h3 class="title"><a href="#">{{Auth::User()->display_name}}</a>
+                                                                    </h3>
+                                                                    @if(empty($userMembership))
+                                                                        <p class="price">Non Membership</p>
+                                                                    @else
+                                                                        <p class="price">{{$userMembership->membership()->name}}</p>
+                                                                    @endif
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class=" single-cart-block ">
-                                                        <div class="btn-block">
-                                                            <a href="{{route('order.list')}}" class="btn">My Orders<i class="fas fa-chevron-right"></i></a>
-                                                            <a href="{{route('become.member',Auth::user()->id)}}" class="btn btn--primary">Member<i class="fas fa-chevron-right"></i></a>
+                                                        <div class=" single-cart-block ">
+                                                            <div class="btn-block">
+                                                                <a href="{{route('order.list')}}" class="btn">My Orders<i class="fas fa-chevron-right"></i></a>
+                                                                @if(!empty($userMembership))
+                                                                    <a href="#" class="btn btn--primary">Member<i class="fas fa-chevron-right"></i></a>
+                                                                @else
+                                                                    <a href="{{route('become.member',Auth::user()->id)}}" class="btn btn--primary">Member<i class="fas fa-chevron-right"></i></a>
+                                                                @endif
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -654,10 +669,15 @@
                                         <a href="/">Home</a>
                                     </li>
                                     @if(Auth::user())
-                                        <li class="menu-item">
-                                            <a href="{{route('profile')}}">
+                                        <li class="menu-item-has-children">
+                                            <a href="#">
                                                 My profile
                                             </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="{{route('profile')}}">Profile</a></li>
+                                                <li><a href="{{route('order.list')}}">My Orders</a></li>
+                                                <li><a href="{{route('profile.edit')}}">Edit Profile</a></li>
+                                            </ul>
                                         </li>
                                     @endif
                                     <!-- <li class="menu-item-has-children">

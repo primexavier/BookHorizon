@@ -54,4 +54,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Model\Wishlist');
     }
+
+    public function hasMembership()
+    {
+        return $this->hasMany('App\Model\UserMembership');
+    }
 }

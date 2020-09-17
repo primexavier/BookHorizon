@@ -28,11 +28,17 @@ class AddPriceDetailTransaction extends Migration
      */
     public function down()
     {
-        Schema::table('transaction_books', function (Blueprint $table) {
-            $table->dropColumn(['price']);
-        });
-        Schema::table('transactions_members', function (Blueprint $table) {
-            $table->dropColumn(['price']);
-        });
+        if (Schema::hasColumn('transaction_books', 'price'))
+        {
+            Schema::table('transaction_books', function (Blueprint $table) {
+                $table->dropColumn(['price']);
+            });
+        }
+        if (Schema::hasColumn('transaction_memberships', 'price'))
+        {
+            Schema::table('transaction_memberships', function (Blueprint $table) {
+                $table->dropColumn(['price']);
+            });
+        }
     }
 }

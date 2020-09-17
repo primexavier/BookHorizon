@@ -77,6 +77,7 @@ class BookController extends Controller
         $new->vendor = $request->vendor;
         $new->purchase_price = $request->pprice;
         $new->start_qty = $request->qty;
+        $new->stock_now = $request->qty;
         $new->price = $request->price;
         $new->description = $request->desc;
         $new->language_id = $request->languageId;

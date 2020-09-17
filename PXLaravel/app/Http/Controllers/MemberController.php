@@ -473,7 +473,7 @@ class MemberController extends Controller
             if ($request->file('receipt')->isValid()) {
                 $extension = $request->receipt->extension();
                 $request->receipt->storeAs('\public\image\bill', 'bill-'.$bill->id.".".$extension);
-                $url = "image\bill\\bill-".$bill->id.".".$extension;
+                $url = "image\bill\bill-".$bill->id.".".$extension;
             }
         }
         $bill->photo = $url;
@@ -482,7 +482,7 @@ class MemberController extends Controller
         $transaction = Transaction::where('id',$bill->transaction_id)->first();
         $transaction->status = 2;
         $transaction->save();
-        return redirect(route('confirm.payment',$bill->id));
+        return redirect(route('confirm.bill',$bill->id));
     }
 
     public function rentedList(){

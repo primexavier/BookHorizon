@@ -5,11 +5,11 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class UserMembership extends Model
+class UserBook extends Model
 {
     use SoftDeletes;
-    public function membership(){
-        return $this->belongsTo('App\Model\Membership','membership_id')->first();
+    public function book(){
+        return $this->belongsTo('App\Model\Book','book_id')->first();
     }
 
     public function user(){

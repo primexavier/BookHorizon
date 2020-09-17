@@ -37,7 +37,7 @@
 											Transaction No : {{$bill->transaction()->id}} <br>
 											
 											@if($bill->photo)
-												<img id="imageShow" src="../../../storage/{{$bill->photo}}" alt="your image" width="200px" height="250px" />		
+												<img id="imageShow" src="{{route('index')}}/storage/{{$bill->photo}}" alt="your image" width="200px" height="250px" />		
 											@else
 												<img id="imageShow" src="{{ asset('frontend/image/book') }}/empty.jpg" alt="your image" width="200px" height="250px" />		
 											@endif

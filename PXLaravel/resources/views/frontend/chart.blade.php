@@ -63,7 +63,13 @@
                                                                 <div class="form-group">
                                                                     <select name="typeTransaction[{{$chart->id}}]" onchange="TransactionTypeChange(this.value,{{$chart->id}})" class="form-control" id="typeTransaction{{$chart->id}}">
                                                                         @foreach($transactionTypes as $transactionType)
-                                                                            <option value="{{$transactionType->id}}">{{$transactionType->name}}</option>
+                                                                            @if($transactionType->id != 1)
+                                                                                @if($userMembership)
+                                                                                    <option value="{{$transactionType->id}}">{{$transactionType->name}}</option>
+                                                                                @endif
+                                                                            @else
+                                                                                <option value="{{$transactionType->id}}">{{$transactionType->name}}</option>
+                                                                            @endif
                                                                         @endforeach
                                                                     </select>
                                                                 </div>
