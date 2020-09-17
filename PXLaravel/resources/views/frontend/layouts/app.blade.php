@@ -225,9 +225,9 @@
                                                         </div>
                                                         <div class=" single-cart-block ">
                                                             <div class="btn-block">
-                                                                <a href="{{route('order.list')}}" class="btn">My Orders<i class="fas fa-chevron-right"></i></a>
+                                                                <a href="{{route('order.list')}}" class="btn">My Orders</a>
                                                                 @if(!empty($userMembership))
-                                                                    <a href="#" class="btn btn--primary">Member<i class="fas fa-chevron-right"></i></a>
+                                                                    <a href="#" class="btn btn--primary">Member</a>
                                                                 @else
                                                                     <a href="{{route('become.member',Auth::user()->id)}}" class="btn btn--primary">Member<i class="fas fa-chevron-right"></i></a>
                                                                 @endif
@@ -268,9 +268,6 @@
                                                 </ul> -->
                                             </li>
                                             @endforeach
-                                            <li class="cat-item">
-                                                <a href="#">Browse Genre</a>
-                                            </li>
                                             <!-- <li class="cat-item has-children">
                                                 <a href="#">Fiction</a>
                                                 <ul class="sub-menu">
