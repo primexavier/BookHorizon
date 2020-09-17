@@ -27,7 +27,7 @@
                 <ul class="order-details-list">
                     <li>Order Number: <strong>{{$transaction->id}}</strong></li>
                     <li>Date: <strong>{{$transaction->created_at}}</strong></li>
-                    <li>Status: <strong>Waiting Payment</strong></li>
+                    <li>Status: <strong>{{$transaction->status}}</strong></li>
                     <li>Total: <strong>Rp {{$transaction->grand_total}}</strong></li>
                     <li>Payment Method: <strong> Bank Transfer {{$transaction->transaction_type_id}}</strong></li>
                 </ul>
