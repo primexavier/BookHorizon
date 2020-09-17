@@ -83,8 +83,8 @@
 														<tbody>
 															@foreach($bookRented as $book)
 																<tr>
-																	<td>{{ \Illuminate\Support\Str::limit($book->title, 50, $end='...')}}</td>
-																	<td>{{$book->expired}}</td>
+																	<td>{{ \Illuminate\Support\Str::limit($book->book()->title, 50, $end='...')}}</td>
+																	<td>{{$book->expired_at}}</td>
 																</tr>
 															@endforeach
 														</tbody>
@@ -99,16 +99,19 @@
 												</div> --}}
 
                                             <div class="form-group row mb-0">
+												@if(empty($userMembership))
                                                 <div class="col-md-6">
                                                    <a href="{{route('become.member',Auth::user()->id)}}" class="btn btn--primary">
                                                         {{ __('Become a Member') }}
                                                     </a>
-                                                </div>
+												</div>
+												@else
 												<div class="col-md-6">
                                                    <a href="{{route('extend.member',Auth::user()->id)}}" class="btn btn--primary">
                                                         {{ __('Extend Member') }}
                                                     </a>
                                                 </div>
+												@endif
                                             </div>                                      
 										</div>
 									</div>

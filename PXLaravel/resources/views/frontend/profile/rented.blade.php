@@ -42,16 +42,13 @@
 															</tr>
 														</thead>
 														<tbody>
-															<!-- @foreach($bookRenteds as $bookRented)
+															@foreach($bookRenteds as $bookRented)
 																<tr>
 																	<td>{{$bookRented->id}}</td>
-																	<td>{{$bookRented->created_at}}</td>
+																	<td>{{$bookRented->book()->title}}</td>
 																	<td>{{$bookRented->created_at}}</td>
 																</tr>
-															@endforeach -->
-																<tr>
-																	<td colspan="3">No Book Rented Yet!</td>
-																</tr>
+															@endforeach
 														</tbody>
 													</table>
 												</div>

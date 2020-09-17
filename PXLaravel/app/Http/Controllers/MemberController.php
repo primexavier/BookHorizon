@@ -498,7 +498,7 @@ class MemberController extends Controller
     }
 
     public function rentedList(){
-        $bookRenteds = Transaction::where('user_id',Auth::user()->id);
+        $bookRenteds = UserBook::where('user_id',Auth::user()->id)->get();
         return view("frontend.profile.rented")
         ->with("bookRenteds",$bookRenteds);
     }
