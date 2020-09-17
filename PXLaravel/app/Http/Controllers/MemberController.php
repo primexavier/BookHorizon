@@ -273,6 +273,7 @@ class MemberController extends Controller
             foreach($request->charId as $chardId){
                 $bookDetailData = Chart::where('id',$chardId)->first();
                 $bookDetailData->transaction_type_id = $request->typeTransaction[$chardId];
+                $bookDetailData->duration = $request->rentDuration[$chardId];
                 $bookDetailData->save();
             }
 

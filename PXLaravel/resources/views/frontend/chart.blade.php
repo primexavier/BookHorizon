@@ -64,12 +64,14 @@
                                                                     <select name="typeTransaction[{{$chart->id}}]" onchange="TransactionTypeChange(this.value,{{$chart->id}})" class="form-control" id="typeTransaction{{$chart->id}}">
                                                                         <option value="{{$chart->transaction_type_id}}">{{$chart->transactionType()->name}}</option>
                                                                         @foreach($transactionTypes as $transactionType)
-                                                                            @if($transactionType->id != 1)
-                                                                                @if($userMembership)
+                                                                            @if($chart->transaction_type_id != $transactionType->id)
+                                                                                @if($transactionType->id != 1)
+                                                                                    @if($userMembership)
+                                                                                        <option value="{{$transactionType->id}}">{{$transactionType->name}}</option>
+                                                                                    @endif
+                                                                                @else
                                                                                     <option value="{{$transactionType->id}}">{{$transactionType->name}}</option>
                                                                                 @endif
-                                                                            @else
-                                                                                <option value="{{$transactionType->id}}">{{$transactionType->name}}</option>
                                                                             @endif
                                                                         @endforeach
                                                                     </select>
