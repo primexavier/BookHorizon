@@ -37,7 +37,7 @@
                                                 <h3><a href="">{{$membership->name}}</a></h3>
                                             </div>
                                             <div class="product-card--body">
-                                                <div class="card-image">
+                                                {{-- <div class="card-image">
                                                     <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
                                                     <div class="hover-contents">
                                                         <a href="" class="hover-image">
@@ -49,7 +49,7 @@
                                                             </a>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <div class="price-block">
                                                     <span class="price">Rp {{$membership->price}}</span>
                                                 </div>
