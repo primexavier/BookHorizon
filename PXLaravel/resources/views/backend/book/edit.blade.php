@@ -152,7 +152,7 @@
                                     <div class="col-md-12">        
                                         <div class="form-group">
                                             <label for="title">Description</label>
-                                            <textarea rows="3" type="text" class="form-control" placeholder="Desciprtion" name="desc"> </textarea>
+                                            <textarea rows="3" type="text" class="form-control" placeholder="Desciprtion" name="desc"> {{$book->description}} </textarea>
                                         </div>              
                                     </div>
                                            
