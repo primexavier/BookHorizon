@@ -34,22 +34,20 @@
                                     <div class="single-slide">
                                         <div class="product-card">
                                             <div class="product-header">
-                                                <h3><a href="">{{$membership->name}}</a></h3>
+                                                <h3><a href="{{route('checkout.membership',$membership->id)}}">{{$membership->name}}</a></h3>
                                             </div>
                                             <div class="product-card--body">
-                                                {{-- <div class="card-image">
-                                                    <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
+                                                <div class="card-image">
+                                                    <p><strong>Duration <br> {{$membership->duration}} days</strong></p>
+                                                    <p><strong>Description <br> {{$membership->description}}</strong></p>
                                                     <div class="hover-contents">
-                                                        <a href="" class="hover-image">
-                                                            <img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="">
-                                                        </a>
                                                         <div class="hover-btns">
                                                             <a href="{{route('checkout.membership',$membership->id)}}" class="single-btn">
                                                                 <i class="fas fa-plus"></i>
                                                             </a>
                                                         </div>
                                                     </div>
-                                                </div> --}}
+                                                </div>
                                                 <div class="price-block">
                                                     <span class="price">Rp {{$membership->price}}</span>
                                                 </div>
