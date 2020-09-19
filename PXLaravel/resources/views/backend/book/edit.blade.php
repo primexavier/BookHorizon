@@ -10,7 +10,11 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Book Create</div>
+                <div class="card-header">
+                    <button class="btn btn-success" onClick="location.href='{{url()->previous()}}'">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        &nbsp Book Create
+                    </div>
                 <form method="POST" action="{{route('backend.book.update', $book->id)}}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
