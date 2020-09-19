@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Promotion Create</div>
+                <div class="card-header">
+                    <button class="btn btn-success" onClick="location.href='{{url()->previous()}}'">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        &nbsp Promotion Create</div>
                 <form method="POST" action="{{route('backend.promotion.store')}}">
                     @csrf
                     <div class="card-body">

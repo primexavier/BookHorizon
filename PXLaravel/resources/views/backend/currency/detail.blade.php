@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Currency Detail</div>
+                <div class="card-header">
+                    <button class="btn btn-success" onClick="location.href='{{url()->previous()}}'">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        &nbsp Currency Detail</div>
                 <div class="card-body">
                     @if ($currency->logo)
 						<div class="single-slide">
