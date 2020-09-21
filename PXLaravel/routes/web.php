@@ -32,6 +32,7 @@ Route::get('/book/{id}/detail', 'FrontEndController@bookDetail')->name('book.det
 Route::get('/blog', 'FrontEndController@blogIndex')->name('blog.index');
 Route::get('/blog/{id}/detail', 'FrontEndController@blogDetail')->name('blog.detail');
 Route::get('/contact', 'ContactController@index')->name('contact.index');
+Route::get('/about', 'ContactController@aboutUs')->name('about.index');
 
 Route::get('/chart', 'FrontEndController@chart')->name('chart');
 Route::get('/wishlist', 'FrontEndController@wishlist')->name('wishlist');

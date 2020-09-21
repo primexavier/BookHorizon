@@ -47,7 +47,7 @@
                 <div class="footer-bottom">
                     <div class="container">                    
                         <div class="row justify-content-between  section-padding" style="color:white;">
-                            <div class=" col-xl-3 col-lg-4 col-sm-6">
+                            <div class=" col-xl-4 col-lg-4 col-sm-6">
                                 <div class="single-footer pb--40">
                                     <div class="brand-footer footer-title">
                                         <img src="{{ asset('frontend/image/logo--footer.png') }}" alt="">
@@ -65,8 +65,8 @@
                                         <h3 style="color:white;">Information</h3>
                                     </div>
                                     <ul class="footer-list normal-list">
-                                        <li><a href="{{route('index')}}">New Releases</a></li>
-                                        <li><a href="{{route('index')}}">Best sellers</a></li>
+                                        <li><a href="{{route('book.search')}}?sort=newest">New Releases</a></li>
+                                        <li><a href="{{route('book.search')}}?sort=sold">Best sellers</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -76,8 +76,8 @@
                                         <h3 style="color:white;">Extras</h3>
                                     </div>
                                     <ul class="footer-list normal-list">
-                                        <li><a href="{{route('index')}}">About Us</a></li>
-                                        <li><a href="{{route('index')}}">Stores</a></li>
+                                        <li><a href="{{route('about.index')}}">About Us</a></li>
+                                        <li><a href="{{route('book.search')}}">Stores</a></li>
                                         <li><a href="{{route('contact.index')}}">Contact Us</a></li>
                                     </ul>
                                 </div>

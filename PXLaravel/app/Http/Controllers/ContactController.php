@@ -18,6 +18,16 @@ class ContactController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function aboutUs()
+    {
+        return view("frontend.aboutUs.index");
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
