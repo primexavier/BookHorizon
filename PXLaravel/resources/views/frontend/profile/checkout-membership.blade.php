@@ -25,6 +25,8 @@
                             <form method="post" action="{{route('pay.membership')}}">              
                             @csrf
                             <h1 class="quick-title">Checkout</h1>
+                            <button onclick="location.href='{{url()->previous()}}'" class="place-order w-20"><strong>Pay Later</strong></button>
+                            </br>
                         </div>
                         <div class="col-lg-7 mb--20">
                             <!-- Billing Address -->

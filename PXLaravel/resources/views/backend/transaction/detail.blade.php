@@ -102,7 +102,7 @@
                 if( Carbon\Carbon::now() > $transaction->created_at->addDays(1) 
                 && ($transaction->status == 0 
                 || $transaction->status == 1
-                || $transaction->status == 2
+                // || $transaction->status == 2
                 || $transaction->status == 3)){
                     $transactionStatus = true;
                     $waitingPayment = false;

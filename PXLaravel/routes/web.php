@@ -58,6 +58,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'user'], function () {
         Route::get('/profile', 'MemberController@profile')->name('profile');
         Route::get('/editprofile', 'MemberController@editProfile')->name('profile.edit');
+        Route::get('/editprofile/{fromMembership}', 'MemberController@editProfileMembership')->name('profile.edit.membership');
         Route::get('/orders', 'MemberController@orderList')->name('order.list');
         Route::get('/download', 'MemberController@downloadList')->name('download.list');
         Route::get('/bill', 'MemberController@billList')->name('bill.list');

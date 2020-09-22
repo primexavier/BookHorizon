@@ -209,10 +209,30 @@ class MemberController extends Controller
 
     public function editProfile()
     {
+        if($fromMembership){
+            $fromMembership = true;
+        }else{
+            $fromMembership = false;
+        }
         $userID = Auth::id();
         $user = User::where('id',$userID)->first();
         return view('frontend.profile.editprofile')
-        ->with('userDetail', $user);
+        ->with('userDetail', $user)
+        ->with('fromMembership', $fromMembership );
+    }
+
+    public function editProfileMembership($fromMembership)
+    {
+        if($fromMembership == "1"){
+            $fromMembership = true;
+        }else{
+            $fromMembership = false;
+        }
+        $userID = Auth::id();
+        $user = User::where('id',$userID)->first();
+        return view('frontend.profile.editprofile')
+        ->with('userDetail', $user)
+        ->with('fromMembership', $fromMembership );
     }
 
     public function privacy()
@@ -247,28 +267,27 @@ class MemberController extends Controller
 
     public function becomeMember(User $user)
     {
-        if($user->phone_no)
+        if($user->phone_no && $user->photo_profile && $user->photo_id)
         {
             $memberships = Membership::get();
             return view("frontend.profile.become")
             ->with("memberships",$memberships)
             ->with("userDetail",$user);
         }else{
-            return redirect()->route('profile.edit');
+            return redirect()->route('profile.edit.membership',1);
         }       
     }
 
     public function extendMember(User $user)
     { 
-        if($user->phone_no)
+        if($user->phone_no && $user->photo_profile && $user->photo_id)
         {
             $memberships = Membership::get();
             return view("frontend.profile.extend")
             ->with("memberships",$memberships)
             ->with("userDetail",$user);
         }else{
-
-            return redirect()->route('profile.edit');
+            return redirect()->route('profile.edit.membership',1);
         }        
     }
 
@@ -573,6 +592,9 @@ class MemberController extends Controller
 
 
         $user->save();
+        if($request->fromMember){
+            return redirect()->route('become.member',Auth::user()->id);
+        }
         return redirect()->route("profile");
     }
 }
