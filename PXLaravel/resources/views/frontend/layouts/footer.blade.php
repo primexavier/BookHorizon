@@ -50,7 +50,7 @@
                             <div class=" col-xl-4 col-lg-4 col-sm-6">
                                 <div class="single-footer pb--40">
                                     <div class="brand-footer footer-title">
-                                        <img src="{{ asset('frontend/image/logo--footer.png') }}" alt="" max-height="150px">
+                                        <img src="{{ asset('frontend/image/logo--footer.png') }}" alt="" style="max-height: 50px;">
                                     </div>
                                     <div class="footer-contact">
                                         <p><span class="label" style="color:white;">Address:</span><span class="text">Tunas 2 Blok A No. 2, Batam</span></p>
