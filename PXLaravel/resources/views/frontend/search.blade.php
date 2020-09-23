@@ -17,7 +17,7 @@
 		<main class="inner-page-sec-padding-bottom">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-9 order-lg-2">
+					<div class="col-lg-12 order-lg-2">
 						<div class="shop-toolbar mb--30">
 							<div class="row align-items-center">
 								<div class="col-lg-2 col-md-2 col-sm-6">
@@ -265,10 +265,10 @@
 							</div>
 						</div> -->
 					</div>
-					<div class="col-lg-3  mt--40 mt-lg--0">
-						<div class="inner-page-sidebar">
+					<!-- <div class="col-lg-3  mt--40 mt-lg--0">
+						<div class="inner-page-sidebar"> -->
 							<!-- Accordion -->
-							<div class="single-block">
+							<!-- <div class="single-block">
 								<h3 class="sidebar-title">Categories</h3>
 								<ul class="sidebar-menu--shop">
 									@foreach($categories as $category)
@@ -279,7 +279,7 @@
 										@endif
 									@endforeach
 								</ul>
-							</div>
+							</div> -->
 							<!-- Price -->
 							<!-- <div class="single-block">
 								<h3 class="sidebar-title">Fillter By Price</h3>
@@ -325,8 +325,8 @@
 									<img src="image/others/home-side-promo.jpg" alt="">
 								</a>
 							</div> -->
-						</div>
-					</div>
+						<!-- </div>
+					</div> -->
 				</div>
 			</div>
 		</main>

@@ -50,7 +50,7 @@
                             <div class=" col-xl-4 col-lg-4 col-sm-6">
                                 <div class="single-footer pb--40">
                                     <div class="brand-footer footer-title">
-                                        <img src="{{ asset('frontend/image/logo--footer.png') }}" alt="" height="200px">
+                                        <img src="{{ asset('frontend/image/logo--footer.png') }}" alt="" max-height="150px">
                                     </div>
                                     <div class="footer-contact">
                                         <p><span class="label" style="color:white;">Address:</span><span class="text">Tunas 2 Blok A No. 2, Batam</span></p>
@@ -62,7 +62,7 @@
                             <div class=" col-xl-3 col-lg-2 col-sm-6">
                                 <div class="single-footer pb--40">
                                     <div class="footer-title">
-                                        <h3 style="color:white;">Information</h3>
+                                        <h3 style="color:white;">More Information Coming Soon</h3>
                                     </div>
                                     <ul class="footer-list normal-list">
                                         <li><a href="{{route('book.search')}}?sort=newest">New Releases</a></li>
