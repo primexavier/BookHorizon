@@ -34,6 +34,9 @@
                                     <div class="myaccount-content">
                                         <form method="post" action="{{route('profile.update')}}" enctype="multipart/form-data">
                                         <h3>Pictures Details</h3>
+                                            @if(!empty($fromMembership))
+                                            <input name="fromMember" value="1" placeholder="Last Name" type="hidden" >
+                                            @endif
                                             <div class="account-details-form">
                                                 <div class="row">
                                                     @csrf

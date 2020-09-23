@@ -68,4 +68,22 @@ class UsersController extends Controller
     {
         return view("backend.users.edit")->with("users",$user);
     }
+    
+    public function update(Request $request, User $user){
+        if($user->email != $request->email){
+            $validatedData = $request->validateWithBag('users', [
+                'name' => ['required'],
+                'email' => ['required', 'unique:users']
+            ]);                
+        }
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->level = $request->level;
+        if($user->save()){
+            return redirect()->route('backend.member.index');
+        }else{
+            return redirect()->route('backend.member.index');
+        }
+    }
+
 }
