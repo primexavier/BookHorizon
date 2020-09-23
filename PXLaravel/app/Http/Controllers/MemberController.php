@@ -209,11 +209,6 @@ class MemberController extends Controller
 
     public function editProfile()
     {
-        if($fromMembership){
-            $fromMembership = true;
-        }else{
-            $fromMembership = false;
-        }
         $userID = Auth::id();
         $user = User::where('id',$userID)->first();
         return view('frontend.profile.editprofile')
