@@ -212,8 +212,7 @@ class MemberController extends Controller
         $userID = Auth::id();
         $user = User::where('id',$userID)->first();
         return view('frontend.profile.editprofile')
-        ->with('userDetail', $user)
-        ->with('fromMembership', $fromMembership );
+        ->with('userDetail', $user);
     }
 
     public function editProfileMembership($fromMembership)
