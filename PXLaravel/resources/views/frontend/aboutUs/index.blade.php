@@ -24,10 +24,11 @@
 						<div class="inner text-center">
 							<h1>About Us</h1>
 							<h1>BookHorizonLibrary</h1>
+							<h1>MORE INFORMATINO COMING SOON</h1>
 						</div>
 					</div>
 				</div>
-				<div class="row mbn-30">
+				{{-- <div class="row mbn-30">
 					
 					<div class="col-lg-6 col-12">
 						<!--FAQ (Accordion) Start-->
@@ -139,7 +140,7 @@
 						</div><!--FAQ (Accordion) End-->
 					</div>
 					
-				</div>
+				</div> --}}
 			</div>
 		</div>
 		<!-- faq Page End -->
