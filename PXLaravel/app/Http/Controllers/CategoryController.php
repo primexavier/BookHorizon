@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Category;
+use App\Model\BookCategory;
 use Illuminate\Http\Request;
 use App\DataTables\CategoryDataTable;
 
@@ -54,7 +55,10 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return view("backend.category.detail")->with("category",$category);
+        $bookCategories = BookCategory::where('category_id',$category->id)->get();
+        return view("backend.category.detail")
+        ->with("bookCategories",$bookCategories)
+        ->with("category",$category);
     }
 
     /**

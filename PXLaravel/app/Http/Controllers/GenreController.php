@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Genre;
+use App\Model\BookGenre;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\DataTables\GenreDataTable;
@@ -57,7 +58,10 @@ class GenreController extends Controller
      */
     public function show(Genre $genre)
     {
-        return view("backend.genre.detail")->with("genre",$genre);
+        $genreBook = BookGenre::where('genre_id',$genre->id)->get();
+        return view("backend.genre.detail")
+        ->with("bookGenres",$genreBook)
+        ->with("genre",$genre);
     }
 
     /**

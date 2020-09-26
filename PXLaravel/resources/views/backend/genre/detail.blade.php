@@ -11,7 +11,30 @@
                         &nbsp Genre Member</div>
 
                 <div class="card-body">
-                    Name : {{$genre->genre}}<br>                    
+                    Name : {{$genre->genre}}<br> 
+                    <br>                    
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">Book Id</th>
+                                <th scope="col">Title</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if($bookGenres->count() > 0)
+                                @foreach($bookGenres as $bookGenre)
+                                    <tr>
+                                        <th scope="row">{{$bookGenre->book_id}}</th>
+                                        <td>{{$bookGenre->book()->title}}</td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <th colspan="2" scope="row">No Book</th>
+                                </tr>                            
+                            @endif
+                        </tbody>
+                    </table>                   
                 </div>
             </div>
         </div>

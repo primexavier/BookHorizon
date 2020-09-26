@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class BookGenre extends Model
 {
-    //
+    public function book()
+    {
+        return $this->belongsTo('App\Model\Book')->first();
+    }
 }
