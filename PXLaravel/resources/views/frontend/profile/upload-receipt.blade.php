@@ -30,12 +30,27 @@
 									<!-- Single Tab Content Start -->
 									<div class="tab-pane fade show active" id="payment-method" role="tabpanel">
 										<div class="myaccount-content">
-                                            <h3>Bill</h3>
+                                            <h3>Bill</h3>											
+											@if ($message = Session::get('error'))
+												<div class="alert alert-danger alert-dismissible fade show" role="alert">
+													<h6>Upload Receipt Failed</h6>
+													<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+											@endif
+   		 									@if ($message = Session::get('success'))
+												<div class="alert alert-success alert-dismissible fade show" role="alert">
+													<h6>Upload Receipt Success</h6>
+													<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+											@endif
 											Upload Bill - {{$bill->id}} <br>
 											Name : {{$bill->name}} <br>
 											Total : {{$bill->total}} <br>
 											Transaction No : {{$bill->transaction()->id}} <br>
-											
 											@if($bill->photo)
 												<img id="imageShow" src="{{route('index')}}/storage/{{$bill->photo}}" alt="your image" width="200px" height="250px" />		
 											@else

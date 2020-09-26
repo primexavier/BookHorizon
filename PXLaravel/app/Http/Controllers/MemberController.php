@@ -494,12 +494,18 @@ class MemberController extends Controller
     }
 
     public function uploadBill(Bill $bill, Request $request){
-        if ($request->hasFile('receipt')) {
-            if ($request->file('receipt')->isValid()) {
-                $extension = $request->receipt->extension();
-                $request->receipt->storeAs('\public\image\bill', 'bill-'.$bill->id.".".$extension);
-                $url = "image\bill\bill-".$bill->id.".".$extension;
-            }
+        try
+        {
+            if ($request->hasFile('receipt')) {
+                if ($request->file('receipt')->isValid()) {
+                    $extension = $request->receipt->extension();
+                    $request->receipt->storeAs('\public\image\bill', 'bill-'.$bill->id.".".$extension);
+                    $url = "image\bill\bill-".$bill->id.".".$extension;
+                }
+            }            
+        } catch (Throwable $e) {
+            return redirect()->back()->with('error',' upload receipt Gagal');
+            
         }
         $bill->photo = $url;
         $bill->status = 2;
@@ -507,7 +513,7 @@ class MemberController extends Controller
         $transaction = Transaction::where('id',$bill->transaction_id)->first();
         $transaction->status = 2;
         $transaction->save();
-        return redirect(route('confirm.bill',$bill->id));
+        return redirect(route('confirm.bill',$bill->id))->with('success','Upload Receipt Berhasil');
     }
 
     public function rentedList(){
