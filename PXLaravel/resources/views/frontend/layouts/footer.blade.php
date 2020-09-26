@@ -77,7 +77,7 @@
                                     </div>
                                     <ul class="footer-list normal-list">
                                         <li><a href="{{route('about.index')}}">About Us</a></li>
-                                        <li><a href="{{route('book.search')}}">Stores</a></li>
+                                        <li><a href="{{route('store.index')}}">Stores</a></li>
                                         <li><a href="{{route('contact.index')}}">Contact Us</a></li>
                                     </ul>
                                 </div>

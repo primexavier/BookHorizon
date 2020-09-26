@@ -9,7 +9,7 @@
 					<nav aria-label="breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
-							<li class="breadcrumb-item active">About Us</li>
+							<li class="breadcrumb-item active">Store</li>
 						</ol>
 					</nav>
 				</div>
@@ -22,7 +22,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="inner text-center">
-							<h1>About Us</h1>
+							<h1>Store</h1>
 							<h1>BookHorizonLibrary</h1>
 							<h1>More information coming soon</h1>
 						</div>
