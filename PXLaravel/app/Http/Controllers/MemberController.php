@@ -391,18 +391,24 @@ class MemberController extends Controller
             $newBill->is_active = true;
             $newBill->save();
 
-            $newAddress = new Address;
-            $newAddress->user_id = $user_id;
-            $newAddress->name = "Defauilt";
-            $newAddress->lg = 0;
-            $newAddress->la = 0;
-            $newAddress->full_address = $request->address;
-            $newAddress->phone_no = $request->phone_no;
-            $newAddress->country_id = $request->country_id;
-            $newAddress->province_id = $request->province_id;
-            $newAddress->city_id = $request->city_id;
-            $newAddress->zip_code = $request->zipCode;
-            $newAddress->save();
+            if(!$request->oldAddress){
+                $newAddress = new Address;
+                $newAddress->user_id = $user_id;
+                $newAddress->name = "Defauilt";
+                $newAddress->lg = 0;
+                $newAddress->la = 0;
+                $newAddress->full_address = $request->address;
+                $newAddress->phone_no = $request->phone_no;
+                $newAddress->country_id = $request->country_id;
+                $newAddress->province_id = $request->province_id;
+                $newAddress->city_id = $request->city_id;
+                $newAddress->zip_code = $request->zipCode;
+                $newAddress->save();
+                $transaction->address_id = $newAddress->id;
+            }else{
+                $transaction->address_id = $request->oldAddress;
+            }
+            $transaction->save();
 
             if(!Auth::user()->phone_no){
                 $updateUser = User::where('id'.$user_id)->first();
