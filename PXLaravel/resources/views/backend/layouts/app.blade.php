@@ -55,9 +55,9 @@
                                     <!-- <a class="dropdown-item" href="{{route('backend.author.index')}}" >
                                         Author
                                     </a> -->
-                                    <!-- <a class="dropdown-item" href="{{route('backend.bank.index')}}" >
+                                    <a class="dropdown-item" href="{{route('backend.bank.index')}}" >
                                         Bank
-                                    </a> -->
+                                    </a>
                                     <!-- <a class="dropdown-item" href="{{route('backend.blog.index')}}" >
                                         Blog
                                     </a> -->

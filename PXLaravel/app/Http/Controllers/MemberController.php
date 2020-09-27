@@ -334,12 +334,14 @@ class MemberController extends Controller
         if($charts->count() > 0){
             $paymentMethods = PaymentMethod::get();
             $address = Address::where("user_id",Auth::user()->id)->first();
+            $addresses = Address::where("user_id",Auth::user()->id)->get();
             $provinces = FrontEndController::getProvince(NULL);
             $couriers = Courier::get();
             return view("frontend.checkout")
             ->with("charts",$charts)
             ->with("paymentMethods",$paymentMethods)
             ->with("address",$address)
+            ->with("addresses",$addresses)
             ->with("provinces",$provinces)
             ->with("couriers",$couriers);                
         }else{

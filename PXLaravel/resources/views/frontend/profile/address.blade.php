@@ -33,19 +33,29 @@
 											<h3>Billing Address</h3>
 											@if($addresses->count() > 0)
 												@foreach($addresses as $address)
-													<address>
-														Full Address : {{$address->full_address}}
-														<br>
-														Phone No : {{$address->phone_no}}
-														<br>
-														Postal Code : {{$address->zip_code}}
-														<br>
-														Country ID : {{$address->country_id}}
-														<br>
-														Province ID : {{$address->province_id}}
-														<br>
-														City ID : {{$address->city_id}}
-													</address>
+													<div class="form-group row">
+														<div class="col-sm-2">Address</div>
+														<div class="col-sm-10">
+														<div class="form-check">
+															<input class="form-check-input" type="checkbox" id="gridCheck{{$address->id}}">
+															<label class="form-check-label" for="gridCheck{{$address->id}}">															
+																<address>
+																	Full Address : {{$address->full_address}}
+																	<br>
+																	Phone No : {{$address->phone_no}}
+																	<br>
+																	Postal Code : {{$address->zip_code}}
+																	<br>
+																	Country ID : {{$address->country_id}}
+																	<br>
+																	Province ID : {{$address->province_id}}
+																	<br>
+																	City ID : {{$address->city_id}}
+																</address>
+															</label>
+														</div>
+														</div>
+													</div>
 												@endforeach
 											@else
 											<address>
