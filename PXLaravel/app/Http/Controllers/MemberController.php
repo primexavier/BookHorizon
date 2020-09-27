@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\User;
+use App\Model\Bank;
 use App\Model\Transaction;
 use App\Model\TransactionBook;
 use App\Model\TransactionMembership;
@@ -367,6 +368,7 @@ class MemberController extends Controller
             $newTransaction->shipping_cost = $request->shippingCost;
             $newTransaction->product_total = $charts->count();
             $newTransaction->grand_total = $request->grandTotalInput;
+            $newTransaction->payment_method_id = $request->paymentMethod;
             $newTransaction->status = 1;
             $newTransaction->save();
 
@@ -391,24 +393,26 @@ class MemberController extends Controller
             $newBill->is_active = true;
             $newBill->save();
 
-            if(!$request->oldAddress){
-                $newAddress = new Address;
-                $newAddress->user_id = $user_id;
-                $newAddress->name = "Defauilt";
-                $newAddress->lg = 0;
-                $newAddress->la = 0;
-                $newAddress->full_address = $request->address;
-                $newAddress->phone_no = $request->phone_no;
-                $newAddress->country_id = $request->country_id;
-                $newAddress->province_id = $request->province_id;
-                $newAddress->city_id = $request->city_id;
-                $newAddress->zip_code = $request->zipCode;
-                $newAddress->save();
-                $transaction->address_id = $newAddress->id;
-            }else{
-                $transaction->address_id = $request->oldAddress;
+            if($request->isShipping == 1){
+                if(empty($request->oldAddress)){
+                    $newAddress = new Address;
+                    $newAddress->user_id = $user_id;
+                    $newAddress->name = "Defauilt";
+                    $newAddress->lg = 0;
+                    $newAddress->la = 0;
+                    $newAddress->full_address = $request->address;
+                    $newAddress->phone_no = $request->phone_no;
+                    $newAddress->country_id = $request->country_id;
+                    $newAddress->province_id = $request->province_id;
+                    $newAddress->city_id = $request->city_id;
+                    $newAddress->zip_code = $request->zipCode;
+                    $newAddress->save();
+                    $newTransaction->address_id = $newAddress->id;
+                }else{
+                    $newTransaction->address_id = $request->oldAddress;
+                }
+                $newTransaction->save();                
             }
-            $transaction->save();
 
             if(!Auth::user()->phone_no){
                 $updateUser = User::where('id'.$user_id)->first();
@@ -428,6 +432,7 @@ class MemberController extends Controller
     {        
         $transactionBook = TransactionBook::where('transaction_id',$transaction->id)->get();
         $transactionMembership = TransactionMembership::where('transaction_id',$transaction->id)->get();
+        $banks = Bank::get();
         if($transactionBook->count() < 1){
             if($transactionMembership->count() < 1){
                 $transaction->delete();
@@ -435,6 +440,7 @@ class MemberController extends Controller
             }
         }
         return view("frontend.transaction-detail")
+        ->with("banks",$banks)
         ->with("transaction",$transaction)
         ->with("transactionBooks",$transactionBook)
         ->with("transactionMemberships",$transactionMembership);

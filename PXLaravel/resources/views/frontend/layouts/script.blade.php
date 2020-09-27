@@ -178,12 +178,20 @@
     }
     function ChangeShipping(value){
         if(value){
+            $('#ShippingPick').show();
             $('#shippingMethod').prop('disabled', false);
             $('#couriers').prop('disabled', false);
         }else{
-            $('#shippingMethod').prop('disabled', true);
+            $('#ShippingPick').hide();
             $('#couriers').prop('disabled', true);
+            $('#couriers').prop('disabled', true);            
         }
-        alert(value);
+    }
+    function newAddress(value){
+        if(value){
+
+        }else{
+
+        }
     }
 </script>

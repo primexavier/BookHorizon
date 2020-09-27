@@ -83,11 +83,15 @@
                             <!-- Billing Address -->
                             <div id="billing-form" class="mb-40">
                                 <h4 class="checkout-title">Billing Address</h4>
-                                <div class="row">                                
+                                <div class="row">                    
+                                    <?php 
+                                    $no = 0;
+                                    ?>            
                                     @foreach($addresses as $address)
                                         <div class="col-sm-12">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="oldAddress{{$address->id}}" name="oldAddress" value="{{$address->id}}">
+                                            <div class="form-check">                                                
+                                                <input class="form-check-input" @if($no < 1) checked @endif type="radio" id="oldAddress{{$address->id}}" name="oldAddress" value="{{$address->id}}">
+                                                <?php $no++; ?>
                                                 <label class="form-check-label" for="oldAddress{{$address->id}}">															
                                                     <address>
                                                         Full Address : {{$address->full_address}}
@@ -113,7 +117,7 @@
                                                 <label for="create_account">Create an Acount?</label>
                                             </div> -->
                                             <div class="check-box">
-                                                <input type="checkbox" id="shiping_address" data-shipping>
+                                                <input onchange="newAddress(this.value)" type="checkbox" id="shiping_address" data-shipping name="newShippingAddress">
                                                 <label for="shiping_address">Ship to New Address</label>
                                             </div>
                                         </div>
@@ -126,15 +130,15 @@
                                 <div class="row"> 
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>First Name*</label>
-                                        <input required="required" name="first_name" type="text" placeholder="First Name" value="{{Auth::User()->first_name}}">
+                                        <input id="fname" name="first_name" type="text" placeholder="First Name" value="{{Auth::User()->first_name}}">
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Last Name*</label>
-                                        <input required="required" name="last_name" type="text" placeholder="Last Name" value="{{Auth::User()->last_name}}">
+                                        <input id="lname" name="last_name" type="text" placeholder="Last Name" value="{{Auth::User()->last_name}}">
                                     </div>
                                     <div class="col-12 col-12 mb--20">
                                         <label>Country*</label>
-                                        <select required="required" class="nice-select" name="country_id">
+                                        <select class="nice-select" name="country_id">
                                             <option  value="1">Indonesia</option>
                                             {{-- <option>Bangladesh</option>
                                             <option>China</option>
@@ -232,27 +236,40 @@
                                             <div class="method-notice mt--25">          
                                                 <fieldset class="form-group">
                                                     <div class="row">
+                                                        <div class="col-sm-12">   
+                                                            <label class="form-check-label">How would you like to receive the books?</label>
+                                                        </div> 
                                                         <div class="col-sm-12">     
                                                             <div class="form-check">                                                       
-                                                                <input onchange="ChangeShipping(this.checked)" checked type="checkbox" class="form-check-input" id="isShipping" name="isShipping">
-                                                                <label class="form-check-label" for="isShipping">is Shipping</label>
+                                                                <input onchange="ChangeShipping(!this.checked)" checked type="radio" class="form-check-input" id="isShippingFalse" name="isShipping" value="2">
+                                                                <label class="form-check-label" for="isShippingFalse">Visit Store</label>
                                                             </div>
                                                         </div>
-                                                        @foreach($couriers as $courier)
-                                                            <div class="col-sm-12">
-                                                                <div class="form-check">
-                                                                    <input required="required" onclick="getShippingCost('{{$courier->code}}')" disabled="disabled" class="form-check-input" type="radio" name="couriers" id="couriers" value="{{$courier->id}}">
-                                                                    <label class="form-check-label" for="courier{{$courier->id}}">
-                                                                        {{$courier->name}}
-                                                                    </label>
-                                                                    <div class="row" id="ongkir">                                                    
-                                                                        <select required="required" onchange="setShippingMethod(this.text)" required="required" name="shippingMethod" class="form-control" class="nice-select" id="shippingMethod" disabled="disabled">
-                                                                            <option value="">Pick Shipping</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
+                                                        <div class="col-sm-12">     
+                                                            <div class="form-check">                                                       
+                                                                <input onchange="ChangeShipping(this.checked)" type="radio" class="form-check-input" id="isShipping" name="isShipping" value="1">
+                                                                <label class="form-check-label" for="isShipping">Shipping</label>
                                                             </div>
-                                                        @endforeach
+                                                            <div class="row" id="ShippingPick" style="display:none;" >
+                                                                @foreach($couriers as $courier)
+                                                                    <div class="col-sm-2">
+                                                                    </div>
+                                                                    <div class="col-sm-10">
+                                                                        <div class="form-check">
+                                                                            <input required="required" onclick="getShippingCost('{{$courier->code}}')" disabled="disabled" class="form-check-input" type="radio" name="couriers" id="couriers" value="{{$courier->id}}">
+                                                                            <label class="form-check-label" for="courier{{$courier->id}}">
+                                                                                {{$courier->name}}
+                                                                            </label>
+                                                                            <div class="row" id="ongkir">                                                    
+                                                                                <select required="required" onchange="setShippingMethod(this.text)" required="required" name="shippingMethod" class="form-control" class="nice-select" id="shippingMethod" disabled="disabled">
+                                                                                    <option value="">Pick Shipping</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </fieldset>
                                             </div>              

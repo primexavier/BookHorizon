@@ -8,7 +8,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active">Order Complete</li>
+                    <li class="breadcrumb-item">Order Complete</li>
+                    <li class="breadcrumb-item active">{{$transaction->id}}</li>
                 </ol>
             </nav>
         </div>
@@ -29,9 +30,24 @@
                     <li>Date: <strong>{{$transaction->created_at}}</strong></li>
                     <li>Status: <strong>{{$transaction->status}}</strong></li>
                     <li>Total: <strong>Rp {{$transaction->grand_total}}</strong></li>
-                    <li>Payment Method: <strong> Bank Transfer {{$transaction->transaction_type_id}}</strong></li>
+                    <li>Payment Method: <strong> {{$transaction->paymentMethod()->name}}</strong></li>
                 </ul>
-                <p>Pay with cash upon delivery.</p>
+                @if($transaction->payment_method_id == 1)
+                    Please choose and transfer to one of the following bank accounts:
+                    <ul class="order-details-list">
+                        @foreach($banks as $bank)
+                        <li><strong>{{$bank->name}} - {{$bank->account}}</strong></li>
+                        @endforeach
+                    </ul>
+                @endif
+
+
+
+                @if(empty($transaction->address_id))
+                    <p>Received on Store</p>
+                @else
+                    <p>shipping</p>
+                @endif
                 <h3 class="order-table-title">Order Details</h3>
                 <div class="table-responsive">
                     <table class="table order-details-table">
@@ -76,7 +92,7 @@
                             </tr>
                             <tr>
                                 <th>Payment Method:</th>
-                                <td>{{$transaction->payment_method_id}} Bank Transfer </td>
+                                <td>{{$transaction->paymentMethod()->name}}</td>
                             </tr>
                             <tr>
                                 <th>Total:</th>

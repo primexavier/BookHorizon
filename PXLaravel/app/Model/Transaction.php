@@ -9,4 +9,9 @@ class Transaction extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+    
+
+    public function paymentMethod(){
+        return $this->belongsTo('App\Model\PaymentMethod','payment_method_id')->first();
+    }
 }
