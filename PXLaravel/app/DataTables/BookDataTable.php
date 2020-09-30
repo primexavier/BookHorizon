@@ -21,6 +21,16 @@ class BookDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
+            ->editColumn('updated_at', function ($query) 
+            {
+                //change over here
+                return date('d-m-Y h:i:s', strtotime($query->updated_at) );
+            })
+            ->editColumn('created_at', function ($query) 
+            {
+                //change over here
+                return date('d-m-Y h:i:s', strtotime($query->created_at) );
+            })
             ->addColumn('action', '<a href="{{route(\'backend.book.detail\',$id)}}" class="btn btn-info" style="color:white"><i class="fas fa-info"></i></a> 
             <a href="{{route(\'backend.book.update\',$id)}}" style="color:white" class="btn btn-success"><i class="fas fa-edit"></i></a> 
             <form method="post" action="{{route(\'backend.book.delete\',$id)}}" style="display:inline-block">
