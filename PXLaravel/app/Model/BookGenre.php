@@ -10,4 +10,8 @@ class BookGenre extends Model
     {
         return $this->belongsTo('App\Model\Book')->first();
     }
+    public function genre()
+    {
+        return $this->belongsTo('App\Model\Genre')->first();
+    }
 }

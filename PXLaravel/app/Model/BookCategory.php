@@ -10,4 +10,8 @@ class BookCategory extends Model
     {
         return $this->belongsTo('App\Model\Book')->first();
     }
+    public function category()
+    {
+        return $this->belongsTo('App\Model\Category')->first();
+    }
 }

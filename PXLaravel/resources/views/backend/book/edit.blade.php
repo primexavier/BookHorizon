@@ -137,6 +137,11 @@
                                         <div class="form-group">
                                             <label for="title">Category</label>
                                             <select  class="form-control"  name="categoryId" class="selectpicker" data-live-search="true">
+                                                @if(!empty($bookCategorie))
+                                                    <option value="{{$bookCategorie->id}}" data-tokens="ketchup mustard">{{$bookCategorie->name}}</option>
+                                                @else
+                                                    <option value="">Pick One</option>
+                                                @endif
                                                 @foreach($categories as $category)
                                                     <option value="{{$category->id}}" data-tokens="ketchup mustard">{{$category->name}}</option>
                                                 @endforeach
@@ -147,6 +152,11 @@
                                         <div class="form-group">
                                             <label for="title">Genre</label>
                                             <select  class="form-control"  name="genreId" class="selectpicker" data-live-search="true">
+                                                @if(!empty($genreBooks))
+                                                    <option value="{{$genreBooks->id}}" data-tokens="ketchup mustard">{{$genreBooks->genre}}</option>
+                                                @else
+                                                    <option value="" data-tokens="ketchup mustard">Pick One</option>
+                                                @endif
                                                 @foreach($genres as $genre)
                                                     <option value="{{$genre->id}}" data-tokens="ketchup mustard">{{$genre->genre}}</option>
                                                 @endforeach
