@@ -328,13 +328,29 @@ class FrontEndController extends Controller
     public function searchBook(Request $request){   
         $categories = Category::get();
         if($request->category){
-            $bookCategory = BookCategory::where('id',$request->category)->pluck('book_id');
-            $searchedBook = Book::whereIn('id',$bookCategory)->where('title', 'like', '%'.$request->searchBook.'%')->get();
+            $bookCategory = BookCategory::where('category_id',$request->category)->pluck('book_id');
+            if($request->sort){
+                if($request->sort == "newest"){
+                    $searchedBook = Book::whereIn('id',$bookCategory)->where('title', 'like', '%'.$request->searchBook.'%')->orderBy('created_at','ASC')->get();   
+                }else{
+                    $searchedBook = Book::whereIn('id',$bookCategory)->where('title', 'like', '%'.$request->searchBook.'%')->orderBy('created_at','ASC')->get();   
+                }
+            }else{                
+                $searchedBook = Book::whereIn('id',$bookCategory)->where('title', 'like', '%'.$request->searchBook.'%')->get();
+            }
             return view('frontend.search')
             ->with("searchBooks",$searchedBook)
             ->with("categories",$categories);
         }else{
-            $searchedBook = Book::where('title', 'like', '%'.$request->searchBook.'%')->get();
+            if($request->sort){     
+                if($request->sort == "newest"){
+                    $searchedBook = Book::where('title', 'like', '%'.$request->searchBook.'%')->orderBy('created_at','ASC')->get();
+                }else{
+                    $searchedBook = Book::where('title', 'like', '%'.$request->searchBook.'%')->orderBy('created_at','ASC')->get();
+                }
+            }else{  
+                $searchedBook = Book::where('title', 'like', '%'.$request->searchBook.'%')->get();    
+            }     
             return view('frontend.search')
             ->with("searchBooks",$searchedBook)
             ->with("categories",$categories);

@@ -359,6 +359,7 @@ class MemberController extends Controller
 
     public function pay(Request $request)
     {        
+        dd($request);
         $user_id = Auth::user()->id;
         $charts = Chart::where("user_id",$user_id)->get();
         if($charts->count() > 0){
