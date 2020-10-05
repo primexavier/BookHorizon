@@ -195,8 +195,18 @@ class BookController extends Controller
         $languages = Language::get();
         $genres = Genre::get();
         $categories = Category::get();
-        $bookGenre = BookGenre::where('book_id',$book->id)->first()->genre();
-        $bookCategory = BookCategory::where('book_id',$book->id)->first()->category();
+        $bookGenres =  BookGenre::where('book_id',$book->id)->first();
+        if($bookGenres > 0){
+            $bookGenre = $bookGenres->genre();
+        }else{
+            $bookGenre = null;
+        }
+        $bookCategories = BookCategory::where('book_id',$book->id)->first();
+        if($bookCategories > 0){
+            $bookCategory = $bookCategories->category();
+        }else{
+            $bookCategory = null;
+        }
         return view("backend.book.edit")->with("book",$book)
         ->with("authors",$authors)
         ->with("publishers",$publishers)

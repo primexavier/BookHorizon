@@ -25,8 +25,6 @@
                             <form method="post" action="{{route('pay.membership')}}">              
                             @csrf
                             <h1 class="quick-title">Checkout</h1>
-                            <button onclick="location.href='{{url()->previous()}}'" class="place-order w-20"><strong>Pay Later</strong></button>
-                            </br>
                         </div>
                         <div class="col-lg-7 mb--20">
                             <!-- Billing Address -->
@@ -95,7 +93,14 @@
                                             <label for="accept_terms2">I’ve read and accept the terms &
                                                 conditions</label>
                                         </div>
-                                            <button type="submit" class="place-order w-100">Place order</button>
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <button type="submit" class="place-order">Place order</button>
+                                            </div>
+                                            <div class="col-5">
+                                                <button onclick="location.href='{{url()->previous()}}'" class="place-order">Pay Later</button>
+                                            </div>
+                                        </div>
                                         </form>
                                     </div>
                                 </div>
