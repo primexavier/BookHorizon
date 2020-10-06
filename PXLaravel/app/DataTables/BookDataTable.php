@@ -23,12 +23,10 @@ class BookDataTable extends DataTable
             ->eloquent($query)
             ->editColumn('updated_at', function ($query) 
             {
-                //change over here
                 return date('d-m-Y h:i:s', strtotime($query->updated_at) );
             })
             ->editColumn('created_at', function ($query) 
             {
-                //change over here
                 return date('d-m-Y h:i:s', strtotime($query->created_at) );
             })
             ->addColumn('action', '<a href="{{route(\'backend.book.detail\',$id)}}" class="btn btn-info" style="color:white"><i class="fas fa-info"></i></a> 

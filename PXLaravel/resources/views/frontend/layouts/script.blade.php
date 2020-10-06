@@ -189,9 +189,34 @@
     }
     function newAddress(value){
         if(value){
+            $("#shippingMethod").find('option').remove().end(); 
+            $("#couriers").prop('checked', false);
+            $("#shippingMethod").append(`<option value="">Pick Shipping</option>`);
+
+            $('#cityName').val("");    
+            $('#cityName').prop('disabled', 'disabled');   
+            $('#province_id').val("");
+            $('#zipCode').val("");
+            $('#newAddressInput').val("");
+
+            alert(value);
 
         }else{
-
+            $("#oldAddress1").prop('checked', true);
+            changeOldAddress(1);
         }
+    }
+    function changeOldAddress(value){
+        
+        $("#shippingMethod").find('option').remove().end(); 
+        $("#couriers").prop('checked', false);
+        $("#shippingMethod").append(`<option value="">Pick Shipping</option>`);  
+
+        var Province_id = $('#ProvinceOldAddress'+value).html();      
+        var city_id = $('#CityOldAddress'+value).html(); 
+
+        $('#cityName').val(city_id);     
+        $('#province_id').val(Province_id);     
+
     }
 </script>

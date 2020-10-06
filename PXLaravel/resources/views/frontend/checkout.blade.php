@@ -94,17 +94,17 @@
                                                 <?php $no++; ?>
                                                 <label class="form-check-label" for="oldAddress{{$address->id}}">															
                                                     <address>
-                                                        Full Address : {{$address->full_address}}
+                                                        Full Address : <i id="FullOldAddress{{$address->id}}">{{$address->full_address}}</i>
                                                         <br>
-                                                        Phone No : {{$address->phone_no}}
+                                                        Phone No : <i id="PhoneOldAddress{{$address->id}}">{{$address->phone_no}}</i>
                                                         <br>
-                                                        Postal Code : {{$address->zip_code}}
+                                                        Postal Code : <i id="PostalCodeOldAddress{{$address->id}}">{{$address->zip_code}}</i>
                                                         <br>
-                                                        Country ID : {{$address->country_id}}
+                                                        Country ID : <i id="CountryOldAddress{{$address->id}}">{{$address->country_id}}</i>
                                                         <br>
-                                                        Province ID : {{$address->province_id}}
+                                                        Province ID : <i id="ProvinceOldAddress{{$address->id}}">{{$address->province_id}}</i>
                                                         <br>
-                                                        City ID : {{$address->city_id}}
+                                                        City ID : <i id="CityOldAddress{{$address->id}}">{{$address->city_id}}</i   >
                                                     </address>
                                                 </label>
                                             </div>
@@ -117,7 +117,7 @@
                                                 <label for="create_account">Create an Acount?</label>
                                             </div> -->
                                             <div class="check-box">
-                                                <input onchange="newAddress(this.value)" type="checkbox" id="shiping_address" data-shipping name="newShippingAddress">
+                                                <input onchange="newAddress(this.checked)" type="checkbox" id="shiping_address" data-shipping name="newShippingAddress">
                                                 <label for="shiping_address">Ship to New Address</label>
                                             </div>
                                         </div>
@@ -157,17 +157,17 @@
                                     </div>
                                     <div class="col-12 mb--20">
                                         <label>Address*</label>
-                                        @if($address)
-                                            <input required="required" name="address" type="text" placeholder="Address line 1" value="{{$address->full_address}}">
+                                        @if($addresses->count() > 0)
+                                            <input id="newAddressInput" required="required" name="address" type="text" placeholder="Address line 1" value="{{$addresses[0]->full_address}}">
                                         @else
-                                            <input required="required" name="address" type="text" placeholder="Address line 1">
+                                            <input id="newAddressInput" required="required" name="address" type="text" placeholder="Address line 1">
                                         @endif
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Town/City*</label>
-                                        @if($address)
+                                        @if($addresses->count() > 0)
                                             <select onchange="getZipCode(this.value)" required="required" name="city_id" class="form-control" class="nice-select" id="cityName">
-                                                <option value="{{$address->city_id}}">{{$address->city_id}}</option>
+                                                <option value="{{$addresses[0]->city_id}}">{{$addresses[0]->city_id}}</option>
                                             </select>
                                         @else
                                             <select onchange="getZipCode(this.value)" required="required" name="city_id" class="form-control" disabled="disabled" id="cityName">
@@ -177,9 +177,9 @@
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>State*</label>
-                                        @if($address)
+                                        @if($addresses->count() > 0)
                                             <select id="province_id" onchange="getCity(this.value)" required="required" name="province_id" class="nice-select">
-                                                <option value="{{$address->province_id}}">{{$address->id}}</option>
+                                                <option value="{{$addresses[0]->province_id}}">{{$addresses[0]->province_id}}</option>
                                                 @foreach($provinces as $province)
                                                     <option value="{{$province->province_id}}">{{$province->province}}</option>
                                                 @endforeach
@@ -195,8 +195,8 @@
                                     </div>
                                     <div class="col-md-6 col-12 mb--20">
                                         <label>Zip Code*</label>
-                                        @if($address)
-                                            <input id="zipCode" required="required" name="zipCode" type="number" placeholder="Address line 1" value="{{$address->zip_code}}" readonly>
+                                        @if($addresses->count() > 0)s
+                                            <input id="zipCode" required="required" name="zipCode" type="number" placeholder="Address line 1" value="{{$addresses[0]->zip_code}}" readonly>
                                         @else
                                             <input id="zipCode" required="required" name="zipCode" type="number" placeholder="Address line 1"  readonly>
                                         @endif
