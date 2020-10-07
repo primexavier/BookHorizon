@@ -198,12 +198,11 @@
             $('#province_id').val("");
             $('#zipCode').val("");
             $('#newAddressInput').val("");
-
-            alert(value);
-
+            $('#oldViewAddress').hide();
         }else{
             $("#oldAddress1").prop('checked', true);
             changeOldAddress(1);
+            $('#oldViewAddress').show();
         }
     }
     function changeOldAddress(value){

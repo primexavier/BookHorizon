@@ -318,6 +318,7 @@ class MemberController extends Controller
             $address = Address::where("user_id",Auth::user()->id)->first();
             $provinces = FrontEndController::getProvince(NULL);
             $couriers = Courier::get();
+
             return redirect(route("checkout.view"))
             ->with("charts",$charts)
             ->with("paymentMethods",$paymentMethods)
@@ -333,6 +334,11 @@ class MemberController extends Controller
     {  
         $charts = Chart::where("user_id",Auth::user()->id)->get();
         if($charts->count() > 0){
+
+            $userMembership = UserMembership::where('user_id',Auth::User()->id)
+            ->where('is_active',true)
+            ->where('expired','>', Carbon::now())
+            ->first(); 
             $paymentMethods = PaymentMethod::get();
             $address = Address::where("user_id",Auth::user()->id)->first();
             $addresses = Address::where("user_id",Auth::user()->id)->get();
@@ -344,7 +350,8 @@ class MemberController extends Controller
             ->with("address",$address)
             ->with("addresses",$addresses)
             ->with("provinces",$provinces)
-            ->with("couriers",$couriers);                
+            ->with("couriers",$couriers)
+            ->with('userMembership', $userMembership);                
         }else{
             return redirect(route("index"));
         }

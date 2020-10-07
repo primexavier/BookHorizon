@@ -83,45 +83,47 @@
                             <!-- Billing Address -->
                             <div id="billing-form" class="mb-40">
                                 <h4 class="checkout-title">Billing Address</h4>
-                                <div class="row">                    
-                                    <?php 
-                                    $no = 0;
-                                    ?>            
-                                    @foreach($addresses as $address)
-                                        <div class="col-sm-12">
-                                            <div class="form-check">                                                
-                                                <input onchange="changeOldAddress(this.value)" class="form-check-input" @if($no < 1) checked @endif type="radio" id="oldAddress{{$address->id}}" name="oldAddress" value="{{$address->id}}">
-                                                <?php $no++; ?>
-                                                <label class="form-check-label" for="oldAddress{{$address->id}}">															
-                                                    <address>
-                                                        Full Address : <i id="FullOldAddress{{$address->id}}">{{$address->full_address}}</i>
-                                                        <br>
-                                                        Phone No : <i id="PhoneOldAddress{{$address->id}}">{{$address->phone_no}}</i>
-                                                        <br>
-                                                        Postal Code : <i id="PostalCodeOldAddress{{$address->id}}">{{$address->zip_code}}</i>
-                                                        <br>
-                                                        Country ID : <i id="CountryOldAddress{{$address->id}}">{{$address->country_id}}</i>
-                                                        <br>
-                                                        Province ID : <i id="ProvinceOldAddress{{$address->id}}">{{$address->province_id}}</i>
-                                                        <br>
-                                                        City ID : <i id="CityOldAddress{{$address->id}}">{{$address->city_id}}</i   >
-                                                    </address>
-                                                </label>
+                                <div id="oldViewAddress" >    
+                                <div class="row">                
+                                        <?php 
+                                        $no = 0;
+                                        ?>            
+                                        @foreach($addresses as $address)
+                                            <div class="col-sm-12">
+                                                <div class="form-check">                                                
+                                                    <input onchange="changeOldAddress(this.value)" class="form-check-input" @if($no < 1) checked @endif type="radio" id="oldAddress{{$address->id}}" name="oldAddress" value="{{$address->id}}">
+                                                    <?php $no++; ?>
+                                                    <label class="form-check-label" for="oldAddress{{$address->id}}">															
+                                                        <address>
+                                                            Full Address : <i id="FullOldAddress{{$address->id}}">{{$address->full_address}}</i>
+                                                            <br>
+                                                            Phone No : <i id="PhoneOldAddress{{$address->id}}">{{$address->phone_no}}</i>
+                                                            <br>
+                                                            Postal Code : <i id="PostalCodeOldAddress{{$address->id}}">{{$address->zip_code}}</i>
+                                                            <br>
+                                                            Country ID : <i id="CountryOldAddress{{$address->id}}">{{$address->country_id}}</i>
+                                                            <br>
+                                                            Province ID : <i id="ProvinceOldAddress{{$address->id}}">{{$address->province_id}}</i>
+                                                            <br>
+                                                            City ID : <i id="CityOldAddress{{$address->id}}">{{$address->city_id}}</i   >
+                                                        </address>
+                                                    </label>
+                                                </div>
                                             </div>
-                                        </div>
-                                    @endforeach                                       
-                                    <div class="col-12 mb--20 ">
-                                        <div class="block-border check-bx-wrapper">
-                                            <!-- <div class="check-box">
-                                                <input type="checkbox" id="create_account">
-                                                <label for="create_account">Create an Acount?</label>
-                                            </div> -->
-                                            <div class="check-box">
-                                                <input onchange="newAddress(this.checked)" type="checkbox" id="shiping_address" data-shipping name="newShippingAddress">
-                                                <label for="shiping_address">Ship to New Address</label>
-                                            </div>
-                                        </div>
+                                        @endforeach     
                                     </div>  
+                                </div>
+                            </div>                                  
+                            <div class="col-12 mb--20 ">
+                                <div class="block-border check-bx-wrapper">
+                                    <!-- <div class="check-box">
+                                        <input type="checkbox" id="create_account">
+                                        <label for="create_account">Create an Acount?</label>
+                                    </div> -->
+                                    <div class="check-box">
+                                        <input onchange="newAddress(this.checked)" type="checkbox" id="shiping_address" data-shipping name="newShippingAddress">
+                                        <label for="shiping_address">Ship to New Address</label>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Shipping Address -->
@@ -217,6 +219,9 @@
                                         <h4>Product <span>Total</span></h4>
                                         <ul>
                                             <?php $totalSum = 0; ?> 
+                                            <?php $totalBuy = 0; ?>
+                                            <?php $totalRent = 0; ?>
+    
                                             @foreach($charts as $chart)
                                             <li>
                                                 <span class="left">{{$chart->book()->title}} ({{$chart->transactionType()->name}} <?php if($chart->transaction_type_id != 1){ ?>{{$chart->duration}} day<?php }  ?>)</span>
@@ -227,9 +232,10 @@
                                                 @endif
                                             </li>
                                             @if($chart->transactionType()->id == 1)
-                                                <?php $totalSum + 0; ?> 
-                                            @else
                                                 <?php $totalSum += $chart->book()->price; ?> 
+                                                <?php $totalBuy++; ?>
+                                            @else
+                                                <?php $totalSum + 0; ?> 
                                             @endif
                                             @endforeach
                                         </ul>          
@@ -277,6 +283,11 @@
                                          <input type="hidden" name="shippingCourier" id="shippingCourier" value="">
                                          <input type="hidden" name="shippingCode" id="shippingCode" value="">
                                         <p>Sub Total <span>Rp {{$totalSum}}</span></p>
+                                        @if($userMembership)
+                                            @if($totalSum > 0)
+                                                <p>Membership Discount <span id="membershipDiscount">Rp {{($userMembership->membership()->buy_discount*$totalBuy)}}</span></p>
+                                            @endif
+                                        @endif
                                         <p>Shipping Fee <span id="shippingFee">Rp 0 </span></p>
                                         <h4>Grand Total <span id="grandTotal">Rp {{($totalSum+0)}}</span></h4>
                                         <input type="hidden" id="grandTotalInput" value="{{($totalSum+0)}}" name="grandTotalInput">

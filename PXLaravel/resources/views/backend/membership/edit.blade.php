@@ -32,6 +32,24 @@
                                         <input type="number" class="form-control" placeholder="Price" name="price" value="{{$membership->price}}">
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="Description">Duration (day)</label>
+                                        <input type="number" class="form-control" placeholder="Duration" name="duration" value="{{$membership->duration}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="Description">Discount Buy</label>
+                                        <input type="number" class="form-control" placeholder="Duration" name="buy_discount" value="{{$membership->buy_discount}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="Description">Discount Rent</label>
+                                        <input type="number" class="form-control" placeholder="Duration" name="rent_discount" value="{{$membership->rent_discount}}">
+                                    </div>
+                                </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="Description">Description</label>

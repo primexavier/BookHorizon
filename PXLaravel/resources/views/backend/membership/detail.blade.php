@@ -14,6 +14,8 @@
                     Price : {{$membership->price}} </br>
                     Duration : {{$membership->duration}} </br>
                     Description : {{$membership->description}} </br>
+                    Buy Discount : {{$membership->buy_discount}} </br>
+                    Rent Discount : {{$membership->rent_discount}} </br>
                 </div>
             </div>
         </div>

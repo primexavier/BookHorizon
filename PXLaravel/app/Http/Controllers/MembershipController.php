@@ -45,6 +45,8 @@ class MembershipController extends Controller
         $new->name = $request->name;
         $new->duration = $request->duration;
         $new->price = $request->price;
+        $new->rent_discount = $request->rent_discount;
+        $new->buy_discount = $request->buy_discount;
         $new->description = $request->desc;
         if($new->save()){
             return redirect()->route('backend.membership.index');
@@ -94,6 +96,8 @@ class MembershipController extends Controller
         $membership->duration = $request->duration;
         $membership->price = $request->price;
         $membership->description = $request->desc;
+        $membership->rent_discount = $request->rent_discount;
+        $membership->buy_discount = $request->buy_discount;
         if($membership->save()){
             return redirect()->route('backend.membership.index');
         }else{
