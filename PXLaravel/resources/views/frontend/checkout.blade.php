@@ -283,15 +283,18 @@
                                          <input type="hidden" name="shippingCourier" id="shippingCourier" value="">
                                          <input type="hidden" name="shippingCode" id="shippingCode" value="">
                                         <p>Sub Total <span>Rp {{$totalSum}}</span></p>
+                                        <?php $membershipDiscount = 0; ?>
                                         @if($userMembership)
                                             @if($totalSum > 0)
                                                 <p>Membership Discount <span id="membershipDiscount">Rp {{($userMembership->membership()->buy_discount*$totalBuy)}}</span></p>
+                                            <?php $membershipDiscount += $userMembership->membership()->buy_discount*$totalBuy; ?>
                                             @endif
                                         @endif
                                         <p>Shipping Fee <span id="shippingFee">Rp 0 </span></p>
                                         <h4>Grand Total <span id="grandTotal">Rp {{($totalSum+0)}}</span></h4>
                                         <input type="hidden" id="grandTotalInput" value="{{($totalSum+0)}}" name="grandTotalInput">
                                         <input type="hidden" id="subTotalInput" value="{{$totalSum}}" name="subTotalInput">
+                                        <input type="hidden" id="membershipDiscount" value="{{$membershipDiscount}}" name="membershipDiscount">
                                             <div class="method-notice mt--25">                 
                                                 <fieldset class="form-group">
                                                     <div class="row">
