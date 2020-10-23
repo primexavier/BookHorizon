@@ -81,6 +81,11 @@ class BookController extends Controller
         $new->price = $request->price;
         $new->description = $request->desc;
         $new->language_id = $request->languageId;
+        if(isset($request->is_sell)){
+            $new->language_id = true;
+        }else{
+            $new->language_id = false;
+        }
         if($request->authorId){
             $author = Author::where("name",$request->authorId)->first();
             if($author){

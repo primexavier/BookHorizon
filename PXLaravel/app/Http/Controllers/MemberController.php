@@ -366,7 +366,19 @@ class MemberController extends Controller
 
     public function pay(Request $request)
     {        
-        dd($request);
+        $userMembership = UserMembership::where('user_id',Auth::User()->id)
+        ->where('is_active',true)
+        ->where('expired','>', Carbon::now())
+        ->first(); 
+        $buy_discount = 0;
+        $rent_discount = 0;
+        if($userMembership){
+            $membership = Membership::where('id',$userMembership->membership_id)->first();
+            if($membership){                
+                $buy_discount = $membership->buy_discount;
+                $rent_discount = $membership->rent_discount;
+            }
+        }
         $user_id = Auth::user()->id;
         $charts = Chart::where("user_id",$user_id)->get();
         if($charts->count() > 0){
@@ -378,8 +390,13 @@ class MemberController extends Controller
             $newTransaction->grand_total = $request->grandTotalInput;
             $newTransaction->payment_method_id = $request->paymentMethod;
             $newTransaction->status = 1;
+            if(isset($request->is_regional)){
+                $newTransaction->is_regional = true;
+            }else{
+                $newTransaction->is_regional = false;
+            }
             $newTransaction->save();
-
+            $totalDiscount = 0;
             foreach($charts as $chart){
                 $newTransactionDetail = new TransactionBook;
                 $newTransactionDetail->transaction_id = $newTransaction->id;
@@ -387,6 +404,12 @@ class MemberController extends Controller
                 $newTransactionDetail->price = $chart->total();
                 $newTransactionDetail->duration = $chart->duration;
                 $newTransactionDetail->transaction_type_id = $chart->transaction_type_id;
+                if($chart->transaction_type_id == 1){
+                    if($chart->total() > 0){
+                        $newTransactionDetail->discount = $buy_discount;
+                        $totalDiscount = $totalDiscount+$buy_discount;
+                    }
+                }
                 if($newTransactionDetail->save()){
                     $chart->delete();
                 }
@@ -401,25 +424,28 @@ class MemberController extends Controller
             $newBill->is_active = true;
             $newBill->save();
 
-            if($request->isShipping == 1){
-                if(empty($request->oldAddress)){
-                    $newAddress = new Address;
-                    $newAddress->user_id = $user_id;
-                    $newAddress->name = "Defauilt";
-                    $newAddress->lg = 0;
-                    $newAddress->la = 0;
-                    $newAddress->full_address = $request->address;
-                    $newAddress->phone_no = $request->phone_no;
-                    $newAddress->country_id = $request->country_id;
-                    $newAddress->province_id = $request->province_id;
-                    $newAddress->city_id = $request->city_id;
-                    $newAddress->zip_code = $request->zipCode;
-                    $newAddress->save();
-                    $newTransaction->address_id = $newAddress->id;
+            if($request->isShipping == 1){                
+                if(isset($request->is_regional)){
+                    $newTransaction->regional_address = $request->address;
                 }else{
-                    $newTransaction->address_id = $request->oldAddress;
-                }
-                $newTransaction->save();                
+                    if(empty($request->oldAddress)){
+                        $newAddress = new Address;
+                        $newAddress->user_id = $user_id;
+                        $newAddress->name = "Defauilt";
+                        $newAddress->lg = 0;
+                        $newAddress->la = 0;
+                        $newAddress->full_address = $request->address;
+                        $newAddress->phone_no = $request->phone_no;
+                        $newAddress->country_id = $request->country_id;
+                        $newAddress->province_id = $request->province_id;
+                        $newAddress->city_id = $request->city_id;
+                        $newAddress->zip_code = $request->zipCode;
+                        $newAddress->save();
+                        $newTransaction->address_id = $newAddress->id;
+                    }else{
+                        $newTransaction->address_id = $request->oldAddress;
+                    }    
+                }            
             }
 
             if(!Auth::user()->phone_no){
@@ -428,6 +454,8 @@ class MemberController extends Controller
                 $updateUser->save();
             }
            
+            $newTransaction->discount = $totalDiscount;
+            $newTransaction->save();
 
             return redirect()->route("transaction.detail",$newTransaction->id);
             

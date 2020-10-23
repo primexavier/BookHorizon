@@ -29,7 +29,8 @@
                     <li>Order Number: <strong>{{$transaction->id}}</strong></li>
                     <li>Date: <strong>{{$transaction->created_at}}</strong></li>
                     <li>Status: <strong>{{$transaction->status}}</strong></li>
-                    <li>Total: <strong>Rp {{$transaction->grand_total}}</strong></li>
+                    <li>Discount: <strong>Rp {{$transaction->discount}}</strong></li>
+                    <li>Total: <strong>Rp {{$transaction->grand_total-$transaction->discount}}</strong></li>
                     <li>Payment Method: <strong> {{$transaction->paymentMethod()->name}}</strong></li>
                 </ul>
                 @if($transaction->payment_method_id == 1)
@@ -91,12 +92,16 @@
                                 <td><span>Rp {{$transaction->sub_total}}</span></td>
                             </tr>
                             <tr>
+                                <th>Discount:</th>
+                                <td><span>Rp {{$transaction->discount}}</span></td>
+                            </tr>
+                            <tr>
                                 <th>Payment Method:</th>
                                 <td>{{$transaction->paymentMethod()->name}}</td>
                             </tr>
                             <tr>
                                 <th>Total:</th>
-                                <td><span>Rp {{$transaction->grand_total}}</span></td>
+                                <td><span>Rp {{$transaction->grand_total-$transaction->discount}}</span></td>
                             </tr>
                         </tfoot>
                     </table>

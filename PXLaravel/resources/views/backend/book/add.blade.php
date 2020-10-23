@@ -21,11 +21,16 @@
                                             <label for="exampleFormControlFile1">Photo</label><br>
                                             <img id="imageShow" src="{{ asset('frontend/image/book') }}/empty.jpg" alt="your image" width="200px" height="250px" />	<br><br>											
                                             <input onchange="readURL(this)" type="file" class="form-control-file" accept="image/x-png,image/gif,image/jpeg" name="photo">
-                                        </div>    
+                                        </div>             
+                                        <div class="form-check">
+                                            <input checked type="checkbox" class="form-check-input" id="is_sell" name="is_sell">
+                                            <label class="form-check-label" for="is_sell">Is Book is for Sell?</label>
+                                        </div>  
+                                    </br>
                                         <div class="form-group">
                                             <label for="title">Title</label>
                                             <input type="text" class="form-control" placeholder="Book Email" name="title">
-                                        </div>              
+                                        </div>       
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -72,7 +77,7 @@
                                         </div>       
                                         <div class="form-group">
                                             <label for="">Price</label>
-                                            <input type="number" class="form-control" placeholder="Price" name="price" required="required"> 
+                                            <input value="0" type="number" class="form-control" placeholder="Price" name="price" required="required"> 
                                         </div>       
                                         <div class="form-group">
                                             <label for="">Purchase Date</label>
@@ -105,12 +110,12 @@
                                         <div class="form-group">
                                             <label for="title">Supplier</label>
                                             
-                                            <input type="text" class="form-control" placeholder="Supplier Name" name="supplierId">
-                                            <!-- <select  class="form-control"  name="supplierId" class="selectpicker" data-live-search="true">
+                                            {{-- <input type="text" class="form-control" placeholder="Supplier Name" name="supplierId"> --}}
+                                            <select  class="form-control"  name="supplierId" class="selectpicker" data-live-search="true">
                                                 @foreach($suppliers as $supplier)
                                                     <option value="{{$supplier->id}}" data-tokens="ketchup mustard">{{$supplier->name}}</option>
                                                 @endforeach
-                                            </select>                                         -->
+                                            </select>                                         
                                         </div>              
                                     </div>                                        
                                     <div class="col-md-12">        

@@ -121,12 +121,26 @@
                                         <label for="create_account">Create an Acount?</label>
                                     </div> -->
                                     <div class="check-box">
-                                        <input onchange="newAddress(this.checked)" type="checkbox" id="shiping_address" data-shipping name="newShippingAddress">
+                                        <input onchange="newAddress(this.checked,1)" type="checkbox" id="shiping_address" data-shipping name="newShippingAddress">
                                         <label for="shiping_address">Ship to New Address</label>
+                                    </div>
+                                    <div class="check-box">
+                                        <input onchange="newAddress(this.checked,2)" type="checkbox" id="is_regional_address" name="is_regional">
+                                        <label for="is_regional_address">Sent To Batam</label>
                                     </div>
                                 </div>
                             </div>
                             <!-- Shipping Address -->
+                            <div id="shipping-form-regional" class="mb--40">                                
+                                <div class="col-12 mb--20">
+                                    <label>Address*</label>
+                                    @if($addresses->count() > 0)
+                                        <input id="newAddressInput" required="required" name="address" type="text" placeholder="Address line 1" value="{{$addresses[0]->full_address}}">
+                                    @else
+                                        <input id="newAddressInput" required="required" name="address" type="text" placeholder="Address line 1">
+                                    @endif
+                                </div>
+                            </div>
                             <div id="shipping-form" class="mb--40">
                                 <h4 class="checkout-title">Shipping Address</h4>
                                 <div class="row"> 
@@ -291,7 +305,11 @@
                                             @endif
                                         @endif
                                         <p>Shipping Fee <span id="shippingFee">Rp 0 </span></p>
-                                        <h4>Grand Total <span id="grandTotal">Rp {{($totalSum+0)}}</span></h4>
+                                        @if($totalSum > 0)
+                                            <h4>Grand Total <span id="grandTotal">Rp {{($totalSum+0-$membershipDiscount)}}</span></h4>
+                                        @else
+                                            <h4>Grand Total <span id="grandTotal">Rp {{($totalSum+0)}}</span></h4>
+                                        @endif
                                         <input type="hidden" id="grandTotalInput" value="{{($totalSum+0)}}" name="grandTotalInput">
                                         <input type="hidden" id="subTotalInput" value="{{$totalSum}}" name="subTotalInput">
                                         <input type="hidden" id="membershipDiscount" value="{{$membershipDiscount}}" name="membershipDiscount">

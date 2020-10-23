@@ -113,7 +113,8 @@
                         <div class="col-md-6">
                             No Transaction : {{$transaction->id}} <br>
                             Date : {{$transaction->created_at}} <br>
-                            Total : Rp {{$transaction->grand_total}}<br><br>
+                            Discount : Rp {{$transaction->discount}}<br><br>
+                            <b>Total : Rp {{$transaction->grand_total-$transaction->discount}}</b><br><br>
                             Status :  
                             <button type="button" class="btn <?php if($waitingPayment ){ ?> btn-success <?php } ?>">Waiting Payment</button>
                             <button type="button" class="btn <?php if($waitingApprove ){ ?> btn-success <?php } ?>">Waiting Approve</button>
@@ -167,8 +168,12 @@
                                         <td>Rp <?php if($transaction->shipping_cost) {echo $transaction->shipping_cost; }else{ echo '0'; } ?></td>
                                     </tr>
                                     <tr>
+                                        <th scope="row" colspan="2">Discount</th>
+                                        <td>Rp <?php if($transaction->discount) {echo $transaction->discount; }else{ echo '0'; } ?></td>
+                                    </tr>
+                                    <tr>
                                         <th scope="row" colspan="2">Total</th>
-                                        <td>Rp {{$transaction->grand_total}}</td>
+                                        <td>Rp {{$transaction->grand_total-$transaction->discount}}</td>
                                     </tr>
                                 </tbody>
                             </table>

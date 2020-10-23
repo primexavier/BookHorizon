@@ -74,14 +74,13 @@ class BookDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('id'),
             Column::make('title'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(120)
+                  ->width(150)
                   ->addClass('text-center'),
         ];
     }

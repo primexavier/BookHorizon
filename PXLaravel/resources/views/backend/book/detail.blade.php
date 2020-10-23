@@ -20,6 +20,7 @@
 						</div>
 					@endif
                     </br>
+                    Is Book For Sell? : @if($book->is_sold) Yes @else No @endif </br>
                     Name : {{$book->title}} </br>
                     ISBN : {{$book->isbn}} </br>
                     Publication City : {{$book->publication_city}} </br>

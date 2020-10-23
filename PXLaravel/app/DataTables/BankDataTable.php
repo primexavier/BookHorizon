@@ -66,7 +66,6 @@ class BankDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('id'),
             Column::make('name'),
             Column::make('account'),
             Column::make('created_at'),
@@ -74,7 +73,7 @@ class BankDataTable extends DataTable
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(120)
+                  ->width(150)
                   ->addClass('text-center'),
         ];
     }

@@ -31,7 +31,12 @@
                                             @endif
                                             	<br><br>											
                                             <input onchange="readURL(this)" type="file" class="form-control-file" accept="image/x-png,image/gif,image/jpeg" name="photo">
-                                        </div>    
+                                        </div>             
+                                        <div class="form-check">
+                                            <input @if($book->is_sold) checked @endif type="checkbox" class="form-check-input" id="is_sell" name="is_sell">
+                                            <label class="form-check-label" for="is_sell">Is Book is for Sell?</label>
+                                        </div>  
+                                    </br>
                                         <div class="form-group">
                                             <label for="title">Title</label>
                                             <input type="text" class="form-control" placeholder="Book Title" name="title" value="{{$book->title}}">

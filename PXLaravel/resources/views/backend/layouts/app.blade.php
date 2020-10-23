@@ -91,9 +91,9 @@
                                     <!-- <a class="dropdown-item" href="{{route('backend.setting.index')}}" >
                                         Setting
                                     </a> -->
-                                    <!-- <a class="dropdown-item" href="{{route('backend.supplier.index')}}" >
+                                    <a class="dropdown-item" href="{{route('backend.supplier.index')}}" >
                                         Supplier
-                                    </a> -->
+                                    </a>
                                     <a class="dropdown-item" href="{{route('backend.stock.index')}}" >
                                         Stock
                                     </a>

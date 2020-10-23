@@ -177,32 +177,54 @@
         }
     }
     function ChangeShipping(value){
-        if(value){
-            $('#ShippingPick').show();
-            $('#shippingMethod').prop('disabled', false);
-            $('#couriers').prop('disabled', false);
-        }else{
-            $('#ShippingPick').hide();
-            $('#couriers').prop('disabled', true);
-            $('#couriers').prop('disabled', true);            
+        var is_regional = $('#is_regional_address').prop('checked');
+        if(is_regional){
+            if(value){
+            }else{
+                $('#ShippingPick').hide();
+                $('#couriers').prop('disabled', true);
+                $('#couriers').prop('disabled', true);            
+            }
+        }else{            
+            if(value){
+                $('#ShippingPick').show();
+                $('#shippingMethod').prop('disabled', false);
+                $('#couriers').prop('disabled', false);
+            }else{
+                $('#ShippingPick').hide();
+                $('#couriers').prop('disabled', true);
+                $('#couriers').prop('disabled', true);            
+            }
         }
     }
-    function newAddress(value){
+    $('#shipping-form-regional').hide();
+    function newAddress(value,type){
         if(value){
+            if(type == 1){
+                $('#cityName').val("");    
+                $('#cityName').prop('disabled', 'disabled');   
+                $('#province_id').val("");
+                $('#zipCode').val("");
+                $('#newAddressInput').val("");
+                $('#is_regional_address').prop('disabled', 'disabled');   
+            }else{
+                $('#shipping-form-regional').show();
+                $('#shiping_address').prop('disabled', 'disabled');   
+            }
             $("#shippingMethod").find('option').remove().end(); 
             $("#couriers").prop('checked', false);
             $("#shippingMethod").append(`<option value="">Pick Shipping</option>`);
-
-            $('#cityName').val("");    
-            $('#cityName').prop('disabled', 'disabled');   
-            $('#province_id').val("");
-            $('#zipCode').val("");
-            $('#newAddressInput').val("");
             $('#oldViewAddress').hide();
         }else{
-            $("#oldAddress1").prop('checked', true);
-            changeOldAddress(1);
-            $('#oldViewAddress').show();
+            if(type == 1){
+                $('#is_regional_address').prop('disabled', ''); 
+            }else{
+                $('#shipping-form-regional').hide();       
+                $('#shiping_address').prop('disabled', '');            
+            }
+                $("#oldAddress1").prop('checked', true);
+                changeOldAddress(1);
+                $('#oldViewAddress').show();
         }
     }
     function changeOldAddress(value){
