@@ -24,7 +24,7 @@
                     Member Code : M-{{$member->id}}<br>
                     Member Name : {{$member->last_name}}<br>
                     Phone : {{$member->phone_no}}<br>
-                    @if(count($member->Address()) > 0)
+                    @if($member->Address()->count() > 0)
                     Address : {{$member->Address[0]->full_address}}<br>
                     @endif
                     Email : {{$member->email}}<br>
