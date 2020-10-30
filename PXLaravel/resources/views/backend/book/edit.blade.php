@@ -47,10 +47,10 @@
                                             <label for="isbn">ISBN</label>
                                             <input type="text" class="form-control" placeholder="isbn" name="isbn" value="{{$book->isbn}}">
                                         </div>
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label for="product_code">Product Code</label>
                                             <input type="text" class="form-control" placeholder="Product Code" name="pcode" value="{{$book->pcode}}">
-                                        </div>
+                                        </div> --}}
                                         <div class="form-group">
                                             <label for="isbn">Pages</label>
                                             <input type="text" class="form-control" placeholder="Pages" name="pages" value="{{$book->pages}}">
@@ -63,10 +63,10 @@
                                             <label for="isbn">Weight</label>
                                             <input type="text" class="form-control" placeholder="Weight" name="weight" value="{{$book->weight}}"> 
                                         </div>
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label for="isbn">Vendor</label>
                                             <input type="text" class="form-control" placeholder="Vendor" name="vendor" value="{{$book->vendor}}">
-                                        </div>                            
+                                        </div>                             --}}
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">

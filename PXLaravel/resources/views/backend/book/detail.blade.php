@@ -32,7 +32,7 @@
                     price : {{$book->price}} </br>
                     start_qty : {{$book->start_qty}} </br>
                     purchase_date : {{$book->purchase_date}} </br>
-                    vendor : {{$book->vendor}} </br>
+                    {{-- vendor : {{$book->vendor}} </br> --}}
                 </div>
             </div>
         </div>

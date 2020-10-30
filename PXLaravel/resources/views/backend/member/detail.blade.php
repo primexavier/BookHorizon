@@ -11,12 +11,21 @@
                         &nbsp Detail Member</div>
 
                 <div class="card-body">
-                    First Name : {{$member->last_name}}<br>
-                    Last Name : {{$member->first_name}}<br>
-                    Display Name : {{$member->display_name}}<br>
-                    Sharing Profile : {{$member->privacy}}<br>
+                    @if ($member->photo_id)
+                            <div class="single-slide">
+                                <img src="/storage/{{$member->photo_id }}" width="150px" alt="">
+                            </div>
+					@else
+						<div class="single-slide">
+							<img src="{{ asset('frontend/image/book') }}/empty.jpg" alt="" width="150px">
+						</div>
+					@endif
+                    </br>
+                    Member Code : M-{{$member->id}}<br>
+                    Member Name : {{$member->last_name}}<br>
+                    Phone : {{$member->phone_no}}<br>
+                    Address : {{$member->Address[0]->full_address}}<br>
                     Email : {{$member->email}}<br>
-                    Status : {{$member->delete_at}}<br>
                 </div>
             </div>
         </div>

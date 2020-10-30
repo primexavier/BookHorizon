@@ -66,9 +66,10 @@ class MemberDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::make('id'),
             Column::make('name'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+            Column::make('phone_no'),
+            Column::make('email'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

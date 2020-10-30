@@ -50,6 +50,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Model\Chart');
     }
 
+    public function address()
+    {
+        return $this->hasMany('App\Model\Address');
+    }
+
     public function wishlist()
     {
         return $this->hasMany('App\Model\Wishlist');

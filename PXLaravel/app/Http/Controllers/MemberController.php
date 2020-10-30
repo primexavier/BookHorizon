@@ -43,17 +43,44 @@ class MemberController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validateWithBag('users', [
-            'name' => ['required'],
+            'first_name' => ['required'],
             'password' => ['required'],
             'email' => ['required', 'unique:users']
         ]);
         $new = new User();
-        $new->name = $request->name;
+        $new->name = $request->first_name;
         $new->email = $request->email;
-        $new->first_name = $request->name;
+        $new->first_name = $request->first_name;
         $new->last_name = $request->last_name;
         $new->display_name = $request->display_name;
-        $new->privacy = $request->privacy;
+        $new->phone_no = $request->phone_no;
+        if(isset($_POST['test'])){
+            $new->privacy = true;
+        }else{
+            $new->privacy = false;
+        }
+        if ($request->hasFile('photoId')) {
+            if ($request->file('photoId')->isValid()) {
+                $extension = $request->photoId->extension();
+                $request->photoId->storeAs('\public\image\user', 'photoId'.$user->id.".".$extension);
+                $url = "image\user\\photoId".$user->id.".".$extension;
+                $new->photo_id = $url;
+            }
+        }
+        if(isset($address)){            
+            $newAddress = new Address;
+            $newAddress->user_id = $new->id;
+            $newAddress->name = "Default";
+            $newAddress->lg = 0;
+            $newAddress->la = 0;
+            $newAddress->full_address = $request->address;
+            $newAddress->phone_no = $request->phone_no;
+            $newAddress->country_id = 0;
+            $newAddress->province_id = 0;
+            $newAddress->city_id = 0;
+            $newAddress->zip_code = 0;
+            $newAddress->save();
+        }
         $new->password = Hash::make($request->password);
         $new->level = 2;
         if($new->save()){
@@ -136,11 +163,42 @@ class MemberController extends Controller
                 'email' => ['required', 'unique:users']
             ]);                
         }
-        $user->name = $request->name;
+        $user->name = $request->first_name;
+        $user->phone_no = $request->phone_no;
         $user->email = $request->email;
-        $user->first_name = $request->name;
+        $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->display_name = $request->display_name;
+        if(isset($_POST['test'])){
+            $user->privacy = true;
+        }else{
+            $user->privacy = false;
+        }
+        if(!empty($_POST['password'])){            
+            $user->password = Hash::make($request->password);
+        }
+        if ($request->hasFile('photoId')) {
+            if ($request->file('photoId')->isValid()) {
+                $extension = $request->photoId->extension();
+                $request->photoId->storeAs('\public\image\user', 'photoId'.$user->id.".".$extension);
+                $url = "image\user\\photoId".$user->id.".".$extension;
+                $user->photo_id = $url;
+            }
+        }
+        if(isset($request->address) && $request->address != $user->address){          
+            $newAddress = new Address;
+            $newAddress->user_id = $user->id;
+            $newAddress->name = "Default";
+            $newAddress->lg = 0;
+            $newAddress->la = 0;
+            $newAddress->full_address = $request->address;
+            $newAddress->phone_no = $request->phone_no;
+            $newAddress->country_id = 0;
+            $newAddress->province_id = 0;
+            $newAddress->city_id = 0;
+            $newAddress->zip_code = 0;
+            $newAddress->save();
+        }
         if($user->save()){
             return redirect()->route('backend.member.index');
         }else{
