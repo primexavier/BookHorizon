@@ -30,6 +30,10 @@ class Book extends Model
     }
     public function bookImage()
     {
-        return $this->hasOne('App\Model\BookImage')->first();
+        return $this->hasOne('App\Model\BookImage');
+    }
+    public function bookgenre()
+    {
+        return $this->hasOne('App\Model\BookGenre');
     }
 }

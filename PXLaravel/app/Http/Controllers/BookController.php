@@ -201,17 +201,19 @@ class BookController extends Controller
         $genres = Genre::get();
         $categories = Category::get();
         $bookGenres =  BookGenre::where('book_id',$book->id)->first();
-        if($bookGenres > 0){
+        if($bookGenres){
             $bookGenre = $bookGenres->genre();
         }else{
             $bookGenre = null;
         }
         $bookCategories = BookCategory::where('book_id',$book->id)->first();
-        if($bookCategories > 0){
+        if($bookCategories){
             $bookCategory = $bookCategories->category();
         }else{
             $bookCategory = null;
         }
+        $bookSupplier = Supplier::where("id",$book->supplier_id)->first();
+        $bookLanguage = Language::where("id",$book->language_id)->first();
         return view("backend.book.edit")->with("book",$book)
         ->with("authors",$authors)
         ->with("publishers",$publishers)
@@ -220,7 +222,9 @@ class BookController extends Controller
         ->with("genres",$genres)
         ->with("categories",$categories)
         ->with("genreBooks",$bookGenre)
-        ->with("bookCategorie",$bookCategory);
+        ->with("bookCategorie",$bookCategory)
+        ->with("bookLanguage",$bookLanguage)
+        ->with("bookSupplier",$bookSupplier);
     }
 
     /**
@@ -276,19 +280,19 @@ class BookController extends Controller
         }else{
             $book->publisher_id = 1; //$request->authors_id;            
         }
-        if(!empty($request->supplierId)){
-            $supplier = Supplier::where("name",$request->supplierId)->first();
-            if($supplier){
-                $book->supplier_id = $supplier->id; //$request->authors_id;
-            }else{
-                $newSupplier = new Supplier();
-                $newSupplier->name = $request->supplierId;
-                $newSupplier->save();
-                $new->supplier_id = $newSupplier->id; //$request->authors_id;
-            }
-        }else{
+        // if(!empty($request->supplierId)){
+        //     $supplier = Supplier::where("name",$request->supplierId)->first();
+        //     if($supplier){
+        //         $book->supplier_id = $supplier->id; //$request->authors_id;
+        //     }else{
+        //         $newSupplier = new Supplier();
+        //         $newSupplier->name = $request->supplierId;
+        //         $newSupplier->save();
+        //         $book->supplier_id = $newSupplier->id; //$request->authors_id;
+        //     }
+        // }else{
             $book->supplier_id = 1; //$request->authors_id;            
-        }
+        // }
         if($request->categoryId){
             $bookCategory = BookCategory::where('book_id',$book->id)->first();
             if($bookCategory){

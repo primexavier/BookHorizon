@@ -21,13 +21,21 @@ class BookDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->editColumn('updated_at', function ($query) 
+            ->editColumn('author', function ($query) 
             {
-                return date('d-m-Y h:i:s', strtotime($query->updated_at) );
+                return $query->author();
             })
-            ->editColumn('created_at', function ($query) 
+            ->editColumn('genre', function ($query) 
             {
-                return date('d-m-Y h:i:s', strtotime($query->created_at) );
+                if($query->bookgenre()->count() > 0){
+                    return $query->bookgenre;
+                }else{
+                    return "No Genre";
+                }
+            })
+            ->editColumn('T_B_A', function ($query) 
+            {
+                return "";
             })
             ->addColumn('action', '<a href="{{route(\'backend.book.detail\',$id)}}" class="btn btn-info" style="color:white"><i class="fas fa-info"></i></a> 
             <a href="{{route(\'backend.book.update\',$id)}}" style="color:white" class="btn btn-success"><i class="fas fa-edit"></i></a> 
@@ -75,8 +83,10 @@ class BookDataTable extends DataTable
     {
         return [
             Column::make('title'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+            Column::computed('author'),
+            Column::computed('genre'),
+            Column::computed('T_B_A')
+            ->width(50),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

@@ -67,12 +67,12 @@
                                             <label for="isbn">Vendor</label>
                                             <input type="text" class="form-control" placeholder="Vendor" name="vendor" value="{{$book->vendor}}">
                                         </div>                             --}}
-                                    </div>
-                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="publication City">Publication City</label>
                                             <input type="text" class="form-control" placeholder="Publication City" name="pcity" value="{{$book->publication_city}}"> 
                                         </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">Format</label>
                                             <input type="text" class="form-control" placeholder="Format" name="format" value="{{$book->format}}">
@@ -119,21 +119,44 @@
                                     <div class="col-md-12">        
                                         <div class="form-group">
                                             <label for="title">Supplier</label>
-                                            
-                                            <input type="text" class="form-control" placeholder="Supplier Name" name="supplierId" value="{{$book->supplier()}}">
-                                            <!-- <select  class="form-control"  name="supplierId" class="selectpicker" data-live-search="true">
+                                            <!-- <input type="text" class="form-control" placeholder="Supplier Name" name="supplierId" value="{{$book->supplier()}}"> -->
+                                            <select  class="form-control"  name="supplierId" class="selectpicker" data-live-search="true">
+                                                
+                                                @if(!empty($bookSupplier))
+                                                    <option value="{{$bookSupplier->id}}" data-tokens="ketchup mustard">{{$bookSupplier->name}}</option>
+                                                @else
+                                                    <option value="">Pick One</option>
+                                                @endif
                                                 @foreach($suppliers as $supplier)
-                                                    <option value="{{$supplier->id}}" data-tokens="ketchup mustard">{{$supplier->name}}</option>
+                                                    @if(!empty($bookSupplier))
+                                                        @if($supplier->id != $bookSupplier->id)
+                                                            <option value="{{$supplier->id}}" data-tokens="ketchup mustard">{{$supplier->name}}</option>
+                                                        @endif
+                                                    @else
+                                                        <option value="{{$supplier->id}}" data-tokens="ketchup mustard">{{$supplier->name}}</option>                                                        
+                                                    @endif
                                                 @endforeach
-                                            </select>                                         -->
+                                            </select>                                        
                                         </div>              
                                     </div>                                           
                                     <div class="col-md-12">        
                                         <div class="form-group">
                                             <label for="title">Language</label>
                                             <select  class="form-control"  name="languageId" class="selectpicker" data-live-search="true">
+                                                @if(!empty($bookLanguage))
+                                                    <option value="{{$bookLanguage->id}}" data-tokens="ketchup mustard">{{$bookLanguage->name}}</option>
+                                                @else
+                                                    <option value="">Pick One</option>
+                                                @endif
                                                 @foreach($languages as $language)
-                                                    <option value="{{$language->id}}" data-tokens="ketchup mustard">{{$language->name}}</option>
+                                                    @if(!empty($bookLanguage))
+                                                        @if(($language->id != $bookLanguage->id) || empty($bookLanguage))
+                                                            <option value="{{$language->id}}" data-tokens="ketchup mustard">{{$language->name}}</option>
+                                                        @endif                                                        
+                                                    @else
+                                                        <option value="{{$language->id}}" data-tokens="ketchup mustard">{{$language->name}}</option>
+                                                    
+                                                    @endif
                                                 @endforeach
                                             </select>                                        
                                         </div>              
@@ -147,8 +170,15 @@
                                                 @else
                                                     <option value="">Pick One</option>
                                                 @endif
-                                                @foreach($categories as $category)
-                                                    <option value="{{$category->id}}" data-tokens="ketchup mustard">{{$category->name}}</option>
+                                                @foreach($categories as $category)                                                
+                                                    @if(!empty($bookCategorie))
+                                                        @if($category->id != $bookCategorie->id)
+                                                            <option value="{{$category->id}}" data-tokens="ketchup mustard">{{$category->name}}</option>
+                                                        @endif
+                                                    @else
+                                                        <option value="{{$category->id}}" data-tokens="ketchup mustard">{{$category->name}}</option>
+                                                 
+                                                    @endif
                                                 @endforeach
                                             </select>                                        
                                         </div>              
@@ -162,8 +192,14 @@
                                                 @else
                                                     <option value="" data-tokens="ketchup mustard">Pick One</option>
                                                 @endif
-                                                @foreach($genres as $genre)
-                                                    <option value="{{$genre->id}}" data-tokens="ketchup mustard">{{$genre->genre}}</option>
+                                                @foreach($genres as $genre)                                               
+                                                    @if(!empty($genreBooks))
+                                                        @if($genre->id != $genreBooks->id)
+                                                            <option value="{{$genre->id}}" data-tokens="ketchup mustard">{{$genre->genre}}</option>
+                                                        @endif
+                                                    @else
+                                                        <option value="{{$genre->id}}" data-tokens="ketchup mustard">{{$genre->genre}}</option>                                                        
+                                                    @endif
                                                 @endforeach
                                             </select>                                        
                                         </div>              
