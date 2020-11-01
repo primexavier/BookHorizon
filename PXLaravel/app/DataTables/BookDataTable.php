@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Model\Book;
+use App\Model\Genre;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -27,8 +28,9 @@ class BookDataTable extends DataTable
             })
             ->editColumn('genre', function ($query) 
             {
-                if($query->bookgenre()->count() > 0){
-                    return $query->bookgenre;
+                if($query->bookgenre()){
+                    $genreName = Genre::where("id",$query->bookgenre()->genre_id)->first();
+                    return $genreName->genre;
                 }else{
                     return "No Genre";
                 }
